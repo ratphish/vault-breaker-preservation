@@ -25,8 +25,10 @@ This document establishes the verified ground truth for the PvE activity **Vault
 |---|---|---|---|
 | `80B37FED.bin` | `analysis/vault-reference-records/80B37FED.bin` | 9,403 bytes | Serialized activity component instance (`c_encounter__activity_vault_breaker_instance`), 26 listener rows, 9 universal objective slots (`0x8080B8F1`). |
 | `80B37FE9.bin` | `analysis/definition-followup/80B37FE9.bin` | 6,464 bytes | Serialized activity definition (`c_encounter__activity_vault_breaker_definition`), tier accessors, slot dependencies. |
-| `80B37C7E.bin` | `analysis/script-compiler-metadata/80B37C7E.bin` | 27,348 bytes | BungieScript compiler metadata, 306 strings, variable symbols (`i_vault_*`, `i_key_chance_*`, `il_*`, `sh_*`). |
-| `80B38561.bin` | `analysis/script-compiler-metadata/80B38561.bin` | 3,884 bytes | Key pedestal script compiler metadata (`pf_vault_breaker_key_pedestal.es`). |
+| `80B37FEC.bin` | `analysis/vault-reference-records/80B37FEC.bin` | 1,016 bytes | Activity layout component: declares 4 pedestal groups `g_key_pedestals_1..4`, `g_volumes`, and `activity_variables`. |
+| `80B37FF1.bin` | `analysis/vault-adjacent-leads/80B37FF1.bin` | 298 bytes | Spatial trigger volumes for Secret Lab: `v_secret_lab_large` and `v_secret_lab_code_room`. |
+| `80B37C7E.bin` | `analysis/script-compiler-metadata/80B37C7E.bin` | 27,348 bytes | BungieScript compiler metadata, 306 strings, variable symbols (`i_vault_*`, `i_key_chance_*`, `il_*`, `sh_*`), 40 slot table, dependency bindings. |
+| `80B38561.bin` | `analysis/script-compiler-metadata/80B38561.bin` | 3,884 bytes | Key pedestal script compiler metadata (`pf_vault_breaker_key_pedestal.es`), channels `ready_to_spawn_key`, `spawn_key`, `is_loot_attached`. |
 | `80B38567.bin` | `analysis/pedestal-12-components/80B38567.bin` | 448 bytes | Key pedestal component instance, binds slot 4 (`sc_handle_create_d_execute_impl`). |
 
 ---
@@ -119,7 +121,8 @@ This document establishes the verified ground truth for the PvE activity **Vault
 | **DNA Vials (V4 & V7)** | `VERIFIED ORIGINAL` | `80B37C7E.bin` (`0x50d5`, `0x5313`) | Colonist (`vault_4`) vs Command (`vault_7`) |
 | **Compiler Encounter Tracking** | `VERIFIED ORIGINAL` | `80B37C7E.bin` (`0x6a25`) | `b_compiler_killed` |
 | **Activity Event 0x28 Dispatch** | `VERIFIED ORIGINAL` | Native disassembly `0x16fc9fd7f` -> `0x14cb728ed` | Dispatches objective phase transition (40 / `0x28`) |
-| **4-Tier Progression Graph** | `SUPPORTED INFERENCE` | `80B37FE9.bin`, `i_key_chance_1..3`, community videos | Stage 1 {1,2}, Stage 2 {3,5}, Stage 3 {4,6}, Stage 4 {7} |
+| **4-Tier Progression Graph** | `VERIFIED ORIGINAL` | `80B37FEC.bin` (`g_key_pedestals_1..4`), `80B37FE9.bin` | Direct asset partitioning into 4 pedestal groups matching the 4 stages |
+| **Secret Lab Trigger Volumes** | `VERIFIED ORIGINAL` | `80B37FF1.bin` | `v_secret_lab_large` & `v_secret_lab_code_room` |
 | **Mixed Route Permutations** | `SUPPORTED INFERENCE` | 8 possible paths across 3 independent tier stages | Verified in observed gameplay (e.g. 1 -> 5 -> 4 -> 7) |
 | **8-Socket Universal Capacity** | `CONTRADICTED` | Refuted by `80B37FED.bin` field definitions | Engine tracks required batteries, not missing from 8 |
 | **Pre-Installed Battery Math** | `CONTRADICTED` | No `8 - required` logic in engine scripts | Synthetic simulation assumption |
