@@ -1,0 +1,2 @@
+KERNEL32.dll!CreateThread
+parameter_qwords ['0x7000001fef98', '0x7000001fef88', '0x8afa0032c84000', '0xf8b2', '0x140025c5c', '0xb9fdef3591101e11']

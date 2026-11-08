@@ -1,0 +1,20 @@
+{
+  "left_sha256": "412932feb35c25b394bad2abc5dd1f880abc9ffb68916d1435d29591b61061e6",
+  "right_sha256": "624f915e223e528eac57dad7dc41c7dddffc62958f12c35894f49fa7d24c3b00",
+  "left_stop": {
+    "kind": "import_marker",
+    "import": "KERNEL32.dll!ResumeThread",
+    "rip": "0x720000000040"
+  },
+  "right_stop": {
+    "kind": "import_marker",
+    "import": "KERNEL32.dll!ResumeThread",
+    "rip": "0x720000000040"
+  },
+  "left_events": 398,
+  "right_events": 398,
+  "missing": 0,
+  "added": 0,
+  "equal": true,
+  "scope": "event tuple and stop equality only; not complete machine-state equivalence"
+}

@@ -1,0 +1,15 @@
+{"kind": "identity", "sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42", "bytes": 9107968}
+{"term": "sc_vault_1_objectives", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "sc_vault_1_objectives", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "spawn_initial_keys", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "spawn_initial_keys", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "key_pedestal", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "key_pedestal", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "d_execute_impl", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "d_execute_impl", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "sc_handle_create", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "sc_handle_create", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "8080B8F1", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "8080B8F1", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "vault_breaker", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "vault_breaker", "encoding": "utf-16le", "offsets": [], "truncated": false}

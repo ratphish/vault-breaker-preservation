@@ -1,0 +1,3 @@
+length 1058778 n 105877 expected_8+10n 1058778 first_table_end 0xb4f1b trailing 317631 monotonic_pairs 105876 descending_pairs 0 invalid_ffffff 70715
+0x80b37fed [(70954, '0xffffff')]
+0x80b38567 [(71417, '0xffffff')]

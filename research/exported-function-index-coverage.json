@@ -1,0 +1,91 @@
+{
+  "export_names": 428,
+  "exact_named_export_results": 320,
+  "unique_named_exports": 320,
+  "examples": [
+    {
+      "name": "?_setup_script_workflow_tag_suite@@YAXPEAVc_ut_suite@@@Z",
+      "address": "0x16f7a2690",
+      "index": "ghidra-windows-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 70
+    },
+    {
+      "name": "?GetDefaultSettings@MemoryMgr@AK@@YAXAEAUAkMemSettings@@@Z",
+      "address": "0x17286e310",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 70
+    },
+    {
+      "name": "?Init@MemoryMgr@AK@@YA?AW4AKRESULT@@PEAUAkMemSettings@@@Z",
+      "address": "0x17286e3d0",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 70
+    },
+    {
+      "name": "?Term@MemoryMgr@AK@@YAXXZ",
+      "address": "0x17286e6b0",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 373
+    },
+    {
+      "name": "?InitTlsf@MemoryMgr@AK@@YA?AW4AKRESULT@@PEAUAkMemSettings@@AEBUTlsfPoolSizes@12@@Z",
+      "address": "0x17286e7a0",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 95
+    },
+    {
+      "name": "?TermTlsf@MemoryMgr@AK@@YAXXZ",
+      "address": "0x17286eb20",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 70
+    },
+    {
+      "name": "?Init@MusicEngine@AK@@YA?AW4AKRESULT@@PEAUAkMusicSettings@@@Z",
+      "address": "0x172873ed0",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 348
+    },
+    {
+      "name": "?Term@MusicEngine@AK@@YAXXZ",
+      "address": "0x172874e90",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 95
+    },
+    {
+      "name": "?AddDefaultListener@SoundEngine@AK@@YA?AW4AKRESULT@@_K@Z",
+      "address": "0x17288f830",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 95
+    },
+    {
+      "name": "?AddListener@SoundEngine@AK@@YA?AW4AKRESULT@@_K0@Z",
+      "address": "0x17288f890",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 95
+    },
+    {
+      "name": "?AddOutput@SoundEngine@AK@@YA?AW4AKRESULT@@AEBUAkOutputSettings@@PEA_KPEB_KI@Z",
+      "address": "0x17288f8c0",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 70
+    },
+    {
+      "name": "?Break@DynamicSequence@SoundEngine@AK@@YA?AW4AKRESULT@@I@Z",
+      "address": "0x17288fe20",
+      "index": "ghidra-table-tail-index.jsonl",
+      "completed": true,
+      "pseudocode_bytes": 70
+    }
+  ]
+}

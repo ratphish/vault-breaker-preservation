@@ -1,0 +1,1 @@
+{"region_rva": "0x25c50", "bytes": 786432000, "pages_4096": 192000, "zero_pages": 59445, "nonzero_pages": 132555, "nonzero_bytes": 514545139, "dense_pages_gt90pct": 132339, "warning": "Page chunks aligned to contribution start, not necessarily OS page boundaries; nonzero does not prove code."}

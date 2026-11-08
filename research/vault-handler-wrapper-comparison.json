@@ -1,0 +1,60 @@
+{
+  "wrappers": [
+    {
+      "name": "main",
+      "component_offset": "0x1440",
+      "slot": "0x1",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_1",
+      "component_offset": "0x14f0",
+      "slot": "0x15",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_2",
+      "component_offset": "0x15a0",
+      "slot": "0x16",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_3",
+      "component_offset": "0x1650",
+      "slot": "0x17",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_5",
+      "component_offset": "0x1700",
+      "slot": "0x18",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_4",
+      "component_offset": "0x17b0",
+      "slot": "0x19",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_6",
+      "component_offset": "0x1860",
+      "slot": "0x1a",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "secret_lab",
+      "component_offset": "0x1910",
+      "slot": "0x1b",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    },
+    {
+      "name": "vault_7",
+      "component_offset": "0x19c0",
+      "slot": "0x1d",
+      "normalized_sha256": "5a7bb675d61dc63ae2a0078605b6afbd1a13d9bc2ddfa3c9209dac9dd9050131"
+    }
+  ],
+  "same_after_normalizing_four_reference_fields": true,
+  "warning": "Generic serialized wrapper similarity does not establish where code resides or rule out implementation data elsewhere."
+}

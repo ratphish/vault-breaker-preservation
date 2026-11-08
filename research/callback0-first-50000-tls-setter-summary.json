@@ -1,0 +1,125 @@
+{
+  "stores": 663,
+  "distinct_sites": 394,
+  "destinations": {
+    "0x7500000011f8": 663
+  },
+  "matches": {
+    "True": 467,
+    "False": 196
+  },
+  "last_observed_store_before_dispatch_matches": {
+    "True": 467
+  },
+  "examples": [
+    {
+      "instruction": 267,
+      "site": "0x15b6c4963",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3d8e",
+      "next_dispatch_instruction": 279,
+      "next_dispatch_continuation": "0x1704c3d8e",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 354,
+      "site": "0x160fdb264",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3d9a",
+      "next_dispatch_instruction": 363,
+      "next_dispatch_continuation": "0x1704c3d9a",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 439,
+      "site": "0x15740c002",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3daa",
+      "next_dispatch_instruction": 446,
+      "next_dispatch_continuation": "0x1704c3daa",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 524,
+      "site": "0x1614f6e15",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3db2",
+      "next_dispatch_instruction": 531,
+      "next_dispatch_continuation": "0x1704c3db2",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 603,
+      "site": "0x15bac7e65",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3dba",
+      "next_dispatch_instruction": 611,
+      "next_dispatch_continuation": "0x1704c3dba",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 684,
+      "site": "0x147e4ff97",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3dca",
+      "next_dispatch_instruction": 691,
+      "next_dispatch_continuation": "0x1704c3dca",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 766,
+      "site": "0x152f9e078",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3dd2",
+      "next_dispatch_instruction": 773,
+      "next_dispatch_continuation": "0x1704c3dd2",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 851,
+      "site": "0x15e0a3fed",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3dda",
+      "next_dispatch_instruction": 860,
+      "next_dispatch_continuation": "0x1704c3dda",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 938,
+      "site": "0x1532b318b",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3df1",
+      "next_dispatch_instruction": 947,
+      "next_dispatch_continuation": "0x1704c3df1",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 1018,
+      "site": "0x15146b0be",
+      "address": "0x7500000011f8",
+      "value": "0x1704c3dff",
+      "next_dispatch_instruction": 1077,
+      "next_dispatch_continuation": "0x1704ccd75",
+      "matches_next_dispatch": false
+    },
+    {
+      "instruction": 1067,
+      "site": "0x152bef155",
+      "address": "0x7500000011f8",
+      "value": "0x1704ccd75",
+      "next_dispatch_instruction": 1077,
+      "next_dispatch_continuation": "0x1704ccd75",
+      "matches_next_dispatch": true
+    },
+    {
+      "instruction": 1152,
+      "site": "0x15694060f",
+      "address": "0x7500000011f8",
+      "value": "0x1704ccd83",
+      "next_dispatch_instruction": 1162,
+      "next_dispatch_continuation": "0x1704ccd83",
+      "matches_next_dispatch": true
+    }
+  ],
+  "warning": "Synthetic trace only; matching stores are not necessarily all setters, and another store may precede the next dispatcher."
+}

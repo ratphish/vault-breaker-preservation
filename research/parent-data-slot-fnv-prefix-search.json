@@ -1,0 +1,328 @@
+{
+  "image_sha256": {
+    "parent-data-transformed.bin": "7d908c358f6c5c1416c9dd7e7623578a4732011d5d89bdac43e05420df00b6de"
+  },
+  "targets": [
+    {
+      "slot": 0,
+      "name": "import_only_set_slot_name",
+      "fnv1": "0xe3d355b1",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 1,
+      "name": "main_d_execute_impl",
+      "fnv1": "0xcd1db4c",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 2,
+      "name": "spawn_initial_keys",
+      "fnv1": "0x3792208e",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 3,
+      "name": "il_pre_exfil_handle_incident_impl",
+      "fnv1": "0x7bb25f90",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 4,
+      "name": "get_direct_settings",
+      "fnv1": "0xf55d8873",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 5,
+      "name": "enable_canister_location_ui",
+      "fnv1": "0x6510773b",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 6,
+      "name": "clear_canister_location_ui",
+      "fnv1": "0x17cc48d3",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 7,
+      "name": "enable_filler_location_ui",
+      "fnv1": "0x31fa0e5e",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 8,
+      "name": "clear_filler_location_ui",
+      "fnv1": "0xb2bffec6",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 9,
+      "name": "enable_vial_location_ui",
+      "fnv1": "0x61a2cc90",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 10,
+      "name": "clear_vial_location_ui",
+      "fnv1": "0x4291ada8",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 11,
+      "name": "enable_centrifuge_location_ui",
+      "fnv1": "0x5199a682",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 12,
+      "name": "clear_centrifuge_location_ui",
+      "fnv1": "0x9b6365fa",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 13,
+      "name": "enable_secret_lab_location_ui",
+      "fnv1": "0x1318f43c",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 14,
+      "name": "clear_secret_lab_location_ui",
+      "fnv1": "0x131bfe74",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 15,
+      "name": "start_tracking_held_items",
+      "fnv1": "0x447b5360",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 16,
+      "name": "count_held_items",
+      "fnv1": "0xa01f5d9",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 17,
+      "name": "check_for_items_on_item_pickup",
+      "fnv1": "0xab86c0e3",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 18,
+      "name": "check_for_items_on_item_dropped",
+      "fnv1": "0x1c491bc3",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 19,
+      "name": "il_player_spawned_handle_incident_impl",
+      "fnv1": "0x768f1758",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 20,
+      "name": "debug_print_item_counts",
+      "fnv1": "0xaad9f00f",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 21,
+      "name": "sc_vault_1_objectives_d_execute_impl",
+      "fnv1": "0x982a4a5",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 22,
+      "name": "sc_vault_2_objectives_d_execute_impl",
+      "fnv1": "0x19f8c66e",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 23,
+      "name": "sc_vault_3_objectives_d_execute_impl",
+      "fnv1": "0xc16ec497",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 24,
+      "name": "sc_vault_5_objectives_d_execute_impl",
+      "fnv1": "0x4288abf9",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 25,
+      "name": "sc_vault_4_objectives_d_execute_impl",
+      "fnv1": "0x1180fa58",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 26,
+      "name": "sc_vault_6_objectives_d_execute_impl",
+      "fnv1": "0x8cf6d4c2",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 27,
+      "name": "sc_monitor_secret_lab_visit_d_execute_impl",
+      "fnv1": "0x48af800b",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 28,
+      "name": "il_kill_handle_incident_impl",
+      "fnv1": "0xfe271ac0",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 29,
+      "name": "sc_vault_7_objectives_d_execute_impl",
+      "fnv1": "0xf474d4fb",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 30,
+      "name": "submit_analytics_for_vault_objective_assignment",
+      "fnv1": "0xd82fed5f",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 31,
+      "name": "debug_stop_all_objective_scripts",
+      "fnv1": "0xecfd9c34",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 32,
+      "name": "debug_force_vault_1",
+      "fnv1": "0x4605c3ef",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 33,
+      "name": "debug_force_vault_2",
+      "fnv1": "0x4605c3ec",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 34,
+      "name": "debug_force_vault_3",
+      "fnv1": "0x4605c3ed",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 35,
+      "name": "debug_force_vault_4",
+      "fnv1": "0x4605c3ea",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 36,
+      "name": "debug_force_vault_5",
+      "fnv1": "0x4605c3eb",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 37,
+      "name": "debug_force_vault_6",
+      "fnv1": "0x4605c3e8",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 38,
+      "name": "debug_bypass_barrier_objectives",
+      "fnv1": "0x1f162a04",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    },
+    {
+      "slot": 39,
+      "name": "import",
+      "fnv1": "0xe12e48ba",
+      "matches": {
+        "parent-data-transformed.bin": []
+      }
+    }
+  ],
+  "warning": "Exact FNV-1 bytes only; accidental hits, protected encodings and undefined runtime hashing are possible."
+}

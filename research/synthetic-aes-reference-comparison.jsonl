@@ -1,0 +1,12 @@
+{"call": 0, "declared_bytes": 8, "observed_bytes": 8, "keystream_matches": 8, "output_matches": 8, "addresses_contiguous": true, "all_match": true}
+{"call": 1, "declared_bytes": 8, "observed_bytes": 8, "keystream_matches": 8, "output_matches": 8, "addresses_contiguous": true, "all_match": true}
+{"call": 2, "declared_bytes": 32, "observed_bytes": 32, "keystream_matches": 32, "output_matches": 32, "addresses_contiguous": true, "all_match": true}
+{"call": 3, "declared_bytes": 16, "observed_bytes": 16, "keystream_matches": 16, "output_matches": 16, "addresses_contiguous": true, "all_match": true}
+{"call": 4, "declared_bytes": 616, "observed_bytes": 616, "keystream_matches": 616, "output_matches": 616, "addresses_contiguous": true, "all_match": true}
+{"call": 5, "declared_bytes": 224, "observed_bytes": 224, "keystream_matches": 224, "output_matches": 224, "addresses_contiguous": true, "all_match": true}
+{"call": 6, "declared_bytes": 672, "observed_bytes": 672, "keystream_matches": 672, "output_matches": 672, "addresses_contiguous": true, "all_match": true}
+{"call": 7, "declared_bytes": 24, "observed_bytes": 24, "keystream_matches": 24, "output_matches": 24, "addresses_contiguous": true, "all_match": true}
+{"call": 8, "declared_bytes": 608, "observed_bytes": 608, "keystream_matches": 608, "output_matches": 608, "addresses_contiguous": true, "all_match": true}
+{"call": 9, "declared_bytes": 8, "observed_bytes": 8, "keystream_matches": 8, "output_matches": 8, "addresses_contiguous": true, "all_match": true}
+{"call": 10, "declared_bytes": 256, "observed_bytes": 208, "keystream_matches": 208, "output_matches": 208, "addresses_contiguous": true, "all_match": true}
+{"kind": "summary", "calls": 11, "observed_bytes": 2424, "all_match": true}

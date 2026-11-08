@@ -1,0 +1,1 @@
+{"text_events_verified": 36334, "bytes_replayed": 8101906, "hits": [{"event": 80633, "target_rva": "0x32d882f0", "disp_va": "0x16f37025e", "event_va": "0x16f36fef3", "event_length": 1197, "offset_in_event": 875}], "candidate_count": 1, "warning": "Synthetic inputs and disp32 candidates only; instruction boundaries and runtime reachability unknown."}

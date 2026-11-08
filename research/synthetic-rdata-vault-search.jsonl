@@ -1,0 +1,19 @@
+{"kind": "identity", "sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42", "bytes": 9107968}
+{"term": "vault_breaker", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "vault_breaker", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "Vault Breaker", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "Vault Breaker", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "sc_vault_1_objectives", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "sc_vault_1_objectives", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "spawn_initial_keys", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "spawn_initial_keys", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "is_authority", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "is_authority", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "bungiescript", "encoding": "ascii", "offsets": [693104], "truncated": false}
+{"term": "bungiescript", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "encounterscript", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "encounterscript", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "activity_vault", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "activity_vault", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "script_workflow", "encoding": "ascii", "offsets": [700738, 1141139, 1141184, 1141232, 1141276, 1141320, 9091346, 9091557, 9091614, 9091703, 9091747, 9091808, 9091905, 9091969], "truncated": false}
+{"term": "script_workflow", "encoding": "utf-16le", "offsets": [], "truncated": false}

@@ -1,0 +1,6 @@
+sc_handle_create D793488F
+sc_vault_1_objectives_d_execute_impl 0982A4A5
+spawn_initial_keys 3792208E
+activity_vault_breaker B0CD7022
+pf_vault_breaker_key_pedestal 98C6BB8C
+is_authority E910FACB

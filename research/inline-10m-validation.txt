@@ -1,0 +1,1 @@
+native_instruction_budget 10000000 completed_calls 804 matching_contexts 805 of 805 matching_output_hashes 804 of 804 bytes 17056

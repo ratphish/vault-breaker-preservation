@@ -1,0 +1,22 @@
+{
+  "metadata_sha256": "c2e7983eaf8c318fc8a1dcde68b9a95ab52c3aa7864dcf216cb0dfd73bc253ff",
+  "component_sha256": "61627badcce9b834fa028c267a5981a9321b855b0ecc48188281da2cb9dd16ba",
+  "member_array": "0xa10",
+  "member_count": 1,
+  "base_type": "8080b898",
+  "component_offset_bias": "0xb0",
+  "members": [
+    {
+      "name": "sc_handle_create",
+      "name_hash_fnv1": "d793488f",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0xa28",
+      "relative_offset": "0xc0",
+      "component_offset": "0x170",
+      "component_type": "8080ab7a",
+      "slot": 4,
+      "slot_name": "sc_handle_create_d_execute_impl"
+    }
+  ],
+  "warning": "Serialized linkage only; these are not native addresses or recovered handler bodies."
+}

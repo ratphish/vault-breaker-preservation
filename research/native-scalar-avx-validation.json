@@ -1,0 +1,7 @@
+{
+  "native_bits": "0x3fe38e39",
+  "unicorn_bits": "0x0",
+  "expected_bounded_hook_bits": "0x3fe38e39",
+  "native_matches_bounded_hook": true,
+  "host_code_scope": "generated arithmetic test only; no Marathon bytes"
+}

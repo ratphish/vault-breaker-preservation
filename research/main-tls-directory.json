@@ -1,0 +1,1 @@
+{"base": "0x140000000", "entry": "0x15a14e2b8", "tls_present": true, "tls": {"StartAddressOfRawData": "0x1732c2340", "EndAddressOfRawData": "0x173345bc4", "AddressOfIndex": "0x178f7ca68", "AddressOfCallBacks": "0x172caab90", "SizeOfZeroFill": "0x0", "Characteristics": "0x700000", "callbacks": ["0x15bd0b23b", "0x14ba65e26", "0x15bca890a", "0x155d0dfca", "0x15c6ba9c7"]}}

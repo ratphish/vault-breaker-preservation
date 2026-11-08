@@ -1,0 +1,12 @@
+{
+  "scope": "Passive synthetic context watch. Two 32-byte ranges cover the pointer, layout fields and adjacent state.",
+  "rows": [
+    {
+      "tag": "bitset context",
+      "registry_candidates": [
+        {"pointer": "0x174e970d0"},
+        {"pointer": "0x174e970f0"}
+      ]
+    }
+  ]
+}

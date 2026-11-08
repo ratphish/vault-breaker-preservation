@@ -1,0 +1,86 @@
+[
+  {
+    "component": "80B38567",
+    "name_tag": "80B38566",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B3859B",
+    "name_tag": "80B38599",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B385C5",
+    "name_tag": "80B385C9",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38985",
+    "name_tag": "80B38987",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38998",
+    "name_tag": "80B389E3",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38A09",
+    "name_tag": "80B38A03",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38A68",
+    "name_tag": "80B38A65",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38A7F",
+    "name_tag": "80B38A83",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38AA1",
+    "name_tag": "80B38AA4",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38B0F",
+    "name_tag": "80B38AC3",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38B7E",
+    "name_tag": "80B38B8B",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  },
+  {
+    "component": "80B38BB1",
+    "name_tag": "80B38BBF",
+    "shared_tag": "80B38AEF",
+    "field_offset": "0x250",
+    "field_value": "0xffffffff"
+  }
+]

@@ -1,0 +1,6 @@
+{"term": "_encounter_script", "encoding": "va64", "count": 0, "offsets": []}
+{"term": "_encounter_script", "encoding": "rva32", "count": 0, "offsets": []}
+{"term": "bungiescript", "encoding": "va64", "count": 0, "offsets": []}
+{"term": "bungiescript", "encoding": "rva32", "count": 0, "offsets": []}
+{"term": "bs_compiler_generated", "encoding": "va64", "count": 1, "offsets": ["0xa9278"]}
+{"term": "bs_compiler_generated", "encoding": "rva32", "count": 0, "offsets": []}

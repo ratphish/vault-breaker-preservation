@@ -1,0 +1,4025 @@
+{
+  "scope": "synthetic runtime only; membership is a structural parent-word candidate",
+  "total_children": 236,
+  "mapped": 236,
+  "missing": [],
+  "parent_counts": {
+    "8080b8e2": 12,
+    "8080b8a0": 3,
+    "8080baf7": 221
+  },
+  "rows": [
+    {
+      "tag": "80805AA9",
+      "parent_type": "8080b8e2",
+      "class_hash": "01f42bc7",
+      "record_offset": "0x78670",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6d830",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752856d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B8A8",
+      "parent_type": "8080b8e2",
+      "class_hash": "1f224884",
+      "record_offset": "0xb0500",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fa960",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea0b80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805AD4",
+      "parent_type": "8080b8e2",
+      "class_hash": "5a0a4f8e",
+      "record_offset": "0x11c580",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6d210",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175285410",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080995E",
+      "parent_type": "8080b8e2",
+      "class_hash": "96bee506",
+      "record_offset": "0x192310",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1b150",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524df68",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B0E0",
+      "parent_type": "8080b8e2",
+      "class_hash": "e64b230b",
+      "record_offset": "0x223c80",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x176808950",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eaa928",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B250",
+      "parent_type": "8080b8e2",
+      "class_hash": "4a983085",
+      "record_offset": "0x296940",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x176807510",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea9f38",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805AD2",
+      "parent_type": "8080b8e2",
+      "class_hash": "afd19b31",
+      "record_offset": "0x2ef268",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6d250",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175285430",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080562E",
+      "parent_type": "8080b8e2",
+      "class_hash": "48a6eaa1",
+      "record_offset": "0x371e48",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e76270",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752898a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802628",
+      "parent_type": "8080b8e2",
+      "class_hash": "5d7ae522",
+      "record_offset": "0x382c28",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e71050",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752871c0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802A61",
+      "parent_type": "8080b8e2",
+      "class_hash": "64443c1f",
+      "record_offset": "0x387c28",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e71ad0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175287650",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B8BF",
+      "parent_type": "8080b8e2",
+      "class_hash": "0559ca5c",
+      "record_offset": "0x40ebf8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fa680",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea0a10",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B508",
+      "parent_type": "8080b8e2",
+      "class_hash": "66a63d22",
+      "record_offset": "0x449ca8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768013c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea3f80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B89A",
+      "parent_type": "8080b8a0",
+      "class_hash": "b4f9b784",
+      "record_offset": "0x1c8740",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fab40",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea0c70",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802500",
+      "parent_type": "8080b8a0",
+      "class_hash": "487ec15d",
+      "record_offset": "0x294a50",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ed9e10",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8c20",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B36C",
+      "parent_type": "8080b8a0",
+      "class_hash": "56fb712c",
+      "record_offset": "0x2a1508",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x176803360",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea4ee0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A240",
+      "parent_type": "8080baf7",
+      "class_hash": "00cf1fb3",
+      "record_offset": "0x766f0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681baf0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb6e80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080994E",
+      "parent_type": "8080baf7",
+      "class_hash": "014fe3b4",
+      "record_offset": "0x76f60",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1b350",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524e068",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807589",
+      "parent_type": "8080baf7",
+      "class_hash": "10055f81",
+      "record_offset": "0x92a90",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62000",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d828",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808053CD",
+      "parent_type": "8080baf7",
+      "class_hash": "174617ce",
+      "record_offset": "0xa08d0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7de00",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528cd38",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808062D7",
+      "parent_type": "8080baf7",
+      "class_hash": "193ab07b",
+      "record_offset": "0xa4b20",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ed52e0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c2f98",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802BAA",
+      "parent_type": "8080baf7",
+      "class_hash": "24732a3b",
+      "record_offset": "0xba3c0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eda2d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8d50",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805B16",
+      "parent_type": "8080baf7",
+      "class_hash": "24809761",
+      "record_offset": "0xba4d0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6c910",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284ff0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080230B",
+      "parent_type": "8080baf7",
+      "class_hash": "264de8b4",
+      "record_offset": "0xbd910",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee8c10",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cf3f0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807583",
+      "parent_type": "8080baf7",
+      "class_hash": "2775bd23",
+      "record_offset": "0xc0430",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e620c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d888",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808022CD",
+      "parent_type": "8080baf7",
+      "class_hash": "305734fd",
+      "record_offset": "0xd09f0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eeaf50",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752d03a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808078DD",
+      "parent_type": "8080baf7",
+      "class_hash": "32bab685",
+      "record_offset": "0xd4d60",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e5dc80",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527b888",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080AB91",
+      "parent_type": "8080baf7",
+      "class_hash": "32bc9f80",
+      "record_offset": "0xd4ec0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680eab0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ead8f8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803563",
+      "parent_type": "8080baf7",
+      "class_hash": "372c0baa",
+      "record_offset": "0xdd420",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ed9b50",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8ae0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805750",
+      "parent_type": "8080baf7",
+      "class_hash": "375cfb84",
+      "record_offset": "0xdd6f0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e740b0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175288860",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BD5",
+      "parent_type": "8080baf7",
+      "class_hash": "407fc088",
+      "record_offset": "0xed4c0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6add0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752843f0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808056A5",
+      "parent_type": "8080baf7",
+      "class_hash": "431fd36d",
+      "record_offset": "0xf2870",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e75230",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752890c0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807358",
+      "parent_type": "8080baf7",
+      "class_hash": "50caddf6",
+      "record_offset": "0x10adb0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64ee0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527eed8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809FC1",
+      "parent_type": "8080baf7",
+      "class_hash": "526b9d49",
+      "record_offset": "0x10dce0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681e270",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb81e0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802461",
+      "parent_type": "8080baf7",
+      "class_hash": "5934b86f",
+      "record_offset": "0x11afa0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ede530",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ca830",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080450E",
+      "parent_type": "8080baf7",
+      "class_hash": "5cca2fce",
+      "record_offset": "0x121690",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e98900",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17529f818",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080735D",
+      "parent_type": "8080baf7",
+      "class_hash": "66a8e982",
+      "record_offset": "0x133aa0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64e40",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527ee88",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803B25",
+      "parent_type": "8080baf7",
+      "class_hash": "6843123e",
+      "record_offset": "0x136720",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb4da0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ae410",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080731F",
+      "parent_type": "8080baf7",
+      "class_hash": "6c659681",
+      "record_offset": "0x140530",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e65500",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527f1e8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080734E",
+      "parent_type": "8080baf7",
+      "class_hash": "6d2dccca",
+      "record_offset": "0x142040",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e65040",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527ef88",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803683",
+      "parent_type": "8080baf7",
+      "class_hash": "75e91113",
+      "record_offset": "0x152590",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178edaef0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c92d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803336",
+      "parent_type": "8080baf7",
+      "class_hash": "77ebc013",
+      "record_offset": "0x156b40",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee6a50",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ce3d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802BBC",
+      "parent_type": "8080baf7",
+      "class_hash": "79d4e61c",
+      "record_offset": "0x15a3c0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eadb10",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aa100",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080734C",
+      "parent_type": "8080baf7",
+      "class_hash": "7c6e9a50",
+      "record_offset": "0x15e810",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e65080",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527efa8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807585",
+      "parent_type": "8080baf7",
+      "class_hash": "8db84ffd",
+      "record_offset": "0x180840",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62080",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d868",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807356",
+      "parent_type": "8080baf7",
+      "class_hash": "8e15febf",
+      "record_offset": "0x181150",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64f20",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527eef8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807591",
+      "parent_type": "8080baf7",
+      "class_hash": "95db99fd",
+      "record_offset": "0x190110",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61f00",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d7a8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803E36",
+      "parent_type": "8080baf7",
+      "class_hash": "96b39337",
+      "record_offset": "0x192000",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ead770",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a9f70",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808079AC",
+      "parent_type": "8080baf7",
+      "class_hash": "9ff81cbc",
+      "record_offset": "0x1a3160",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e5b1f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175278388",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B905",
+      "parent_type": "8080baf7",
+      "class_hash": "a0593347",
+      "record_offset": "0x1a39b0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767f9f00",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea06b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809F87",
+      "parent_type": "8080baf7",
+      "class_hash": "b038bbdc",
+      "record_offset": "0x1bef10",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681e730",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb8430",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808039D1",
+      "parent_type": "8080baf7",
+      "class_hash": "b53e60ea",
+      "record_offset": "0x1c8f40",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb59c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ae9b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808054E9",
+      "parent_type": "8080baf7",
+      "class_hash": "bd56f7c9",
+      "record_offset": "0x1d8130",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7c100",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528bf48",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080981B",
+      "parent_type": "8080baf7",
+      "class_hash": "bd9483f3",
+      "record_offset": "0x1d8660",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d250",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524efb8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80804421",
+      "parent_type": "8080baf7",
+      "class_hash": "bed79614",
+      "record_offset": "0x1daf70",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e9a780",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a0708",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803E6D",
+      "parent_type": "8080baf7",
+      "class_hash": "bf69b508",
+      "record_offset": "0x1dbe70",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eaceb0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a9b60",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080735B",
+      "parent_type": "8080baf7",
+      "class_hash": "c575213e",
+      "record_offset": "0x1e6540",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64e80",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527eea8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080757F",
+      "parent_type": "8080baf7",
+      "class_hash": "c57ce63a",
+      "record_offset": "0x1e66d0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62140",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d8c8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808039C0",
+      "parent_type": "8080baf7",
+      "class_hash": "c9a7ffeb",
+      "record_offset": "0x1edd80",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb5d00",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aeb30",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80804413",
+      "parent_type": "8080baf7",
+      "class_hash": "c9ccb676",
+      "record_offset": "0x1ee140",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e9a9c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a0828",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080758D",
+      "parent_type": "8080baf7",
+      "class_hash": "cbc288e0",
+      "record_offset": "0x1f16a0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61f80",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d7e8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808078DB",
+      "parent_type": "8080baf7",
+      "class_hash": "cec51d37",
+      "record_offset": "0x1f7750",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e5dcc0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527b8a8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805B62",
+      "parent_type": "8080baf7",
+      "class_hash": "ced4cacf",
+      "record_offset": "0x1f7a00",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6bcf0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284b10",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080758F",
+      "parent_type": "8080baf7",
+      "class_hash": "d1ccddb2",
+      "record_offset": "0x1fd170",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61f40",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d7c8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805A5D",
+      "parent_type": "8080baf7",
+      "class_hash": "e10cda03",
+      "record_offset": "0x219910",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6df70",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175285a50",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802FAA",
+      "parent_type": "8080baf7",
+      "class_hash": "e2f6ba99",
+      "record_offset": "0x21d570",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ea65e0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a58d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802205",
+      "parent_type": "8080baf7",
+      "class_hash": "e47ec8df",
+      "record_offset": "0x220ee0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62280",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d968",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080757D",
+      "parent_type": "8080baf7",
+      "class_hash": "e5a20f2b",
+      "record_offset": "0x2229e0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62180",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d8e8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B61F",
+      "parent_type": "8080baf7",
+      "class_hash": "f27ae204",
+      "record_offset": "0x239f90",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fe880",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea2a80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080733B",
+      "parent_type": "8080baf7",
+      "class_hash": "f87c36bc",
+      "record_offset": "0x245760",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e65280",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527f0a8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808036A7",
+      "parent_type": "8080baf7",
+      "class_hash": "fd57cdc2",
+      "record_offset": "0x24f000",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eda210",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8cf0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080983B",
+      "parent_type": "8080baf7",
+      "class_hash": "ffb814ab",
+      "record_offset": "0x253d80",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1cf10",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524ee18",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080543D",
+      "parent_type": "8080baf7",
+      "class_hash": "027f319c",
+      "record_offset": "0x2567b0",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7cdc0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528c568",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805938",
+      "parent_type": "8080baf7",
+      "class_hash": "03643775",
+      "record_offset": "0x257618",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6eff0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175286210",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809C77",
+      "parent_type": "8080baf7",
+      "class_hash": "061d118c",
+      "record_offset": "0x25a1a0",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e155f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524b448",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080982A",
+      "parent_type": "8080baf7",
+      "class_hash": "08172f25",
+      "record_offset": "0x25bab8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d070",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524eec8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807350",
+      "parent_type": "8080baf7",
+      "class_hash": "082a6f77",
+      "record_offset": "0x25bb30",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64fe0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527ef58",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BF3",
+      "parent_type": "8080baf7",
+      "class_hash": "0c4511c6",
+      "record_offset": "0x25f648",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a830",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284180",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808035E0",
+      "parent_type": "8080baf7",
+      "class_hash": "0de9d8ea",
+      "record_offset": "0x260ec0",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ede610",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ca8a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805A88",
+      "parent_type": "8080baf7",
+      "class_hash": "0e31b50c",
+      "record_offset": "0x2612a0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6dcb0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752858f0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807578",
+      "parent_type": "8080baf7",
+      "class_hash": "104f1578",
+      "record_offset": "0x2634a0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62220",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d938",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803EE5",
+      "parent_type": "8080baf7",
+      "class_hash": "112392a6",
+      "record_offset": "0x264150",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eab810",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a9130",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080446F",
+      "parent_type": "8080baf7",
+      "class_hash": "13f730ba",
+      "record_offset": "0x267b60",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e99f40",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a0318",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807F30",
+      "parent_type": "8080baf7",
+      "class_hash": "1471eafe",
+      "record_offset": "0x268048",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e4fc70",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752714a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805ADA",
+      "parent_type": "8080baf7",
+      "class_hash": "18690b79",
+      "record_offset": "0x26b1a0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6d150",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752853b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080982E",
+      "parent_type": "8080baf7",
+      "class_hash": "19142e04",
+      "record_offset": "0x26be30",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1cff0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524ee88",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807561",
+      "parent_type": "8080baf7",
+      "class_hash": "198320e2",
+      "record_offset": "0x26c688",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62600",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527db08",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808041E4",
+      "parent_type": "8080baf7",
+      "class_hash": "228cc5b9",
+      "record_offset": "0x273008",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ea32c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a4320",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080733D",
+      "parent_type": "8080baf7",
+      "class_hash": "22bfc6c3",
+      "record_offset": "0x273478",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e65240",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527f088",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808059EF",
+      "parent_type": "8080baf7",
+      "class_hash": "28fc44f0",
+      "record_offset": "0x278ae8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6ed10",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752860b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808060A8",
+      "parent_type": "8080baf7",
+      "class_hash": "2acb1463",
+      "record_offset": "0x27afc0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ed7780",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c41d8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805A5B",
+      "parent_type": "8080baf7",
+      "class_hash": "2b36b38e",
+      "record_offset": "0x27b4f8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6dfb0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175285a70",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807602",
+      "parent_type": "8080baf7",
+      "class_hash": "2c4d15f7",
+      "record_offset": "0x27c380",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61280",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d1e8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A230",
+      "parent_type": "8080baf7",
+      "class_hash": "2d5d4447",
+      "record_offset": "0x27d4a0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681bcf0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb6f80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807595",
+      "parent_type": "8080baf7",
+      "class_hash": "333aebee",
+      "record_offset": "0x2826f8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61e80",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d768",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809819",
+      "parent_type": "8080baf7",
+      "class_hash": "34140d0a",
+      "record_offset": "0x282fb8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d290",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524efd8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080369F",
+      "parent_type": "8080baf7",
+      "class_hash": "36dcba0c",
+      "record_offset": "0x2850c8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eda290",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8d30",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B30F",
+      "parent_type": "8080baf7",
+      "class_hash": "3bb56729",
+      "record_offset": "0x289598",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x176804850",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea8928",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B8BA",
+      "parent_type": "8080baf7",
+      "class_hash": "3d6ccf21",
+      "record_offset": "0x28b568",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fa720",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea0a60",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808032F0",
+      "parent_type": "8080baf7",
+      "class_hash": "3dd45e9b",
+      "record_offset": "0x28be30",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee8bd0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cf3d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BED",
+      "parent_type": "8080baf7",
+      "class_hash": "433efc2d",
+      "record_offset": "0x2904c8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a8f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752841e0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805457",
+      "parent_type": "8080baf7",
+      "class_hash": "47bba623",
+      "record_offset": "0x2942c0",
+      "member_count": 18,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7d260",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528c7b8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80804775",
+      "parent_type": "8080baf7",
+      "class_hash": "4888a5cd",
+      "record_offset": "0x294c18",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e93da0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17529d468",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BD4",
+      "parent_type": "8080baf7",
+      "class_hash": "4da581c4",
+      "record_offset": "0x2993b8",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6adf0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284400",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080371B",
+      "parent_type": "8080baf7",
+      "class_hash": "4eabd47f",
+      "record_offset": "0x29a4c0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb91a0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752b0280",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080AB7A",
+      "parent_type": "8080baf7",
+      "class_hash": "4ef0106e",
+      "record_offset": "0x29a898",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680ed30",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eada28",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080759B",
+      "parent_type": "8080baf7",
+      "class_hash": "4f48fec0",
+      "record_offset": "0x29b068",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61dc0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d708",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BE9",
+      "parent_type": "8080baf7",
+      "class_hash": "50c838e9",
+      "record_offset": "0x29c3f8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a970",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284220",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080758B",
+      "parent_type": "8080baf7",
+      "class_hash": "518d9f3f",
+      "record_offset": "0x29cbd8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61fc0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d808",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809817",
+      "parent_type": "8080baf7",
+      "class_hash": "55aa73f4",
+      "record_offset": "0x2a08a8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d2d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524eff8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802515",
+      "parent_type": "8080baf7",
+      "class_hash": "5785721e",
+      "record_offset": "0x2a1bb0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ed86d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8970",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805AFA",
+      "parent_type": "8080baf7",
+      "class_hash": "580e8aaa",
+      "record_offset": "0x2a25e8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6cc90",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752851b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BF1",
+      "parent_type": "8080baf7",
+      "class_hash": "5db61f5a",
+      "record_offset": "0x2a73b8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a870",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752841a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BF7",
+      "parent_type": "8080baf7",
+      "class_hash": "5e2824e2",
+      "record_offset": "0x2a7b68",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a7b0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284140",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808022D3",
+      "parent_type": "8080baf7",
+      "class_hash": "5ef661c7",
+      "record_offset": "0x2a8890",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eeae90",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752d0340",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805B61",
+      "parent_type": "8080baf7",
+      "class_hash": "611c3d39",
+      "record_offset": "0x2a9f80",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6bd10",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284b20",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B88E",
+      "parent_type": "8080baf7",
+      "class_hash": "62e1af3d",
+      "record_offset": "0x2ab480",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767faca0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea0d20",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803C14",
+      "parent_type": "8080baf7",
+      "class_hash": "64be0fc2",
+      "record_offset": "0x2acbf0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb3380",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ad970",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807354",
+      "parent_type": "8080baf7",
+      "class_hash": "66e9692c",
+      "record_offset": "0x2ae910",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64f60",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527ef18",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080239F",
+      "parent_type": "8080baf7",
+      "class_hash": "67a822c1",
+      "record_offset": "0x2af6d0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee4270",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cd0c0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B517",
+      "parent_type": "8080baf7",
+      "class_hash": "69a740f7",
+      "record_offset": "0x2b0dc8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768011e0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea3e90",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809B1D",
+      "parent_type": "8080baf7",
+      "class_hash": "70a0cc50",
+      "record_offset": "0x2b66a0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e185f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524cad8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080BA73",
+      "parent_type": "8080baf7",
+      "class_hash": "71c1910b",
+      "record_offset": "0x2b7b70",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767f7ac0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174e9f4d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809828",
+      "parent_type": "8080baf7",
+      "class_hash": "78cae349",
+      "record_offset": "0x2bf0e0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d0b0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524eee8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808047CA",
+      "parent_type": "8080baf7",
+      "class_hash": "79c88b2e",
+      "record_offset": "0x2bfd90",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e93260",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17529cf18",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080ABAB",
+      "parent_type": "8080baf7",
+      "class_hash": "7e0d6164",
+      "record_offset": "0x2c3cf0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680e770",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ead758",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809821",
+      "parent_type": "8080baf7",
+      "class_hash": "7f11ce88",
+      "record_offset": "0x2c4a98",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d190",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524ef58",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805AC6",
+      "parent_type": "8080baf7",
+      "class_hash": "80d7b899",
+      "record_offset": "0x2c6038",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6d370",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752854c0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080AE9A",
+      "parent_type": "8080baf7",
+      "class_hash": "83597d4f",
+      "record_offset": "0x2c7ff0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680b6f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eabf48",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809823",
+      "parent_type": "8080baf7",
+      "class_hash": "864c929a",
+      "record_offset": "0x2ca760",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d150",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524ef38",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807593",
+      "parent_type": "8080baf7",
+      "class_hash": "8abf78bc",
+      "record_offset": "0x2cef30",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e61ec0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d788",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A000",
+      "parent_type": "8080baf7",
+      "class_hash": "92e3b731",
+      "record_offset": "0x2d64d0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681dd90",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb7f70",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BE6",
+      "parent_type": "8080baf7",
+      "class_hash": "954ee294",
+      "record_offset": "0x2d96d0",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6ab30",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752842f0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BC8",
+      "parent_type": "8080baf7",
+      "class_hash": "99be9295",
+      "record_offset": "0x2dd018",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6afb0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752844c0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802E9E",
+      "parent_type": "8080baf7",
+      "class_hash": "9a15b1ba",
+      "record_offset": "0x2dd3c0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178edd990",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ca280",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808096F8",
+      "parent_type": "8080baf7",
+      "class_hash": "a323a130",
+      "record_offset": "0x2e4230",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768180d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5200",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080734A",
+      "parent_type": "8080baf7",
+      "class_hash": "a5849d11",
+      "record_offset": "0x2e5ef0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e650c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527efc8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807CEC",
+      "parent_type": "8080baf7",
+      "class_hash": "a760087e",
+      "record_offset": "0x2e7588",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e55ab0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752759f8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080757B",
+      "parent_type": "8080baf7",
+      "class_hash": "ad20af5a",
+      "record_offset": "0x2ec828",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e621c0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d908",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807581",
+      "parent_type": "8080baf7",
+      "class_hash": "ad52fd2c",
+      "record_offset": "0x2eca98",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62100",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d8a8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809832",
+      "parent_type": "8080baf7",
+      "class_hash": "b575497d",
+      "record_offset": "0x2f4420",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1cfb0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524ee68",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808023A1",
+      "parent_type": "8080baf7",
+      "class_hash": "b67cc2b8",
+      "record_offset": "0x2f4ee0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee4230",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cd0a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805933",
+      "parent_type": "8080baf7",
+      "class_hash": "b68c7797",
+      "record_offset": "0x2f5030",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6f090",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175286260",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A3D3",
+      "parent_type": "8080baf7",
+      "class_hash": "b7b0bebd",
+      "record_offset": "0x2f61f0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x176818370",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5350",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080982C",
+      "parent_type": "8080baf7",
+      "class_hash": "b80ef7ab",
+      "record_offset": "0x2f6890",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d030",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524eea8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805A57",
+      "parent_type": "8080baf7",
+      "class_hash": "b9405689",
+      "record_offset": "0x2f7ba8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6e030",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175285ab0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807510",
+      "parent_type": "8080baf7",
+      "class_hash": "b98ad781",
+      "record_offset": "0x2f8100",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62aa0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527dd38",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080595D",
+      "parent_type": "8080baf7",
+      "class_hash": "baafad9f",
+      "record_offset": "0x2f94a8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6fe30",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175286910",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808058BB",
+      "parent_type": "8080baf7",
+      "class_hash": "bd333a2f",
+      "record_offset": "0x2fb6d0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e71370",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175287300",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A34F",
+      "parent_type": "8080baf7",
+      "class_hash": "bf24251d",
+      "record_offset": "0x2fd2c0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x176819570",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5c30",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080BAD3",
+      "parent_type": "8080baf7",
+      "class_hash": "bf84799f",
+      "record_offset": "0x2fd840",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767f7040",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174e9efc0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808036A1",
+      "parent_type": "8080baf7",
+      "class_hash": "c0c965cc",
+      "record_offset": "0x2ff078",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eda250",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c8d10",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805AEB",
+      "parent_type": "8080baf7",
+      "class_hash": "c19cd2e1",
+      "record_offset": "0x2ffa40",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6cef0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752852a0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080774E",
+      "parent_type": "8080baf7",
+      "class_hash": "c699aa5c",
+      "record_offset": "0x304aa8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e60260",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527ca78",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A3BF",
+      "parent_type": "8080baf7",
+      "class_hash": "c815987c",
+      "record_offset": "0x306090",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768185f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5490",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80804280",
+      "parent_type": "8080baf7",
+      "class_hash": "c919a7bf",
+      "record_offset": "0x306ff8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ea1460",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a3930",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080AB8F",
+      "parent_type": "8080baf7",
+      "class_hash": "cb177636",
+      "record_offset": "0x308358",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680eaf0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ead918",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807575",
+      "parent_type": "8080baf7",
+      "class_hash": "cb69aaf3",
+      "record_offset": "0x308a08",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62300",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d9a8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080569D",
+      "parent_type": "8080baf7",
+      "class_hash": "cd517dd1",
+      "record_offset": "0x30a710",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e75410",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175289190",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803EE3",
+      "parent_type": "8080baf7",
+      "class_hash": "ce850a7a",
+      "record_offset": "0x30b840",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eab850",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a9150",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A3D7",
+      "parent_type": "8080baf7",
+      "class_hash": "d39b90b9",
+      "record_offset": "0x30ffe0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768182f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5310",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080AF02",
+      "parent_type": "8080baf7",
+      "class_hash": "d57f4214",
+      "record_offset": "0x311378",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680a9d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eab908",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080AB9B",
+      "parent_type": "8080baf7",
+      "class_hash": "da078caf",
+      "record_offset": "0x315008",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680e970",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ead858",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807587",
+      "parent_type": "8080baf7",
+      "class_hash": "dc4dd576",
+      "record_offset": "0x316880",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62040",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d848",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807352",
+      "parent_type": "8080baf7",
+      "class_hash": "dc88dfc3",
+      "record_offset": "0x316c10",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e64fa0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527ef38",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803334",
+      "parent_type": "8080baf7",
+      "class_hash": "dc8edafe",
+      "record_offset": "0x316ca8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee6ab0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ce400",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809F49",
+      "parent_type": "8080baf7",
+      "class_hash": "dd7881e5",
+      "record_offset": "0x317508",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681e9f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb8570",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809826",
+      "parent_type": "8080baf7",
+      "class_hash": "dddcfdf5",
+      "record_offset": "0x3177f0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e1d0f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524ef08",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807347",
+      "parent_type": "8080baf7",
+      "class_hash": "e4626676",
+      "record_offset": "0x31c890",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e65120",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527eff8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BEF",
+      "parent_type": "8080baf7",
+      "class_hash": "e4a2aaaf",
+      "record_offset": "0x31cce8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a8b0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752841c0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080239D",
+      "parent_type": "8080baf7",
+      "class_hash": "e916e19a",
+      "record_offset": "0x321300",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ee42b0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cd0e0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808059B8",
+      "parent_type": "8080baf7",
+      "class_hash": "ec5b40b1",
+      "record_offset": "0x324a98",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6f310",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175286390",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BEB",
+      "parent_type": "8080baf7",
+      "class_hash": "ed037131",
+      "record_offset": "0x325310",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a930",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284200",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80806F93",
+      "parent_type": "8080baf7",
+      "class_hash": "efb94f02",
+      "record_offset": "0x327168",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ebf290",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752b5098",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A34A",
+      "parent_type": "8080baf7",
+      "class_hash": "f12e1589",
+      "record_offset": "0x3282f8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x176819610",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5c80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805BF5",
+      "parent_type": "8080baf7",
+      "class_hash": "f2b57bc5",
+      "record_offset": "0x329c58",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6a7f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284160",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803686",
+      "parent_type": "8080baf7",
+      "class_hash": "f3a03fce",
+      "record_offset": "0x32acf0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eda9d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c9090",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808059A5",
+      "parent_type": "8080baf7",
+      "class_hash": "f3ff54a6",
+      "record_offset": "0x32b5f0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6f570",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752864b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B679",
+      "parent_type": "8080baf7",
+      "class_hash": "f4bff5ed",
+      "record_offset": "0x32c170",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fdd60",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea2500",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A3CF",
+      "parent_type": "8080baf7",
+      "class_hash": "f4c95558",
+      "record_offset": "0x32c1e8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768183f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5390",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802FA2",
+      "parent_type": "8080baf7",
+      "class_hash": "f61199cd",
+      "record_offset": "0x32d578",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e755d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175289270",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808039D7",
+      "parent_type": "8080baf7",
+      "class_hash": "f684e7d3",
+      "record_offset": "0x32d918",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb5900",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ae950",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802290",
+      "parent_type": "8080baf7",
+      "class_hash": "f94d5939",
+      "record_offset": "0x3302f8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62240",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d948",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807572",
+      "parent_type": "8080baf7",
+      "class_hash": "fadd33ee",
+      "record_offset": "0x331af8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e62360",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527d9d8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805B5E",
+      "parent_type": "8080baf7",
+      "class_hash": "fdd739c1",
+      "record_offset": "0x334720",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6bd70",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284b50",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809ADC",
+      "parent_type": "8080baf7",
+      "class_hash": "051859de",
+      "record_offset": "0x33a5b8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e164f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524bb18",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808039AD",
+      "parent_type": "8080baf7",
+      "class_hash": "15a605ad",
+      "record_offset": "0x3475b8",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb5f80",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aec50",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803C04",
+      "parent_type": "8080baf7",
+      "class_hash": "3c107815",
+      "record_offset": "0x367298",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb3640",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752adaa0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802626",
+      "parent_type": "8080baf7",
+      "class_hash": "5e5c6bf2",
+      "record_offset": "0x383318",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e713b0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175287320",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A875",
+      "parent_type": "8080baf7",
+      "class_hash": "69d97a0a",
+      "record_offset": "0x38ccc8",
+      "member_count": 7,
+      "registry_candidates": [
+        {
+          "pointer": "0x176812d90",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb2900",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807343",
+      "parent_type": "8080baf7",
+      "class_hash": "8e7c9e3c",
+      "record_offset": "0x3acac8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e651a0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527f038",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B372",
+      "parent_type": "8080baf7",
+      "class_hash": "9eb9f4af",
+      "record_offset": "0x3bab08",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768032a0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea4e80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807CDC",
+      "parent_type": "8080baf7",
+      "class_hash": "9fd49e3d",
+      "record_offset": "0x3bbc28",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e55cd0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175275af8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080475D",
+      "parent_type": "8080baf7",
+      "class_hash": "a3bd831a",
+      "record_offset": "0x3bf188",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e94080",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17529d5d8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808079A7",
+      "parent_type": "8080baf7",
+      "class_hash": "ab944ebb",
+      "record_offset": "0x3c5668",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e5b290",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752783d8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B7D0",
+      "parent_type": "8080baf7",
+      "class_hash": "bec45ffa",
+      "record_offset": "0x3d4d38",
+      "member_count": 5,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fc5e0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea1990",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80804AEC",
+      "parent_type": "8080baf7",
+      "class_hash": "c0157405",
+      "record_offset": "0x3d5d98",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e8c820",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175299b78",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808039CC",
+      "parent_type": "8080baf7",
+      "class_hash": "d5ee85a3",
+      "record_offset": "0x3e8438",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb5b20",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aea60",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080323D",
+      "parent_type": "8080baf7",
+      "class_hash": "f8531580",
+      "record_offset": "0x404c08",
+      "member_count": 7,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eea790",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752d0010",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802EEF",
+      "parent_type": "8080baf7",
+      "class_hash": "0b1405c1",
+      "record_offset": "0x411f18",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eaed30",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aa940",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802623",
+      "parent_type": "8080baf7",
+      "class_hash": "0b798915",
+      "record_offset": "0x412418",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e71410",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175287350",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808022F2",
+      "parent_type": "8080baf7",
+      "class_hash": "1efadedf",
+      "record_offset": "0x41cfc0",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eea810",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752d0050",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809FBA",
+      "parent_type": "8080baf7",
+      "class_hash": "36d390ab",
+      "record_offset": "0x42b9e0",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x17681e2f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb8220",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A3CB",
+      "parent_type": "8080baf7",
+      "class_hash": "39cdaec8",
+      "record_offset": "0x42d8a8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x176818470",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb53d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805C53",
+      "parent_type": "8080baf7",
+      "class_hash": "3dad34b5",
+      "record_offset": "0x42f978",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e68ef0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175283700",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80804D30",
+      "parent_type": "8080baf7",
+      "class_hash": "42345467",
+      "record_offset": "0x432538",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e87620",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752976a8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B676",
+      "parent_type": "8080baf7",
+      "class_hash": "45bdc422",
+      "record_offset": "0x434858",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fddc0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea2530",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807DB2",
+      "parent_type": "8080baf7",
+      "class_hash": "522cac42",
+      "record_offset": "0x43d270",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e53c30",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175274cf8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803C2E",
+      "parent_type": "8080baf7",
+      "class_hash": "5aa0d3c1",
+      "record_offset": "0x442658",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb2ee0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ad790",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B66E",
+      "parent_type": "8080baf7",
+      "class_hash": "6218a7f9",
+      "record_offset": "0x447278",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767fdec0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea25b0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802BBE",
+      "parent_type": "8080baf7",
+      "class_hash": "6f9243c1",
+      "record_offset": "0x44ea80",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eadad0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aa0e0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807CE6",
+      "parent_type": "8080baf7",
+      "class_hash": "73363ea4",
+      "record_offset": "0x451058",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e55b90",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175275a58",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080245F",
+      "parent_type": "8080baf7",
+      "class_hash": "7e835870",
+      "record_offset": "0x457a18",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ede570",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ca850",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80807495",
+      "parent_type": "8080baf7",
+      "class_hash": "8019faba",
+      "record_offset": "0x458d30",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e633e0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527e178",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080A3C7",
+      "parent_type": "8080baf7",
+      "class_hash": "85649fd5",
+      "record_offset": "0x45bc48",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1768184f0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174eb5410",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803240",
+      "parent_type": "8080baf7",
+      "class_hash": "856566d7",
+      "record_offset": "0x45bcd0",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eea6d0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cffb0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808055D8",
+      "parent_type": "8080baf7",
+      "class_hash": "86a7032d",
+      "record_offset": "0x45c538",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e79bc0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528ae48",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080749B",
+      "parent_type": "8080baf7",
+      "class_hash": "86abce11",
+      "record_offset": "0x45c5c0",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e63320",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17527e118",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803C0F",
+      "parent_type": "8080baf7",
+      "class_hash": "8bce0fbb",
+      "record_offset": "0x45f448",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb3460",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ad9e0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808054ED",
+      "parent_type": "8080baf7",
+      "class_hash": "8f326eea",
+      "record_offset": "0x461708",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7c080",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528bf08",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805B1A",
+      "parent_type": "8080baf7",
+      "class_hash": "94c3fc73",
+      "record_offset": "0x4642b8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6c890",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284fb0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805A59",
+      "parent_type": "8080baf7",
+      "class_hash": "96414615",
+      "record_offset": "0x465238",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6dff0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175285a90",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80809C5C",
+      "parent_type": "8080baf7",
+      "class_hash": "973923ba",
+      "record_offset": "0x465e40",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e15970",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17524b5d8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802D06",
+      "parent_type": "8080baf7",
+      "class_hash": "98edd91a",
+      "record_offset": "0x466df8",
+      "member_count": 5,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eea730",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752cffe0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B902",
+      "parent_type": "8080baf7",
+      "class_hash": "9928ef09",
+      "record_offset": "0x467030",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767f9f60",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea06e0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808039B9",
+      "parent_type": "8080baf7",
+      "class_hash": "b18c52c8",
+      "record_offset": "0x474dc8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb5e00",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aeb90",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803C26",
+      "parent_type": "8080baf7",
+      "class_hash": "b2413f5a",
+      "record_offset": "0x475930",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb2fe0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ad810",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808054DE",
+      "parent_type": "8080baf7",
+      "class_hash": "b7b407cc",
+      "record_offset": "0x478e58",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7c280",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528c008",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808055B4",
+      "parent_type": "8080baf7",
+      "class_hash": "c854ab1f",
+      "record_offset": "0x482fc0",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e7a160",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x17528b078",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "808062D3",
+      "parent_type": "8080baf7",
+      "class_hash": "c89425e1",
+      "record_offset": "0x483390",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ed5380",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752c2fd8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080ABA4",
+      "parent_type": "8080baf7",
+      "class_hash": "cfce2c20",
+      "record_offset": "0x487540",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x17680e850",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ead7c8",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802BB8",
+      "parent_type": "8080baf7",
+      "class_hash": "d56a7bf3",
+      "record_offset": "0x48ae38",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eadb90",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752aa140",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B8FE",
+      "parent_type": "8080baf7",
+      "class_hash": "dae6cb27",
+      "record_offset": "0x48e3f0",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x1767f9fe0",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea0720",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80802049",
+      "parent_type": "8080baf7",
+      "class_hash": "e3c773ab",
+      "record_offset": "0x493f18",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178ea6620",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752a58f0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80805B1D",
+      "parent_type": "8080baf7",
+      "class_hash": "e9c9560c",
+      "record_offset": "0x497870",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178e6c830",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x175284f80",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "80803C2A",
+      "parent_type": "8080baf7",
+      "class_hash": "ed743e07",
+      "record_offset": "0x499ca8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x178eb2f60",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x1752ad7d0",
+          "kind": "backing record"
+        }
+      ]
+    },
+    {
+      "tag": "8080B50C",
+      "parent_type": "8080baf7",
+      "class_hash": "f2b46070",
+      "record_offset": "0x49cf38",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "pointer": "0x176801340",
+          "kind": "runtime object"
+        },
+        {
+          "pointer": "0x174ea3f40",
+          "kind": "backing record"
+        }
+      ]
+    }
+  ]
+}

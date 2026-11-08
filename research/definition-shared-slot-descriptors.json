@@ -1,0 +1,81 @@
+{
+  "definitions": [
+    {
+      "file": "80B37FE9.bin",
+      "sha256": "aaff069deaa71778bbaaac498873f94f746f2f24b418260577c6cff28f127ba9",
+      "descriptors": [
+        {
+          "name": "discover_slot_dependencies",
+          "string_offset": "0x187e",
+          "descriptor_offset": "0x688",
+          "raw_ref": "8080b8e2",
+          "raw_slot": 0,
+          "flag": "0x16"
+        },
+        {
+          "name": "flatten_slot_from_source",
+          "string_offset": "0x1865",
+          "descriptor_offset": "0x6a0",
+          "raw_ref": "8080b8e2",
+          "raw_slot": 1,
+          "flag": "0x16"
+        },
+        {
+          "name": "import_slot",
+          "string_offset": "0x1476",
+          "descriptor_offset": "0xa90",
+          "raw_ref": "8080b8a0",
+          "raw_slot": 0,
+          "flag": "0x16"
+        },
+        {
+          "name": "simple_deep_copy",
+          "string_offset": "0x1327",
+          "descriptor_offset": "0xc58",
+          "raw_ref": "8080baf7",
+          "raw_slot": 4,
+          "flag": "0x16"
+        }
+      ]
+    },
+    {
+      "file": "80B38555.bin",
+      "sha256": "05c2b1dc4514aff6da4723ca7ca9c04b7c020ed4c3f50981eb389c1dfc8e4bc7",
+      "descriptors": [
+        {
+          "name": "discover_slot_dependencies",
+          "string_offset": "0x807",
+          "descriptor_offset": "0x198",
+          "raw_ref": "8080b8e2",
+          "raw_slot": 0,
+          "flag": "0x16"
+        },
+        {
+          "name": "flatten_slot_from_source",
+          "string_offset": "0x7ee",
+          "descriptor_offset": "0x1b0",
+          "raw_ref": "8080b8e2",
+          "raw_slot": 1,
+          "flag": "0x16"
+        },
+        {
+          "name": "import_slot",
+          "string_offset": "0x674",
+          "descriptor_offset": "0x330",
+          "raw_ref": "8080b8a0",
+          "raw_slot": 0,
+          "flag": "0x16"
+        },
+        {
+          "name": "simple_deep_copy",
+          "string_offset": "0x5e1",
+          "descriptor_offset": "0x420",
+          "raw_ref": "8080baf7",
+          "raw_slot": 4,
+          "flag": "0x16"
+        }
+      ]
+    }
+  ],
+  "warning": "Shared serialized descriptors; code location, runtime meaning and availability of referenced schemas are unknown."
+}

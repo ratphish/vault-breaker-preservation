@@ -1,0 +1,2 @@
+exception_rva 0x392a7000 bytes 3509556
+entry_offset 0x15798c begin 0x3004d360 end 0x3004d655 unwind 0x333e1d74

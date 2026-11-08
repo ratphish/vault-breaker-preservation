@@ -1,0 +1,114 @@
+{
+  "count": 12,
+  "rows": [
+    {
+      "component": "80B38567",
+      "component_sha256": "61627badcce9b834fa028c267a5981a9321b855b0ecc48188281da2cb9dd16ba",
+      "name_tag": "80B38566",
+      "name_sha256": "16ee4e863d2a931f51d5e67f50e563d1b13cdf2e2b67b3d377559887f3fec23b",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B3859B",
+      "component_sha256": "a58a36fe35a0fe6867740615a3e463a2e86254870371570b95e1a3ed9b6af80b",
+      "name_tag": "80B38599",
+      "name_sha256": "9a8c1efdb0d628fe7e7c7f3cf3fb3f361742ad7f59e710f466ab4c0723ecd6f5",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B385C5",
+      "component_sha256": "f64c6d055464071b14dfb6d9d9e964f9e1cf373564ad413afa6ab60a4e3956e3",
+      "name_tag": "80B385C9",
+      "name_sha256": "3a07f7089e4463aea79b77336bdbf2934cd2b2b7f4158261e6792042817111ae",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38985",
+      "component_sha256": "79babd8cf3b765f987a5627a7d771ef10853a4edb40fa649a0cbfaaa3910c507",
+      "name_tag": "80B38987",
+      "name_sha256": "e966e4b8551342b30b35896919f2afacbafdbd3e3f62ad8f21c918225d65fc87",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38998",
+      "component_sha256": "cb69a4ccacd1ee0bd332a3b5cb2d39503199938e8c7a3db96eb5c32ce4845dde",
+      "name_tag": "80B389E3",
+      "name_sha256": "d93cc5bb35a7cb11a9edd0c9f12e2d9dbc1af1fea68b26c6268d761780ee19e5",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38A09",
+      "component_sha256": "017ed533fe96d9563af9336c5b9be58a686b84db46e1080acf2f3640b3047df1",
+      "name_tag": "80B38A03",
+      "name_sha256": "05a8e16093b54ec0a6080880b01e1763508ad3d0394ccf0b1f83aafa642e3cbb",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38A68",
+      "component_sha256": "7a3b03c0614127f23fb5365e6f2d191901a96e38df0aaf8a6a2e670d4cc9ca60",
+      "name_tag": "80B38A65",
+      "name_sha256": "ab41f75b708eb906346f2f8368576dbac9756f2e6ee8dfbe47953bab57a2bb3e",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38A7F",
+      "component_sha256": "123cff6f674914fdef6a54799d1de95a2bb7970ef138571ccc13e6a2d467176d",
+      "name_tag": "80B38A83",
+      "name_sha256": "1949c3312917fdc1a0066b9c9af05d881fa82a19d5c01190885ea7675b7f63c3",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38AA1",
+      "component_sha256": "03f87b24e215c5d00c1ed4155339521fe1c6e57f4e6c4cf9877bf7b5c9907070",
+      "name_tag": "80B38AA4",
+      "name_sha256": "5787593690b18e410f998a689a3ec40001df60984e4f6def21a3bde50d0d77e5",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38B0F",
+      "component_sha256": "bcdbb02745434e42f8a055649bc45bc1d046814baaa2cbac11c65807714fc4d5",
+      "name_tag": "80B38AC3",
+      "name_sha256": "bee7b755408d2863f0f427879effd71bbfd8d57733cfdfd1e48f844113d160c9",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38B7E",
+      "component_sha256": "d2bf289f3e79e8166ddd2a9c59dfd0d2449652fb79a05fe5c67c204f38982f0a",
+      "name_tag": "80B38B8B",
+      "name_sha256": "0a5d42fc84be6eeb69dc589338b8e4ba56046d9ce094d6a944a1af2df012c72f",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    },
+    {
+      "component": "80B38BB1",
+      "component_sha256": "8d7b5bebf944744c79a450ac4cdb6a1fce09edbdc2abe03548eaf03d8cfb32dd",
+      "name_tag": "80B38BBF",
+      "name_sha256": "e0e8cf2aedc8187cb5a95795c7af763d51f81ec1bb5935a70657f443b41ba5dd",
+      "shared_tag": "80B38AEF",
+      "field_offset": "0x250",
+      "field_value": "0xffffffff"
+    }
+  ],
+  "warning": "Serialized references and default words; runtime meaning and grouping are not established."
+}

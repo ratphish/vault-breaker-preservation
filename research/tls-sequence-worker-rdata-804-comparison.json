@@ -1,0 +1,7 @@
+{
+  "events_replayed": 804,
+  "prior_prefix_rdata_sha256": "20f566c9272f3a219e95197212de09557affb8c0612fa6ab86181b90d514cfe4",
+  "worker_rdata_sha256": "20f566c9272f3a219e95197212de09557affb8c0612fa6ab86181b90d514cfe4",
+  "matches": true,
+  "warning": "Both images are synthetic models with modeled loader/API state."
+}

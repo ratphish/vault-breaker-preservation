@@ -1,0 +1,2 @@
+decoded 4999 outside 0 undecodable 1 calls 1 jmps 534 returns 281
+summary {'kind': 'summary', 'visited': 5000, 'remaining_queue': 318, 'limit': 5000, 'warning': 'Static possibilities only; fallthrough after a call is not evidence it returns.'}

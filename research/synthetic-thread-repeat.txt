@@ -1,0 +1,2 @@
+repeat_equal True
+{'instructions': 100000, 'exec_writes': 0, 'rdata_writes': 208, 'rdata_write_bytes': 208, 'rdata_changed_writes': 207, 'rdata_compare_failures': 0, 'stop': {'kind': 'budget_or_return', 'rip': '0x17038a9c5'}}

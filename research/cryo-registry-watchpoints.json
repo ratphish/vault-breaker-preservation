@@ -1,0 +1,49 @@
+{
+  "scope": "synthetic runtime only",
+  "rows": [
+    {
+      "tag": "0x80802e8d",
+      "registry_candidates": [
+        {
+          "pointer": "0x178e345d0"
+        },
+        {
+          "pointer": "0x175262c00"
+        }
+      ]
+    },
+    {
+      "tag": "0x80802e8a",
+      "registry_candidates": [
+        {
+          "pointer": "0x178e34630"
+        },
+        {
+          "pointer": "0x175262c20"
+        }
+      ]
+    },
+    {
+      "tag": "0x80806cfa",
+      "registry_candidates": [
+        {
+          "pointer": "0x178ecc880"
+        },
+        {
+          "pointer": "0x174ecc630"
+        }
+      ]
+    },
+    {
+      "tag": "0x80808b63",
+      "registry_candidates": [
+        {
+          "pointer": "0x178e34870"
+        },
+        {
+          "pointer": "0x175262d40"
+        }
+      ]
+    }
+  ]
+}

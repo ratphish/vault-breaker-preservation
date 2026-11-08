@@ -1,0 +1,1 @@
+PASS: pefile confirms exception-directory mapping and selected 12-byte entry

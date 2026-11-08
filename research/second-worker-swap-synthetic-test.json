@@ -1,0 +1,21 @@
+{
+  "sequence_start": "0x16f9fca8e",
+  "bounded_stop": "0x16f9fcab9",
+  "cases": [
+    {
+      "left_offset": "0x10",
+      "right_offset": "0x34",
+      "same_address": false,
+      "writes": 2,
+      "swap_matches": true
+    },
+    {
+      "left_offset": "0x20",
+      "right_offset": "0x20",
+      "same_address": true,
+      "writes": 2,
+      "swap_matches": true
+    }
+  ],
+  "warning": "Tests one sequence from a synthetic patched image; real runtime reachability and full function behavior remain unverified."
+}

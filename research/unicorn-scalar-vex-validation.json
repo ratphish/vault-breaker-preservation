@@ -1,0 +1,176 @@
+{
+  "unicorn_version": "2.1.4",
+  "source1": 20.0,
+  "source2": 4.0,
+  "scope": "register operands and exact finite test values only",
+  "rows": [
+    {
+      "instruction": "vaddss xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x40800000",
+      "sse_reference_bits": "0x41c00000",
+      "matches": false
+    },
+    {
+      "instruction": "vaddss xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x41c00000",
+      "sse_reference_bits": "0x41c00000",
+      "matches": true
+    },
+    {
+      "instruction": "vsubss xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0xc0800000",
+      "sse_reference_bits": "0x41800000",
+      "matches": false
+    },
+    {
+      "instruction": "vsubss xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x41800000",
+      "sse_reference_bits": "0x41800000",
+      "matches": true
+    },
+    {
+      "instruction": "vmulss xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x0",
+      "sse_reference_bits": "0x42a00000",
+      "matches": false
+    },
+    {
+      "instruction": "vmulss xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x42a00000",
+      "sse_reference_bits": "0x42a00000",
+      "matches": true
+    },
+    {
+      "instruction": "vdivss xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x0",
+      "sse_reference_bits": "0x40a00000",
+      "matches": false
+    },
+    {
+      "instruction": "vdivss xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x40a00000",
+      "sse_reference_bits": "0x40a00000",
+      "matches": true
+    },
+    {
+      "instruction": "vminss xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x0",
+      "sse_reference_bits": "0x40800000",
+      "matches": false
+    },
+    {
+      "instruction": "vminss xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x40800000",
+      "sse_reference_bits": "0x40800000",
+      "matches": true
+    },
+    {
+      "instruction": "vmaxss xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x40800000",
+      "sse_reference_bits": "0x41a00000",
+      "matches": false
+    },
+    {
+      "instruction": "vmaxss xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x41a00000",
+      "sse_reference_bits": "0x41a00000",
+      "matches": true
+    },
+    {
+      "instruction": "vaddsd xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x4010000000000000",
+      "sse_reference_bits": "0x4038000000000000",
+      "matches": false
+    },
+    {
+      "instruction": "vaddsd xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x4038000000000000",
+      "sse_reference_bits": "0x4038000000000000",
+      "matches": true
+    },
+    {
+      "instruction": "vsubsd xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0xc010000000000000",
+      "sse_reference_bits": "0x4030000000000000",
+      "matches": false
+    },
+    {
+      "instruction": "vsubsd xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x4030000000000000",
+      "sse_reference_bits": "0x4030000000000000",
+      "matches": true
+    },
+    {
+      "instruction": "vmulsd xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x0",
+      "sse_reference_bits": "0x4054000000000000",
+      "matches": false
+    },
+    {
+      "instruction": "vmulsd xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x4054000000000000",
+      "sse_reference_bits": "0x4054000000000000",
+      "matches": true
+    },
+    {
+      "instruction": "vdivsd xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x0",
+      "sse_reference_bits": "0x4014000000000000",
+      "matches": false
+    },
+    {
+      "instruction": "vdivsd xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x4014000000000000",
+      "sse_reference_bits": "0x4014000000000000",
+      "matches": true
+    },
+    {
+      "instruction": "vminsd xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x0",
+      "sse_reference_bits": "0x4010000000000000",
+      "matches": false
+    },
+    {
+      "instruction": "vminsd xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x4010000000000000",
+      "sse_reference_bits": "0x4010000000000000",
+      "matches": true
+    },
+    {
+      "instruction": "vmaxsd xmm6,xmm1,xmm0",
+      "old_destination": 0.0,
+      "actual_bits": "0x4010000000000000",
+      "sse_reference_bits": "0x4034000000000000",
+      "matches": false
+    },
+    {
+      "instruction": "vmaxsd xmm6,xmm1,xmm0",
+      "old_destination": 20.0,
+      "actual_bits": "0x4034000000000000",
+      "sse_reference_bits": "0x4034000000000000",
+      "matches": true
+    }
+  ]
+}

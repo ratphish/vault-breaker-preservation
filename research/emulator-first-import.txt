@@ -1,0 +1,2 @@
+IAT KERNEL32.dll CreateThread ordinal None import_by_ordinal False
+slot_rva 0x32c84418 file_offset 0x32c83018 on_disk a015533300000000

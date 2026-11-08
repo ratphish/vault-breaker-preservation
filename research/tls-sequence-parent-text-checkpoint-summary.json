@@ -1,0 +1,70 @@
+{
+  "stop": {
+    "kind": "parent_aes_checkpoint",
+    "completed": 173170,
+    "rip": "0x17004d64e"
+  },
+  "callback_stops": [
+    {
+      "kind": "synthetic_return"
+    },
+    {
+      "kind": "synthetic_return"
+    },
+    {
+      "kind": "synthetic_return"
+    },
+    {
+      "kind": "synthetic_return"
+    },
+    {
+      "kind": "synthetic_return"
+    },
+    {
+      "kind": "import_marker",
+      "import": "KERNEL32.dll!CreateThread",
+      "rip": "0x720000000570"
+    }
+  ],
+  "modeled_faults": 9,
+  "fake_worker": {
+    "start": "0x170814e10",
+    "argument": "0x7000001fef58",
+    "tls": "shared fake TLS; thread-attach callbacks not modeled"
+  },
+  "fake_worker_outcome": {
+    "stop": {
+      "kind": "synthetic_return"
+    },
+    "aes_completed": 63666,
+    "rdata_sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42",
+    "worker_stack_sha256": "eca8ea414f6284d81169b532f749e2b4006a5622975811c9bb1155e3c6de41ae"
+  },
+  "fake_virtualprotect": [
+    {
+      "phase": "worker",
+      "address": "0x172c84000",
+      "length": 9107968,
+      "protection": "0x40"
+    },
+    {
+      "phase": "worker",
+      "address": "0x172c84000",
+      "length": 9107968,
+      "protection": "0x2"
+    },
+    {
+      "phase": "parent",
+      "address": "0x140001000",
+      "length": 851977728,
+      "protection": "0x40"
+    }
+  ],
+  "parent_aes_completed": 173170,
+  "parent_aes_bytes": 54495132,
+  "parent_text_sha256": "e003a16dc5e495ee9b0b1b3824a46c9553e0bcbd038b432eddb3a55d7d450dca",
+  "matches_prior_text": true,
+  "matches_prior_rdata": true,
+  "elapsed_seconds": 48.406,
+  "warning": "Synthetic loader, fake APIs, invented scheduling and shortcut transforms; not a Windows runtime trace."
+}

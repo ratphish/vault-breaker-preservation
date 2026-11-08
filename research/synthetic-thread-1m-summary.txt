@@ -1,0 +1,1 @@
+{'instructions': 1000000, 'rdata_writes': 2424, 'rdata_changed_writes': 2409, 'rdata_page_counts': {'0x172c85000': 16, '0x172caa000': 1032, '0x172cab000': 1376}, 'stop': {'kind': 'budget_or_return', 'rip': '0x16eff21cd'}}

@@ -1,0 +1,250 @@
+{
+  "initializer": "0x14dadd9a9",
+  "original_bytes_match": true,
+  "table_start": "0x172ed1348",
+  "pointer_stored": "0x172ed1350",
+  "entry_count": 1886,
+  "pointer_global": "0x178e76578",
+  "count_global": "0x178e76580",
+  "callee": "0x16f8d4c40",
+  "matched_embedded_records": 47,
+  "slot_related_parent_records": 6,
+  "records": [
+    {
+      "parent_type": "8080b8e2",
+      "class_hash": "01f42bc7",
+      "vmp_offset": "0x78670"
+    },
+    {
+      "parent_type": "8080b8e2",
+      "class_hash": "5a0a4f8e",
+      "vmp_offset": "0x11c580"
+    },
+    {
+      "parent_type": "8080b8e2",
+      "class_hash": "afd19b31",
+      "vmp_offset": "0x2ef268"
+    },
+    {
+      "parent_type": "8080b8e2",
+      "class_hash": "48a6eaa1",
+      "vmp_offset": "0x371e48"
+    },
+    {
+      "parent_type": "8080b8e2",
+      "class_hash": "5d7ae522",
+      "vmp_offset": "0x382c28"
+    },
+    {
+      "parent_type": "8080b8e2",
+      "class_hash": "64443c1f",
+      "vmp_offset": "0x387c28"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "24809761",
+      "vmp_offset": "0xba4d0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "375cfb84",
+      "vmp_offset": "0xdd6f0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "407fc088",
+      "vmp_offset": "0xed4c0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "431fd36d",
+      "vmp_offset": "0xf2870"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "ced4cacf",
+      "vmp_offset": "0x1f7a00"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "e10cda03",
+      "vmp_offset": "0x219910"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "03643775",
+      "vmp_offset": "0x257618"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "0c4511c6",
+      "vmp_offset": "0x25f648"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "0e31b50c",
+      "vmp_offset": "0x2612a0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "18690b79",
+      "vmp_offset": "0x26b1a0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "28fc44f0",
+      "vmp_offset": "0x278ae8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "2b36b38e",
+      "vmp_offset": "0x27b4f8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "433efc2d",
+      "vmp_offset": "0x2904c8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "4da581c4",
+      "vmp_offset": "0x2993b8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "50c838e9",
+      "vmp_offset": "0x29c3f8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "580e8aaa",
+      "vmp_offset": "0x2a25e8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "5db61f5a",
+      "vmp_offset": "0x2a73b8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "5e2824e2",
+      "vmp_offset": "0x2a7b68"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "611c3d39",
+      "vmp_offset": "0x2a9f80"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "80d7b899",
+      "vmp_offset": "0x2c6038"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "954ee294",
+      "vmp_offset": "0x2d96d0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "99be9295",
+      "vmp_offset": "0x2dd018"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "b68c7797",
+      "vmp_offset": "0x2f5030"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "b9405689",
+      "vmp_offset": "0x2f7ba8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "baafad9f",
+      "vmp_offset": "0x2f94a8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "bd333a2f",
+      "vmp_offset": "0x2fb6d0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "c19cd2e1",
+      "vmp_offset": "0x2ffa40"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "cd517dd1",
+      "vmp_offset": "0x30a710"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "e4a2aaaf",
+      "vmp_offset": "0x31cce8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "ec5b40b1",
+      "vmp_offset": "0x324a98"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "ed037131",
+      "vmp_offset": "0x325310"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "f2b57bc5",
+      "vmp_offset": "0x329c58"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "f3ff54a6",
+      "vmp_offset": "0x32b5f0"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "f61199cd",
+      "vmp_offset": "0x32d578"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "fdd739c1",
+      "vmp_offset": "0x334720"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "5e5c6bf2",
+      "vmp_offset": "0x383318"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "0b798915",
+      "vmp_offset": "0x412418"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "3dad34b5",
+      "vmp_offset": "0x42f978"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "94c3fc73",
+      "vmp_offset": "0x4642b8"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "96414615",
+      "vmp_offset": "0x465238"
+    },
+    {
+      "parent_type": "8080baf7",
+      "class_hash": "e9c9560c",
+      "vmp_offset": "0x497870"
+    }
+  ],
+  "warning": "Original instructions and synthetic data agree; real execution and any Vault-specific binding remain unverified."
+}

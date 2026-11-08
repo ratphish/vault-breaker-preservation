@@ -1,0 +1,359 @@
+{
+  "metadata_sha256": "47ac143f154f28a237e7beb77d4c45f030eda9b28404ee8f35d5bc6bd40219f4",
+  "component_sha256": "70ccaa2ce14425d4603690cf043ad0c69921af49b607bf1d7dea94a0389741cc",
+  "member_array": "0x47e8",
+  "member_count": 36,
+  "base_type": "80b3b819",
+  "component_offset_bias": "0xb0",
+  "members": [
+    {
+      "name": "nux_input_prompts",
+      "name_hash_fnv1": "8f2977db",
+      "member_type": "8080750f",
+      "metadata_record_offset": "0x4800",
+      "relative_offset": "0xc0",
+      "component_offset": "0x170",
+      "component_type": "80807510"
+    },
+    {
+      "name": "il_player_spawned",
+      "name_hash_fnv1": "032a3e5d",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x480c",
+      "relative_offset": "0x180",
+      "component_offset": "0x230",
+      "component_type": "8080a240",
+      "listener_slot": 19,
+      "listener_slot_name": "il_player_spawned_handle_incident_impl"
+    },
+    {
+      "name": "il_vault_1_battery_install",
+      "name_hash_fnv1": "4e7372bd",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4818",
+      "relative_offset": "0x230",
+      "component_offset": "0x2e0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_1_opened",
+      "name_hash_fnv1": "cf6c3069",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4824",
+      "relative_offset": "0x2e0",
+      "component_offset": "0x390",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_2_battery_install",
+      "name_hash_fnv1": "d7d52e6e",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4830",
+      "relative_offset": "0x390",
+      "component_offset": "0x440",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_2_canister_install",
+      "name_hash_fnv1": "a6da2160",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x483c",
+      "relative_offset": "0x440",
+      "component_offset": "0x4f0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_2_opened",
+      "name_hash_fnv1": "01682558",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4848",
+      "relative_offset": "0x4f0",
+      "component_offset": "0x5a0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_3_battery_install",
+      "name_hash_fnv1": "c7001163",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4854",
+      "relative_offset": "0x5a0",
+      "component_offset": "0x650",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_3_credentials_succeeded",
+      "name_hash_fnv1": "d1e31ebc",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4860",
+      "relative_offset": "0x650",
+      "component_offset": "0x700",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_3_opened",
+      "name_hash_fnv1": "bb50b4d7",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x486c",
+      "relative_offset": "0x700",
+      "component_offset": "0x7b0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_5_battery_install",
+      "name_hash_fnv1": "c145c6a9",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4878",
+      "relative_offset": "0x7b0",
+      "component_offset": "0x860",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_5_canister_install",
+      "name_hash_fnv1": "cf4b4ff1",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4884",
+      "relative_offset": "0x860",
+      "component_offset": "0x910",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_5_credentials_succeeded",
+      "name_hash_fnv1": "7b8e7956",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4890",
+      "relative_offset": "0x910",
+      "component_offset": "0x9c0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_5_opened",
+      "name_hash_fnv1": "93ebc955",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x489c",
+      "relative_offset": "0x9c0",
+      "component_offset": "0xa70",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_4_battery_install",
+      "name_hash_fnv1": "e7dd7ba4",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48a8",
+      "relative_offset": "0xa70",
+      "component_offset": "0xb20",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_4_credentials_succeeded",
+      "name_hash_fnv1": "bed6b0c7",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48b4",
+      "relative_offset": "0xb20",
+      "component_offset": "0xbd0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_4_opened",
+      "name_hash_fnv1": "ef29c93e",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48c0",
+      "relative_offset": "0xbd0",
+      "component_offset": "0xc80",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_6_battery_install",
+      "name_hash_fnv1": "121765da",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48cc",
+      "relative_offset": "0xc80",
+      "component_offset": "0xd30",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_6_canister_install",
+      "name_hash_fnv1": "1340e324",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48d8",
+      "relative_offset": "0xd30",
+      "component_offset": "0xde0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_6_opened",
+      "name_hash_fnv1": "28a472f4",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48e4",
+      "relative_offset": "0xde0",
+      "component_offset": "0xe90",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_hec_battery_install",
+      "name_hash_fnv1": "b417b45d",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48f0",
+      "relative_offset": "0xe90",
+      "component_offset": "0xf40",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_7_battery_install",
+      "name_hash_fnv1": "80e696df",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x48fc",
+      "relative_offset": "0xf40",
+      "component_offset": "0xff0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_7_credentials_succeeded",
+      "name_hash_fnv1": "824a6e30",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4908",
+      "relative_offset": "0xff0",
+      "component_offset": "0x10a0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_vault_7_opened",
+      "name_hash_fnv1": "43a75573",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4914",
+      "relative_offset": "0x10a0",
+      "component_offset": "0x1150",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_kill",
+      "name_hash_fnv1": "e859a145",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4920",
+      "relative_offset": "0x1150",
+      "component_offset": "0x1200",
+      "component_type": "8080a240",
+      "listener_slot": 28,
+      "listener_slot_name": "il_kill_handle_incident_impl"
+    },
+    {
+      "name": "il_vault_interior_puzzles_completed",
+      "name_hash_fnv1": "ec78ef9a",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x492c",
+      "relative_offset": "0x1200",
+      "component_offset": "0x12b0",
+      "component_type": "8080a240"
+    },
+    {
+      "name": "il_pre_exfil",
+      "name_hash_fnv1": "30ece195",
+      "member_type": "8080a23f",
+      "metadata_record_offset": "0x4938",
+      "relative_offset": "0x12b0",
+      "component_offset": "0x1360",
+      "component_type": "8080a240",
+      "listener_slot": 3,
+      "listener_slot_name": "il_pre_exfil_handle_incident_impl"
+    },
+    {
+      "name": "main",
+      "name_hash_fnv1": "bc76e6ba",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x4944",
+      "relative_offset": "0x1390",
+      "component_offset": "0x1440",
+      "component_type": "8080ab7a",
+      "slot": 1,
+      "slot_name": "main_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_1_objectives",
+      "name_hash_fnv1": "00f9ffd1",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x4950",
+      "relative_offset": "0x1440",
+      "component_offset": "0x14f0",
+      "component_type": "8080ab7a",
+      "slot": 21,
+      "slot_name": "sc_vault_1_objectives_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_2_objectives",
+      "name_hash_fnv1": "9fa92a90",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x495c",
+      "relative_offset": "0x14f0",
+      "component_offset": "0x15a0",
+      "component_type": "8080ab7a",
+      "slot": 22,
+      "slot_name": "sc_vault_2_objectives_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_3_objectives",
+      "name_hash_fnv1": "2244619f",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x4968",
+      "relative_offset": "0x15a0",
+      "component_offset": "0x1650",
+      "component_type": "8080ab7a",
+      "slot": 23,
+      "slot_name": "sc_vault_3_objectives_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_5_objectives",
+      "name_hash_fnv1": "1e0e5cb5",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x4974",
+      "relative_offset": "0x1650",
+      "component_offset": "0x1700",
+      "component_type": "8080ab7a",
+      "slot": 24,
+      "slot_name": "sc_vault_5_objectives_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_4_objectives",
+      "name_hash_fnv1": "186bd886",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x4980",
+      "relative_offset": "0x1700",
+      "component_offset": "0x17b0",
+      "component_type": "8080ab7a",
+      "slot": 25,
+      "slot_name": "sc_vault_4_objectives_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_6_objectives",
+      "name_hash_fnv1": "5e2e06d4",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x498c",
+      "relative_offset": "0x17b0",
+      "component_offset": "0x1860",
+      "component_type": "8080ab7a",
+      "slot": 26,
+      "slot_name": "sc_vault_6_objectives_d_execute_impl"
+    },
+    {
+      "name": "sc_monitor_secret_lab_visit",
+      "name_hash_fnv1": "ebd64193",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x4998",
+      "relative_offset": "0x1860",
+      "component_offset": "0x1910",
+      "component_type": "8080ab7a",
+      "slot": 27,
+      "slot_name": "sc_monitor_secret_lab_visit_d_execute_impl"
+    },
+    {
+      "name": "sc_vault_7_objectives",
+      "name_hash_fnv1": "cc8735c3",
+      "member_type": "8080b8f1",
+      "metadata_record_offset": "0x49a4",
+      "relative_offset": "0x1910",
+      "component_offset": "0x19c0",
+      "component_type": "8080ab7a",
+      "slot": 29,
+      "slot_name": "sc_vault_7_objectives_d_execute_impl"
+    }
+  ],
+  "warning": "Serialized linkage only; these are not native addresses or recovered handler bodies."
+}

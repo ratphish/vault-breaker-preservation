@@ -1,0 +1,60 @@
+{
+  "verified_faults": 9,
+  "results": [
+    {
+      "fault_rip": "0x149320b11",
+      "fault_address": "0x9961",
+      "table_address": "0x173d09550",
+      "resume_rip": "0x14ab6de28"
+    },
+    {
+      "fault_rip": "0x16113fe91",
+      "fault_address": "0xda57",
+      "table_address": "0x173d44e40",
+      "resume_rip": "0x14f47fb91"
+    },
+    {
+      "fault_rip": "0x151dea63f",
+      "fault_address": "0xca20",
+      "table_address": "0x174437460",
+      "resume_rip": "0x15dcc4fe1"
+    },
+    {
+      "fault_rip": "0x151967402",
+      "fault_address": "0xb545",
+      "table_address": "0x17409e0d0",
+      "resume_rip": "0x1583a2a90"
+    },
+    {
+      "fault_rip": "0x14861e6d1",
+      "fault_address": "0xbf36",
+      "table_address": "0x173a5f2f0",
+      "resume_rip": "0x156c271ea"
+    },
+    {
+      "fault_rip": "0x151c35fd4",
+      "fault_address": "0xdfac",
+      "table_address": "0x174316850",
+      "resume_rip": "0x15f04a970"
+    },
+    {
+      "fault_rip": "0x14c009627",
+      "fault_address": "0x2854",
+      "table_address": "0x173c5fef0",
+      "resume_rip": "0x15374c0d8"
+    },
+    {
+      "fault_rip": "0x1573ed3fa",
+      "fault_address": "0x99e8",
+      "table_address": "0x1739d4240",
+      "resume_rip": "0x158dafcc5"
+    },
+    {
+      "fault_rip": "0x161cc52ac",
+      "fault_address": "0x1916",
+      "table_address": "0x1741d9a70",
+      "resume_rip": "0x14a77e65a"
+    }
+  ],
+  "warning": "Checks the handler arithmetic in a synthetic exception context; not evidence of Windows loader execution."
+}

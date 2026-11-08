@@ -1,0 +1,2 @@
+stop aes_scope_or_stack_guard destination 0x16f785593 length 781 events 100000 total_bytes 15088708
+text_calls 36334

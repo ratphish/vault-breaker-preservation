@@ -1,0 +1,4 @@
+{"tag": "80B37C7E", "candidates": []}
+{"tag": "80B37FED", "candidates": [{"offset": "0x7a0", "va": "0x15e00412f", "alignment": 0}, {"offset": "0x1b04", "va": "0x14e9bb3ef", "alignment": 0}, {"offset": "0x1b4d", "va": "0x170808075", "alignment": 1}]}
+{"tag": "80B37FEB", "candidates": []}
+{"tag": "80B38561", "candidates": [{"offset": "0x369", "va": "0x170000001", "alignment": 1}]}

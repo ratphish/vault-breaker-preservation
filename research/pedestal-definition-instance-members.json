@@ -1,0 +1,26 @@
+{
+  "definition_sha256": "05c2b1dc4514aff6da4723ca7ca9c04b7c020ed4c3f50981eb389c1dfc8e4bc7",
+  "member_count": 1,
+  "definition_array": "0x520",
+  "type_pairs": [
+    {
+      "instance": "8080b8f1",
+      "definition": "8080ab7a",
+      "count": 1
+    }
+  ],
+  "component_types_match_definition": true,
+  "members": [
+    {
+      "name": "sc_handle_create",
+      "hash": "d793488f",
+      "instance_member_type": "8080b8f1",
+      "instance_relative_offset": "0xc0",
+      "definition_member_type": "8080ab7a",
+      "definition_relative_offset": "0x78",
+      "slot": 4,
+      "slot_name": "sc_handle_create_d_execute_impl"
+    }
+  ],
+  "warning": "Matching names and relative offsets do not reveal runtime handler code or structure layout."
+}

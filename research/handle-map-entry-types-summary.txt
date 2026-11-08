@@ -1,0 +1,22 @@
+ERROR_SAMPLE id=80A08006 ArgumentException: The package id '0104' from Hash 'NULL ()' is not in the package paths cache
+ERROR_SAMPLE id=80A0800C ArgumentException: The package id '0104' from Hash 'NULL ()' is not in the package paths cache
+ERROR_SAMPLE id=80A0800E ArgumentException: The package id '0104' from Hash 'NULL ()' is not in the package paths cache
+MISSING_CACHE package=0104 rows=1250
+MISSING_CACHE package=0106 rows=810
+MISSING_CACHE package=0107 rows=571
+MISSING_CACHE package=0108 rows=607
+MISSING_CACHE package=0109 rows=1029
+MISSING_CACHE package=010A rows=47
+MISSING_CACHE package=0116 rows=174
+MISSING_CACHE package=0119 rows=752
+MISSING_CACHE package=011A rows=1660
+MISSING_CACHE package=011B rows=299
+MISSING_CACHE package=011C rows=359
+MISSING_CACHE package=011D rows=408
+MISSING_CACHE package=011E rows=431
+MISSING_CACHE package=011F rows=1129
+MISSING_CACHE package=018D rows=142
+MISSING_CACHE package=01B1 rows=102
+MISSING_CACHE package=01CC rows=2
+ERROR ArgumentException count=9772
+TOTAL rows=105877 resolved=96105 errors=9772

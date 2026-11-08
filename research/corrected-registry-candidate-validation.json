@@ -1,0 +1,111 @@
+{
+  "counts": {
+    "rows": 29896,
+    "candidate_pairs": 32200,
+    "rows_with_runtime_match": 29896
+  },
+  "missing_runtime_match_examples": [],
+  "multiple_candidate_examples": [
+    {
+      "tag": "80808EC6",
+      "candidate_count": 3,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080491A",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80804CA4",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "808028AE",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080A124",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080AC9D",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080A68E",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80808A0D",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80809670",
+      "candidate_count": 3,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080BE04",
+      "candidate_count": 5,
+      "matching_count": 1
+    },
+    {
+      "tag": "80806286",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080BDEF",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "8080BEF6",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "808059BD",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80802750",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80806777",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "808091F4",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80807D84",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "80809E46",
+      "candidate_count": 2,
+      "matching_count": 1
+    },
+    {
+      "tag": "808053C3",
+      "candidate_count": 4,
+      "matching_count": 1
+    }
+  ],
+  "scope": "matching synthetic runtime snapshot and transformed input only"
+}

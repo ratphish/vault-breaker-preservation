@@ -1,0 +1,26 @@
+{
+  "windows": [
+    {
+      "window": "entry",
+      "base": "0x171290000",
+      "bytes": 589824,
+      "ranges": 1,
+      "sha256": "67f4ca96e3c9934f7df56f463e3552ce95dd09e30ad69fc281f157916fcdf1cd"
+    },
+    {
+      "window": "fragments",
+      "base": "0x171290000",
+      "bytes": 589824,
+      "ranges": 128,
+      "sha256": "67f4ca96e3c9934f7df56f463e3552ce95dd09e30ad69fc281f157916fcdf1cd"
+    },
+    {
+      "window": "other",
+      "base": "0x16f9fc000",
+      "bytes": 4096,
+      "ranges": 1,
+      "sha256": "1a90bb41839737b374410a2c432a8dc64121a7897b3f2d3db89337bf990f46e4"
+    }
+  ],
+  "warning": "Patched synthetic bytes; fragment ranges and Ghidra outputs are not verified functions."
+}

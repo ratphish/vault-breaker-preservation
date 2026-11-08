@@ -1,0 +1,6 @@
+first_valid 35162 first_minmax 4350 105875
+tail_minmax 0 16777215 tail_ff 35162 tail_first [95764, 73926, 73927, 95766, 7156, 7157, 7158, 7159, 73929, 86002, 95769, 95770]
+first_values_under_n 35162 tail_values_under_n 70715
+first_unique_valid 35162 tail_unique 70716
+index 70954 first 0xffffff tail 0x7069
+index 71417 first 0xffffff tail 0x70e2

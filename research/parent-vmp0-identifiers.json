@@ -1,0 +1,7 @@
+{
+  "image_sha256": "7aa5f1d4e1182373ee9275af90f37e5dbba75c85a0c1d6580803f2c25c0a9742",
+  "image_size": 6775296,
+  "patterns": 123,
+  "matches": [],
+  "warning": "Exact bytes only; accidental matches and transformed/indirect bindings remain possible."
+}

@@ -1,0 +1,1 @@
+{"candidate_seeds": 34417, "windows": 28, "pointer_words": 122816, "warning": "Synthetic .rdata pointers are unverified candidates; arbitrary 256-byte upper bounds do not establish function ends."}

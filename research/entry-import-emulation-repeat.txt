@@ -1,0 +1,1 @@
+PASS: repeated synthetic trace reaches the same inert CreateThread marker and arguments

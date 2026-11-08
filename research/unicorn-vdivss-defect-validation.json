@@ -1,0 +1,16 @@
+{
+  "rows": [
+    {
+      "instruction": "vdivss xmm6,xmm1,xmm0",
+      "initial_destination": "0x0",
+      "result": "0x0"
+    },
+    {
+      "instruction": "vdivss xmm6,xmm1,xmm0",
+      "initial_destination": "0x44f00000",
+      "result": "0x3fe38e39"
+    }
+  ],
+  "sse_reference_bits": "0x3fe38e39",
+  "scope": "this Unicorn build, fixed input only; does not validate all AVX instructions"
+}

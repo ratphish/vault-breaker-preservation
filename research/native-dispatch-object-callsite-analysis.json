@@ -1,0 +1,61 @@
+{
+  "groups": [
+    {
+      "global": "0x1744f03b0",
+      "table": "0x172d2d2f8",
+      "original_table_entries": [
+        "0x16fc42020",
+        "0x16f551330",
+        "0x16f6c9d20",
+        "0x16f05ef80"
+      ],
+      "call_sites": [
+        {
+          "site": "0x17043d5a6",
+          "lea_target": "0x1744f03b0",
+          "direct_call": "0x16f551330"
+        },
+        {
+          "site": "0x17043d604",
+          "lea_target": "0x1744f03b0",
+          "direct_call": "0x16f551330"
+        }
+      ]
+    },
+    {
+      "global": "0x1744f04a0",
+      "table": "0x172d2d318",
+      "original_table_entries": [
+        "0x16f6bad30",
+        "0x17042dda0",
+        "0x170635c30",
+        "0x16f05ef80"
+      ],
+      "call_sites": [
+        {
+          "site": "0x16f6e99e3",
+          "lea_target": "0x1744f04a0",
+          "direct_call": "0x17042dda0"
+        }
+      ]
+    },
+    {
+      "global": "0x1744f04d0",
+      "table": "0x172d2d338",
+      "original_table_entries": [
+        "0x16fa14990",
+        "0x170f12dc0",
+        "0x17017ece0",
+        "0x16f05ef80"
+      ],
+      "call_sites": [
+        {
+          "site": "0x16f6e9a86",
+          "lea_target": "0x1744f04d0",
+          "direct_call": "0x170f12dc0"
+        }
+      ]
+    }
+  ],
+  "warning": "Original pointers plus synthetic decoded call sites; labels, function boundaries, execution and relation to Vault Breaker remain unproven."
+}

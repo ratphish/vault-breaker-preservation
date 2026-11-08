@@ -1,0 +1,11 @@
+{"name": "?GetDeviceList@SoundEngine@AK@@YA?AW4AKRESULT@@IAEAIPEAUAkDeviceDescription@@@Z", "ordinal": 79, "rva": "0x32891830", "file_offset": "0x32890e30", "forwarded": false}
+{"name": "?GetDeviceList@SoundEngine@AK@@YA?AW4AKRESULT@@IIAEAIPEAUAkDeviceDescription@@@Z", "ordinal": 80, "rva": "0x328919d0", "file_offset": "0x32890fd0", "forwarded": false}
+{"name": "?RegisterPlugin@SoundEngine@AK@@YA?AW4AKRESULT@@W4AkPluginType@@IIP6APEAVIAkPlugin@2@PEAVIAkPluginMemAlloc@2@@ZP6APEAVIAkPluginParam@2@1@ZP6A?AW43@AEAIPEAUAkDeviceDescription@@@Z@Z", "ordinal": 236, "rva": "0x32897310", "file_offset": "0x32896910", "forwarded": false}
+{"name": "?_setup_script_workflow_tag_suite@@YAXPEAVc_ut_suite@@@Z", "ordinal": 395, "rva": "0x2f7a2690", "file_offset": "0x2f7a1c90", "forwarded": false}
+{"name": "?run_script_workflow_tag_unit_tests@@3Vc_ut_component@@A", "ordinal": 400, "rva": "0x3682df08", "file_offset": null, "forwarded": false}
+{"name": "?run_script_workflow_tag_unit_tests__function@@YA_NPEAVc_ut_component@@PEAVc_ut_feedback@@@Z", "ordinal": 401, "rva": "0x2ef22710", "file_offset": "0x2ef21d10", "forwarded": false}
+{"name": "?script_workflow_tag_suite@@3Vc_ut_suite@@A", "ordinal": 402, "rva": "0x3682df40", "file_offset": null, "forwarded": false}
+{"name": "?script_workflow_tag_unit_tests_dispose@@3Vc_ut_component@@A", "ordinal": 403, "rva": "0x3682e490", "file_offset": null, "forwarded": false}
+{"name": "?script_workflow_tag_unit_tests_dispose__function@@YA_NPEAVc_ut_component@@PEAVc_ut_feedback@@@Z", "ordinal": 404, "rva": "0x2ef29400", "file_offset": "0x2ef28a00", "forwarded": false}
+{"name": "?script_workflow_tag_unit_tests_initialize@@3Vc_ut_component@@A", "ordinal": 405, "rva": "0x3682e450", "file_offset": null, "forwarded": false}
+{"name": "?script_workflow_tag_unit_tests_initialize__function@@YA_NPEAVc_ut_component@@PEAVc_ut_feedback@@@Z", "ordinal": 406, "rva": "0x2ef29400", "file_offset": "0x2ef28a00", "forwarded": false}

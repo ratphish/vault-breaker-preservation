@@ -1,0 +1,5 @@
+bytes 1058778 first32 959d0100843f87b5a141a080895101a241a080b22201a341a080ffffffa441a0
+vault_breaker ascii -1 utf16 -1
+is_authority ascii -1 utf16 -1
+script ascii -1 utf16 -1
+encounter ascii -1 utf16 -1

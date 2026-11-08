@@ -1,0 +1,22 @@
+[
+  {
+    "name": "w64_marathon_deck_001_019c_0.pkg",
+    "sha256": "FE45219E261249C38D16EFCBDA34563DD433B13B65B81B7D3AF7F6E5EABEEBCD",
+    "matches_live": true
+  },
+  {
+    "name": "w64_marathon_deck_001_019c_1.pkg",
+    "sha256": "8FAE45E5412BC200E3DE22995092531930A465BDDBC4C6CDE60039B33B218180",
+    "matches_live": true
+  },
+  {
+    "name": "w64_marathon_deck_001_019c_2.pkg",
+    "sha256": "4364C5169459038DC5556E5C72941EA79BAAA33FC019229981BF9352F520A0A5",
+    "matches_live": true
+  },
+  {
+    "name": "w64_marathon_deck_001_019c_3.pkg",
+    "sha256": "26F979F60BBE1D485E332FF382470ADD4EDDD8B4CFB1723BD7FDF39E8F897371",
+    "matches_live": true
+  }
+]

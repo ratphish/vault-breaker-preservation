@@ -1,0 +1,343 @@
+{
+  "image_sha256": {
+    "synthetic-text-section.bin": "e003a16dc5e495ee9b0b1b3824a46c9553e0bcbd038b432eddb3a55d7d450dca",
+    "rdata-synthetic-build26136895.bin": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42"
+  },
+  "targets": [
+    {
+      "slot": 0,
+      "name": "nux_input_prompts",
+      "fnv1": "0x8f2977db",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 1,
+      "name": "il_player_spawned",
+      "fnv1": "0x32a3e5d",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 2,
+      "name": "il_vault_1_battery_install",
+      "fnv1": "0x4e7372bd",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 3,
+      "name": "il_vault_1_opened",
+      "fnv1": "0xcf6c3069",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 4,
+      "name": "il_vault_2_battery_install",
+      "fnv1": "0xd7d52e6e",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 5,
+      "name": "il_vault_2_canister_install",
+      "fnv1": "0xa6da2160",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 6,
+      "name": "il_vault_2_opened",
+      "fnv1": "0x1682558",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 7,
+      "name": "il_vault_3_battery_install",
+      "fnv1": "0xc7001163",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 8,
+      "name": "il_vault_3_credentials_succeeded",
+      "fnv1": "0xd1e31ebc",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 9,
+      "name": "il_vault_3_opened",
+      "fnv1": "0xbb50b4d7",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 10,
+      "name": "il_vault_5_battery_install",
+      "fnv1": "0xc145c6a9",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 11,
+      "name": "il_vault_5_canister_install",
+      "fnv1": "0xcf4b4ff1",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 12,
+      "name": "il_vault_5_credentials_succeeded",
+      "fnv1": "0x7b8e7956",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 13,
+      "name": "il_vault_5_opened",
+      "fnv1": "0x93ebc955",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 14,
+      "name": "il_vault_4_battery_install",
+      "fnv1": "0xe7dd7ba4",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 15,
+      "name": "il_vault_4_credentials_succeeded",
+      "fnv1": "0xbed6b0c7",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 16,
+      "name": "il_vault_4_opened",
+      "fnv1": "0xef29c93e",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 17,
+      "name": "il_vault_6_battery_install",
+      "fnv1": "0x121765da",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 18,
+      "name": "il_vault_6_canister_install",
+      "fnv1": "0x1340e324",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 19,
+      "name": "il_vault_6_opened",
+      "fnv1": "0x28a472f4",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 20,
+      "name": "il_hec_battery_install",
+      "fnv1": "0xb417b45d",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 21,
+      "name": "il_vault_7_battery_install",
+      "fnv1": "0x80e696df",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 22,
+      "name": "il_vault_7_credentials_succeeded",
+      "fnv1": "0x824a6e30",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 23,
+      "name": "il_vault_7_opened",
+      "fnv1": "0x43a75573",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 24,
+      "name": "il_kill",
+      "fnv1": "0xe859a145",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 25,
+      "name": "il_vault_interior_puzzles_completed",
+      "fnv1": "0xec78ef9a",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 26,
+      "name": "il_pre_exfil",
+      "fnv1": "0x30ece195",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 27,
+      "name": "main",
+      "fnv1": "0xbc76e6ba",
+      "matches": {
+        "synthetic-text-section.bin": [
+          "0x559efa9",
+          "0x63049a5",
+          "0x963fa58",
+          "0xa43e97b",
+          "0xf47dfad",
+          "0x1148b643",
+          "0x131102ec",
+          "0x142dc62d",
+          "0x14ca4f73"
+        ],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 28,
+      "name": "sc_vault_1_objectives",
+      "fnv1": "0xf9ffd1",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 29,
+      "name": "sc_vault_2_objectives",
+      "fnv1": "0x9fa92a90",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 30,
+      "name": "sc_vault_3_objectives",
+      "fnv1": "0x2244619f",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 31,
+      "name": "sc_vault_5_objectives",
+      "fnv1": "0x1e0e5cb5",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 32,
+      "name": "sc_vault_4_objectives",
+      "fnv1": "0x186bd886",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 33,
+      "name": "sc_vault_6_objectives",
+      "fnv1": "0x5e2e06d4",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 34,
+      "name": "sc_monitor_secret_lab_visit",
+      "fnv1": "0xebd64193",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 35,
+      "name": "sc_vault_7_objectives",
+      "fnv1": "0xcc8735c3",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    }
+  ],
+  "warning": "Exact FNV-1 bytes only; accidental hits, protected encodings and undefined runtime hashing are possible."
+}

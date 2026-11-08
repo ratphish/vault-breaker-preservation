@@ -1,0 +1,2 @@
+kind aes_scope_or_stack_guard destination 0x140001000 length 150608 stack 0x7000001feed0
+transforms_before_guard 63666 last_transform_count 63667

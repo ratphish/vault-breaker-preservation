@@ -1,0 +1,9 @@
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_1_objectives_d_execute_impl","offset":23879}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_2_objectives_d_execute_impl","offset":23820}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_3_objectives_d_execute_impl","offset":23761}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_4_objectives_d_execute_impl","offset":23702}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_5_objectives_d_execute_impl","offset":23643}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_6_objectives_d_execute_impl","offset":23584}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"sc_vault_7_objectives_d_execute_impl","offset":23525}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"spawn_initial_keys","offset":21895}
+{"tag":"80B37C7E","reference":"80800000","type":8,"subtype":0,"size":27348,"package":"w64_marathon_deck_001_019b_3.pkg","target":"submit_analytics_for_vault_objective_assignment","offset":21821}

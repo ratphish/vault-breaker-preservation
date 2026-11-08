@@ -1,0 +1,153 @@
+{
+  "range": [
+    "0x179600000",
+    "0x179c76200"
+  ],
+  "images": [
+    {
+      "file": "rdata-synthetic-build26136895.bin",
+      "sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42",
+      "aligned_candidates": 30,
+      "hits": [
+        {
+          "offset": "0x271508",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x271b18",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x272248",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x272348",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x272468",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x272678",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x272ce8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x272f48",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x273098",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x273498",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x273858",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x273e98",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x2740f8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x274388",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x2744a8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x274c88",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x274f68",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275018",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x2750d8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x2751d8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275298",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275368",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275428",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x2755a8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275828",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275b18",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275cc8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x275da8",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x280478",
+          "value": "0x1797ca0b8"
+        },
+        {
+          "offset": "0x2aaf98",
+          "value": "0x1797ca0b8"
+        }
+      ]
+    },
+    {
+      "file": "parent-data-virtual-full.bin",
+      "sha256": "a9043bd1c26a144598e7b1f55ea3a9a2da5eddbae8b4cea95fad57537b91da49",
+      "aligned_candidates": 1,
+      "hits": [
+        {
+          "offset": "0x1da5840",
+          "value": "0x1797765d0"
+        }
+      ]
+    },
+    {
+      "file": "parent-vmp0-transformed.bin",
+      "sha256": "7aa5f1d4e1182373ee9275af90f37e5dbba75c85a0c1d6580803f2c25c0a9742",
+      "aligned_candidates": 0,
+      "hits": []
+    }
+  ],
+  "warning": "Numerical aligned candidates only; pointer type, target entry and reachability are unverified."
+}

@@ -1,0 +1,10 @@
+OFFSET 0x1a14d8b8 VA 0x15a14e2b8 FIRST 53420f1f04ad0000000066bbeb274d87
+0x15a14e2b8 push rbx
+0x15a14e2b9 nop dword ptr [r13*4]
+0x15a14e2c2 mov bx, 0x27eb
+0x15a14e2c6 xchg r14, r12
+0x15a14e2c9 xchg r14, r12
+0x15a14e2cc call 0x15a14e2c4
+0x15a14e2d1 cmp eax, 0xc5fca1ae
+0x15a14e2d6 and byte ptr [rax + 0x19], 0x96
+0x15a14e2da adc eax, dword ptr [rdx + 0xa3a10b5]

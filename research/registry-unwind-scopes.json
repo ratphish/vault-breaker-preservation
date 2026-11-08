@@ -1,0 +1,30 @@
+{
+  "entries": 292463,
+  "scopes": [
+    {
+      "address": "0x17100ec16",
+      "begin": "0x17100ead0",
+      "end": "0x17100ecd8",
+      "unwind_rva": "0x33457ce4"
+    },
+    {
+      "address": "0x1714e2875",
+      "begin": "0x1714e2630",
+      "end": "0x1714e2b76",
+      "unwind_rva": "0x334788f4"
+    },
+    {
+      "address": "0x17126ff30",
+      "begin": "0x17126ff30",
+      "end": "0x17126ff7f",
+      "unwind_rva": "0x33345c20"
+    },
+    {
+      "address": "0x16f476730",
+      "begin": "0x16f476730",
+      "end": "0x16f476790",
+      "unwind_rva": "0x3336fcd0"
+    }
+  ],
+  "warning": "PE unwind bounds and modeled call candidates do not establish runtime reachability or decompiled function semantics."
+}

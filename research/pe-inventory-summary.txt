@@ -1,0 +1,4 @@
+files 33 CLI 3 errors 0
+{'path': 'miniTicketDbg.exe', 'machine': '0x8664', 'size': 224336, 'cli_directory_present': True}
+{'path': 'SharpDX.dll', 'machine': '0x014c', 'size': 272464, 'cli_directory_present': True}
+{'path': 'SharpDX.DXGI.dll', 'machine': '0x014c', 'size': 141904, 'cli_directory_present': True}

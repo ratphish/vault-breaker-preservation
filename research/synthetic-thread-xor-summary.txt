@@ -1,0 +1,1 @@
+{'rdata_writes': 2424, 'rdata_changed_writes': 2409, 'rdata_xor_checked': 2424, 'rdata_xor_matched': 2424, 'rdata_site_counts': {'0x17004d61e': 2424}, 'stop': {'kind': 'budget_or_return', 'rip': '0x16eff21cd'}}

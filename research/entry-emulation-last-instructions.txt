@@ -1,0 +1,18 @@
+0x1459ae281 pop rdi
+0x1459ae282 movsxd rax, eax
+0x1459ae285 nop dword ptr [r14 + r14*2]
+0x1459ae28a lea rax, [rax + rcx]
+0x1459ae28e mov qword ptr [rsp + 0x30], rax
+0x1459ae293 pop rdx
+0x1459ae294 nop dword ptr [rbx]
+0x1459ae297 pop rbx
+0x1459ae298 xchg rdi, r10
+0x1459ae29b xchg rdi, r10
+0x1459ae29e pop rsi
+0x1459ae29f cmovle r11, r11
+0x1459ae2a3 pop rcx
+0x1459ae2a4 cmovnp r14, r14
+0x1459ae2a8 pop rax
+0x1459ae2a9 popfq 
+0x1459ae2aa ret 
+0x15e6f97d4 jmp qword ptr [rip + 0x1458ac3e]

@@ -1,0 +1,14 @@
+{
+  "sha256": "70521c38d04c669fa6cbe80b6c2574e16f989e83b78e756674c4d6b5678445c8",
+  "length": 25506864,
+  "value": "0cd1db4c",
+  "matches": [
+    {
+      "offset": "0x163eaec",
+      "alignment_mod4": 0,
+      "context_start": "0x163ead4",
+      "context": "00 00 80 3f 00 00 80 3f 00 00 80 3f 00 00 80 3f 00 00 00 00 00 00 80 3f 4c db d1 0c ff ff ff ff c8 79 16 3f 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00"
+    }
+  ],
+  "warning": "A four-byte match is not by itself evidence of a code or metadata reference."
+}

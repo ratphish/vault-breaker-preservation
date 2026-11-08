@@ -1,0 +1,1 @@
+PASS: without the synthetic API return, the modeled path stops before .rdata writes

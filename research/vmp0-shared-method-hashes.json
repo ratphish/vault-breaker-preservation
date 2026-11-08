@@ -1,0 +1,56 @@
+{
+  "image_sha256": {
+    "parent-vmp0-transformed.bin": "7aa5f1d4e1182373ee9275af90f37e5dbba75c85a0c1d6580803f2c25c0a9742"
+  },
+  "targets": [
+    {
+      "slot": 0,
+      "name": "flatten_slot_from_source",
+      "fnv1": "0xdf8f7165",
+      "matches": {
+        "parent-vmp0-transformed.bin": []
+      }
+    },
+    {
+      "slot": 1,
+      "name": "discover_slot_dependencies",
+      "fnv1": "0x35dad7d1",
+      "matches": {
+        "parent-vmp0-transformed.bin": []
+      }
+    },
+    {
+      "slot": 2,
+      "name": "import_slot",
+      "fnv1": "0x142487b5",
+      "matches": {
+        "parent-vmp0-transformed.bin": []
+      }
+    },
+    {
+      "slot": 3,
+      "name": "simple_deep_copy",
+      "fnv1": "0xf5f28328",
+      "matches": {
+        "parent-vmp0-transformed.bin": []
+      }
+    },
+    {
+      "slot": 4,
+      "name": "default_instance_reference",
+      "fnv1": "0xce3f5cdc",
+      "matches": {
+        "parent-vmp0-transformed.bin": []
+      }
+    },
+    {
+      "slot": 5,
+      "name": "get_debug_string_short",
+      "fnv1": "0x96c2beb6",
+      "matches": {
+        "parent-vmp0-transformed.bin": []
+      }
+    }
+  ],
+  "warning": "Exact FNV-1 bytes only; accidental hits, protected encodings and undefined runtime hashing are possible."
+}

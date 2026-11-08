@@ -1,0 +1,12 @@
+call 0 contexts_equal True
+call 1 contexts_equal True
+call 2 contexts_equal True
+call 3 contexts_equal True
+call 4 contexts_equal True
+call 5 contexts_equal True
+call 6 contexts_equal True
+call 7 contexts_equal True
+call 8 contexts_equal True
+call 9 contexts_equal True
+call 10 contexts_equal True
+all True

@@ -1,0 +1,57 @@
+{
+  "probe_start": "0x1714e2875",
+  "writes": 10321,
+  "groups": [
+    {
+      "base": "0x1767f5fe0",
+      "objects": 1718,
+      "stride": 32,
+      "backing_pointer_offset": 24,
+      "sentinel_write_site": "0x16fc07380"
+    },
+    {
+      "base": "0x176804310",
+      "objects": 1718,
+      "stride": 32,
+      "backing_pointer_offset": 24,
+      "sentinel_write_site": "0x1713ed180"
+    },
+    {
+      "base": "0x176812670",
+      "objects": 1716,
+      "stride": 32,
+      "backing_pointer_offset": 24,
+      "sentinel_write_site": "0x16f15d640"
+    }
+  ],
+  "selected": [
+    {
+      "tag": "8080B8E2",
+      "object": "0x1767f69e0",
+      "backing_record": "0x174e9ecd0",
+      "modeled_initial_qwords": [
+        "0x0",
+        "0xc0000004"
+      ]
+    },
+    {
+      "tag": "8080B8A0",
+      "object": "0x1767fa980",
+      "backing_record": "0x174ea0b90",
+      "modeled_initial_qwords": [
+        "0x0",
+        "0xc00000a0"
+      ]
+    },
+    {
+      "tag": "8080BAF7",
+      "object": "0x1767f98e0",
+      "backing_record": "0x174ea03a0",
+      "modeled_initial_qwords": [
+        "0x0",
+        "0xc0000100"
+      ]
+    }
+  ],
+  "warning": "Synthetic initialized pointers and modeled data, not a real runtime trace or a proven method dispatch."
+}

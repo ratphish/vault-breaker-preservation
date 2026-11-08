@@ -1,0 +1,51 @@
+{
+  "tag": "80B38561",
+  "sha256": "c2e7983eaf8c318fc8a1dcde68b9a95ab52c3aa7864dcf216cb0dfd73bc253ff",
+  "array_offset": "0x8c8",
+  "count": 6,
+  "entries": [
+    {
+      "slot": 0,
+      "name": "import_only_set_slot_name",
+      "name_offset": "0xc50",
+      "pointer_offset": "0x8d0",
+      "descriptor_offset": "0x728"
+    },
+    {
+      "slot": 1,
+      "name": "create_objects",
+      "name_offset": "0xe55",
+      "pointer_offset": "0x8d8",
+      "descriptor_offset": "0x458"
+    },
+    {
+      "slot": 2,
+      "name": "is_key_alive",
+      "name_offset": "0xbee",
+      "pointer_offset": "0x8e0",
+      "descriptor_offset": "0x7a0"
+    },
+    {
+      "slot": 3,
+      "name": "is_key_claimed",
+      "name_offset": "0xbdf",
+      "pointer_offset": "0x8e8",
+      "descriptor_offset": "0x7b8"
+    },
+    {
+      "slot": 4,
+      "name": "sc_handle_create_d_execute_impl",
+      "name_offset": "0xb74",
+      "pointer_offset": "0x8f0",
+      "descriptor_offset": "0x848"
+    },
+    {
+      "slot": 5,
+      "name": "import",
+      "name_offset": "0xc6a",
+      "pointer_offset": "0x8f8",
+      "descriptor_offset": "0x710"
+    }
+  ],
+  "warning": "Serialized name/index consistency only; no executable target or dispatch behavior established."
+}

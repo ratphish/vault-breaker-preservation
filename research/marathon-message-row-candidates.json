@@ -1,0 +1,105 @@
+{
+  "exe_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+  "rdata_sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42",
+  "counts": [
+    {
+      "id": "3088896a",
+      "handler_kind": "code-range",
+      "original_row_equal": false,
+      "count": 1567
+    },
+    {
+      "id": "3088896a",
+      "handler_kind": "null",
+      "original_row_equal": false,
+      "count": 223
+    },
+    {
+      "id": "67774671",
+      "handler_kind": "code-range",
+      "original_row_equal": false,
+      "count": 471
+    },
+    {
+      "id": "67774671",
+      "handler_kind": "null",
+      "original_row_equal": false,
+      "count": 1
+    }
+  ],
+  "examples": [
+    {
+      "rdata_offset": "0xe9630",
+      "row_va": "0x172d6d630",
+      "handler": "0x0",
+      "id": "0x67774671",
+      "argc": 2,
+      "flags": 7,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe9660",
+      "row_va": "0x172d6d660",
+      "handler": "0x16ef1fb20",
+      "id": "0x3088896a",
+      "argc": 0,
+      "flags": 1,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe9780",
+      "row_va": "0x172d6d780",
+      "handler": "0x0",
+      "id": "0x3088896a",
+      "argc": 0,
+      "flags": 6,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe9790",
+      "row_va": "0x172d6d790",
+      "handler": "0x0",
+      "id": "0x3088896a",
+      "argc": 0,
+      "flags": 6,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe99c0",
+      "row_va": "0x172d6d9c0",
+      "handler": "0x0",
+      "id": "0x3088896a",
+      "argc": 0,
+      "flags": 6,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe9a70",
+      "row_va": "0x172d6da70",
+      "handler": "0x170876740",
+      "id": "0x67774671",
+      "argc": 2,
+      "flags": 0,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe9a80",
+      "row_va": "0x172d6da80",
+      "handler": "0x16f6ffec0",
+      "id": "0x3088896a",
+      "argc": 0,
+      "flags": 0,
+      "original_row_equal": false
+    },
+    {
+      "rdata_offset": "0xe9a90",
+      "row_va": "0x172d6da90",
+      "handler": "0x17031c970",
+      "id": "0x3088896a",
+      "argc": 0,
+      "flags": 0,
+      "original_row_equal": false
+    }
+  ],
+  "scope": "16-byte aligned rows within file-backed rdata only; IDs from Destiny 2 are hypotheses; handler reachability, semantics and table boundaries unverified"
+}

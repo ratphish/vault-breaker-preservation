@@ -1,0 +1,16 @@
+{
+  "left_stop": {
+    "kind": "constructor_checkpoint",
+    "number": 1050,
+    "next": "0x16ee2dde0"
+  },
+  "right_stop": {
+    "kind": "constructor_checkpoint",
+    "number": 1050,
+    "next": "0x16ee2dde0"
+  },
+  "register_differences": {},
+  "region_hash_differences": [],
+  "match": true,
+  "limits": "Compares saved region hashes and selected architectural registers in synthetic state; does not prove Windows equivalence."
+}

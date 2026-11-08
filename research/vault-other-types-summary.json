@@ -1,0 +1,1 @@
+{"packages": 151, "other_type_entries_checked": 334282, "decoded_bytes": 37449495207, "oversized_entries": 34, "raw_match_counts": {"80B38555": 6, "80B37FED": 17, "80B38561": 6, "80B37C7E": 5}, "warning": "Four-byte matches in binary media are not verified references. Nested or differently encoded content remains unsearched."}

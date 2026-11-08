@@ -1,0 +1,3169 @@
+{
+  "rdata_sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42",
+  "data_sha256": "a9043bd1c26a144598e7b1f55ea3a9a2da5eddbae8b4cea95fad57537b91da49",
+  "records": 236,
+  "records_with_candidates": 235,
+  "tables": [
+    {
+      "rdata_offset": "0xe2a68",
+      "rva": "0x32d66a68",
+      "entries": 1718,
+      "matched_records": 20
+    },
+    {
+      "rdata_offset": "0xeb598",
+      "rva": "0x32d6f598",
+      "entries": 1718,
+      "matched_records": 11
+    },
+    {
+      "rdata_offset": "0xf3c48",
+      "rva": "0x32d77c48",
+      "entries": 1716,
+      "matched_records": 17
+    },
+    {
+      "rdata_offset": "0x219858",
+      "rva": "0x32e9d858",
+      "entries": 1516,
+      "matched_records": 17
+    },
+    {
+      "rdata_offset": "0x23bf58",
+      "rva": "0x32ebff58",
+      "entries": 181,
+      "matched_records": 1
+    },
+    {
+      "rdata_offset": "0x23ce78",
+      "rva": "0x32ec0e78",
+      "entries": 1292,
+      "matched_records": 6
+    },
+    {
+      "rdata_offset": "0x245178",
+      "rva": "0x32ec9178",
+      "entries": 1291,
+      "matched_records": 43
+    },
+    {
+      "rdata_offset": "0x24d348",
+      "rva": "0x32ed1348",
+      "entries": 1886,
+      "matched_records": 47
+    },
+    {
+      "rdata_offset": "0x25cf98",
+      "rva": "0x32ee0f98",
+      "entries": 617,
+      "matched_records": 8
+    },
+    {
+      "rdata_offset": "0x2633a8",
+      "rva": "0x32ee73a8",
+      "entries": 3236,
+      "matched_records": 9
+    },
+    {
+      "rdata_offset": "0x27a5e8",
+      "rva": "0x32efe5e8",
+      "entries": 982,
+      "matched_records": 4
+    },
+    {
+      "rdata_offset": "0x284938",
+      "rva": "0x32f08938",
+      "entries": 982,
+      "matched_records": 8
+    },
+    {
+      "rdata_offset": "0x28c298",
+      "rva": "0x32f10298",
+      "entries": 985,
+      "matched_records": 14
+    },
+    {
+      "rdata_offset": "0x290da8",
+      "rva": "0x32f14da8",
+      "entries": 1924,
+      "matched_records": 1
+    },
+    {
+      "rdata_offset": "0x298fe8",
+      "rva": "0x32f1cfe8",
+      "entries": 1924,
+      "matched_records": 3
+    },
+    {
+      "rdata_offset": "0x2a0fd8",
+      "rva": "0x32f24fd8",
+      "entries": 2433,
+      "matched_records": 26
+    }
+  ],
+  "rows": [
+    {
+      "vmp_offset": "0x78670",
+      "parent_type": "8080b8e2",
+      "class_hash": "01f42bc7",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24d438",
+          "pointer": "0x178e6ceb0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xb0500",
+      "parent_type": "8080b8e2",
+      "class_hash": "1f224884",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe3898",
+          "pointer": "0x1767fde80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x11c580",
+      "parent_type": "8080b8e2",
+      "class_hash": "5a0a4f8e",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24fc68",
+          "pointer": "0x178e6f8d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x192310",
+      "parent_type": "8080b8e2",
+      "class_hash": "96bee506",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21d0a8",
+          "pointer": "0x178e1ca50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x223c80",
+      "parent_type": "8080b8e2",
+      "class_hash": "e64b230b",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf1688",
+          "pointer": "0x176805690",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x296940",
+      "parent_type": "8080b8e2",
+      "class_hash": "4a983085",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xed448",
+          "pointer": "0x17680a050",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ef268",
+      "parent_type": "8080b8e2",
+      "class_hash": "afd19b31",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2523c8",
+          "pointer": "0x178e73970",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x371e48",
+      "parent_type": "8080b8e2",
+      "class_hash": "48a6eaa1",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24f488",
+          "pointer": "0x178e6fe70",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x382c28",
+      "parent_type": "8080b8e2",
+      "class_hash": "5d7ae522",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24fe18",
+          "pointer": "0x178e75050",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x387c28",
+      "parent_type": "8080b8e2",
+      "class_hash": "64443c1f",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x250138",
+          "pointer": "0x178e72a90",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x40ebf8",
+      "parent_type": "8080b8e2",
+      "class_hash": "0559ca5c",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe2ce8",
+          "pointer": "0x176802760",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x449ca8",
+      "parent_type": "8080b8e2",
+      "class_hash": "66a63d22",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe55b8",
+          "pointer": "0x1767ff860",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1c8740",
+      "parent_type": "8080b8a0",
+      "class_hash": "b4f9b784",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe7788",
+          "pointer": "0x1767f8e40",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x294a50",
+      "parent_type": "8080b8a0",
+      "class_hash": "487ec15d",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a3be8",
+          "pointer": "0x178ee0870",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a1508",
+      "parent_type": "8080b8a0",
+      "class_hash": "56fb712c",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe4fc8",
+          "pointer": "0x1767f7280",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x766f0",
+      "parent_type": "8080baf7",
+      "class_hash": "00cf1fb3",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf3c98",
+          "pointer": "0x17681e310",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x76f60",
+      "parent_type": "8080baf7",
+      "class_hash": "014fe3b4",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2198a8",
+          "pointer": "0x178e1a0d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x92a90",
+      "parent_type": "8080baf7",
+      "class_hash": "10055f81",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2456c8",
+          "pointer": "0x178e5dec0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xa08d0",
+      "parent_type": "8080baf7",
+      "class_hash": "174617ce",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25d3c8",
+          "pointer": "0x178e79f00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xa4b20",
+      "parent_type": "8080baf7",
+      "class_hash": "193ab07b",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x299cd8",
+          "pointer": "0x178ed24e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xba3c0",
+      "parent_type": "8080baf7",
+      "class_hash": "24732a3b",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a2608",
+          "pointer": "0x178ee9c50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xba4d0",
+      "parent_type": "8080baf7",
+      "class_hash": "24809761",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24e328",
+          "pointer": "0x178e702b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xbd910",
+      "parent_type": "8080baf7",
+      "class_hash": "264de8b4",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a2728",
+          "pointer": "0x178ed9410",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xc0430",
+      "parent_type": "8080baf7",
+      "class_hash": "2775bd23",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x245e98",
+          "pointer": "0x178e65ac0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xd09f0",
+      "parent_type": "8080baf7",
+      "class_hash": "305734fd",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a2d78",
+          "pointer": "0x178ee8410",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xd4d60",
+      "parent_type": "8080baf7",
+      "class_hash": "32bab685",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2461e8",
+          "pointer": "0x178e61e80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xd4ec0",
+      "parent_type": "8080baf7",
+      "class_hash": "32bc9f80",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xec988",
+          "pointer": "0x176809cb0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xdd420",
+      "parent_type": "8080baf7",
+      "class_hash": "372c0baa",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a3258",
+          "pointer": "0x178eea830",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xdd6f0",
+      "parent_type": "8080baf7",
+      "class_hash": "375cfb84",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24ec78",
+          "pointer": "0x178e6f070",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xed4c0",
+      "parent_type": "8080baf7",
+      "class_hash": "407fc088",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24f138",
+          "pointer": "0x178e6d9b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0xf2870",
+      "parent_type": "8080baf7",
+      "class_hash": "431fd36d",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24f248",
+          "pointer": "0x178e6a8f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x10adb0",
+      "parent_type": "8080baf7",
+      "class_hash": "50caddf6",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x246b18",
+          "pointer": "0x178e61a00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x10dce0",
+      "parent_type": "8080baf7",
+      "class_hash": "526b9d49",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf5dd8",
+          "pointer": "0x176814b10",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x11afa0",
+      "parent_type": "8080baf7",
+      "class_hash": "5934b86f",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a4548",
+          "pointer": "0x178edc590",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x121690",
+      "parent_type": "8080baf7",
+      "class_hash": "5cca2fce",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x267ba8",
+          "pointer": "0x178e9c4c0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x133aa0",
+      "parent_type": "8080baf7",
+      "class_hash": "66a8e982",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247258",
+          "pointer": "0x178e64f60",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x136720",
+      "parent_type": "8080baf7",
+      "class_hash": "6843123e",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28dc58",
+          "pointer": "0x178eb8d20",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x140530",
+      "parent_type": "8080baf7",
+      "class_hash": "6c659681",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247478",
+          "pointer": "0x178e62f20",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x142040",
+      "parent_type": "8080baf7",
+      "class_hash": "6d2dccca",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2474e8",
+          "pointer": "0x178e5e300",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x152590",
+      "parent_type": "8080baf7",
+      "class_hash": "75e91113",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a5648",
+          "pointer": "0x178ee5730",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x156b40",
+      "parent_type": "8080baf7",
+      "class_hash": "77ebc013",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a5748",
+          "pointer": "0x178ee7970",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x15a3c0",
+      "parent_type": "8080baf7",
+      "class_hash": "79d4e61c",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2865e8",
+          "pointer": "0x178eaa050",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x15e810",
+      "parent_type": "8080baf7",
+      "class_hash": "7c6e9a50",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247978",
+          "pointer": "0x178e65900",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x180840",
+      "parent_type": "8080baf7",
+      "class_hash": "8db84ffd",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247f58",
+          "pointer": "0x178e664a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x181150",
+      "parent_type": "8080baf7",
+      "class_hash": "8e15febf",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247f78",
+          "pointer": "0x178e60040",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x190110",
+      "parent_type": "8080baf7",
+      "class_hash": "95db99fd",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x248178",
+          "pointer": "0x178e62440",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x192000",
+      "parent_type": "8080baf7",
+      "class_hash": "96b39337",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x286d38",
+          "pointer": "0x178ea9f70",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1a3160",
+      "parent_type": "8080baf7",
+      "class_hash": "9ff81cbc",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x240158",
+          "pointer": "0x178e58090",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1a39b0",
+      "parent_type": "8080baf7",
+      "class_hash": "a0593347",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe6e88",
+          "pointer": "0x1767fdda0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1bef10",
+      "parent_type": "8080baf7",
+      "class_hash": "b038bbdc",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf85d8",
+          "pointer": "0x17681ab10",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1c8f40",
+      "parent_type": "8080baf7",
+      "class_hash": "b53e60ea",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28ee08",
+          "pointer": "0x178eb4100",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1d8130",
+      "parent_type": "8080baf7",
+      "class_hash": "bd56f7c9",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25ebf8",
+          "pointer": "0x178e7d6e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1d8660",
+      "parent_type": "8080baf7",
+      "class_hash": "bd9483f3",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21dfa8",
+          "pointer": "0x178e1d090",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1daf70",
+      "parent_type": "8080baf7",
+      "class_hash": "bed79614",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x26c9b8",
+          "pointer": "0x178e9a980",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1dbe70",
+      "parent_type": "8080baf7",
+      "class_hash": "bf69b508",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2876e8",
+          "pointer": "0x178ead6b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1e6540",
+      "parent_type": "8080baf7",
+      "class_hash": "c575213e",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249078",
+          "pointer": "0x178e62140",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1e66d0",
+      "parent_type": "8080baf7",
+      "class_hash": "c57ce63a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249088",
+          "pointer": "0x178e5e240",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1edd80",
+      "parent_type": "8080baf7",
+      "class_hash": "c9a7ffeb",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28f288",
+          "pointer": "0x178eb21a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1ee140",
+      "parent_type": "8080baf7",
+      "class_hash": "c9ccb676",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x26d278",
+          "pointer": "0x178e98fc0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1f16a0",
+      "parent_type": "8080baf7",
+      "class_hash": "cbc288e0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2491b8",
+          "pointer": "0x178e64620",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1f7750",
+      "parent_type": "8080baf7",
+      "class_hash": "cec51d37",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249268",
+          "pointer": "0x178e5e700",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1f7a00",
+      "parent_type": "8080baf7",
+      "class_hash": "ced4cacf",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2532b8",
+          "pointer": "0x178e68530",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x1fd170",
+      "parent_type": "8080baf7",
+      "class_hash": "d1ccddb2",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2493b8",
+          "pointer": "0x178e645e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x219910",
+      "parent_type": "8080baf7",
+      "class_hash": "e10cda03",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x253a38",
+          "pointer": "0x178e6f0d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x21d570",
+      "parent_type": "8080baf7",
+      "class_hash": "e2f6ba99",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x27dad8",
+          "pointer": "0x178ea5040",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x220ee0",
+      "parent_type": "8080baf7",
+      "class_hash": "e47ec8df",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2499c8",
+          "pointer": "0x178e63c80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2229e0",
+      "parent_type": "8080baf7",
+      "class_hash": "e5a20f2b",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249a48",
+          "pointer": "0x178e64ec0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x239f90",
+      "parent_type": "8080baf7",
+      "class_hash": "f27ae204",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe9078",
+          "pointer": "0x176801340",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x245760",
+      "parent_type": "8080baf7",
+      "class_hash": "f87c36bc",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249f68",
+          "pointer": "0x178e65760",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x24f000",
+      "parent_type": "8080baf7",
+      "class_hash": "fd57cdc2",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2aa658",
+          "pointer": "0x178ee12f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x253d80",
+      "parent_type": "8080baf7",
+      "class_hash": "ffb814ab",
+      "member_count": 4,
+      "registry_candidates": []
+    },
+    {
+      "vmp_offset": "0x2567b0",
+      "parent_type": "8080baf7",
+      "class_hash": "027f319c",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25d008",
+          "pointer": "0x178e7c880",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x257618",
+      "parent_type": "8080baf7",
+      "class_hash": "03643775",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24d498",
+          "pointer": "0x178e73f10",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x25a1a0",
+      "parent_type": "8080baf7",
+      "class_hash": "061d118c",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x219ab8",
+          "pointer": "0x178e17df0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x25bab8",
+      "parent_type": "8080baf7",
+      "class_hash": "08172f25",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x219b48",
+          "pointer": "0x178e1bf10",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x25bb30",
+      "parent_type": "8080baf7",
+      "class_hash": "082a6f77",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2453e8",
+          "pointer": "0x178e5e860",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x25f648",
+      "parent_type": "8080baf7",
+      "class_hash": "0c4511c6",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24d838",
+          "pointer": "0x178e74350",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x260ec0",
+      "parent_type": "8080baf7",
+      "class_hash": "0de9d8ea",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a1838",
+          "pointer": "0x178ee9fb0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2612a0",
+      "parent_type": "8080baf7",
+      "class_hash": "0e31b50c",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24d8e8",
+          "pointer": "0x178e74ab0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2634a0",
+      "parent_type": "8080baf7",
+      "class_hash": "104f1578",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2456e8",
+          "pointer": "0x178e5dbe0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x264150",
+      "parent_type": "8080baf7",
+      "class_hash": "112392a6",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x284c98",
+          "pointer": "0x178eafdf0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x267b60",
+      "parent_type": "8080baf7",
+      "class_hash": "13f730ba",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x264338",
+          "pointer": "0x178e8c660",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x268048",
+      "parent_type": "8080baf7",
+      "class_hash": "1471eafe",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x23c0d8",
+          "pointer": "0x178e50930",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x26b1a0",
+      "parent_type": "8080baf7",
+      "class_hash": "18690b79",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24dd38",
+          "pointer": "0x178e67e10",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x26be30",
+      "parent_type": "8080baf7",
+      "class_hash": "19142e04",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21a248",
+          "pointer": "0x178e1a110",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x26c688",
+      "parent_type": "8080baf7",
+      "class_hash": "198320e2",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2459b8",
+          "pointer": "0x178e603c0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x273008",
+      "parent_type": "8080baf7",
+      "class_hash": "228cc5b9",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x27adb8",
+          "pointer": "0x178ea3480",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x273478",
+      "parent_type": "8080baf7",
+      "class_hash": "22bfc6c3",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x245d18",
+          "pointer": "0x178e655c0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x278ae8",
+      "parent_type": "8080baf7",
+      "class_hash": "28fc44f0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24e558",
+          "pointer": "0x178e6b1d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x27afc0",
+      "parent_type": "8080baf7",
+      "class_hash": "2acb1463",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x29a528",
+          "pointer": "0x178ecb960",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x27b4f8",
+      "parent_type": "8080baf7",
+      "class_hash": "2b36b38e",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24e688",
+          "pointer": "0x178e70a30",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x27c380",
+      "parent_type": "8080baf7",
+      "class_hash": "2c4d15f7",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x245fd8",
+          "pointer": "0x178e66720",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x27d4a0",
+      "parent_type": "8080baf7",
+      "class_hash": "2d5d4447",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf4e58",
+          "pointer": "0x1768139f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2826f8",
+      "parent_type": "8080baf7",
+      "class_hash": "333aebee",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2461f8",
+          "pointer": "0x178e5d120",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x282fb8",
+      "parent_type": "8080baf7",
+      "class_hash": "34140d0a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21ac18",
+          "pointer": "0x178e1cf50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2850c8",
+      "parent_type": "8080baf7",
+      "class_hash": "36dcba0c",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a3208",
+          "pointer": "0x178eeab50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x289598",
+      "parent_type": "8080baf7",
+      "class_hash": "3bb56729",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xecd08",
+          "pointer": "0x17680abb0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x28b568",
+      "parent_type": "8080baf7",
+      "class_hash": "3d6ccf21",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe4538",
+          "pointer": "0x1767fc2e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x28be30",
+      "parent_type": "8080baf7",
+      "class_hash": "3dd45e9b",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a3618",
+          "pointer": "0x178ee8bf0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2904c8",
+      "parent_type": "8080baf7",
+      "class_hash": "433efc2d",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24f258",
+          "pointer": "0x178e6f2b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2942c0",
+      "parent_type": "8080baf7",
+      "class_hash": "47bba623",
+      "member_count": 18,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25daa8",
+          "pointer": "0x178e7c580",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x294c18",
+      "parent_type": "8080baf7",
+      "class_hash": "4888a5cd",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x266cb8",
+          "pointer": "0x178e9c600",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2993b8",
+      "parent_type": "8080baf7",
+      "class_hash": "4da581c4",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24f6f8",
+          "pointer": "0x178e6d490",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x29a4c0",
+      "parent_type": "8080baf7",
+      "class_hash": "4eabd47f",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28d638",
+          "pointer": "0x178eb2680",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x29a898",
+      "parent_type": "8080baf7",
+      "class_hash": "4ef0106e",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xed648",
+          "pointer": "0x17680ad30",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x29b068",
+      "parent_type": "8080baf7",
+      "class_hash": "4f48fec0",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x246a98",
+          "pointer": "0x178e606a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x29c3f8",
+      "parent_type": "8080baf7",
+      "class_hash": "50c838e9",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24f858",
+          "pointer": "0x178e6ac90",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x29cbd8",
+      "parent_type": "8080baf7",
+      "class_hash": "518d9f3f",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x246b88",
+          "pointer": "0x178e63460",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a08a8",
+      "parent_type": "8080baf7",
+      "class_hash": "55aa73f4",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21b878",
+          "pointer": "0x178e12510",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a1bb0",
+      "parent_type": "8080baf7",
+      "class_hash": "5785721e",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a4418",
+          "pointer": "0x178ee4bf0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a25e8",
+      "parent_type": "8080baf7",
+      "class_hash": "580e8aaa",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24fb78",
+          "pointer": "0x178e6b810",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a73b8",
+      "parent_type": "8080baf7",
+      "class_hash": "5db61f5a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24fe48",
+          "pointer": "0x178e732d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a7b68",
+      "parent_type": "8080baf7",
+      "class_hash": "5e2824e2",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24fe98",
+          "pointer": "0x178e713b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a8890",
+      "parent_type": "8080baf7",
+      "class_hash": "5ef661c7",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a4848",
+          "pointer": "0x178ee9670",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2a9f80",
+      "parent_type": "8080baf7",
+      "class_hash": "611c3d39",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x250038",
+          "pointer": "0x178e6e410",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ab480",
+      "parent_type": "8080baf7",
+      "class_hash": "62e1af3d",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe5468",
+          "pointer": "0x176800f80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2acbf0",
+      "parent_type": "8080baf7",
+      "class_hash": "64be0fc2",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28db58",
+          "pointer": "0x178eb5fc0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ae910",
+      "parent_type": "8080baf7",
+      "class_hash": "66e9692c",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247268",
+          "pointer": "0x178e5ec00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2af6d0",
+      "parent_type": "8080baf7",
+      "class_hash": "67a822c1",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a4d48",
+          "pointer": "0x178ee2a30",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2b0dc8",
+      "parent_type": "8080baf7",
+      "class_hash": "69a740f7",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe56b8",
+          "pointer": "0x1767fb340",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2b66a0",
+      "parent_type": "8080baf7",
+      "class_hash": "70a0cc50",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21c368",
+          "pointer": "0x178e15df0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2b7b70",
+      "parent_type": "8080baf7",
+      "class_hash": "71c1910b",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe5a38",
+          "pointer": "0x1767f7380",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2bf0e0",
+      "parent_type": "8080baf7",
+      "class_hash": "78cae349",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21c668",
+          "pointer": "0x178e1b1d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2bfd90",
+      "parent_type": "8080baf7",
+      "class_hash": "79c88b2e",
+      "member_count": 6,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x269268",
+          "pointer": "0x178e9ad20",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2c3cf0",
+      "parent_type": "8080baf7",
+      "class_hash": "7e0d6164",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xeea68",
+          "pointer": "0x1768081d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2c4a98",
+      "parent_type": "8080baf7",
+      "class_hash": "7f11ce88",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21c8b8",
+          "pointer": "0x178e1d6f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2c6038",
+      "parent_type": "8080baf7",
+      "class_hash": "80d7b899",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x250ec8",
+          "pointer": "0x178e72510",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2c7ff0",
+      "parent_type": "8080baf7",
+      "class_hash": "83597d4f",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xeecd8",
+          "pointer": "0x1768098b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ca760",
+      "parent_type": "8080baf7",
+      "class_hash": "864c929a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21cac8",
+          "pointer": "0x178e159d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2cef30",
+      "parent_type": "8080baf7",
+      "class_hash": "8abf78bc",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247e98",
+          "pointer": "0x178e5ece0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2d64d0",
+      "parent_type": "8080baf7",
+      "class_hash": "92e3b731",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf79f8",
+          "pointer": "0x176817690",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2d96d0",
+      "parent_type": "8080baf7",
+      "class_hash": "954ee294",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x251838",
+          "pointer": "0x178e68b50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2dd018",
+      "parent_type": "8080baf7",
+      "class_hash": "99be9295",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x251a28",
+          "pointer": "0x178e6a1d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2dd3c0",
+      "parent_type": "8080baf7",
+      "class_hash": "9a15b1ba",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a6c28",
+          "pointer": "0x178ee00f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2e4230",
+      "parent_type": "8080baf7",
+      "class_hash": "a323a130",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf80d8",
+          "pointer": "0x1768156d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2e5ef0",
+      "parent_type": "8080baf7",
+      "class_hash": "a5849d11",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2485f8",
+          "pointer": "0x178e5fb00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2e7588",
+      "parent_type": "8080baf7",
+      "class_hash": "a760087e",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x240408",
+          "pointer": "0x178e53c70",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ec828",
+      "parent_type": "8080baf7",
+      "class_hash": "ad20af5a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x248888",
+          "pointer": "0x178e65840",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2eca98",
+      "parent_type": "8080baf7",
+      "class_hash": "ad52fd2c",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2488b8",
+          "pointer": "0x178e64500",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f4420",
+      "parent_type": "8080baf7",
+      "class_hash": "b575497d",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21dcd8",
+          "pointer": "0x178e18110",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f4ee0",
+      "parent_type": "8080baf7",
+      "class_hash": "b67cc2b8",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a7d38",
+          "pointer": "0x178ee19f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f5030",
+      "parent_type": "8080baf7",
+      "class_hash": "b68c7797",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x252708",
+          "pointer": "0x178e747f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f61f0",
+      "parent_type": "8080baf7",
+      "class_hash": "b7b0bebd",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf89a8",
+          "pointer": "0x17681b7f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f6890",
+      "parent_type": "8080baf7",
+      "class_hash": "b80ef7ab",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21dda8",
+          "pointer": "0x178e14330",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f7ba8",
+      "parent_type": "8080baf7",
+      "class_hash": "b9405689",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2528b8",
+          "pointer": "0x178e68650",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f8100",
+      "parent_type": "8080baf7",
+      "class_hash": "b98ad781",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x248ca8",
+          "pointer": "0x178e62720",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2f94a8",
+      "parent_type": "8080baf7",
+      "class_hash": "baafad9f",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x252988",
+          "pointer": "0x178e76170",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2fb6d0",
+      "parent_type": "8080baf7",
+      "class_hash": "bd333a2f",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x252a48",
+          "pointer": "0x178e6ddd0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2fd2c0",
+      "parent_type": "8080baf7",
+      "class_hash": "bf24251d",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf8d28",
+          "pointer": "0x17681e4d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2fd840",
+      "parent_type": "8080baf7",
+      "class_hash": "bf84799f",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe7c38",
+          "pointer": "0x1767fce00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ff078",
+      "parent_type": "8080baf7",
+      "class_hash": "c0c965cc",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a82d8",
+          "pointer": "0x178edd950",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x2ffa40",
+      "parent_type": "8080baf7",
+      "class_hash": "c19cd2e1",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x252ca8",
+          "pointer": "0x178e75490",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x304aa8",
+      "parent_type": "8080baf7",
+      "class_hash": "c699aa5c",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2490b8",
+          "pointer": "0x178e5e200",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x306090",
+      "parent_type": "8080baf7",
+      "class_hash": "c815987c",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf9128",
+          "pointer": "0x17681e9b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x306ff8",
+      "parent_type": "8080baf7",
+      "class_hash": "c919a7bf",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x27d3b8",
+          "pointer": "0x178ea2d00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x308358",
+      "parent_type": "8080baf7",
+      "class_hash": "cb177636",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf0c18",
+          "pointer": "0x1768049d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x308a08",
+      "parent_type": "8080baf7",
+      "class_hash": "cb69aaf3",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2491a8",
+          "pointer": "0x178e61f80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x30a710",
+      "parent_type": "8080baf7",
+      "class_hash": "cd517dd1",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2531b8",
+          "pointer": "0x178e71690",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x30b840",
+      "parent_type": "8080baf7",
+      "class_hash": "ce850a7a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x287a98",
+          "pointer": "0x178ea9bd0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x30ffe0",
+      "parent_type": "8080baf7",
+      "class_hash": "d39b90b9",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf9518",
+          "pointer": "0x176818e30",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x311378",
+      "parent_type": "8080baf7",
+      "class_hash": "d57f4214",
+      "member_count": 2,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf1028",
+          "pointer": "0x176809eb0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x315008",
+      "parent_type": "8080baf7",
+      "class_hash": "da078caf",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf1228",
+          "pointer": "0x176811310",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x316880",
+      "parent_type": "8080baf7",
+      "class_hash": "dc4dd576",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2496f8",
+          "pointer": "0x178e64fa0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x316c10",
+      "parent_type": "8080baf7",
+      "class_hash": "dc88dfc3",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249708",
+          "pointer": "0x178e5c5c0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x316ca8",
+      "parent_type": "8080baf7",
+      "class_hash": "dc8edafe",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a93e8",
+          "pointer": "0x178ee7850",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x317508",
+      "parent_type": "8080baf7",
+      "class_hash": "dd7881e5",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf9988",
+          "pointer": "0x176819470",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3177f0",
+      "parent_type": "8080baf7",
+      "class_hash": "dddcfdf5",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21ea28",
+          "pointer": "0x178e195b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x31c890",
+      "parent_type": "8080baf7",
+      "class_hash": "e4626676",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2499a8",
+          "pointer": "0x178e60d60",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x31cce8",
+      "parent_type": "8080baf7",
+      "class_hash": "e4a2aaaf",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x253c38",
+          "pointer": "0x178e70730",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x321300",
+      "parent_type": "8080baf7",
+      "class_hash": "e916e19a",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a9a68",
+          "pointer": "0x178ee3b50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x324a98",
+      "parent_type": "8080baf7",
+      "class_hash": "ec5b40b1",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x253f88",
+          "pointer": "0x178e73510",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x325310",
+      "parent_type": "8080baf7",
+      "class_hash": "ed037131",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x253fe8",
+          "pointer": "0x178e68470",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x327168",
+      "parent_type": "8080baf7",
+      "class_hash": "efb94f02",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x297e78",
+          "pointer": "0x178ec61f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3282f8",
+      "parent_type": "8080baf7",
+      "class_hash": "f12e1589",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xfa048",
+          "pointer": "0x1768193f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x329c58",
+      "parent_type": "8080baf7",
+      "class_hash": "f2b57bc5",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2542d8",
+          "pointer": "0x178e6fa70",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x32acf0",
+      "parent_type": "8080baf7",
+      "class_hash": "f3a03fce",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2aa078",
+          "pointer": "0x178edccf0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x32b5f0",
+      "parent_type": "8080baf7",
+      "class_hash": "f3ff54a6",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x254358",
+          "pointer": "0x178e76150",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x32c170",
+      "parent_type": "8080baf7",
+      "class_hash": "f4bff5ed",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe9108",
+          "pointer": "0x1768019a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x32c1e8",
+      "parent_type": "8080baf7",
+      "class_hash": "f4c95558",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xfa208",
+          "pointer": "0x1768136f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x32d578",
+      "parent_type": "8080baf7",
+      "class_hash": "f61199cd",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x254498",
+          "pointer": "0x178e67d10",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x32d918",
+      "parent_type": "8080baf7",
+      "class_hash": "f684e7d3",
+      "member_count": 4,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28fd88",
+          "pointer": "0x178eb6860",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3302f8",
+      "parent_type": "8080baf7",
+      "class_hash": "f94d5939",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x249fb8",
+          "pointer": "0x178e63700",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x331af8",
+      "parent_type": "8080baf7",
+      "class_hash": "fadd33ee",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24a078",
+          "pointer": "0x178e60380",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x334720",
+      "parent_type": "8080baf7",
+      "class_hash": "fdd739c1",
+      "member_count": 0,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x254838",
+          "pointer": "0x178e751d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x33a5b8",
+      "parent_type": "8080baf7",
+      "class_hash": "051859de",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x219a48",
+          "pointer": "0x178e1bbd0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3475b8",
+      "parent_type": "8080baf7",
+      "class_hash": "15a605ad",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28c8b8",
+          "pointer": "0x178eb3ca0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x367298",
+      "parent_type": "8080baf7",
+      "class_hash": "3c107815",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28d208",
+          "pointer": "0x178eb26e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x383318",
+      "parent_type": "8080baf7",
+      "class_hash": "5e5c6bf2",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24fea8",
+          "pointer": "0x178e709d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x38ccc8",
+      "parent_type": "8080baf7",
+      "class_hash": "69d97a0a",
+      "member_count": 7,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf6808",
+          "pointer": "0x17681d9f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3acac8",
+      "parent_type": "8080baf7",
+      "class_hash": "8e7c9e3c",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247fa8",
+          "pointer": "0x178e60ee0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3bab08",
+      "parent_type": "8080baf7",
+      "class_hash": "9eb9f4af",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe6dd8",
+          "pointer": "0x176800600",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3bbc28",
+      "parent_type": "8080baf7",
+      "class_hash": "9fd49e3d",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x240128",
+          "pointer": "0x178e54d50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3bf188",
+      "parent_type": "8080baf7",
+      "class_hash": "a3bd831a",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x26b308",
+          "pointer": "0x178e99d80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3c5668",
+      "parent_type": "8080baf7",
+      "class_hash": "ab944ebb",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x240568",
+          "pointer": "0x178e5a790",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3d4d38",
+      "parent_type": "8080baf7",
+      "class_hash": "bec45ffa",
+      "member_count": 5,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe7c08",
+          "pointer": "0x1767f7b20",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3d5d98",
+      "parent_type": "8080baf7",
+      "class_hash": "c0157405",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x26ca88",
+          "pointer": "0x178e9bbe0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x3e8438",
+      "parent_type": "8080baf7",
+      "class_hash": "d5ee85a3",
+      "member_count": 3,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28f608",
+          "pointer": "0x178eb2d00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x404c08",
+      "parent_type": "8080baf7",
+      "class_hash": "f8531580",
+      "member_count": 7,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2aa3a8",
+          "pointer": "0x178ee6470",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x411f18",
+      "parent_type": "8080baf7",
+      "class_hash": "0b1405c1",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x284b88",
+          "pointer": "0x178ea9670",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x412418",
+      "parent_type": "8080baf7",
+      "class_hash": "0b798915",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24d7f8",
+          "pointer": "0x178e74d90",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x41cfc0",
+      "parent_type": "8080baf7",
+      "class_hash": "1efadedf",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a2248",
+          "pointer": "0x178ee3d90",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x42b9e0",
+      "parent_type": "8080baf7",
+      "class_hash": "36d390ab",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf5208",
+          "pointer": "0x176818990",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x42d8a8",
+      "parent_type": "8080baf7",
+      "class_hash": "39cdaec8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf5328",
+          "pointer": "0x17681a650",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x42f978",
+      "parent_type": "8080baf7",
+      "class_hash": "3dad34b5",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x24efd8",
+          "pointer": "0x178e67b70",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x432538",
+      "parent_type": "8080baf7",
+      "class_hash": "42345467",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x266898",
+          "pointer": "0x178e862a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x434858",
+      "parent_type": "8080baf7",
+      "class_hash": "45bdc422",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe4968",
+          "pointer": "0x1767fc8c0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x43d270",
+      "parent_type": "8080baf7",
+      "class_hash": "522cac42",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x23e7b8",
+          "pointer": "0x178e561b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x442658",
+      "parent_type": "8080baf7",
+      "class_hash": "5aa0d3c1",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28d928",
+          "pointer": "0x178eb7f80",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x447278",
+      "parent_type": "8080baf7",
+      "class_hash": "6218a7f9",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe5428",
+          "pointer": "0x1768021a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x44ea80",
+      "parent_type": "8080baf7",
+      "class_hash": "6f9243c1",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2862c8",
+          "pointer": "0x178ead490",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x451058",
+      "parent_type": "8080baf7",
+      "class_hash": "73363ea4",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x23f328",
+          "pointer": "0x178e55c50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x457a18",
+      "parent_type": "8080baf7",
+      "class_hash": "7e835870",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a5af8",
+          "pointer": "0x178eea050",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x458d30",
+      "parent_type": "8080baf7",
+      "class_hash": "8019faba",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247ad8",
+          "pointer": "0x178e64ba0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x45bc48",
+      "parent_type": "8080baf7",
+      "class_hash": "85649fd5",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf7388",
+          "pointer": "0x176814c50",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x45bcd0",
+      "parent_type": "8080baf7",
+      "class_hash": "856566d7",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a5f38",
+          "pointer": "0x178ed8cd0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x45c538",
+      "parent_type": "8080baf7",
+      "class_hash": "86a7032d",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25e488",
+          "pointer": "0x178e79600",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x45c5c0",
+      "parent_type": "8080baf7",
+      "class_hash": "86abce11",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x247d08",
+          "pointer": "0x178e630e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x45f448",
+      "parent_type": "8080baf7",
+      "class_hash": "8bce0fbb",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28e498",
+          "pointer": "0x178eb8500",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x461708",
+      "parent_type": "8080baf7",
+      "class_hash": "8f326eea",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25e608",
+          "pointer": "0x178e7cd00",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x4642b8",
+      "parent_type": "8080baf7",
+      "class_hash": "94c3fc73",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2517f8",
+          "pointer": "0x178e6bb70",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x465238",
+      "parent_type": "8080baf7",
+      "class_hash": "96414615",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x251888",
+          "pointer": "0x178e74170",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x465e40",
+      "parent_type": "8080baf7",
+      "class_hash": "973923ba",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x21d0d8",
+          "pointer": "0x178e19fb0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x466df8",
+      "parent_type": "8080baf7",
+      "class_hash": "98edd91a",
+      "member_count": 5,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x2a6b78",
+          "pointer": "0x178edd4d0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x467030",
+      "parent_type": "8080baf7",
+      "class_hash": "9928ef09",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe6bd8",
+          "pointer": "0x1767f7700",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x474dc8",
+      "parent_type": "8080baf7",
+      "class_hash": "b18c52c8",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28ed58",
+          "pointer": "0x178eb2fe0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x475930",
+      "parent_type": "8080baf7",
+      "class_hash": "b2413f5a",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28ed68",
+          "pointer": "0x178eb86e0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x478e58",
+      "parent_type": "8080baf7",
+      "class_hash": "b7b407cc",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25eb48",
+          "pointer": "0x178e7ad20",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x482fc0",
+      "parent_type": "8080baf7",
+      "class_hash": "c854ab1f",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x25edf8",
+          "pointer": "0x178e7ccc0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x483390",
+      "parent_type": "8080baf7",
+      "class_hash": "c89425e1",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x29efa8",
+          "pointer": "0x178ece240",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x487540",
+      "parent_type": "8080baf7",
+      "class_hash": "cfce2c20",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xf0e08",
+          "pointer": "0x1768094f0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x48ae38",
+      "parent_type": "8080baf7",
+      "class_hash": "d56a7bf3",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x287bd8",
+          "pointer": "0x178ead910",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x48e3f0",
+      "parent_type": "8080baf7",
+      "class_hash": "dae6cb27",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe8818",
+          "pointer": "0x1767f99a0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x493f18",
+      "parent_type": "8080baf7",
+      "class_hash": "e3c773ab",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x27db28",
+          "pointer": "0x178ea5b40",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x497870",
+      "parent_type": "8080baf7",
+      "class_hash": "e9c9560c",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x253e38",
+          "pointer": "0x178e700b0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x499ca8",
+      "parent_type": "8080baf7",
+      "class_hash": "ed743e07",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0x28fb38",
+          "pointer": "0x178eb5860",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "vmp_offset": "0x49cf38",
+      "parent_type": "8080baf7",
+      "class_hash": "f2b46070",
+      "member_count": 1,
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe9088",
+          "pointer": "0x1767fefc0",
+          "modeled_data_prefix": "00000000000000000000000000000000"
+        }
+      ]
+    }
+  ],
+  "warning": "Sorted hash/pointer adjacency and shared hashes are observed; registry meaning, code entry and runtime initialization remain unverified."
+}

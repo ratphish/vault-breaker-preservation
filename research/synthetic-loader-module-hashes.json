@@ -1,0 +1,122 @@
+{
+  "seed": "b5f17e87f48f6943",
+  "algorithm": "FNV-1 over lowercase UTF-16LE bytes and first NUL byte",
+  "verified_samples": 22,
+  "modules": [
+    {
+      "module": "Marathon.exe",
+      "hash_before_terminator": "981c2842c44a3ddf",
+      "compared_hash": "c21648738a2721ed"
+    },
+    {
+      "module": "ntdll.dll",
+      "hash_before_terminator": "c55a7828e8c37597",
+      "compared_hash": "1c2fc4838420cf95"
+    },
+    {
+      "module": "kernel32.dll",
+      "hash_before_terminator": "78350ce2ebd2f55b",
+      "compared_hash": "151a4096b776e9a1"
+    },
+    {
+      "module": "kernelbase.dll",
+      "hash_before_terminator": "942154052f467c67",
+      "compared_hash": "fb1e2bcf54c56305"
+    },
+    {
+      "module": "user32.dll",
+      "hash_before_terminator": "547a1b1b3a668a89",
+      "compared_hash": "f20698443c3d66cb"
+    },
+    {
+      "module": "shell32.dll",
+      "hash_before_terminator": "8345b73ec868250c",
+      "compared_hash": "779b6bae88f6f364"
+    },
+    {
+      "module": "shlwapi.dll",
+      "hash_before_terminator": "fe5b027718143689",
+      "compared_hash": "48dbb95dea58aacb"
+    },
+    {
+      "module": "gdi32.dll",
+      "hash_before_terminator": "f9f8341324709450",
+      "compared_hash": "3154cc86eb4c03f0"
+    },
+    {
+      "module": "ole32.dll",
+      "hash_before_terminator": "bbfef7e2864dda24",
+      "compared_hash": "c01959ea3649ab2c"
+    },
+    {
+      "module": "oleaut32.dll",
+      "hash_before_terminator": "40c83ed801c6fbe4",
+      "compared_hash": "db3ead0b051e046c"
+    },
+    {
+      "module": "d3d11.dll",
+      "hash_before_terminator": "3d7a31accab7ca10",
+      "compared_hash": "2e6c789c764c5930"
+    },
+    {
+      "module": "d3d9.dll",
+      "hash_before_terminator": "e865a26fe081a4a3",
+      "compared_hash": "6657a71a7c4ac0f9"
+    },
+    {
+      "module": "dxgi.dll",
+      "hash_before_terminator": "10d3e6d8b9b89873",
+      "compared_hash": "50a9b54394ab0b69"
+    },
+    {
+      "module": "winmm.dll",
+      "hash_before_terminator": "16f519ed99fc6169",
+      "compared_hash": "fedc77bca7d9856b"
+    },
+    {
+      "module": "msacm32.dll",
+      "hash_before_terminator": "8b2cdc3399b71b91",
+      "compared_hash": "3455bcae3223d763"
+    },
+    {
+      "module": "winhttp.dll",
+      "hash_before_terminator": "5079f19cc457d9e9",
+      "compared_hash": "170f7661a14746eb"
+    },
+    {
+      "module": "wininet.dll",
+      "hash_before_terminator": "a51c6a0850d9d447",
+      "compared_hash": "691c73216223b4a5"
+    },
+    {
+      "module": "setupapi.dll",
+      "hash_before_terminator": "79c531f4b4691064",
+      "compared_hash": "532446ce8e86d9ec"
+    },
+    {
+      "module": "imm32.dll",
+      "hash_before_terminator": "1d4582ea50efa421",
+      "compared_hash": "acc195278733e413"
+    },
+    {
+      "module": "d3d12.dll",
+      "hash_before_terminator": "dfe2c04fdaf90729",
+      "compared_hash": "6753f0b115272aab"
+    },
+    {
+      "module": "wintrust.dll",
+      "hash_before_terminator": "c5e1d3390e71c09d",
+      "compared_hash": "b07a86f38b4a4ac7"
+    },
+    {
+      "module": "wlanapi.dll",
+      "hash_before_terminator": "d9f4730741e2156d",
+      "compared_hash": "3c74e254f32a6837"
+    }
+  ],
+  "comparison_targets": [
+    "0xdd40f698da699da6"
+  ],
+  "crypt32_candidate_hash": "dd40f698da699da6",
+  "limitation": "Comparison verified in a synthetic execution; real-runtime reachability unverified."
+}

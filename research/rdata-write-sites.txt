@@ -1,0 +1,2 @@
+sampled_write_sites {'0x17004d61e': 30}
+first [{'address': '0x172c85210', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85211', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85212', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85213', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85214', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85215', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85216', 'size': 1, 'rip': '0x17004d61e'}, {'address': '0x172c85217', 'size': 1, 'rip': '0x17004d61e'}]

@@ -1,0 +1,55 @@
+{
+  "vmp_sha256": "7aa5f1d4e1182373ee9275af90f37e5dbba75c85a0c1d6580803f2c25c0a9742",
+  "records": 29896,
+  "unique_tags": 29896,
+  "records_with_registry_candidates": 29896,
+  "selected": [
+    {
+      "tag": "8080B8E2",
+      "class_hash": "0d84d3db",
+      "record_offset": "0x8daf0",
+      "record_size": 160,
+      "parent_word": "8080bad3",
+      "index_offset": "0x60f8",
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe30a8",
+          "pointer_field_offset": "0xe30a0",
+          "pointer": "0x1767fa240"
+        }
+      ]
+    },
+    {
+      "tag": "8080B8A0",
+      "class_hash": "caaa7a3e",
+      "record_offset": "0x1ef680",
+      "record_size": 144,
+      "parent_word": "8080b8a8",
+      "index_offset": "0x5c7e8",
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe80d8",
+          "pointer_field_offset": "0xe80d0",
+          "pointer": "0x1767faa80"
+        }
+      ]
+    },
+    {
+      "tag": "8080BAF7",
+      "class_hash": "fa606d3a",
+      "record_offset": "0x249de0",
+      "record_size": 176,
+      "parent_word": "ffffffff",
+      "index_offset": "0x723f8",
+      "registry_candidates": [
+        {
+          "rdata_offset": "0xe9388",
+          "pointer_field_offset": "0xe9380",
+          "pointer": "0x1767f6bc0"
+        }
+      ]
+    }
+  ],
+  "index_path": "D:\\Marathon-preservation\\analysis\\vmp-embedded-type-index-corrected.jsonl",
+  "warning": "Each candidate pairs a hash with the preceding pointer; runtime confirmation is limited to the synthetic checkpoint, and executable bindings remain unproven."
+}

@@ -1,0 +1,63 @@
+{
+  "image_sha256": {
+    "synthetic-text-section.bin": "e003a16dc5e495ee9b0b1b3824a46c9553e0bcbd038b432eddb3a55d7d450dca",
+    "rdata-synthetic-build26136895.bin": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42"
+  },
+  "targets": [
+    {
+      "slot": 0,
+      "name": "flatten_slot_from_source",
+      "fnv1": "0xdf8f7165",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 1,
+      "name": "discover_slot_dependencies",
+      "fnv1": "0x35dad7d1",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 2,
+      "name": "import_slot",
+      "fnv1": "0x142487b5",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 3,
+      "name": "simple_deep_copy",
+      "fnv1": "0xf5f28328",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 4,
+      "name": "default_instance_reference",
+      "fnv1": "0xce3f5cdc",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "slot": 5,
+      "name": "get_debug_string_short",
+      "fnv1": "0x96c2beb6",
+      "matches": {
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    }
+  ],
+  "warning": "Exact FNV-1 bytes only; accidental hits, protected encodings and undefined runtime hashing are possible."
+}

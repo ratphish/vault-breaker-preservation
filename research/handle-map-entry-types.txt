@@ -1,0 +1,4 @@
+type=16 subtype=0 first=index count=101
+type=16 subtype=0 first=sentinel count=2248
+type=8 subtype=0 first=index count=29415
+type=8 subtype=0 first=sentinel count=64341

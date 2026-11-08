@@ -1,0 +1,54 @@
+{
+  "image_sha256": "1c8f2a6e3cc77ad5b373afb368959968c78e571706974db051a32fabd0af459e",
+  "image_size": 851977728,
+  "patterns": 123,
+  "matches": [
+    {
+      "identifier": "activity_definition",
+      "kind": "u32",
+      "offsets": [
+        "0xbecc471",
+        "0xec6c1af"
+      ]
+    },
+    {
+      "identifier": "clear_filler_location_ui",
+      "kind": "fnv1",
+      "offsets": [
+        "0x2bd7f23"
+      ]
+    },
+    {
+      "identifier": "debug_force_vault_3",
+      "kind": "fnv1",
+      "offsets": [
+        "0x2f381216",
+        "0x31372e14"
+      ]
+    },
+    {
+      "identifier": "debug_force_vault_6",
+      "kind": "fnv1",
+      "offsets": [
+        "0x1f5b035c",
+        "0x31997e55"
+      ]
+    },
+    {
+      "identifier": "main",
+      "kind": "member_fnv1",
+      "offsets": [
+        "0x559efa9",
+        "0x63049a5",
+        "0x963fa58",
+        "0xa43e97b",
+        "0xf47dfad",
+        "0x1148b643",
+        "0x131102ec",
+        "0x142dc62d",
+        "0x14ca4f73"
+      ]
+    }
+  ],
+  "warning": "Exact bytes only; accidental matches and transformed/indirect bindings remain possible."
+}

@@ -1,0 +1,2 @@
+handle_map_win64.bin count 105877 header 0xb5873f84 crc_payload 0x975defad adler_payload 0xf1dfda96
+handle_map_win64.bin count 1180935 header 0x57c2603c crc_payload 0xa29d3ce adler_payload 0x812bb7b6

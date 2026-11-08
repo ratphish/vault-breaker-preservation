@@ -1,0 +1,28 @@
+OFFSET 0x5000600 FIRST 8b442428483d68080000e92475471d00
+0x145001000 mov eax, dword ptr [rsp + 0x28]
+0x145001004 cmp rax, 0x868
+0x14500100a jmp 0x162478533
+0x14500100f add byte ptr [rax], al
+0x145001011 add byte ptr [rax], al
+0x145001013 mov al, 0x38
+0x145001015 ret 
+0x145001016 push rdx
+0x145001017 jmp 0x14500101a
+0x145001019 idiv byte ptr [rdx + 0x1f8a34eb]
+0x14500101f nop dword ptr [rax*2]
+0x145001027 lea rdx, [rip - 0x13]
+OFFSET 0x10000600 FIRST 5c2418488958185b589d488d6424080f
+0x150001000 pop rsp
+0x150001001 and al, 0x18
+0x150001003 mov qword ptr [rax + 0x18], rbx
+0x150001007 pop rbx
+0x150001008 pop rax
+0x150001009 popfq 
+0x15000100a lea rsp, [rsp + 8]
+0x15000100f nop dword ptr [rax]
+0x150001012 cmp rax, 0xf68
+0x150001018 jmp 0x162478533
+0x15000101d mov al, 0xc2
+0x15000101f ret 
+OFFSET 0x2f000600 FIRST 7c14c6b359adf475fcbf8d89197ad476
+0x16f001000 jl 0x16f001016

@@ -1,0 +1,1 @@
+{"bytes_scanned": 851977728, "hits": [{"target_rva": "0x32d534f8", "disp_rva": "0x1d05192d", "event": null, "range_source": "original_unmodeled"}, {"target_rva": "0x32d882f0", "disp_rva": "0x2f37025e", "event": 80633, "range_source": "modeled"}], "warning": "Raw disp32 candidates include unchanged, unmodeled bytes; no instruction-boundary or reachability proof."}

@@ -1,0 +1,43 @@
+{
+  "dll_sha256": "24f182bb2127c007df04cc56063ceec5999a7dd714c133920310caa47295572a",
+  "export": "OodleLZDecoder_MemorySizeNeeded",
+  "export_address": "0x18006b950",
+  "results": [
+    {
+      "instructions": 57,
+      "return": true,
+      "compressor": 8,
+      "length": -1,
+      "result": 446680
+    },
+    {
+      "instructions": 59,
+      "return": true,
+      "compressor": 8,
+      "length": 1,
+      "result": 53467
+    },
+    {
+      "instructions": 59,
+      "return": true,
+      "compressor": 8,
+      "length": 65536,
+      "result": 250072
+    },
+    {
+      "instructions": 59,
+      "return": true,
+      "compressor": 8,
+      "length": 131072,
+      "result": 446680
+    },
+    {
+      "instructions": 59,
+      "return": true,
+      "compressor": 8,
+      "length": 200000,
+      "result": 446680
+    }
+  ],
+  "scope": "compressor 8, five lengths; emulated DLL code, no host calls"
+}

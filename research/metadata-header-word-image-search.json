@@ -1,0 +1,95 @@
+{
+  "records": [
+    {
+      "tag": "80A6A070",
+      "metadata_sha256": "a15cbf3c802c0134bf829ccf9fe239c1d7739d96b2caa911fd5e0bd38a300b36",
+      "word_at_8": "974699ea",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80A6A071",
+      "metadata_sha256": "3e79b693f37c215e0e86e23b1a39273d2422c2e02b80862ccf01cb0fda868bba",
+      "word_at_8": "84b1b1c5",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80A6A072",
+      "metadata_sha256": "a4ecaa89e6f45f41bee3179cb4b72cdf4703a9acdec087a5020377390cd9b9b6",
+      "word_at_8": "5d4aec09",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80B37C7E",
+      "metadata_sha256": "47ac143f154f28a237e7beb77d4c45f030eda9b28404ee8f35d5bc6bd40219f4",
+      "word_at_8": "e064302e",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80B38561",
+      "metadata_sha256": "c2e7983eaf8c318fc8a1dcde68b9a95ab52c3aa7864dcf216cb0dfd73bc253ff",
+      "word_at_8": "68936e81",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80B3B819",
+      "metadata_sha256": "49907f8a909962ec445525873ce800bc9881b15cb7c83e1901fb42b71926b2ef",
+      "word_at_8": "38dee8b6",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80B3DB5D",
+      "metadata_sha256": "8f4da71f4b095dc2a88e86ec357e55b99d99b3678bea8d90a72b8bf75ca7113d",
+      "word_at_8": "974699ea",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80B3DB5E",
+      "metadata_sha256": "fecd42fcf57cc5512a1b0f8502795b7468fc631e7ae712bda6a8aa647f8d4092",
+      "word_at_8": "84b1b1c5",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    },
+    {
+      "tag": "80B3DB5F",
+      "metadata_sha256": "2c21dd6ac0d9cb45c548683dd5419815a9e627f9d95e5e9cc23587da1b1a7620",
+      "word_at_8": "5d4aec09",
+      "images": {
+        "Marathon.exe": [],
+        "synthetic-text-section.bin": [],
+        "rdata-synthetic-build26136895.bin": []
+      }
+    }
+  ],
+  "warning": "Exact byte matches only; metadata word meaning, encrypted values and runtime associations are not established."
+}

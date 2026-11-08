@@ -1,0 +1,8 @@
+{"name": ".text", "virtual_address": "0x1000", "virtual_size": 851977308, "file_offset": "0x600", "raw_size": 851977728, "flags": "0x60000020", "sample_bytes": 1048576, "sample_entropy_bits_per_byte": 7.0692}
+{"name": ".rdata", "virtual_address": "0x32c84000", "virtual_size": 9107656, "file_offset": "0x32c82c00", "raw_size": 9107968, "flags": "0x40000040", "sample_bytes": 1048576, "sample_entropy_bits_per_byte": 6.7188}
+{"name": ".data", "virtual_address": "0x33534000", "virtual_size": 97987553, "file_offset": "0x33532600", "raw_size": 31288320, "flags": "0xc0000040", "sample_bytes": 1048576, "sample_entropy_bits_per_byte": 5.4482}
+{"name": ".pdata", "virtual_address": "0x392a7000", "virtual_size": 3509556, "file_offset": "0x35309200", "raw_size": 3509760, "flags": "0x40000040", "sample_bytes": 1048576, "sample_entropy_bits_per_byte": 6.5332}
+{"name": ".vmp0", "virtual_address": "0x39600000", "virtual_size": 6775136, "file_offset": "0x35662000", "raw_size": 6775296, "flags": "0x40000040", "sample_bytes": 1048576, "sample_entropy_bits_per_byte": 7.9998}
+{"name": "_RDATA", "virtual_address": "0x39c77000", "virtual_size": 142048, "file_offset": "0x35cd8200", "raw_size": 142336, "flags": "0x40000040", "sample_bytes": 142336, "sample_entropy_bits_per_byte": 7.9986}
+{"name": ".rsrc", "virtual_address": "0x39c9a000", "virtual_size": 112508, "file_offset": "0x35cfae00", "raw_size": 112640, "flags": "0x40000040", "sample_bytes": 112640, "sample_entropy_bits_per_byte": 3.7752}
+{"name": ".reloc", "virtual_address": "0x39cb6000", "virtual_size": 553440, "file_offset": "0x35d16600", "raw_size": 553472, "flags": "0x42000040", "sample_bytes": 553472, "sample_entropy_bits_per_byte": 5.4875}

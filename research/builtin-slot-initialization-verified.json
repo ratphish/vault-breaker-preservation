@@ -1,0 +1,24 @@
+{
+  "call_site": "0x1714e2875",
+  "registration_target": "0x16f8d4c40",
+  "descriptor": "0x176803788",
+  "descriptor_count": "0x3",
+  "records": [
+    {
+      "tag": "8080B8E2",
+      "global": "0x1767f69e0",
+      "initialized_first_word": "ffffffff"
+    },
+    {
+      "tag": "8080B8A0",
+      "global": "0x1767fa980",
+      "initialized_first_word": "ffffffff"
+    },
+    {
+      "tag": "8080BAF7",
+      "global": "0x1767f98e0",
+      "initialized_first_word": "ffffffff"
+    }
+  ],
+  "warning": "Artificial-state execution of modeled bytes, not proof of actual runtime reachability or method binding."
+}

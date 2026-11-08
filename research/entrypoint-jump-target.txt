@@ -1,0 +1,26 @@
+OFFSET 0x1a14d8ed VA 0x15a14e2ed FIRST eb005b5b50eb01939c4d0f4ce450480f
+0x15a14e2ed jmp 0x15a14e2ef
+0x15a14e2ef pop rbx
+0x15a14e2f0 pop rbx
+0x15a14e2f1 push rax
+0x15a14e2f2 jmp 0x15a14e2f5
+0x15a14e2f4 xchg ebx, eax
+0x15a14e2f5 pushfq 
+0x15a14e2f6 cmovl r12, r12
+0x15a14e2fa push rax
+0x15a14e2fb cmovbe rax, rax
+0x15a14e2ff push rcx
+0x15a14e300 push rsi
+0x15a14e301 xchg r13, r15
+0x15a14e304 xchg r13, r15
+0x15a14e307 push rbx
+0x15a14e308 xchg r12, r8
+0x15a14e30b xchg r8, r12
+0x15a14e30e push rdx
+0x15a14e30f jmp 0x161d19809
+0x15a14e314 ret 
+0x15a14e315 stosd dword ptr [rdi], eax
+0x15a14e316 out dx, eax
+0x15a14e318 jmp 0x15a14e375
+0x15a14e31a push r15
+0x15a14e31c movabs r15, 0x25eb4c2dc3614e3e

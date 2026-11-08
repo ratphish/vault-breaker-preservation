@@ -1,0 +1,1 @@
+{"dispatch_events": 940, "unique_edges": 581, "edges_with_declared_target_range": 581, "warning": "Transitions observed only in an artificial fixed-timestamp TLS-callback model; range membership does not prove real execution."}

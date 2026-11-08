@@ -1,0 +1,289 @@
+{
+  "tag": "80B37C7E",
+  "sha256": "47ac143f154f28a237e7beb77d4c45f030eda9b28404ee8f35d5bc6bd40219f4",
+  "array_offset": "0x3430",
+  "count": 40,
+  "entries": [
+    {
+      "slot": 0,
+      "name": "import_only_set_slot_name",
+      "name_offset": "0x5f12",
+      "pointer_offset": "0x3438",
+      "descriptor_offset": "0x2b70"
+    },
+    {
+      "slot": 1,
+      "name": "main_d_execute_impl",
+      "name_offset": "0x5e38",
+      "pointer_offset": "0x3440",
+      "descriptor_offset": "0x2c30"
+    },
+    {
+      "slot": 2,
+      "name": "spawn_initial_keys",
+      "name_offset": "0x5587",
+      "pointer_offset": "0x3448",
+      "descriptor_offset": "0x33e0"
+    },
+    {
+      "slot": 3,
+      "name": "il_pre_exfil_handle_incident_impl",
+      "name_offset": "0x616a",
+      "pointer_offset": "0x3450",
+      "descriptor_offset": "0x2930"
+    },
+    {
+      "slot": 4,
+      "name": "get_direct_settings",
+      "name_offset": "0x6577",
+      "pointer_offset": "0x3458",
+      "descriptor_offset": "0x24f8"
+    },
+    {
+      "slot": 5,
+      "name": "enable_canister_location_ui",
+      "name_offset": "0x66d3",
+      "pointer_offset": "0x3460",
+      "descriptor_offset": "0x2390"
+    },
+    {
+      "slot": 6,
+      "name": "clear_canister_location_ui",
+      "name_offset": "0x68de",
+      "pointer_offset": "0x3468",
+      "descriptor_offset": "0x2120"
+    },
+    {
+      "slot": 7,
+      "name": "enable_filler_location_ui",
+      "name_offset": "0x669b",
+      "pointer_offset": "0x3470",
+      "descriptor_offset": "0x23c0"
+    },
+    {
+      "slot": 8,
+      "name": "clear_filler_location_ui",
+      "name_offset": "0x68a8",
+      "pointer_offset": "0x3478",
+      "descriptor_offset": "0x2150"
+    },
+    {
+      "slot": 9,
+      "name": "enable_vial_location_ui",
+      "name_offset": "0x6665",
+      "pointer_offset": "0x3480",
+      "descriptor_offset": "0x23f0"
+    },
+    {
+      "slot": 10,
+      "name": "clear_vial_location_ui",
+      "name_offset": "0x6874",
+      "pointer_offset": "0x3488",
+      "descriptor_offset": "0x2180"
+    },
+    {
+      "slot": 11,
+      "name": "enable_centrifuge_location_ui",
+      "name_offset": "0x66b5",
+      "pointer_offset": "0x3490",
+      "descriptor_offset": "0x23a8"
+    },
+    {
+      "slot": 12,
+      "name": "clear_centrifuge_location_ui",
+      "name_offset": "0x68c1",
+      "pointer_offset": "0x3498",
+      "descriptor_offset": "0x2138"
+    },
+    {
+      "slot": 13,
+      "name": "enable_secret_lab_location_ui",
+      "name_offset": "0x667d",
+      "pointer_offset": "0x34a0",
+      "descriptor_offset": "0x23d8"
+    },
+    {
+      "slot": 14,
+      "name": "clear_secret_lab_location_ui",
+      "name_offset": "0x688b",
+      "pointer_offset": "0x34a8",
+      "descriptor_offset": "0x2168"
+    },
+    {
+      "slot": 15,
+      "name": "start_tracking_held_items",
+      "name_offset": "0x556d",
+      "pointer_offset": "0x34b0",
+      "descriptor_offset": "0x33f8"
+    },
+    {
+      "slot": 16,
+      "name": "count_held_items",
+      "name_offset": "0x6847",
+      "pointer_offset": "0x34b8",
+      "descriptor_offset": "0x21c8"
+    },
+    {
+      "slot": 17,
+      "name": "check_for_items_on_item_pickup",
+      "name_offset": "0x6908",
+      "pointer_offset": "0x34c0",
+      "descriptor_offset": "0x20d8"
+    },
+    {
+      "slot": 18,
+      "name": "check_for_items_on_item_dropped",
+      "name_offset": "0x6927",
+      "pointer_offset": "0x34c8",
+      "descriptor_offset": "0x20c0"
+    },
+    {
+      "slot": 19,
+      "name": "il_player_spawned_handle_incident_impl",
+      "name_offset": "0x6199",
+      "pointer_offset": "0x34d0",
+      "descriptor_offset": "0x2900"
+    },
+    {
+      "slot": 20,
+      "name": "debug_print_item_counts",
+      "name_offset": "0x6736",
+      "pointer_offset": "0x34d8",
+      "descriptor_offset": "0x2318"
+    },
+    {
+      "slot": 21,
+      "name": "sc_vault_1_objectives_d_execute_impl",
+      "name_offset": "0x5d47",
+      "pointer_offset": "0x34e0",
+      "descriptor_offset": "0x2d20"
+    },
+    {
+      "slot": 22,
+      "name": "sc_vault_2_objectives_d_execute_impl",
+      "name_offset": "0x5d0c",
+      "pointer_offset": "0x34e8",
+      "descriptor_offset": "0x2d50"
+    },
+    {
+      "slot": 23,
+      "name": "sc_vault_3_objectives_d_execute_impl",
+      "name_offset": "0x5cd1",
+      "pointer_offset": "0x34f0",
+      "descriptor_offset": "0x2d80"
+    },
+    {
+      "slot": 24,
+      "name": "sc_vault_5_objectives_d_execute_impl",
+      "name_offset": "0x5c5b",
+      "pointer_offset": "0x34f8",
+      "descriptor_offset": "0x2de0"
+    },
+    {
+      "slot": 25,
+      "name": "sc_vault_4_objectives_d_execute_impl",
+      "name_offset": "0x5c96",
+      "pointer_offset": "0x3500",
+      "descriptor_offset": "0x2db0"
+    },
+    {
+      "slot": 26,
+      "name": "sc_vault_6_objectives_d_execute_impl",
+      "name_offset": "0x5c20",
+      "pointer_offset": "0x3508",
+      "descriptor_offset": "0x2e10"
+    },
+    {
+      "slot": 27,
+      "name": "sc_monitor_secret_lab_visit_d_execute_impl",
+      "name_offset": "0x5d82",
+      "pointer_offset": "0x3510",
+      "descriptor_offset": "0x2cf0"
+    },
+    {
+      "slot": 28,
+      "name": "il_kill_handle_incident_impl",
+      "name_offset": "0x61d2",
+      "pointer_offset": "0x3518",
+      "descriptor_offset": "0x28d0"
+    },
+    {
+      "slot": 29,
+      "name": "sc_vault_7_objectives_d_execute_impl",
+      "name_offset": "0x5be5",
+      "pointer_offset": "0x3520",
+      "descriptor_offset": "0x2e40"
+    },
+    {
+      "slot": 30,
+      "name": "submit_analytics_for_vault_objective_assignment",
+      "name_offset": "0x553d",
+      "pointer_offset": "0x3528",
+      "descriptor_offset": "0x3410"
+    },
+    {
+      "slot": 31,
+      "name": "debug_stop_all_objective_scripts",
+      "name_offset": "0x6715",
+      "pointer_offset": "0x3530",
+      "descriptor_offset": "0x2330"
+    },
+    {
+      "slot": 32,
+      "name": "debug_force_vault_1",
+      "name_offset": "0x67b2",
+      "pointer_offset": "0x3538",
+      "descriptor_offset": "0x2288"
+    },
+    {
+      "slot": 33,
+      "name": "debug_force_vault_2",
+      "name_offset": "0x679e",
+      "pointer_offset": "0x3540",
+      "descriptor_offset": "0x22a0"
+    },
+    {
+      "slot": 34,
+      "name": "debug_force_vault_3",
+      "name_offset": "0x678a",
+      "pointer_offset": "0x3548",
+      "descriptor_offset": "0x22b8"
+    },
+    {
+      "slot": 35,
+      "name": "debug_force_vault_4",
+      "name_offset": "0x6776",
+      "pointer_offset": "0x3550",
+      "descriptor_offset": "0x22d0"
+    },
+    {
+      "slot": 36,
+      "name": "debug_force_vault_5",
+      "name_offset": "0x6762",
+      "pointer_offset": "0x3558",
+      "descriptor_offset": "0x22e8"
+    },
+    {
+      "slot": 37,
+      "name": "debug_force_vault_6",
+      "name_offset": "0x674e",
+      "pointer_offset": "0x3560",
+      "descriptor_offset": "0x2300"
+    },
+    {
+      "slot": 38,
+      "name": "debug_bypass_barrier_objectives",
+      "name_offset": "0x67df",
+      "pointer_offset": "0x3568",
+      "descriptor_offset": "0x2258"
+    },
+    {
+      "slot": 39,
+      "name": "import",
+      "name_offset": "0x5f2c",
+      "pointer_offset": "0x3570",
+      "descriptor_offset": "0x2b58"
+    }
+  ],
+  "warning": "Serialized name/index consistency only; no executable target or dispatch behavior established."
+}

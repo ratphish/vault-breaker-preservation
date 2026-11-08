@@ -1,0 +1,17 @@
+{"kind": "identity", "sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42", "bytes": 9107968}
+{"term": "encounter", "encoding": "ascii", "offsets": [162840, 361176, 1065713, 1277728, 3922019], "truncated": false}
+{"term": "encounter", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "vault", "encoding": "ascii", "offsets": [763640], "truncated": false}
+{"term": "vault", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "bs_compiler_generated", "encoding": "ascii", "offsets": [692960], "truncated": false}
+{"term": "bs_compiler_generated", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "script", "encoding": "ascii", "offsets": [222827, 223192, 223376, 223416, 229028, 230363, 231467, 232203, 233147, 233603, 234155, 240958, 245052, 246014, 246622, 248334, 248862, 250091, 251075, 251298, 251766, 253095, 293563, 456620, 457204, 457221, 587606, 594482, 670224, 684360], "truncated": true}
+{"term": "script", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "activity", "encoding": "ascii", "offsets": [675504, 675528, 766059, 777072, 777104, 777128, 777192, 777216, 777280, 777312, 781536, 785264, 803256, 803816, 804042, 804313, 804373, 808296, 808320, 808336, 808360, 808432, 808456, 808488, 808512, 815896, 826920, 827072, 827128, 827176], "truncated": true}
+{"term": "activity", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "schema", "encoding": "ascii", "offsets": [615542, 653272, 661936, 662370, 662450, 662618, 662706, 662762, 662818, 662898, 663010, 762584, 787225, 793798, 793832, 825897, 1168922, 2812592, 2812599, 2812728, 2812752, 2812776, 2812800, 2812824, 2812848], "truncated": false}
+{"term": "schema", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "tag_suite", "encoding": "ascii", "offsets": [1141336, 9091362, 9091719], "truncated": false}
+{"term": "tag_suite", "encoding": "utf-16le", "offsets": [], "truncated": false}
+{"term": "decompile", "encoding": "ascii", "offsets": [], "truncated": false}
+{"term": "decompile", "encoding": "utf-16le", "offsets": [], "truncated": false}

@@ -1,0 +1,2 @@
+import KERNEL32.dll!VirtualProtect region 0x140001000 size 0x32c82600 protection 0x40 old_ptr 0x7000001feee0
+phase synthetic-parent-resumed worker_calls 63666

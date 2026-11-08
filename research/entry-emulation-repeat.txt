@@ -1,0 +1,3 @@
+{'instructions': True, 'mapped_image_pages': True, 'exec_writes': True, 'stop': True, 'entry': True, 'first_pcs': True, 'last_pcs': True}
+repeat_stop {'kind': 'unmapped_access', 'access': 21, 'address': '0x335315a0', 'size': 1, 'rip': '0x335315a0'}
+repeat_instructions 6060

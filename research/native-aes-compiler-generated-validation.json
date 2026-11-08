@@ -1,0 +1,16 @@
+{
+  "instructions": 52190,
+  "writes": 120,
+  "outside_buffer_writes": 0,
+  "stop": {
+    "kind": "bounded_loop_exit",
+    "rip": "0x17004d627"
+  },
+  "length": 120,
+  "output_sha256": "1d3f3c63b25a2024a39f44d4b1ffbee76f2130532e4176df6dfe75d78693b65f",
+  "expected_sha256": "1d3f3c63b25a2024a39f44d4b1ffbee76f2130532e4176df6dfe75d78693b65f",
+  "matches_reference": true,
+  "matches_recorded_hash": true,
+  "elapsed_seconds": 0.125,
+  "note": "synthetic function probe; no game process or host APIs"
+}

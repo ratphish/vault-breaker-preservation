@@ -1,0 +1,34 @@
+{
+  "mask": "0x4f56789a",
+  "sections": [
+    {
+      "section": ".data",
+      "header_file_offset": "0x1f3b88",
+      "rva": "0x33534000",
+      "raw_size": 31288320,
+      "descriptors": 21959,
+      "bytes_described": 14660012,
+      "observed_events_match": true
+    },
+    {
+      "section": ".vmp0",
+      "header_file_offset": "0x21e9cc",
+      "rva": "0x39600000",
+      "raw_size": 6775296,
+      "descriptors": 1,
+      "bytes_described": 6775296,
+      "observed_events_match": true
+    },
+    {
+      "section": "_RDATA",
+      "header_file_offset": "0x21e9e0",
+      "rva": "0x39c77000",
+      "raw_size": 142336,
+      "descriptors": 1,
+      "bytes_described": 142336,
+      "observed_events_match": false
+    }
+  ],
+  "next_file_offset": "0x21e9f4",
+  "warning": "Original table descriptors and synthetic event correspondence do not establish real execution."
+}

@@ -1,0 +1,9 @@
+{
+  "callback_writes_replayed": 27,
+  "events_replayed": 16,
+  "bytes_processed": 712,
+  "replay_sha256": "29369387b7ce714ae8c0eeed4a50ea0bd4e508c01172dfb385db3ede098ba9cf",
+  "image_sha256": "29369387b7ce714ae8c0eeed4a50ea0bd4e508c01172dfb385db3ede098ba9cf",
+  "byte_identical": true,
+  "warning": "Replay checks model consistency, not real loader state or unmodeled writes."
+}

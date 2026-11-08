@@ -1,0 +1,11 @@
+{
+  "provenance": "Synthetic checkpoint-parent-waits-empty; exact key search in linked registry and byte comparison with transformed vmp0 records. Addresses are synthetic image virtual addresses, not proven native runtime locations.",
+  "rows": [
+    {"tag": "8080B8E2", "kind": "runtime object", "registry_candidates": [{"pointer": "0x1767fa240"}]},
+    {"tag": "8080B8E2", "kind": "backing record", "registry_candidates": [{"pointer": "0x174ea0820"}]},
+    {"tag": "8080B8A0", "kind": "runtime object", "registry_candidates": [{"pointer": "0x1767faa80"}]},
+    {"tag": "8080B8A0", "kind": "backing record", "registry_candidates": [{"pointer": "0x174ea0c10"}]},
+    {"tag": "8080BAF7", "kind": "runtime object", "registry_candidates": [{"pointer": "0x1767f6bc0"}]},
+    {"tag": "8080BAF7", "kind": "backing record", "registry_candidates": [{"pointer": "0x174e9edb0"}]}
+  ]
+}

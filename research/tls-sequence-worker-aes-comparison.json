@@ -1,0 +1,10 @@
+{
+  "compared_calls": 805,
+  "differences": [],
+  "matches": true,
+  "worker_stop": {
+    "kind": "budget_or_return",
+    "rip": "0x16f4904a0"
+  },
+  "warning": "Both sides are synthetic models; agreeing inputs do not prove real loader state or subsequent output."
+}

@@ -1,0 +1,9 @@
+{"tag":"80A07004","reference":"4E568F1","type":26,"subtype":7,"size":3215319,"package":"w64_client_bootstrap_unp1_0.pkg","target":"80B38555","offsets":[1806692],"truncated":false}
+{"tag":"80A5608C","reference":"FFFFFFFF","type":27,"subtype":1,"size":20376480,"package":"w64_sr_video_012b_5.pkg","target":"80B37FED","offsets":[19377177],"truncated":false}
+{"tag":"80A5609C","reference":"FFFFFFFF","type":27,"subtype":1,"size":43487200,"package":"w64_sr_video_012b_5.pkg","target":"80B37FED","offsets":[15951745],"truncated":false}
+{"tag":"80A560A0","reference":"FFFFFFFF","type":27,"subtype":1,"size":53005952,"package":"w64_sr_video_012b_5.pkg","target":"80B38561","offsets":[24292890],"truncated":false}
+{"tag":"80A5807A","reference":"FFFFFFFF","type":27,"subtype":1,"size":59787936,"package":"w64_sr_video_v1xx_012c_1.pkg","target":"80B37FED","offsets":[48926013],"truncated":false}
+{"tag":"80AB3C41","reference":"3EF0EE2C","type":26,"subtype":7,"size":406376,"package":"w64_sr_audio_0159_6.pkg","target":"80B38555","offsets":[37952],"truncated":false}
+{"tag":"80AC0834","reference":"27B737A","type":26,"subtype":7,"size":87123,"package":"w64_sr_audio_0160_6.pkg","target":"80B37C7E","offsets":[77023],"truncated":false}
+{"tag":"80B791D9","reference":"4E568F1","type":26,"subtype":7,"size":3215319,"package":"w64_sr_audio_01bc_6.pkg","target":"80B38555","offsets":[1806692],"truncated":false}
+{"tag":"80B7953E","reference":"226EAB73","type":26,"subtype":7,"size":1069519,"package":"w64_sr_audio_01bc_6.pkg","target":"80B38561","offsets":[452165],"truncated":false}

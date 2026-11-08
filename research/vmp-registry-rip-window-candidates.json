@@ -1,0 +1,447 @@
+{
+  "table_count": 16,
+  "window_each_side": 32,
+  "hits": [
+    {
+      "site": "0x14529ce20",
+      "instruction": "lea eax, [rip + 0x2dad277a]",
+      "resolved": "0x172d6f5a0",
+      "table_start": "0x172d6f598",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14529ce1f",
+      "instruction": "lea rax, [rip + 0x2dad277a]",
+      "resolved": "0x172d6f5a0",
+      "table_start": "0x172d6f598",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1465fecba",
+      "instruction": "lea eax, [rip + 0x2c778f90]",
+      "resolved": "0x172d77c50",
+      "table_start": "0x172d77c48",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1465fecb9",
+      "instruction": "lea rax, [rip + 0x2c778f90]",
+      "resolved": "0x172d77c50",
+      "table_start": "0x172d77c48",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14dadd9aa",
+      "instruction": "lea eax, [rip + 0x253f39a0]",
+      "resolved": "0x172ed1350",
+      "table_start": "0x172ed1348",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14dadd9a9",
+      "instruction": "lea rax, [rip + 0x253f39a0]",
+      "resolved": "0x172ed1350",
+      "table_start": "0x172ed1348",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14e25957b",
+      "instruction": "lea ecx, [rip + 0x24b1e6bf]",
+      "resolved": "0x172d77c40",
+      "table_start": "0x172d77c48",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14e25957a",
+      "instruction": "lea rcx, [rip + 0x24b1e6bf]",
+      "resolved": "0x172d77c40",
+      "table_start": "0x172d77c48",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14e41a051",
+      "instruction": "lea eax, [rip + 0x24aee8d9]",
+      "resolved": "0x172f08930",
+      "table_start": "0x172f08938",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14e41a050",
+      "instruction": "lea rax, [rip + 0x24aee8d9]",
+      "resolved": "0x172f08930",
+      "table_start": "0x172f08938",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x14f874bba",
+      "instruction": "xchg dword ptr [rip + 0x23628c95], esi",
+      "resolved": "0x172e9d855",
+      "table_start": "0x172e9d858",
+      "delta": -3,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1516beabc",
+      "instruction": "lea eax, [rip + 0x217ded9e]",
+      "resolved": "0x172e9d860",
+      "table_start": "0x172e9d858",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1516beabb",
+      "instruction": "lea rax, [rip + 0x217ded9e]",
+      "resolved": "0x172e9d860",
+      "table_start": "0x172e9d858",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x151cfd961",
+      "instruction": "lea ecx, [rip + 0x211d39d9]",
+      "resolved": "0x172ed1340",
+      "table_start": "0x172ed1348",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x151cfd960",
+      "instruction": "lea rcx, [rip + 0x211d39d9]",
+      "resolved": "0x172ed1340",
+      "table_start": "0x172ed1348",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1541fc639",
+      "instruction": "lea eax, [rip + 0x1ecccb31]",
+      "resolved": "0x172ec9170",
+      "table_start": "0x172ec9178",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1541fc638",
+      "instruction": "lea rax, [rip + 0x1ecccb31]",
+      "resolved": "0x172ec9170",
+      "table_start": "0x172ec9178",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1548bee41",
+      "instruction": "lea ecx, [rip + 0x1e4b0749]",
+      "resolved": "0x172d6f590",
+      "table_start": "0x172d6f598",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1548bee40",
+      "instruction": "lea rcx, [rip + 0x1e4b0749]",
+      "resolved": "0x172d6f590",
+      "table_start": "0x172d6f598",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x154ba282d",
+      "instruction": "lea eax, [rip + 0x1e37a7bd]",
+      "resolved": "0x172f1cff0",
+      "table_start": "0x172f1cfe8",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x154ba282c",
+      "instruction": "lea rax, [rip + 0x1e37a7bd]",
+      "resolved": "0x172f1cff0",
+      "table_start": "0x172f1cfe8",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1552fb8de",
+      "instruction": "lea ecx, [rip + 0x1dba1f5c]",
+      "resolved": "0x172e9d840",
+      "table_start": "0x172e9d858",
+      "delta": -24,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1552fb8dd",
+      "instruction": "lea rcx, [rip + 0x1dba1f5c]",
+      "resolved": "0x172e9d840",
+      "table_start": "0x172e9d858",
+      "delta": -24,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1560b64c4",
+      "instruction": "lea eax, [rip + 0x1ccc1766]",
+      "resolved": "0x172d77c30",
+      "table_start": "0x172d77c48",
+      "delta": -24,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1560b64c3",
+      "instruction": "lea rax, [rip + 0x1ccc1766]",
+      "resolved": "0x172d77c30",
+      "table_start": "0x172d77c48",
+      "delta": -24,
+      "modeled_event": null
+    },
+    {
+      "site": "0x156b29ed1",
+      "instruction": "lea ecx, [rip + 0x1c3bd4b1]",
+      "resolved": "0x172ee7388",
+      "table_start": "0x172ee73a8",
+      "delta": -32,
+      "modeled_event": null
+    },
+    {
+      "site": "0x156b29ed0",
+      "instruction": "lea rcx, [rip + 0x1c3bd4b1]",
+      "resolved": "0x172ee7388",
+      "table_start": "0x172ee73a8",
+      "delta": -32,
+      "modeled_event": null
+    },
+    {
+      "site": "0x156ec53ba",
+      "instruction": "lea eax, [rip + 0x1c04aee0]",
+      "resolved": "0x172f102a0",
+      "table_start": "0x172f10298",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x156ec53b9",
+      "instruction": "lea rax, [rip + 0x1c04aee0]",
+      "resolved": "0x172f102a0",
+      "table_start": "0x172f10298",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1585b055f",
+      "instruction": "lea ecx, [rip + 0x1a930a1b]",
+      "resolved": "0x172ee0f80",
+      "table_start": "0x172ee0f98",
+      "delta": -24,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1585b055e",
+      "instruction": "lea rcx, [rip + 0x1a930a1b]",
+      "resolved": "0x172ee0f80",
+      "table_start": "0x172ee0f98",
+      "delta": -24,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1580a6f8c",
+      "instruction": "lea eax, [rip + 0x1ae4041e]",
+      "resolved": "0x172ee73b0",
+      "table_start": "0x172ee73a8",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1580a6f8b",
+      "instruction": "lea rax, [rip + 0x1ae4041e]",
+      "resolved": "0x172ee73b0",
+      "table_start": "0x172ee73a8",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x158981f1f",
+      "instruction": "lea eax, [rip + 0x1a5a30bb]",
+      "resolved": "0x172f24fe0",
+      "table_start": "0x172f24fd8",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x158981f1e",
+      "instruction": "lea rax, [rip + 0x1a5a30bb]",
+      "resolved": "0x172f24fe0",
+      "table_start": "0x172f24fd8",
+      "delta": 8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x15cbb7394",
+      "instruction": "lea ecx, [rip + 0x16358ede]",
+      "resolved": "0x172f10278",
+      "table_start": "0x172f10298",
+      "delta": -32,
+      "modeled_event": null
+    },
+    {
+      "site": "0x15cbb7393",
+      "instruction": "lea rcx, [rip + 0x16358ede]",
+      "resolved": "0x172f10278",
+      "table_start": "0x172f10298",
+      "delta": -32,
+      "modeled_event": null
+    },
+    {
+      "site": "0x15f656439",
+      "instruction": "lea ecx, [rip + 0x138be959]",
+      "resolved": "0x172f14d98",
+      "table_start": "0x172f14da8",
+      "delta": -16,
+      "modeled_event": null
+    },
+    {
+      "site": "0x15f656438",
+      "instruction": "lea rcx, [rip + 0x138be959]",
+      "resolved": "0x172f14d98",
+      "table_start": "0x172f14da8",
+      "delta": -16,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1609525c0",
+      "instruction": "lea eax, [rip + 0x1256e8aa]",
+      "resolved": "0x172ec0e70",
+      "table_start": "0x172ec0e78",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x1609525bf",
+      "instruction": "lea rax, [rip + 0x1256e8aa]",
+      "resolved": "0x172ec0e70",
+      "table_start": "0x172ec0e78",
+      "delta": -8,
+      "modeled_event": null
+    },
+    {
+      "site": "0x161342a72",
+      "instruction": "lea ecx, [rip + 0x11b7d4d0]",
+      "resolved": "0x172ebff48",
+      "table_start": "0x172ebff58",
+      "delta": -16,
+      "modeled_event": null
+    },
+    {
+      "site": "0x161342a71",
+      "instruction": "lea rcx, [rip + 0x11b7d4d0]",
+      "resolved": "0x172ebff48",
+      "table_start": "0x172ebff58",
+      "delta": -16,
+      "modeled_event": null
+    },
+    {
+      "site": "0x16f3d41da",
+      "instruction": "lea eax, [rip + 0x3aebd80]",
+      "resolved": "0x172ebff60",
+      "table_start": "0x172ebff58",
+      "delta": 8,
+      "modeled_event": 82625
+    },
+    {
+      "site": "0x16f3d41d9",
+      "instruction": "lea rax, [rip + 0x3aebd80]",
+      "resolved": "0x172ebff60",
+      "table_start": "0x172ebff58",
+      "delta": 8,
+      "modeled_event": 82625
+    },
+    {
+      "site": "0x16f7504fa",
+      "instruction": "lea eax, [rip + 0x3790aa0]",
+      "resolved": "0x172ee0fa0",
+      "table_start": "0x172ee0f98",
+      "delta": 8,
+      "modeled_event": 98911
+    },
+    {
+      "site": "0x16f7504f9",
+      "instruction": "lea rax, [rip + 0x3790aa0]",
+      "resolved": "0x172ee0fa0",
+      "table_start": "0x172ee0f98",
+      "delta": 8,
+      "modeled_event": 98911
+    },
+    {
+      "site": "0x170565f88",
+      "instruction": "lea ecx, [rip + 0x29b704a]",
+      "resolved": "0x172f1cfd8",
+      "table_start": "0x172f1cfe8",
+      "delta": -16,
+      "modeled_event": 163359
+    },
+    {
+      "site": "0x170565f87",
+      "instruction": "lea rcx, [rip + 0x29b704a]",
+      "resolved": "0x172f1cfd8",
+      "table_start": "0x172f1cfe8",
+      "delta": -16,
+      "modeled_event": 163359
+    },
+    {
+      "site": "0x17084559a",
+      "instruction": "lea eax, [rip + 0x26b9040]",
+      "resolved": "0x172efe5e0",
+      "table_start": "0x172efe5e8",
+      "delta": -8,
+      "modeled_event": 175480
+    },
+    {
+      "site": "0x170845599",
+      "instruction": "lea rax, [rip + 0x26b9040]",
+      "resolved": "0x172efe5e0",
+      "table_start": "0x172efe5e8",
+      "delta": -8,
+      "modeled_event": 175480
+    },
+    {
+      "site": "0x170a33b1a",
+      "instruction": "lea eax, [rip + 0x24e1290]",
+      "resolved": "0x172f14db0",
+      "table_start": "0x172f14da8",
+      "delta": 8,
+      "modeled_event": 185158
+    },
+    {
+      "site": "0x170a33b19",
+      "instruction": "lea rax, [rip + 0x24e1290]",
+      "resolved": "0x172f14db0",
+      "table_start": "0x172f14da8",
+      "delta": 8,
+      "modeled_event": 185158
+    },
+    {
+      "site": "0x17126ff3a",
+      "instruction": "lea eax, [rip + 0x1af6b30]",
+      "resolved": "0x172d66a70",
+      "table_start": "0x172d66a68",
+      "delta": 8,
+      "modeled_event": 220454
+    },
+    {
+      "site": "0x17126ff39",
+      "instruction": "lea rax, [rip + 0x1af6b30]",
+      "resolved": "0x172d66a70",
+      "table_start": "0x172d66a68",
+      "delta": 8,
+      "modeled_event": 220454
+    }
+  ],
+  "warning": "Overlapping instruction candidates in a synthetic image; boundaries and reachability are unverified."
+}

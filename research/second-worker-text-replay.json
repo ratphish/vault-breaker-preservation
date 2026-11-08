@@ -1,0 +1,10 @@
+{
+  "all_image_events": 30809,
+  "text_write_events": 30680,
+  "text_bytes_written": 59241,
+  "distinct_text_positions_changed_during_replay": 36203,
+  "replay_sha256": "1c8f2a6e3cc77ad5b373afb368959968c78e571706974db051a32fabd0af459e",
+  "export_sha256": "1c8f2a6e3cc77ad5b373afb368959968c78e571706974db051a32fabd0af459e",
+  "byte_identical": true,
+  "warning": "Synthetic event replay; changed positions count any intermediate changes, not necessarily final differences."
+}

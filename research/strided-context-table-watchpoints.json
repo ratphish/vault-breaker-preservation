@@ -1,0 +1,19 @@
+{
+  "scope": "Passive synthetic watch of the strided context table header and first entry",
+  "rows": [
+    {
+      "tag": "strided context table",
+      "registry_candidates": [
+        {"pointer": "0x17541dd00"},
+        {"pointer": "0x17541dd20"}
+      ]
+    },
+    {
+      "tag": "bitset context",
+      "registry_candidates": [
+        {"pointer": "0x174e970d0"},
+        {"pointer": "0x174e970f0"}
+      ]
+    }
+  ]
+}

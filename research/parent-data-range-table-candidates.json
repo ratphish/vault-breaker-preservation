@@ -1,0 +1,12 @@
+{
+  "pe_bytes_scanned": 903479376,
+  "candidates": [
+    {
+      "file_offset": "0x1f3b94",
+      "address_basis": "0x140000000",
+      "xor_mask": "0x4f56789a",
+      "first_16_match": true
+    }
+  ],
+  "warning": "Matching descriptors establish table-byte correspondence only; execution and later coverage remain synthetic."
+}

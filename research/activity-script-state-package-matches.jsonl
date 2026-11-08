@@ -1,0 +1,6 @@
+{"tag":"80A6A070","reference":"80800000","type":8,"subtype":0,"size":906,"package":"w64_client_startup_globals_0135_5.pkg","needle":"bs_compiler_generated","offset":624}
+{"tag":"80A6A071","reference":"80800000","type":8,"subtype":0,"size":401,"package":"w64_client_startup_globals_0135_5.pkg","needle":"bs_compiler_generated","offset":281}
+{"tag":"80A6A072","reference":"80800000","type":8,"subtype":0,"size":851,"package":"w64_client_startup_globals_0135_5.pkg","needle":"bs_compiler_generated","offset":577}
+{"tag":"80B3DB5D","reference":"80800000","type":8,"subtype":0,"size":906,"package":"w64_marathon_deck_001_019e_3.pkg","needle":"bs_compiler_generated","offset":624}
+{"tag":"80B3DB5E","reference":"80800000","type":8,"subtype":0,"size":401,"package":"w64_marathon_deck_001_019e_3.pkg","needle":"bs_compiler_generated","offset":281}
+{"tag":"80B3DB5F","reference":"80800000","type":8,"subtype":0,"size":851,"package":"w64_marathon_deck_001_019e_3.pkg","needle":"bs_compiler_generated","offset":577}

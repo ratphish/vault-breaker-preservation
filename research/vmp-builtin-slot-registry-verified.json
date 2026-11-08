@@ -1,0 +1,41 @@
+{
+  "probe_start": "0x17126ff39",
+  "callee": "0x16f8d4c40",
+  "descriptors": [
+    {
+      "descriptor": "0x176803788",
+      "pointer": "0x172d66a70",
+      "count": 1718,
+      "selected_type_matches": [
+        {
+          "tag": "8080B8E2",
+          "row": 100,
+          "pointer": "0x1767f69e0"
+        },
+        {
+          "tag": "8080B8A0",
+          "row": 1383,
+          "pointer": "0x1767fa980"
+        },
+        {
+          "tag": "8080BAF7",
+          "row": 1682,
+          "pointer": "0x1767f98e0"
+        }
+      ]
+    },
+    {
+      "descriptor": "0x176803798",
+      "pointer": "0x172d6f5a0",
+      "count": 1718,
+      "selected_type_matches": []
+    },
+    {
+      "descriptor": "0x1768037a8",
+      "pointer": "0x172d77c50",
+      "count": 1716,
+      "selected_type_matches": []
+    }
+  ],
+  "warning": "This is an artificial-state probe using modeled transformed bytes, not evidence of real process execution or a Vault handler."
+}

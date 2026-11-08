@@ -1,0 +1,718 @@
+{
+  "listener_rows_verified": 26,
+  "listeners": [
+    {
+      "row": 2,
+      "row_offset": "0x100",
+      "listener_offset": "0x230",
+      "reference_offset": "0x1b58",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_player_spawned_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x2ff0",
+          "file_offset": "0x2d0",
+          "raw_u32": "0x2766028d"
+        }
+      ],
+      "named_slot_bindings": [
+        {
+          "file_offset": "0x258",
+          "slot": "0x13",
+          "names": [
+            "il_player_spawned_handle_incident_impl"
+          ]
+        }
+      ],
+      "name": "il_player_spawned",
+      "metadata_offset": "0x28e8"
+    },
+    {
+      "row": 3,
+      "row_offset": "0x128",
+      "listener_offset": "0x2e0",
+      "reference_offset": "0x1b80",
+      "target_tag": "0x80b3b7f2",
+      "vault": 1,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_1_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3038",
+          "file_offset": "0x380",
+          "raw_u32": "0xb57b99f1"
+        },
+        {
+          "name": "i_vault_1_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x26d8",
+          "file_offset": "0x384",
+          "raw_u32": "0x5"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_1_battery_install",
+      "metadata_offset": "0x2948"
+    },
+    {
+      "row": 4,
+      "row_offset": "0x150",
+      "listener_offset": "0x390",
+      "reference_offset": "0x1ba8",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_1_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3068",
+          "file_offset": "0x430",
+          "raw_u32": "0x8f3f418b"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_1_opened",
+      "metadata_offset": "0x2960"
+    },
+    {
+      "row": 5,
+      "row_offset": "0x178",
+      "listener_offset": "0x440",
+      "reference_offset": "0x1bd0",
+      "target_tag": "0x80b3b7f2",
+      "vault": 2,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_2_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3080",
+          "file_offset": "0x4e0",
+          "raw_u32": "0x649d64a2"
+        },
+        {
+          "name": "i_vault_2_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x26f0",
+          "file_offset": "0x4e4",
+          "raw_u32": "0x4"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_2_battery_install",
+      "metadata_offset": "0x2978"
+    },
+    {
+      "row": 6,
+      "row_offset": "0x1a0",
+      "listener_offset": "0x4f0",
+      "reference_offset": "0x1bf8",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_2_canister_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3098",
+          "file_offset": "0x590",
+          "raw_u32": "0x295259ec"
+        },
+        {
+          "name": "i_vault_2_canister_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2708",
+          "file_offset": "0x594",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_2_canister_install",
+      "metadata_offset": "0x2990"
+    },
+    {
+      "row": 7,
+      "row_offset": "0x1c8",
+      "listener_offset": "0x5a0",
+      "reference_offset": "0x1c20",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_2_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x30c8",
+          "file_offset": "0x640",
+          "raw_u32": "0xe0585c5a"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_2_opened",
+      "metadata_offset": "0x29a8"
+    },
+    {
+      "row": 8,
+      "row_offset": "0x1f0",
+      "listener_offset": "0x650",
+      "reference_offset": "0x1c48",
+      "target_tag": "0x80b3b7f2",
+      "vault": 3,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_3_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x30e0",
+          "file_offset": "0x6f0",
+          "raw_u32": "0x4663d29f"
+        },
+        {
+          "name": "i_vault_3_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2720",
+          "file_offset": "0x6f4",
+          "raw_u32": "0x5"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_3_battery_install",
+      "metadata_offset": "0x29c0"
+    },
+    {
+      "row": 9,
+      "row_offset": "0x218",
+      "listener_offset": "0x700",
+      "reference_offset": "0x1c70",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_3_credentials_succeeded_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3128",
+          "file_offset": "0x7a0",
+          "raw_u32": "0x5e00412f"
+        },
+        {
+          "name": "i_vault_3_credentials_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2750",
+          "file_offset": "0x7a4",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_3_credentials_succeeded",
+      "metadata_offset": "0x29d8"
+    },
+    {
+      "row": 10,
+      "row_offset": "0x240",
+      "listener_offset": "0x7b0",
+      "reference_offset": "0x1c98",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_3_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3140",
+          "file_offset": "0x850",
+          "raw_u32": "0x311c3225"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_3_opened",
+      "metadata_offset": "0x29f0"
+    },
+    {
+      "row": 11,
+      "row_offset": "0x268",
+      "listener_offset": "0x860",
+      "reference_offset": "0x1cc0",
+      "target_tag": "0x80b3b7f2",
+      "vault": 5,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_5_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x31d0",
+          "file_offset": "0x900",
+          "raw_u32": "0x5981b9ed"
+        },
+        {
+          "name": "i_vault_5_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x27b0",
+          "file_offset": "0x904",
+          "raw_u32": "0x4"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_5_battery_install",
+      "metadata_offset": "0x2a50"
+    },
+    {
+      "row": 12,
+      "row_offset": "0x290",
+      "listener_offset": "0x910",
+      "reference_offset": "0x1ce8",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_5_canister_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x31e8",
+          "file_offset": "0x9b0",
+          "raw_u32": "0x9133b6d5"
+        },
+        {
+          "name": "i_vault_5_canister_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x27c8",
+          "file_offset": "0x9b4",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_5_canister_install",
+      "metadata_offset": "0x2a68"
+    },
+    {
+      "row": 13,
+      "row_offset": "0x2b8",
+      "listener_offset": "0x9c0",
+      "reference_offset": "0x1d10",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_5_credentials_succeeded_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3230",
+          "file_offset": "0xa60",
+          "raw_u32": "0xcc6979d1"
+        },
+        {
+          "name": "i_vault_5_credentials_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x27f8",
+          "file_offset": "0xa64",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_5_credentials_succeeded",
+      "metadata_offset": "0x2a80"
+    },
+    {
+      "row": 14,
+      "row_offset": "0x2e0",
+      "listener_offset": "0xa70",
+      "reference_offset": "0x1d38",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_5_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3248",
+          "file_offset": "0xb10",
+          "raw_u32": "0x80c73a3f"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_5_opened",
+      "metadata_offset": "0x2a98"
+    },
+    {
+      "row": 15,
+      "row_offset": "0x308",
+      "listener_offset": "0xb20",
+      "reference_offset": "0x1d60",
+      "target_tag": "0x80b3b7f2",
+      "vault": 4,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_4_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3158",
+          "file_offset": "0xbc0",
+          "raw_u32": "0x3d735d40"
+        },
+        {
+          "name": "i_vault_4_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2768",
+          "file_offset": "0xbc4",
+          "raw_u32": "0x6"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_4_battery_install",
+      "metadata_offset": "0x2a08"
+    },
+    {
+      "row": 16,
+      "row_offset": "0x330",
+      "listener_offset": "0xbd0",
+      "reference_offset": "0x1d88",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_4_credentials_succeeded_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x31a0",
+          "file_offset": "0xc70",
+          "raw_u32": "0x3b5a5e9a"
+        },
+        {
+          "name": "i_vault_4_credentials_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2798",
+          "file_offset": "0xc74",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_4_credentials_succeeded",
+      "metadata_offset": "0x2a20"
+    },
+    {
+      "row": 17,
+      "row_offset": "0x358",
+      "listener_offset": "0xc80",
+      "reference_offset": "0x1db0",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_4_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x31b8",
+          "file_offset": "0xd20",
+          "raw_u32": "0xffddbe84"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_4_opened",
+      "metadata_offset": "0x2a38"
+    },
+    {
+      "row": 18,
+      "row_offset": "0x380",
+      "listener_offset": "0xd30",
+      "reference_offset": "0x1dd8",
+      "target_tag": "0x80b3b7f2",
+      "vault": 6,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_6_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3260",
+          "file_offset": "0xdd0",
+          "raw_u32": "0x50a22ce"
+        },
+        {
+          "name": "i_vault_6_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2810",
+          "file_offset": "0xdd4",
+          "raw_u32": "0x8"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_6_battery_install",
+      "metadata_offset": "0x2ab0"
+    },
+    {
+      "row": 19,
+      "row_offset": "0x3a8",
+      "listener_offset": "0xde0",
+      "reference_offset": "0x1e00",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_6_canister_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3278",
+          "file_offset": "0xe80",
+          "raw_u32": "0x2b68c660"
+        },
+        {
+          "name": "i_vault_6_canister_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2828",
+          "file_offset": "0xe84",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_6_canister_install",
+      "metadata_offset": "0x2ac8"
+    },
+    {
+      "row": 20,
+      "row_offset": "0x3d0",
+      "listener_offset": "0xe90",
+      "reference_offset": "0x1e28",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_6_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x32a8",
+          "file_offset": "0xf30",
+          "raw_u32": "0x2539872e"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_6_opened",
+      "metadata_offset": "0x2ae0"
+    },
+    {
+      "row": 21,
+      "row_offset": "0x3f8",
+      "listener_offset": "0xf40",
+      "reference_offset": "0x1e50",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_hec_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x2f18",
+          "file_offset": "0xfe0",
+          "raw_u32": "0xa010f441"
+        },
+        {
+          "name": "i_hec_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2660",
+          "file_offset": "0xfe4",
+          "raw_u32": "0x3"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_hec_battery_install",
+      "metadata_offset": "0x28a0"
+    },
+    {
+      "row": 22,
+      "row_offset": "0x420",
+      "listener_offset": "0xff0",
+      "reference_offset": "0x1e78",
+      "target_tag": "0x80b3b7f2",
+      "vault": 7,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_7_battery_install_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x32c0",
+          "file_offset": "0x1090",
+          "raw_u32": "0x202cb93b"
+        },
+        {
+          "name": "i_vault_7_batteries_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2840",
+          "file_offset": "0x1094",
+          "raw_u32": "0x7"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_7_battery_install",
+      "metadata_offset": "0x2af8"
+    },
+    {
+      "row": 23,
+      "row_offset": "0x448",
+      "listener_offset": "0x10a0",
+      "reference_offset": "0x1ea0",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_7_credentials_succeeded_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x3398",
+          "file_offset": "0x1140",
+          "raw_u32": "0x8ca2e26a"
+        },
+        {
+          "name": "i_vault_7_credentials_required",
+          "type": "0x80800007",
+          "metadata_offset": "0x2888",
+          "file_offset": "0x1144",
+          "raw_u32": "0x1"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_7_credentials_succeeded",
+      "metadata_offset": "0x2b10"
+    },
+    {
+      "row": 24,
+      "row_offset": "0x470",
+      "listener_offset": "0x1150",
+      "reference_offset": "0x1ec8",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_7_opened_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x33b0",
+          "file_offset": "0x11f0",
+          "raw_u32": "0x78f20ae9"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_7_opened",
+      "metadata_offset": "0x2b28"
+    },
+    {
+      "row": 25,
+      "row_offset": "0x498",
+      "listener_offset": "0x1200",
+      "reference_offset": "0x1ef0",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_kill_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x2fc0",
+          "file_offset": "0x12a0",
+          "raw_u32": "0x790c2a95"
+        }
+      ],
+      "named_slot_bindings": [
+        {
+          "file_offset": "0x1228",
+          "slot": "0x1c",
+          "names": [
+            "il_kill_handle_incident_impl"
+          ]
+        }
+      ],
+      "name": "il_kill",
+      "metadata_offset": "0x28b8"
+    },
+    {
+      "row": 26,
+      "row_offset": "0x4c0",
+      "listener_offset": "0x12b0",
+      "reference_offset": "0x1f18",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_vault_interior_puzzle_completed_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x33c8",
+          "file_offset": "0x1350",
+          "raw_u32": "0x57ea4242"
+        }
+      ],
+      "named_slot_bindings": [],
+      "name": "il_vault_interior_puzzles_completed",
+      "metadata_offset": "0x2b40"
+    },
+    {
+      "row": 27,
+      "row_offset": "0x4e8",
+      "listener_offset": "0x1360",
+      "reference_offset": "0x1f40",
+      "target_tag": "0x80b3b7f2",
+      "vault": null,
+      "nearby_metadata_fields": [
+        {
+          "name": "sh_token_trait",
+          "type": "0x80800070",
+          "metadata_offset": "0x3020",
+          "file_offset": "0x1400",
+          "raw_u32": "0x6a337957"
+        },
+        {
+          "name": "sh_player_exfiltrated_incident",
+          "type": "0x80800070",
+          "metadata_offset": "0x2fd8",
+          "file_offset": "0x1404",
+          "raw_u32": "0xdf3133d5"
+        }
+      ],
+      "named_slot_bindings": [
+        {
+          "file_offset": "0x1388",
+          "slot": "0x3",
+          "names": [
+            "il_pre_exfil_handle_incident_impl"
+          ]
+        }
+      ],
+      "name": "il_pre_exfil",
+      "metadata_offset": "0x2918"
+    }
+  ],
+  "name_rows": [
+    {
+      "name": "g_volumes",
+      "record_offset": "0x160",
+      "component_offset": "0x1ac4",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "activity_variables",
+      "record_offset": "0x198",
+      "component_offset": "0x1aa0",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "g_key_pedestals_2",
+      "record_offset": "0x1d0",
+      "component_offset": "0x1ab0",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "g_key_pedestals_3",
+      "record_offset": "0x208",
+      "component_offset": "0x1ab4",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "pf_all_players",
+      "record_offset": "0x240",
+      "component_offset": "0x1aa8",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "g_key_pedestals_1",
+      "record_offset": "0x278",
+      "component_offset": "0x1aac",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "g_key_pedestals_4",
+      "record_offset": "0x2b0",
+      "component_offset": "0x1ab8",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "g_objective_ui_prefabs",
+      "record_offset": "0x2e8",
+      "component_offset": "0x1abc",
+      "serialized_word": "0xffffffff"
+    },
+    {
+      "name": "g_ui",
+      "record_offset": "0x320",
+      "component_offset": "0x1ac0",
+      "serialized_word": "0xffffffff"
+    }
+  ],
+  "warning": "Raw serialized cross-links and names; behavior, runtime values and code targets remain unknown."
+}

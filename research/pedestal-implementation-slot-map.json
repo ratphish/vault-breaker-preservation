@@ -1,0 +1,45 @@
+{
+  "metadata": "80B38561",
+  "component": "80B38567",
+  "slots": [
+    {
+      "slot": 0,
+      "name": "import_only_set_slot_name",
+      "metadata_record": "0x728",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 1,
+      "name": "create_objects",
+      "metadata_record": "0x458",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 2,
+      "name": "is_key_alive",
+      "metadata_record": "0x7a0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 3,
+      "name": "is_key_claimed",
+      "metadata_record": "0x7b8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 4,
+      "name": "sc_handle_create_d_execute_impl",
+      "metadata_record": "0x848",
+      "component_pair_offsets": [
+        "0x190"
+      ]
+    },
+    {
+      "slot": 5,
+      "name": "import",
+      "metadata_record": "0x710",
+      "component_pair_offsets": []
+    }
+  ],
+  "warning": "Named serialized slot descriptors and raw matching pairs; native code addresses and behavior are not established."
+}

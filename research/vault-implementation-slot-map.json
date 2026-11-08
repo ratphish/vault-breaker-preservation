@@ -1,0 +1,271 @@
+{
+  "metadata": "80B37C7E",
+  "component": "80B37FED",
+  "slots": [
+    {
+      "slot": 0,
+      "name": "import_only_set_slot_name",
+      "metadata_record": "0x2b70",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 1,
+      "name": "main_d_execute_impl",
+      "metadata_record": "0x2c30",
+      "component_pair_offsets": [
+        "0x1460"
+      ]
+    },
+    {
+      "slot": 2,
+      "name": "spawn_initial_keys",
+      "metadata_record": "0x33e0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 3,
+      "name": "il_pre_exfil_handle_incident_impl",
+      "metadata_record": "0x2930",
+      "component_pair_offsets": [
+        "0x1388"
+      ]
+    },
+    {
+      "slot": 4,
+      "name": "get_direct_settings",
+      "metadata_record": "0x24f8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 5,
+      "name": "enable_canister_location_ui",
+      "metadata_record": "0x2390",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 6,
+      "name": "clear_canister_location_ui",
+      "metadata_record": "0x2120",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 7,
+      "name": "enable_filler_location_ui",
+      "metadata_record": "0x23c0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 8,
+      "name": "clear_filler_location_ui",
+      "metadata_record": "0x2150",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 9,
+      "name": "enable_vial_location_ui",
+      "metadata_record": "0x23f0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 10,
+      "name": "clear_vial_location_ui",
+      "metadata_record": "0x2180",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 11,
+      "name": "enable_centrifuge_location_ui",
+      "metadata_record": "0x23a8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 12,
+      "name": "clear_centrifuge_location_ui",
+      "metadata_record": "0x2138",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 13,
+      "name": "enable_secret_lab_location_ui",
+      "metadata_record": "0x23d8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 14,
+      "name": "clear_secret_lab_location_ui",
+      "metadata_record": "0x2168",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 15,
+      "name": "start_tracking_held_items",
+      "metadata_record": "0x33f8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 16,
+      "name": "count_held_items",
+      "metadata_record": "0x21c8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 17,
+      "name": "check_for_items_on_item_pickup",
+      "metadata_record": "0x20d8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 18,
+      "name": "check_for_items_on_item_dropped",
+      "metadata_record": "0x20c0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 19,
+      "name": "il_player_spawned_handle_incident_impl",
+      "metadata_record": "0x2900",
+      "component_pair_offsets": [
+        "0x258"
+      ]
+    },
+    {
+      "slot": 20,
+      "name": "debug_print_item_counts",
+      "metadata_record": "0x2318",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 21,
+      "name": "sc_vault_1_objectives_d_execute_impl",
+      "metadata_record": "0x2d20",
+      "component_pair_offsets": [
+        "0x1510"
+      ]
+    },
+    {
+      "slot": 22,
+      "name": "sc_vault_2_objectives_d_execute_impl",
+      "metadata_record": "0x2d50",
+      "component_pair_offsets": [
+        "0x15c0"
+      ]
+    },
+    {
+      "slot": 23,
+      "name": "sc_vault_3_objectives_d_execute_impl",
+      "metadata_record": "0x2d80",
+      "component_pair_offsets": [
+        "0x1670"
+      ]
+    },
+    {
+      "slot": 24,
+      "name": "sc_vault_5_objectives_d_execute_impl",
+      "metadata_record": "0x2de0",
+      "component_pair_offsets": [
+        "0x1720"
+      ]
+    },
+    {
+      "slot": 25,
+      "name": "sc_vault_4_objectives_d_execute_impl",
+      "metadata_record": "0x2db0",
+      "component_pair_offsets": [
+        "0x17d0"
+      ]
+    },
+    {
+      "slot": 26,
+      "name": "sc_vault_6_objectives_d_execute_impl",
+      "metadata_record": "0x2e10",
+      "component_pair_offsets": [
+        "0x1880"
+      ]
+    },
+    {
+      "slot": 27,
+      "name": "sc_monitor_secret_lab_visit_d_execute_impl",
+      "metadata_record": "0x2cf0",
+      "component_pair_offsets": [
+        "0x1930"
+      ]
+    },
+    {
+      "slot": 28,
+      "name": "il_kill_handle_incident_impl",
+      "metadata_record": "0x28d0",
+      "component_pair_offsets": [
+        "0x1228"
+      ]
+    },
+    {
+      "slot": 29,
+      "name": "sc_vault_7_objectives_d_execute_impl",
+      "metadata_record": "0x2e40",
+      "component_pair_offsets": [
+        "0x19e0"
+      ]
+    },
+    {
+      "slot": 30,
+      "name": "submit_analytics_for_vault_objective_assignment",
+      "metadata_record": "0x3410",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 31,
+      "name": "debug_stop_all_objective_scripts",
+      "metadata_record": "0x2330",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 32,
+      "name": "debug_force_vault_1",
+      "metadata_record": "0x2288",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 33,
+      "name": "debug_force_vault_2",
+      "metadata_record": "0x22a0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 34,
+      "name": "debug_force_vault_3",
+      "metadata_record": "0x22b8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 35,
+      "name": "debug_force_vault_4",
+      "metadata_record": "0x22d0",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 36,
+      "name": "debug_force_vault_5",
+      "metadata_record": "0x22e8",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 37,
+      "name": "debug_force_vault_6",
+      "metadata_record": "0x2300",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 38,
+      "name": "debug_bypass_barrier_objectives",
+      "metadata_record": "0x2258",
+      "component_pair_offsets": []
+    },
+    {
+      "slot": 39,
+      "name": "import",
+      "metadata_record": "0x2b58",
+      "component_pair_offsets": []
+    }
+  ],
+  "warning": "Named serialized slot descriptors and raw matching pairs; native code addresses and behavior are not established."
+}

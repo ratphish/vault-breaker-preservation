@@ -1,0 +1,14 @@
+{
+  "shortcut_events_compared": 63650,
+  "shortcut_event_differences": [],
+  "worker_completed": 63666,
+  "worker_stop": {
+    "kind": "aes_checkpoint",
+    "completed": 63666,
+    "rip": "0x17004d64e"
+  },
+  "worker_rdata_sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42",
+  "prior_rdata_sha256": "e440e65ec21b63abf6edfd87868ab25d89946b54f8e53216a954eb62b7f10e42",
+  "rdata_matches": true,
+  "warning": "Synthetic outputs only; independently executed periodic calls and callback models do not prove a real Windows runtime."
+}
