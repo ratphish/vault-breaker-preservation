@@ -22,13 +22,13 @@ This investigation uncovers and documents the authentic mode selection and progr
      - **Stage 4 (Tier 4)**: Final Vault $\{7\}$
      - **Finale**: The Compiler Encounter (`b_compiler_killed`)
    - Any permutation across the tiers (such as observed route `1 -> 5 -> 4 -> 7`) is valid because each stage independently selects one eligible vault from that tier ($2 \times 2 \times 2 = 8$ possible routes).
-3. **Battery Socket Mechanics & The Raw Integers `5, 4, 5, 6, 4, 8, 7`**:
-   - Every vault door receptacle in the Cryo Archive facility has a uniform total physical capacity of **8 battery sockets**.
-   - The previously recovered raw integers `[5, 4, 5, 6, 4, 8, 7]` represent `i_vault_X_batteries_required` serialized in `80B37FED.bin`.
-   - The remainder represents pre-installed batteries: $\text{pre-installed} = 8 - \text{required}$.
-4. **Encounter Finale**:
-   - Upon unlocking Vault 7 and completing its interior puzzles (`il_vault_interior_puzzles_completed`), the activity timer (`time_remaining_seconds`) is checked.
-   - If sufficient time remains, players can engage The Compiler (`b_compiler_killed`) in the facility's Deep Archive core before extracting (`il_pre_exfil`).
+3. **Battery Deposit Requirements & The Raw Integers `5, 4, 5, 6, 4, 8, 7`**:
+   - The recovered integers `[5, 4, 5, 4, 6, 8, 7]` and `HEC=3` are **VERIFIED ORIGINAL** fields explicitly named `i_vault_X_batteries_required` and `i_hec_batteries_required` in `80B37FED.bin`.
+   - The notion of a uniform "8-socket universal capacity" with $\text{pre-installed} = 8 - \text{required}$ is an inferred simulation abstraction / physical wall prop model, NOT an authentic game engine variable. The original engine logic directly evaluates deposit counts.
+4. **Encounter Finale & Secret Lab**:
+   - The Secret Lab hazard neutralization requires 3 HEC batteries (`i_hec_batteries_required = 3`, Row 21 in `80B37FED.bin`) and records clue access time (`r_time_remaining_when_clue_visited`).
+   - Upon unlocking Vault 7 and completing its interior puzzles (`il_vault_interior_puzzles_completed`), the activity timer is checked (`get_current_activity_time_engineer_only`).
+   - If sufficient time remains, players can engage The Compiler (`b_compiler_killed`) before extracting (`il_pre_exfil`). Note that the 120-second threshold is a synthetic simulation parameter.
 
 ---
 

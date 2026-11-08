@@ -1,6 +1,27 @@
 """Vault Breaker Progression Engine & Selection Graph.
-Implements the verified 4-tier vault selection logic, battery socket capacity,
+
+Implements the verified 4-tier vault selection logic, battery requirements,
 coolant canisters, credentials, DNA cards, and Compiler encounter eligibility.
+
+Evidence Classification:
+- VERIFIED ORIGINAL:
+  - Battery deposit integers: [5, 4, 5, 6, 4, 8, 7] (i_vault_X_batteries_required in 80B37FED.bin)
+  - HEC battery deposit: 3 (i_hec_batteries_required in 80B37FED.bin, neutralizes Secret Lab hazard)
+  - Coolant canisters: Vaults 2, 5, 6 require exactly 1 (i_vault_X_canister_required in 80B37FED.bin)
+  - Faction credentials: Vaults 3, 5, 4, 7 (Wing, Tranquility, Colonist, Command)
+  - DNA Blueprints: 6 AGCT permutations in 80B37C7E.bin
+  - DNA Vials: Vault 4 Colonist vs Vault 7 Command in 80B37C7E.bin
+  - Compiler encounter tracking: b_compiler_killed in 80B37C7E.bin
+- SUPPORTED INFERENCE:
+  - 4-Tier progression graph: Stage 1 {1,2}, Stage 2 {3,5}, Stage 3 {4,6}, Stage 4 {7}
+    (mirrors serialized member order in 80B37FED.bin and 3 key chances i_key_chance_1..3)
+  - 8 mixed route permutations (e.g. 1 -> 5 -> 4 -> 7) across independent tier stages
+- SYNTHETIC SIMULATION ABSTRACTIONS (preserved for offline harness):
+  - TOTAL_BATTERY_SOCKET_CAPACITY = 8 (wall socket rack visualization; engine tracks required count only)
+  - Pre-installed battery calculation (8 - required)
+  - 120.0s Compiler cutoff threshold (engine evaluates dynamic time; constant is simulator-specific)
+- UNKNOWN:
+  - Bytecode implementation of spawn_initial_keys (server-authoritative / omitted from client PE)
 """
 import random
 from dataclasses import dataclass, field
@@ -21,19 +42,23 @@ class GameMode(Enum):
     VAULT_BREAKER_PVE = "activity_exp.cryo.vault_breaker_server"
 
 
-# Universal physical battery socket capacity across all vault doors in Cryo Archive
+# SYNTHETIC SIMULATION ABSTRACTION: Physical rack visualization across vault doors.
+# Note: Original engine metadata defines only `i_vault_X_batteries_required`.
 TOTAL_BATTERY_SOCKET_CAPACITY = 8
 
-# Verified raw required battery integers from 80B37FED.bin / 80B37C7E.bin
+# VERIFIED ORIGINAL: Raw required battery deposit integers from 80B37FED.bin / 80B37C7E.bin
 VAULT_BATTERIES_REQUIRED: Dict[int, int] = {
-    1: 5,  # Vault 1: 5 required -> 3 pre-installed
-    2: 4,  # Vault 2: 4 required -> 4 pre-installed
-    3: 5,  # Vault 3: 5 required -> 3 pre-installed
-    4: 6,  # Vault 4: 6 required -> 2 pre-installed
-    5: 4,  # Vault 5: 4 required -> 4 pre-installed
-    6: 8,  # Vault 6: 8 required -> 0 pre-installed (all empty)
-    7: 7,  # Vault 7: 7 required -> 1 pre-installed
+    1: 5,  # Vault 1: 5 required
+    2: 4,  # Vault 2: 4 required
+    3: 5,  # Vault 3: 5 required
+    4: 6,  # Vault 4: 6 required
+    5: 4,  # Vault 5: 4 required
+    6: 8,  # Vault 6: 8 required
+    7: 7,  # Vault 7: 7 required
 }
+
+# VERIFIED ORIGINAL: Raw required HEC battery deposit for Secret Lab hazard neutralization
+HEC_BATTERIES_REQUIRED: int = 3
 
 # Verified coolant canister requirement (0 or 1)
 VAULT_CANISTER_REQUIRED: Dict[int, bool] = {
@@ -216,7 +241,10 @@ class VaultBreakerDirector:
         if self.current_tier != VaultTier.FINALE or 7 not in self.completed_vaults:
             return False
             
-        # Compiler condition: sufficient time remaining (minimum 120 seconds for boss fight)
+        # Compiler condition: sufficient time remaining.
+        # SYNTHETIC SIMULATION THRESHOLD: 120.0s is a prototype threshold; real engine
+        # evaluates dynamic activity time via `is_current_activity_time_available_engineer_only`
+        # and records `r_time_remaining_when_clue_visited`.
         if self.time_remaining_seconds >= 120.0:
             self.compiler_killed = True
             self.event_log.append("b_compiler_killed")
