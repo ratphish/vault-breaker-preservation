@@ -5,6 +5,7 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <wincrypt.h>
+#include <winhttp.h>
 #include <intrin.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,6 +17,7 @@
 #pragma intrinsic(_ReturnAddress)
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "crypt32.lib")
+#pragma comment(lib, "winhttp.lib")
 
 // Configuration Defaults
 static char g_server_ip[64] = "127.0.0.1";
@@ -981,9 +983,16 @@ static BOOL WINAPI Hook_CertVerifyCertificateChainPolicy(
     PCERT_CHAIN_POLICY_PARA pPolicyPara,
     PCERT_CHAIN_POLICY_STATUS pPolicyStatus
 ) {
-    LogMsg("[Crypto] CertVerifyCertificateChainPolicy called (policy=%p) -> Forcing SUCCESS", pszPolicyOID);
-    if (pPolicyStatus) {
-        pPolicyStatus->dwError = 0; // CERT_TRUST_NO_ERROR = 0
+    LogMsg("[Crypto] CertVerifyCertificateChainPolicy called (policy=%p)", pszPolicyOID);
+    BOOL res = TRUE;
+    if (g_real_CertVerifyCertificateChainPolicy) {
+        res = g_real_CertVerifyCertificateChainPolicy(pszPolicyOID, pChainContext, pPolicyPara, pPolicyStatus);
+    }
+    if (pszPolicyOID == (LPCSTR)1 || (intptr_t)pszPolicyOID == 1) {
+        if (pPolicyStatus) {
+            pPolicyStatus->dwError = 0; // CERT_TRUST_NO_ERROR = 0
+        }
+        LogMsg("[Crypto] CertVerifyCertificateChainPolicy (SSL) -> Forcing SUCCESS");
     }
     return TRUE;
 }
@@ -1006,7 +1015,7 @@ static int WSAAPI Hook_getaddrinfo(
     PCSTR node = pNodeName;
     PCSTR service = pServiceName;
 
-    if (pNodeName && strcmp(pNodeName, "127.0.0.1") != 0 && strcmp(pNodeName, "localhost") != 0) {
+    if (pNodeName && (strstr(pNodeName, "deadorbit") || strstr(pNodeName, "bungie") || strstr(pNodeName, "goliath") || strstr(pNodeName, "marathon") || strstr(pNodeName, "playfab"))) {
         LogMsg("[Egress] Intercepted DNS getaddrinfo for '%s' -> Redirecting to '%s:%s'",
                pNodeName, g_server_ip, g_server_port);
         node = g_server_ip;
@@ -1040,7 +1049,7 @@ static int WSAAPI Hook_GetAddrInfoW(
         char nodeA[256] = {0};
         WideCharToMultiByte(CP_UTF8, 0, pNodeName, -1, nodeA, sizeof(nodeA), NULL, NULL);
         LogMsg("[DNS] GetAddrInfoW(node='%s')", nodeA);
-        if (strcmp(nodeA, "127.0.0.1") != 0 && strcmp(nodeA, "localhost") != 0) {
+        if (strstr(nodeA, "deadorbit") || strstr(nodeA, "bungie") || strstr(nodeA, "goliath") || strstr(nodeA, "marathon") || strstr(nodeA, "playfab")) {
             LogMsg("[Egress] Intercepted DNS GetAddrInfoW for '%s' -> Redirecting to '%s'", nodeA, g_server_ip);
             wchar_t wServerIp[64] = L"127.0.0.1";
             return g_real_GetAddrInfoW ? g_real_GetAddrInfoW(wServerIp, pServiceName, pHints, ppResult) : WSAEFAULT;
@@ -1054,7 +1063,7 @@ static gethostbyname_t g_real_gethostbyname = NULL;
 
 static struct hostent* WSAAPI Hook_gethostbyname(const char* name) {
     LogMsg("[DNS] gethostbyname('%s')", name ? name : "NULL");
-    if (name && strcmp(name, "127.0.0.1") != 0 && strcmp(name, "localhost") != 0) {
+    if (name && (strstr(name, "deadorbit") || strstr(name, "bungie") || strstr(name, "goliath") || strstr(name, "marathon") || strstr(name, "playfab"))) {
         LogMsg("[Egress] Intercepted DNS gethostbyname for '%s' -> Redirecting to '%s'",
                name, g_server_ip);
         return g_real_gethostbyname ? g_real_gethostbyname(g_server_ip) : NULL;
@@ -1144,6 +1153,71 @@ static int WSAAPI Hook_WSAConnect(
         }
     }
     return g_real_WSAConnect ? g_real_WSAConnect(s, name, namelen, lpCallerData, lpCalleeData, lpSQOS, lpGQOS) : SOCKET_ERROR;
+}
+
+typedef HINTERNET (WINAPI *WinHttpConnect_t)(
+    HINTERNET hSession,
+    LPCWSTR pswzServerName,
+    INTERNET_PORT nServerPort,
+    DWORD dwReserved
+);
+static WinHttpConnect_t g_real_WinHttpConnect = NULL;
+
+static HINTERNET WINAPI Hook_WinHttpConnect(
+    HINTERNET hSession,
+    LPCWSTR pswzServerName,
+    INTERNET_PORT nServerPort,
+    DWORD dwReserved
+) {
+    if (pswzServerName) {
+        char sNameA[256] = { 0 };
+        WideCharToMultiByte(CP_UTF8, 0, pswzServerName, -1, sNameA, sizeof(sNameA), NULL, NULL);
+        LogMsg("[WinHTTP] WinHttpConnect(server='%s', port=%u)", sNameA, (unsigned int)nServerPort);
+        if (strstr(sNameA, "deadorbit") || strstr(sNameA, "bungie") || strstr(sNameA, "goliath") || strstr(sNameA, "playfab") || (strcmp(sNameA, "127.0.0.1") != 0 && strcmp(sNameA, "localhost") != 0)) {
+            uint16_t target_port = (uint16_t)atoi(g_server_port);
+            LogMsg("[Egress] Redirecting WinHttpConnect from '%s:%u' to 127.0.0.1:%u", sNameA, (unsigned int)nServerPort, target_port);
+            return g_real_WinHttpConnect ? g_real_WinHttpConnect(hSession, L"127.0.0.1", (INTERNET_PORT)target_port, dwReserved) : NULL;
+        }
+    }
+    return g_real_WinHttpConnect ? g_real_WinHttpConnect(hSession, pswzServerName, nServerPort, dwReserved) : NULL;
+}
+
+typedef HINTERNET (WINAPI *WinHttpOpenRequest_t)(
+    HINTERNET hConnect,
+    LPCWSTR pwszVerb,
+    LPCWSTR pwszObjectName,
+    LPCWSTR pwszVersion,
+    LPCWSTR pwszReferrer,
+    LPCWSTR *ppwszAcceptTypes,
+    DWORD dwFlags
+);
+static WinHttpOpenRequest_t g_real_WinHttpOpenRequest = NULL;
+
+static HINTERNET WINAPI Hook_WinHttpOpenRequest(
+    HINTERNET hConnect,
+    LPCWSTR pwszVerb,
+    LPCWSTR pwszObjectName,
+    LPCWSTR pwszVersion,
+    LPCWSTR pwszReferrer,
+    LPCWSTR *ppwszAcceptTypes,
+    DWORD dwFlags
+) {
+    char objA[256] = { 0 };
+    if (pwszObjectName) WideCharToMultiByte(CP_UTF8, 0, pwszObjectName, -1, objA, sizeof(objA), NULL, NULL);
+    LogMsg("[WinHTTP] WinHttpOpenRequest(object='%s', flags=0x%lx)", objA, dwFlags);
+
+    HINTERNET hReq = g_real_WinHttpOpenRequest ?
+        g_real_WinHttpOpenRequest(hConnect, pwszVerb, pwszObjectName, pwszVersion, pwszReferrer, ppwszAcceptTypes, dwFlags) : NULL;
+
+    if (hReq) {
+        DWORD secFlags = SECURITY_FLAG_IGNORE_UNKNOWN_CA |
+                         SECURITY_FLAG_IGNORE_CERT_DATE_INVALID |
+                         SECURITY_FLAG_IGNORE_CERT_CN_INVALID |
+                         SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE;
+        WinHttpSetOption(hReq, WINHTTP_OPTION_SECURITY_FLAGS, &secFlags, sizeof(secFlags));
+        LogMsg("[WinHTTP] Applied SECURITY_FLAG_IGNORE_UNKNOWN_CA to request %p", hReq);
+    }
+    return hReq;
 }
 
 // ---------------------------------------------------------------------------
@@ -1245,8 +1319,9 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
         bool isWs2 = (_stricmp(modName, "WS2_32.dll") == 0);
         bool isK32 = (_stricmp(modName, "KERNEL32.dll") == 0);
         bool isCrypt = (_stricmp(modName, "CRYPT32.dll") == 0);
+        bool isWinHttp = (_stricmp(modName, "WINHTTP.dll") == 0);
 
-        if (isWs2 || isK32 || isCrypt) {
+        if (isWs2 || isK32 || isCrypt || isWinHttp) {
             uint32_t iltRVA = pImport->OriginalFirstThunk ? pImport->OriginalFirstThunk : pImport->FirstThunk;
             PIMAGE_THUNK_DATA origThunk = (PIMAGE_THUNK_DATA)((uint8_t*)hMod + iltRVA);
             PIMAGE_THUNK_DATA thunk = (PIMAGE_THUNK_DATA)((uint8_t*)hMod + pImport->FirstThunk);
@@ -1282,6 +1357,13 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                         const char* name = (const char*)impName->Name;
                         if (strcmp(name, "CreateFileW") == 0) { hook = (void*)Hook_CreateFileW; hookName = "CreateFileW"; }
                         else if (strcmp(name, "CreateFileA") == 0) { hook = (void*)Hook_CreateFileA; hookName = "CreateFileA"; }
+                    }
+                } else if (isWinHttp) {
+                    if (!(origThunk->u1.Ordinal & IMAGE_ORDINAL_FLAG)) {
+                        PIMAGE_IMPORT_BY_NAME impName = (PIMAGE_IMPORT_BY_NAME)((uint8_t*)hMod + origThunk->u1.AddressOfData);
+                        const char* name = (const char*)impName->Name;
+                        if (strcmp(name, "WinHttpConnect") == 0) { hook = (void*)Hook_WinHttpConnect; hookName = "WinHttpConnect"; }
+                        else if (strcmp(name, "WinHttpOpenRequest") == 0) { hook = (void*)Hook_WinHttpOpenRequest; hookName = "WinHttpOpenRequest"; }
                     }
                 }
 
@@ -1340,6 +1422,13 @@ static void InstallIATHooks() {
     if (!hCrypt) hCrypt = LoadLibraryA("CRYPT32.dll");
     if (hCrypt) {
         g_real_CertVerifyCertificateChainPolicy = (CertVerifyCertificateChainPolicy_t)GetProcAddress(hCrypt, "CertVerifyCertificateChainPolicy");
+    }
+
+    HMODULE hWinHttp = GetModuleHandleA("WINHTTP.dll");
+    if (!hWinHttp) hWinHttp = LoadLibraryA("WINHTTP.dll");
+    if (hWinHttp) {
+        g_real_WinHttpConnect = (WinHttpConnect_t)GetProcAddress(hWinHttp, "WinHttpConnect");
+        g_real_WinHttpOpenRequest = (WinHttpOpenRequest_t)GetProcAddress(hWinHttp, "WinHttpOpenRequest");
     }
 
     HMODULE hK32 = GetModuleHandleA("KERNEL32.dll");
