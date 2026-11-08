@@ -303,3 +303,112 @@ class MarathonServer:
             sequence=activity.sequence,
             payload=bytes(payload)
         )
+
+# ---------------------------------------------------------------------------
+# Standalone CLI Server Runner
+# ---------------------------------------------------------------------------
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
+
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    daemon_threads = True
+
+class SignOnHTTPHandler(BaseHTTPRequestHandler):
+    server_instance: MarathonServer = None  # Injected
+
+    def do_POST(self):
+        content_len = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_len) if content_len > 0 else b""
+        
+        print(f"[HTTP] Received POST {self.path} ({len(body)} bytes ticket payload)")
+        
+        status, payload = self.server_instance.handle_signon_request(body)
+        
+        self.send_response(status)
+        self.send_header("Content-Type", "application/octet-stream")
+        self.send_header("Content-Length", str(len(payload)))
+        self.send_header("Connection", "close")
+        self.end_headers()
+        self.wfile.write(payload)
+        print(f"[HTTP] Dispatched SignOn Protobuf response ({len(payload)} bytes) -> Status {status}")
+
+    def do_GET(self):
+        print(f"[HTTP] Received GET {self.path}")
+        msg = b"Marathon Standalone Emulation Server (Project Dawn) - OK\n"
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain")
+        self.send_header("Content-Length", str(len(msg)))
+        self.end_headers()
+        self.wfile.write(msg)
+
+    def log_message(self, format, *args):
+        # Suppress default noisy stderr logging
+        pass
+
+def start_bap_listener(server_instance: MarathonServer):
+    """TCP listener for BAP frames."""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind((server_instance.host, server_instance.bap_port))
+    sock.listen(5)
+    print(f"[*] BAP Service Router listening on TCP {server_instance.host}:{server_instance.bap_port}")
+    
+    while True:
+        try:
+            client_sock, client_addr = sock.accept()
+            print(f"[BAP] Client connected from {client_addr}")
+            threading.Thread(target=handle_bap_connection, args=(client_sock, server_instance), daemon=True).start()
+        except Exception as e:
+            print(f"[-] BAP accept error: {e}")
+            break
+
+def handle_bap_connection(client_sock: socket.socket, server_instance: MarathonServer):
+    buf = bytearray()
+    try:
+        while True:
+            chunk = client_sock.recv(4096)
+            if not chunk:
+                break
+            buf.extend(chunk)
+            while True:
+                payload, frame_type, new_pos = decode_outer_frame(buf)
+                if payload is None:
+                    break
+                buf = buf[new_pos:]
+                
+                req = decode_inner_request(payload)
+                print(f"[BAP] Svc {req.service_id} (Task {req.task_id}) <- {len(req.payload)} bytes")
+                
+                resp = server_instance.dispatch_bap_request(req)
+                resp_frame = build_response_frame(resp.service_id, resp.task_id, resp.status, resp.payload)
+                client_sock.sendall(resp_frame)
+                print(f"[BAP] Svc {resp.service_id} (Task {resp.task_id}) -> Status {resp.status} ({len(resp.payload)} bytes)")
+    except Exception as e:
+        pass
+    finally:
+        client_sock.close()
+
+def main():
+    server = MarathonServer(host="0.0.0.0", http_port=8080, bap_port=7777)
+    SignOnHTTPHandler.server_instance = server
+    
+    print("=" * 65)
+    print("  MARATHON STANDALONE EMULATION SERVER (Project Dawn Architecture)")
+    print("  Target Build: 26136895 (Cryo Archive Vault Breaker)")
+    print("=" * 65)
+    print(f"[*] HTTP SignOn service listening on http://127.0.0.1:{server.http_port}")
+    print(f"[*] Configured Mod Route: {server.mod_config.tier_1_vaults} -> {server.mod_config.tier_2_vaults} -> {server.mod_config.tier_3_vaults} -> {server.mod_config.tier_4_vaults}")
+    print(f"[*] Waiting for Marathon.exe client connection...\n")
+    
+    bap_thread = threading.Thread(target=start_bap_listener, args=(server,), daemon=True)
+    bap_thread.start()
+    
+    httpd = ThreadedHTTPServer(("0.0.0.0", server.http_port), SignOnHTTPHandler)
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\n[*] Server shutdown.")
+
+if __name__ == "__main__":
+    main()
