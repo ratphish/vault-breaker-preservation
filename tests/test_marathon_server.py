@@ -243,3 +243,26 @@ def test_direct_settings_http_endpoint():
         assert b"{}" in body
     finally:
         server.shutdown()
+
+
+def test_sdr_config_endpoint():
+    """Verify that /ISteamApps/GetSDRConfig/v1 returns the official SDR configuration."""
+    import socket, threading, urllib.request, json
+    from marathon_server import ThreadedHTTPServer, SignOnHTTPHandler
+
+    server = ThreadedHTTPServer(('127.0.0.1', 0), SignOnHTTPHandler)
+    port = server.server_port
+    t = threading.Thread(target=server.serve_forever, daemon=True)
+    t.start()
+
+    try:
+        resp = urllib.request.urlopen(f'http://127.0.0.1:{port}/ISteamApps/GetSDRConfig/v1?appid=3065800')
+        assert resp.status == 200
+        assert resp.headers.get('Content-Type') == 'application/json'
+        body = resp.read()
+        d = json.loads(body)
+        assert d.get('success') is True
+        assert 'pops' in d
+        assert len(d['pops']) > 0
+    finally:
+        server.shutdown()

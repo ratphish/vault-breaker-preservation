@@ -484,32 +484,50 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
             threading.Thread(target=lambda: (time.sleep(0.5), os._exit(0))).start()
             return
 
+        # Steam Datagram Relay (SDR) configuration endpoint
+        local_content = None
+        if "GetSDRConfig" in self.path:
+            sdr_candidates = [
+                os.path.join(os.path.dirname(__file__), "..", "config", "sdr_config.json"),
+                r"D:\Marathon-live\config\sdr_config.json",
+                os.path.join(os.getcwd(), "config", "sdr_config.json"),
+            ]
+            for sp in sdr_candidates:
+                if os.path.isfile(sp):
+                    try:
+                        with open(sp, "rb") as sf:
+                            local_content = sf.read()
+                        server_log(f"[SDRConfig] Serving official SDR config {sp} ({len(local_content)} bytes)")
+                        break
+                    except Exception:
+                        pass
+
         # Direct Settings / configuration request handling
         from urllib.parse import urlparse
         parsed_path = urlparse(self.path).path
         filename = os.path.basename(parsed_path)
 
         # Check local files under config/direct_settings/
-        local_content = None
-        candidate_dirs = [
-            os.path.join(os.path.dirname(__file__), "..", "config", "direct_settings"),
-            r"D:\Marathon-live\config\direct_settings",
-            os.path.join(os.getcwd(), "config", "direct_settings")
-        ]
-        for cdir in candidate_dirs:
-            cpath = os.path.join(cdir, filename)
-            if os.path.isfile(cpath):
-                try:
-                    with open(cpath, "rb") as cf:
-                        local_content = cf.read()
-                    server_log(f"[DirectSettings] Serving local config {cpath} ({len(local_content)} bytes)")
-                    break
-                except Exception:
-                    pass
-
         if local_content is None:
-            local_content = b"{}\n"
-            server_log(f"[DirectSettings] Serving default JSON ({len(local_content)} bytes) for {self.path}")
+            candidate_dirs = [
+                os.path.join(os.path.dirname(__file__), "..", "config", "direct_settings"),
+                r"D:\Marathon-live\config\direct_settings",
+                os.path.join(os.getcwd(), "config", "direct_settings")
+            ]
+            for cdir in candidate_dirs:
+                cpath = os.path.join(cdir, filename)
+                if os.path.isfile(cpath):
+                    try:
+                        with open(cpath, "rb") as cf:
+                            local_content = cf.read()
+                        server_log(f"[DirectSettings] Serving local config {cpath} ({len(local_content)} bytes)")
+                        break
+                    except Exception:
+                        pass
+
+            if local_content is None:
+                local_content = b"{}\n"
+                server_log(f"[DirectSettings] Serving default JSON ({len(local_content)} bytes) for {self.path}")
 
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
@@ -597,6 +615,21 @@ def main():
     
     bap_thread = threading.Thread(target=start_bap_listener, args=(server,), daemon=True)
     bap_thread.start()
+
+    def start_bap_udp(server):
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            sock.bind(("0.0.0.0", server.bap_port))
+            server_log(f"[*] BAP Service Router listening on UDP 0.0.0.0:{server.bap_port}")
+            while True:
+                data, addr = sock.recvfrom(65535)
+                server_log(f"[UDP 7777] Received {len(data)} bytes from {addr}. Preview: {data[:32].hex()}")
+        except Exception as e:
+            server_log(f"[-] UDP 7777 bind warning: {e}")
+
+    bap_udp_thread = threading.Thread(target=start_bap_udp, args=(server,), daemon=True)
+    bap_udp_thread.start()
     
     def start_http_80(server):
         try:
