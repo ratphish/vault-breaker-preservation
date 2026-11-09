@@ -266,3 +266,23 @@ def test_sdr_config_endpoint():
         assert len(d['pops']) > 0
     finally:
         server.shutdown()
+
+
+def test_unknown_endpoint_returns_404():
+    """Verify that unknown endpoints return 404 Not Found to prevent masking errors."""
+    import socket, threading, urllib.request, urllib.error
+    from marathon_server import ThreadedHTTPServer, SignOnHTTPHandler
+
+    server = ThreadedHTTPServer(('127.0.0.1', 0), SignOnHTTPHandler)
+    port = server.server_port
+    t = threading.Thread(target=server.serve_forever, daemon=True)
+    t.start()
+
+    try:
+        try:
+            urllib.request.urlopen(f'http://127.0.0.1:{port}/unknown/unsupported/endpoint')
+            assert False, "Expected HTTP 404"
+        except urllib.error.HTTPError as e:
+            assert e.code == 404
+    finally:
+        server.shutdown()

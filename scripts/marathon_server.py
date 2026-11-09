@@ -507,8 +507,7 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
         parsed_path = urlparse(self.path).path
         filename = os.path.basename(parsed_path)
 
-        # Check local files under config/direct_settings/
-        if local_content is None:
+        if local_content is None and (self.path.startswith("/cfg_") or "direct_settings" in self.path):
             candidate_dirs = [
                 os.path.join(os.path.dirname(__file__), "..", "config", "direct_settings"),
                 r"D:\Marathon-live\config\direct_settings",
@@ -527,15 +526,26 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
 
             if local_content is None:
                 local_content = b"{}\n"
-                server_log(f"[DirectSettings] Serving default JSON ({len(local_content)} bytes) for {self.path}")
+                server_log(f"[DirectSettings] Serving fallback JSON ({len(local_content)} bytes) for {self.path}")
 
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", str(len(local_content)))
-        self.send_header("Connection", "close")
-        self.end_headers()
-        self.wfile.write(local_content)
-        self.wfile.flush()
+        if local_content is not None:
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(local_content)))
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(local_content)
+            self.wfile.flush()
+        else:
+            server_log(f"[-] [HTTP 404 UNKNOWN ENDPOINT] Unhandled request: {self.command} {self.path}")
+            err_body = f'{{"error": "not_found", "path": "{self.path}"}}\n'.encode("utf-8")
+            self.send_response(404)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(err_body)))
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(err_body)
+            self.wfile.flush()
 
     def do_HEAD(self):
         client_ip, client_port = self.client_address
