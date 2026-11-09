@@ -24,7 +24,7 @@ if %errorlevel% equ 0 (
     echo [*] Starting local Marathon Server in a dedicated visible console...
     start "Marathon Emulation Server" cmd /k "title Marathon Emulation Server && python -u D:\vault-breaker-preservation\scripts\marathon_server.py"
     :: Give server a moment to bind ports
-    timeout /t 3 /nobreak >nul
+    ping 127.0.0.1 -n 4 >nul
 )
 
 echo [*] Launching Marathon.exe...

@@ -107,17 +107,17 @@ def test_signon_endpoint_and_protobuf_response():
     success_reader = ProtobufReader(fields[PB_TAG_SUCCESS])
     success_fields = {f[0]: f[2] for f in success_reader.parse()}
     
-    # Must contain 32-byte session key and 16-byte session token
+    # In Project Dawn schema: 16-byte session key and 32-byte session token
     assert PB_SUB_ENCRYPTION_KEY in success_fields
-    assert len(success_fields[PB_SUB_ENCRYPTION_KEY]) == 32
+    assert len(success_fields[PB_SUB_ENCRYPTION_KEY]) == 16
     assert PB_SUB_SESSION_TOKEN in success_fields
-    assert len(success_fields[PB_SUB_SESSION_TOKEN]) == 16
+    assert len(success_fields[PB_SUB_SESSION_TOKEN]) == 32
     
     # Inspect common info submessage (membership ID)
     common_reader = ProtobufReader(fields[PB_TAG_COMMON_INFO])
     common_fields = {f[0]: f[2] for f in common_reader.parse()}
     assert PB_COMMON_ID in common_fields
-    assert common_fields[PB_COMMON_ID] in (1001, 76561198000001001)
+    assert common_fields[PB_COMMON_ID] in (1, 1001, 76561198000001001)
 
 def test_bap_service_dispatcher_flow():
     """Verify BAP service router responds accurately to core startup services."""
@@ -143,7 +143,7 @@ def test_bap_service_dispatcher_flow():
     resp_acc = server.dispatch_bap_request(req_acc, player)
     assert resp_acc.service_id == SERVICE_ACCOUNT_RESPONSE
     m_id = struct.unpack_from(">Q", resp_acc.payload, 0)[0]
-    assert m_id in (1001, 76561198000001001)
+    assert m_id in (1, 1001, 76561198000001001)
     assert b"Runner#" in resp_acc.payload
     
     # 4. Service 6: Activity Session Allocation
@@ -220,6 +220,26 @@ def test_multiplayer_coop_session_isolation():
     p2.current_activity_session_id = activity.session_id
     
     assert len(activity.players) == 2
-    assert activity.players[0].membership_id in (1001, 76561198000001001)
+    assert activity.players[0].membership_id in (1, 1001, 76561198000001001)
     assert activity.players[1].membership_id == 1002
     assert p1.current_activity_session_id == p2.current_activity_session_id
+
+
+def test_direct_settings_http_endpoint():
+    """Verify that SignOnHTTPHandler serves Direct Settings JSON for /cfg_a/* and *.json."""
+    import socket, threading, urllib.request
+    from marathon_server import ThreadedHTTPServer, SignOnHTTPHandler
+
+    server = ThreadedHTTPServer(('127.0.0.1', 0), SignOnHTTPHandler)
+    port = server.server_port
+    t = threading.Thread(target=server.serve_forever, daemon=True)
+    t.start()
+
+    try:
+        resp = urllib.request.urlopen(f'http://127.0.0.1:{port}/cfg_a/direct_settings/global/global.json')
+        assert resp.status == 200
+        assert resp.headers.get('Content-Type') == 'application/json'
+        body = resp.read()
+        assert b"{}" in body
+    finally:
+        server.shutdown()

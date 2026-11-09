@@ -47,3 +47,5 @@ __pycache__/
 ARGON_HANDOFF.md
 ARGON_SOLUTION.md
 ask_argon.py
+
+scratch/

@@ -54,6 +54,10 @@ PB_SUB_SESSION_TOKEN = 4
 PB_SUB_EXPIRY = 5
 PB_SUB_RELAY_ADDR = 6
 PB_SUB_RELAY_PORT = 7
+PB_SUB_CLIENT_CONFIG = 12
+PB_SUB_CFG_A = 14
+PB_SUB_CFG_B = 15
+PB_SUB_CFG_C = 16
 
 # CommonInfo tags
 PB_COMMON_ID = 1
@@ -106,17 +110,18 @@ class MarathonServer:
     def handle_signon_request(self, steam_ticket: bytes, platform: str = "pc_x64",
                               build: str = "248199.26.10.21.2300.gol_retail.rc") -> Tuple[int, bytes]:
         """Handles POST /SignOn?platform=%s&build=%s.
-        Returns (HTTP status code, Protobuf binary payload).
+        Returns (HTTP status code, Protobuf binary payload) using Project Dawn's proven schema.
         """
         # Allocate deterministic session for player
         legacy_id = self.next_membership_id
         self.next_membership_id += 1
-        player_id = 76561198000001001 if legacy_id == 1001 else legacy_id
+        player_id = 1 if legacy_id == 1001 else legacy_id
         membership_id = player_id
         
-        session_token = os.urandom(16)   # 16 bytes (Tiger Engine cs_signon_token / 128-bit GUID)
-        encryption_key = os.urandom(32)  # 32 bytes AES session key
-        auth_key = os.urandom(32)        # 32 bytes HMAC auth key
+        # 16 bytes AES key, 16 bytes HMAC key, 32 bytes session token
+        session_token = os.urandom(32)   # 32 bytes session token
+        encryption_key = os.urandom(16)  # 16 bytes AES session key
+        auth_key = os.urandom(16)        # 16 bytes HMAC auth key
         display_name = f"Runner#{legacy_id:04d}"
         
         player = PlayerSession(
@@ -128,13 +133,12 @@ class MarathonServer:
             relay_port=self.bap_port
         )
         self.players[membership_id] = player
-        self.players[player_id] = player
         self.players[legacy_id] = player
+        self.players[76561198000001001] = player
         self.sessions_by_token[session_token] = player
         
-        # Resolve host IP in native host byte order uint32 (0x0100007F for 127.0.0.1)
-        relay_host = "127.0.0.1" if self.host in ("0.0.0.0", "") else self.host
-        relay_ip_uint32 = struct.unpack("=I", socket.inet_aton(relay_host))[0]
+        # Big-endian 127.0.0.1 network byte order (2130706433 / 0x7F000001)
+        relay_ip_uint32 = 0x7F000001
         
         # Build Protobuf response matching Project Dawn's Writer
         success_sub = ProtobufWriter()
@@ -143,18 +147,29 @@ class MarathonServer:
         success_sub.bytes(PB_SUB_AUTH_KEY, auth_key)
         success_sub.bytes(PB_SUB_SESSION_TOKEN, session_token)
         success_sub.varint(PB_SUB_EXPIRY, 86400)
-        success_sub.varint(PB_SUB_RELAY_ADDR, relay_ip_uint32)  # 127.0.0.1 (0x0100007F)
+        success_sub.varint(PB_SUB_RELAY_ADDR, relay_ip_uint32)
         success_sub.varint(PB_SUB_RELAY_PORT, self.bap_port)
         
+        # Subfield 12: client_config (cookie=1, social_matchmaking_id=1, keys)
+        client_config_sub = ProtobufWriter()
+        client_config_sub.varint(1, 1)  # cookie = 1
+        client_config_sub.bytes(3, b"\x11" * 16)
+        client_config_sub.bytes(4, b"\x22" * 16)
+        success_sub.message(PB_SUB_CLIENT_CONFIG, client_config_sub)
+        
+        # Direct Settings configuration URLs (port 80)
+        success_sub.string(PB_SUB_CFG_A, "http://127.0.0.1/cfg_a/")
+        success_sub.string(PB_SUB_CFG_B, "http://127.0.0.1/cfg_b/")
+        success_sub.string(PB_SUB_CFG_C, "http://127.0.0.1/cfg_c/")
+        
         common_info_sub = ProtobufWriter()
-        common_info_sub.varint(PB_COMMON_ID, membership_id)
+        common_info_sub.varint(PB_COMMON_ID, membership_id)  # 1
         common_info_sub.varint(PB_COMMON_SILO, 1)
-        config_blob = struct.pack("<IIB", 0x00123456, 0x007B620F, 20) + bytes(20)
+        config_blob = struct.pack("<IIB", 0x00123456, 0x007B620F, 0x10) + bytes(range(16)) + bytes(4)
         common_info_sub.bytes(PB_COMMON_CONFIG_BLOB, config_blob)
         
         # Extract requested entitlements from client request Field 15
-        client_entitlements = [3065800, 3760193537, 3760193538]
-        raw_field15_bytes = None
+        client_entitlements = [3065800, 3760193538, 3760193537]
         try:
             req_idx = 0
             while req_idx < len(steam_ticket):
@@ -185,8 +200,8 @@ class MarathonServer:
                     val_bytes = steam_ticket[req_idx:req_idx+length]
                     req_idx += length
                     if fnum == 15:
-                        raw_field15_bytes = val_bytes
                         v_i = 0
+                        found_ids = []
                         while v_i < len(val_bytes):
                             v_val = 0
                             v_shift = 0
@@ -196,42 +211,35 @@ class MarathonServer:
                                 v_val |= (vb & 0x7F) << v_shift
                                 if not (vb & 0x80): break
                                 v_shift += 7
-                            if v_val not in client_entitlements:
-                                client_entitlements.append(v_val)
+                            found_ids.append(v_val)
+                        if found_ids:
+                            client_entitlements = found_ids
                 elif wtype == 5:
                     req_idx += 4
         except Exception as e:
             server_log(f"[-] Error extracting client entitlements: {e}")
 
-        # Encode granted entitlements as packed varints (wire type 2), exactly matching
-        # the wire format expected by Tiger Engine repeated uint64 owned_entitlements = 10.
-        # DO NOT encode as a submessage with tag 1; that injects 0x08 before each ID,
-        # corrupting the list and causing error.signon_error (SQUIRREL)!
-        if raw_field15_bytes:
-            packed_entitlements = raw_field15_bytes
-        else:
-            packed_buf = bytearray()
-            for ent_id in client_entitlements:
-                packed_buf.extend(encode_varint(ent_id))
-            packed_entitlements = bytes(packed_buf)
-        server_log(f"[SignOn] Granted entitlements (packed {len(packed_entitlements)}B): {client_entitlements}")
-        
-        build_str = build or BUILD_VERSION_STRING
-        
         response = ProtobufWriter()
-        # NOTE: Do NOT emit PB_TAG_ERROR on success! In Tiger Engine Protobuf, Tag 1 is an error enum.
-        # Emitting Tag 1 with value 0 sets error = kSignonErrorDenied (0x054CBF4A / 88915786), causing SQUIRREL.
+        response.varint(PB_TAG_ERROR, 0)
         response.message(PB_TAG_SUCCESS, success_sub)
         response.message(PB_TAG_COMMON_INFO, common_info_sub)
         response.varint(PB_TAG_SILO_ID, 1)
-        response.string(PB_TAG_BUILD_VERSION, build_str)
+        response.string(PB_TAG_BUILD_VERSION, "d2legacy")
         response.varint(PB_TAG_CAPABILITY_FLAGS, 0)
-        response.bytes(PB_TAG_ENTITLEMENTS, packed_entitlements)
+        
+        # Tag 10: length-delimited submessage with repeated varint 1
+        ent_sub = ProtobufWriter()
+        for ent_id in client_entitlements:
+            ent_sub.varint(1, ent_id)
+        response.message(PB_TAG_ENTITLEMENTS, ent_sub)
+        
         response.varint(PB_TAG_SERVER_TIME, int(time.time()))
-        response.string(PB_TAG_ENVIRONMENT, "GOLRETAIL")
+        response.string(PB_TAG_ENVIRONMENT, "live")
         response.varint(PB_TAG_EXTERNAL_ADDR, relay_ip_uint32)
         
-        return 200, response.build()
+        payload = response.build()
+        server_log(f"[SignOn] Granted entitlements: {client_entitlements} (payload {len(payload)}B)")
+        return 200, payload
 
     def determine_vault_route(self, config: Optional[VaultBreakerModConfig] = None) -> List[int]:
         """Resolves the 4-tier vault progression sequence based on mod config or baseline RNG."""
@@ -475,18 +483,49 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
             self.wfile.flush()
             threading.Thread(target=lambda: (time.sleep(0.5), os._exit(0))).start()
             return
-        msg = b"Marathon Standalone Emulation Server (Project Dawn) - OK\n"
+
+        # Direct Settings / configuration request handling
+        from urllib.parse import urlparse
+        parsed_path = urlparse(self.path).path
+        filename = os.path.basename(parsed_path)
+
+        # Check local files under config/direct_settings/
+        local_content = None
+        candidate_dirs = [
+            os.path.join(os.path.dirname(__file__), "..", "config", "direct_settings"),
+            r"D:\Marathon-live\config\direct_settings",
+            os.path.join(os.getcwd(), "config", "direct_settings")
+        ]
+        for cdir in candidate_dirs:
+            cpath = os.path.join(cdir, filename)
+            if os.path.isfile(cpath):
+                try:
+                    with open(cpath, "rb") as cf:
+                        local_content = cf.read()
+                    server_log(f"[DirectSettings] Serving local config {cpath} ({len(local_content)} bytes)")
+                    break
+                except Exception:
+                    pass
+
+        if local_content is None:
+            local_content = b"{}\n"
+            server_log(f"[DirectSettings] Serving default JSON ({len(local_content)} bytes) for {self.path}")
+
         self.send_response(200)
-        self.send_header("Content-Type", "text/plain")
-        self.send_header("Content-Length", str(len(msg)))
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(local_content)))
         self.send_header("Connection", "close")
         self.end_headers()
-        self.wfile.write(msg)
+        self.wfile.write(local_content)
         self.wfile.flush()
 
     def do_HEAD(self):
+        client_ip, client_port = self.client_address
+        server_log(f"[HTTP HEAD] from {client_ip}:{client_port} -> {self.path}")
         self.send_response(200)
-        self.send_header("Content-Type", "application/octet-stream")
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", "2")
+        self.send_header("Connection", "close")
         self.end_headers()
 
     def do_OPTIONS(self):
@@ -559,6 +598,17 @@ def main():
     bap_thread = threading.Thread(target=start_bap_listener, args=(server,), daemon=True)
     bap_thread.start()
     
+    def start_http_80(server):
+        try:
+            httpd_80 = ThreadedHTTPServer(("0.0.0.0", 80), SignOnHTTPHandler)
+            server_log("[*] Plaintext HTTP Direct Settings service active on http://127.0.0.1:80")
+            httpd_80.serve_forever()
+        except Exception as e:
+            server_log(f"[-] Port 80 HTTP bind warning: {e}")
+
+    http_80_thread = threading.Thread(target=start_http_80, args=(server,), daemon=True)
+    http_80_thread.start()
+
     plain_thread = threading.Thread(target=start_plaintext_http, args=(server, 8081), daemon=True)
     plain_thread.start()
 

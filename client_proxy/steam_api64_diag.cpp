@@ -1553,7 +1553,7 @@ static BOOL PASCAL Hook_ConnectEx(
         inet_ntop(AF_INET, &sin_copy.sin_addr, ip, sizeof(ip));
         LogMsg("[TCP] ConnectEx(IPv4) to %s:%d (socket=%lld)", ip, port, (long long)s);
         if (port == 443 || port == 80 || (strcmp(ip, "127.0.0.1") != 0 && (port == 8080 || port == 7777))) {
-            uint16_t target_port = (port == 443) ? 443 : ((port == 7777) ? 7777 : (uint16_t)atoi(g_server_port));
+            uint16_t target_port = (port == 80) ? 80 : ((port == 443) ? 443 : ((port == 7777) ? 7777 : (uint16_t)atoi(g_server_port)));
             LogMsg("[Egress] Redirecting IPv4 ConnectEx() from %s:%d to %s:%u",
                    ip, port, g_server_ip, target_port);
             sin_copy.sin_addr.s_addr = inet_addr(g_server_ip);
@@ -1680,7 +1680,7 @@ static int WSAAPI Hook_connect(SOCKET s, const struct sockaddr* name, int namele
             inet_ntop(AF_INET, &sin_copy.sin_addr, ip, sizeof(ip));
             LogMsg("[TCP] connect(IPv4) to %s:%d (socket=%lld)", ip, port, (long long)s);
             if (port == 443 || port == 80 || (strcmp(ip, "127.0.0.1") != 0 && (port == 8080 || port == 7777))) {
-                uint16_t target_port = (port == 7777) ? 7777 : (uint16_t)atoi(g_server_port);
+                uint16_t target_port = (port == 80) ? 80 : ((port == 443) ? 443 : ((port == 7777) ? 7777 : (uint16_t)atoi(g_server_port)));
                 LogMsg("[Egress] Redirecting IPv4 connect() from %s:%d to %s:%u",
                        ip, port, g_server_ip, target_port);
                 sin_copy.sin_addr.s_addr = inet_addr(g_server_ip);
@@ -1696,7 +1696,7 @@ static int WSAAPI Hook_connect(SOCKET s, const struct sockaddr* name, int namele
             inet_ntop(AF_INET6, &sin6_copy.sin6_addr, ip6, sizeof(ip6));
             LogMsg("[TCP] connect(IPv6) to [%s]:%d (socket=%lld)", ip6, port, (long long)s);
             if (port == 443 || port == 80 || port == 8080 || port == 7777) {
-                uint16_t target_port = (port == 7777) ? 7777 : (uint16_t)atoi(g_server_port);
+                uint16_t target_port = (port == 80) ? 80 : ((port == 443) ? 443 : ((port == 7777) ? 7777 : (uint16_t)atoi(g_server_port)));
                 LogMsg("[Egress] Redirecting IPv6 connect() to [::1]:%u", target_port);
                 memset(&sin6_copy.sin6_addr, 0, sizeof(sin6_copy.sin6_addr));
                 sin6_copy.sin6_addr.s6_addr[15] = 1;
@@ -1740,7 +1740,7 @@ static int WSAAPI Hook_WSAConnect(
         inet_ntop(AF_INET, &sin_copy.sin_addr, ip, sizeof(ip));
         LogMsg("[TCP] WSAConnect(IPv4) to %s:%d", ip, port);
         if (port == 443 || port == 80 || (strcmp(ip, "127.0.0.1") != 0 && (port == 8080 || port == 7777))) {
-            uint16_t target_port = (port == 7777) ? 7777 : (uint16_t)atoi(g_server_port);
+            uint16_t target_port = (port == 80) ? 80 : ((port == 443) ? 443 : ((port == 7777) ? 7777 : (uint16_t)atoi(g_server_port)));
             LogMsg("[Egress] Redirecting IPv4 WSAConnect() from %s:%d to %s:%u",
                    ip, port, g_server_ip, target_port);
             sin_copy.sin_addr.s_addr = inet_addr(g_server_ip);
@@ -1771,7 +1771,7 @@ static HINTERNET WINAPI Hook_WinHttpConnect(
         WideCharToMultiByte(CP_UTF8, 0, pswzServerName, -1, sNameA, sizeof(sNameA), NULL, NULL);
         LogMsg("[WinHTTP] WinHttpConnect(server='%s', port=%u)", sNameA, (unsigned int)nServerPort);
         if (strstr(sNameA, "deadorbit") || strstr(sNameA, "bungie") || strstr(sNameA, "goliath") || strstr(sNameA, "playfab") || strstr(sNameA, "gravityshavings") || (strcmp(sNameA, "127.0.0.1") != 0 && strcmp(sNameA, "localhost") != 0)) {
-            uint16_t target_port = (uint16_t)atoi(g_server_port);
+            uint16_t target_port = (nServerPort == 80) ? 80 : ((nServerPort == 443) ? 443 : ((nServerPort == 7777) ? 7777 : (uint16_t)atoi(g_server_port)));
             LogMsg("[Egress] Redirecting WinHttpConnect from '%s:%u' to 127.0.0.1:%u", sNameA, (unsigned int)nServerPort, target_port);
             return g_real_WinHttpConnect ? g_real_WinHttpConnect(hSession, L"127.0.0.1", (INTERNET_PORT)target_port, dwReserved) : NULL;
         }

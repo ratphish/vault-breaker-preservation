@@ -1,0 +1,17 @@
+libcurl/8.11.1-DEV Schannel zlib/1.2.12
+{"server": "ThreadedHTTPServer", "attempt": 1, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 2, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 3, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 4, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 5, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 6, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 7, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "ThreadedHTTPServer", "attempt": 8, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": "Recv failure: Connection was aborted"}
+{"server": "GracefulTLS", "attempt": 1, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 2, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 3, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 4, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 5, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 6, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 7, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
+{"server": "GracefulTLS", "attempt": 8, "curlcode": 0, "http_status": 200, "bytes": 241, "identical": true, "diagnostic": ""}
