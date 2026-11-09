@@ -6,12 +6,21 @@ EXPORTS
     SteamAPI_IsSteamRunning
     SteamAPI_GetHSteamUser
     SteamAPI_GetHSteamPipe
+    SteamAPI_GetSteamInstallPath
     SteamAPI_RegisterCallback
     SteamAPI_UnregisterCallback
     SteamAPI_RegisterCallResult
     SteamAPI_UnregisterCallResult
     SteamAPI_RunCallbacks
+    SteamClient
+    SteamAPI_SteamUser_v023
+    SteamAPI_SteamUtils_v010
+    SteamAPI_SteamApps_v008
+    SteamAPI_SteamFriends_v017
+    SteamAPI_SteamUserStats_v012
+    SteamAPI_SteamInput_v006
     SteamInternal_CreateInterface
     SteamInternal_FindOrCreateUserInterface
+    SteamInternal_FindOrCreateGameServerInterface
     SteamInternal_ContextInit
     SteamInternal_SteamAPI_Init

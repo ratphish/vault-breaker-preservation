@@ -1,0 +1,1235 @@
+0x1804BDD70: push     rbp                                
+0x1804BDD72: push     rbx                                
+0x1804BDD73: push     r12                                
+0x1804BDD75: push     r13                                
+0x1804BDD77: lea      rbp, [rsp - 0x438]                 
+0x1804BDD7F: sub      rsp, 0x538                         
+0x1804BDD86: mov      rax, qword ptr [rip + 0x3c52b3]     ; -> [0x180883040]: 32a2df2d992b0000
+0x1804BDD8D: xor      rax, rsp                           
+0x1804BDD90: mov      qword ptr [rbp + 0x420], rax       
+0x1804BDD97: mov      rax, qword ptr [rbp + 0x488]       
+0x1804BDD9E: mov      rbx, r8                            
+0x1804BDDA1: mov      r13, rdx                           
+0x1804BDDA4: mov      qword ptr [rsp + 0x38], rcx        
+0x1804BDDA9: mov      r12, rcx                           
+0x1804BDDAC: mov      qword ptr [rsp + 0x30], r9         
+0x1804BDDB1: xor      edx, edx                           
+0x1804BDDB3: mov      qword ptr [rsp + 0x20], rax        
+0x1804BDDB8: mov      r8d, 0x140                         
+0x1804BDDBE: mov      qword ptr [rax], 0                 
+0x1804BDDC5: lea      rcx, [rbp - 0x20]                  
+0x1804BDDC9: call     0x180622af0                        
+0x1804BDDCE: xor      r8d, r8d                           
+0x1804BDDD1: mov      qword ptr [rsp + 0x568], rsi       
+0x1804BDDD9: lea      rax, [rbp - 0x20]                  
+0x1804BDDDD: mov      qword ptr [rsp + 0x570], rdi       
+0x1804BDDE5: mov      qword ptr [rsp + 0x40], rax        
+0x1804BDDEA: mov      r9d, 0xa                           
+0x1804BDDF0: mov      qword ptr [rsp + 0x70], r8         
+0x1804BDDF5: mov      qword ptr [rsp + 0x78], r8         
+0x1804BDDFA: mov      qword ptr [rsp + 0x48], 0x140      
+0x1804BDE03: mov      qword ptr [rsp + 0x530], r15       
+0x1804BDE0B: nop      dword ptr [rax + rax]              
+0x1804BDE10: cmp      r8, 0x140                          
+0x1804BDE17: je       0x1804bec11                        
+0x1804BDE1D: movzx    eax, r9b                           
+0x1804BDE21: mov      rdx, r8                            
+0x1804BDE24: and      al, 0x7f                           
+0x1804BDE26: shr      r9, 7                              
+0x1804BDE2A: movzx    edi, al                            
+0x1804BDE2D: inc      r8                                 
+0x1804BDE30: movzx    eax, dil                           
+0x1804BDE34: or       al, 0x80                           
+0x1804BDE36: test     r9, r9                             
+0x1804BDE39: movzx    ecx, al                            
+0x1804BDE3C: cmove    ecx, edi                           
+0x1804BDE3F: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BDE43: jne      0x1804bde10                        
+0x1804BDE45: mov      r15d, 0x10                         
+0x1804BDE4B: mov      r9d, r15d                          
+0x1804BDE4E: nop                                         
+0x1804BDE50: cmp      r8, 0x140                          
+0x1804BDE57: je       0x1804bec11                        
+0x1804BDE5D: movzx    eax, r9b                           
+0x1804BDE61: mov      rdx, r8                            
+0x1804BDE64: and      al, 0x7f                           
+0x1804BDE66: shr      r9, 7                              
+0x1804BDE6A: movzx    edi, al                            
+0x1804BDE6D: inc      r8                                 
+0x1804BDE70: movzx    eax, dil                           
+0x1804BDE74: or       al, 0x80                           
+0x1804BDE76: test     r9, r9                             
+0x1804BDE79: movzx    ecx, al                            
+0x1804BDE7C: cmove    ecx, edi                           
+0x1804BDE7F: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BDE83: jne      0x1804bde50                        
+0x1804BDE85: mov      eax, 0x140                         
+0x1804BDE8A: sub      rax, r8                            
+0x1804BDE8D: cmp      rax, r15                           
+0x1804BDE90: jb       0x1804bec11                        
+0x1804BDE96: lea      rdx, [rsp + 0x70]                  
+0x1804BDE9B: nop      dword ptr [rax + rax]              
+0x1804BDEA0: movzx    eax, byte ptr [rdx]                
+0x1804BDEA3: mov      rcx, r8                            
+0x1804BDEA6: inc      r8                                 
+0x1804BDEA9: inc      rdx                                
+0x1804BDEAC: mov      byte ptr [rbp + rcx - 0x20], al    
+0x1804BDEB0: lea      rax, [rbp - 0x80]                  
+0x1804BDEB4: cmp      rdx, rax                           
+0x1804BDEB7: jne      0x1804bdea0                        
+0x1804BDEB9: mov      r9d, 0x12                          
+0x1804BDEBF: nop                                         
+0x1804BDEC0: cmp      r8, 0x140                          
+0x1804BDEC7: je       0x1804bec11                        
+0x1804BDECD: movzx    eax, r9b                           
+0x1804BDED1: mov      rdx, r8                            
+0x1804BDED4: and      al, 0x7f                           
+0x1804BDED6: shr      r9, 7                              
+0x1804BDEDA: movzx    edi, al                            
+0x1804BDEDD: inc      r8                                 
+0x1804BDEE0: movzx    eax, dil                           
+0x1804BDEE4: or       al, 0x80                           
+0x1804BDEE6: test     r9, r9                             
+0x1804BDEE9: movzx    ecx, al                            
+0x1804BDEEC: cmove    ecx, edi                           
+0x1804BDEEF: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BDEF3: jne      0x1804bdec0                        
+0x1804BDEF5: mov      r9, r15                            
+0x1804BDEF8: nop      dword ptr [rax + rax]              
+0x1804BDF00: cmp      r8, 0x140                          
+0x1804BDF07: je       0x1804bec11                        
+0x1804BDF0D: movzx    eax, r9b                           
+0x1804BDF11: mov      rdx, r8                            
+0x1804BDF14: and      al, 0x7f                           
+0x1804BDF16: shr      r9, 7                              
+0x1804BDF1A: movzx    edi, al                            
+0x1804BDF1D: inc      r8                                 
+0x1804BDF20: movzx    eax, dil                           
+0x1804BDF24: or       al, 0x80                           
+0x1804BDF26: test     r9, r9                             
+0x1804BDF29: movzx    ecx, al                            
+0x1804BDF2C: cmove    ecx, edi                           
+0x1804BDF2F: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BDF33: jne      0x1804bdf00                        
+0x1804BDF35: mov      eax, 0x140                         
+0x1804BDF3A: sub      rax, r8                            
+0x1804BDF3D: cmp      rax, r15                           
+0x1804BDF40: jb       0x1804bec11                        
+0x1804BDF46: lea      r9, [r12 + 0x10]                   
+0x1804BDF4B: mov      rdx, r12                           
+0x1804BDF4E: cmp      r12, r9                            
+0x1804BDF51: je       0x1804bdf75                        
+0x1804BDF53: nop      dword ptr [rax]                    
+0x1804BDF57: nop      word ptr [rax + rax]               
+0x1804BDF60: movzx    eax, byte ptr [rdx]                
+0x1804BDF63: mov      rcx, r8                            
+0x1804BDF66: inc      r8                                 
+0x1804BDF69: inc      rdx                                
+0x1804BDF6C: mov      byte ptr [rbp + rcx - 0x20], al    
+0x1804BDF70: cmp      rdx, r9                            
+0x1804BDF73: jne      0x1804bdf60                        
+0x1804BDF75: mov      esi, 0x1a                          
+0x1804BDF7A: mov      r10d, esi                          
+0x1804BDF7D: nop      dword ptr [rax]                    
+0x1804BDF80: cmp      r8, 0x140                          
+0x1804BDF87: je       0x1804bec11                        
+0x1804BDF8D: movzx    eax, r10b                          
+0x1804BDF91: mov      rdx, r8                            
+0x1804BDF94: and      al, 0x7f                           
+0x1804BDF96: shr      r10, 7                             
+0x1804BDF9A: movzx    edi, al                            
+0x1804BDF9D: inc      r8                                 
+0x1804BDFA0: movzx    eax, dil                           
+0x1804BDFA4: or       al, 0x80                           
+0x1804BDFA6: test     r10, r10                           
+0x1804BDFA9: movzx    ecx, al                            
+0x1804BDFAC: cmove    ecx, edi                           
+0x1804BDFAF: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BDFB3: jne      0x1804bdf80                        
+0x1804BDFB5: mov      r10, r15                           
+0x1804BDFB8: nop      dword ptr [rax + rax]              
+0x1804BDFC0: cmp      r8, 0x140                          
+0x1804BDFC7: je       0x1804bec11                        
+0x1804BDFCD: movzx    eax, r10b                          
+0x1804BDFD1: mov      rdx, r8                            
+0x1804BDFD4: and      al, 0x7f                           
+0x1804BDFD6: shr      r10, 7                             
+0x1804BDFDA: movzx    edi, al                            
+0x1804BDFDD: inc      r8                                 
+0x1804BDFE0: movzx    eax, dil                           
+0x1804BDFE4: or       al, 0x80                           
+0x1804BDFE6: test     r10, r10                           
+0x1804BDFE9: movzx    ecx, al                            
+0x1804BDFEC: cmove    ecx, edi                           
+0x1804BDFEF: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BDFF3: jne      0x1804bdfc0                        
+0x1804BDFF5: mov      eax, 0x140                         
+0x1804BDFFA: sub      rax, r8                            
+0x1804BDFFD: cmp      rax, r15                           
+0x1804BE000: jb       0x1804bec11                        
+0x1804BE006: lea      rdx, [r9 + 0x10]                   
+0x1804BE00A: cmp      r9, rdx                            
+0x1804BE00D: je       0x1804be026                        
+0x1804BE00F: nop                                         
+0x1804BE010: movzx    eax, byte ptr [r9]                 
+0x1804BE014: mov      rcx, r8                            
+0x1804BE017: inc      r8                                 
+0x1804BE01A: inc      r9                                 
+0x1804BE01D: mov      byte ptr [rbp + rcx - 0x20], al    
+0x1804BE021: cmp      r9, rdx                            
+0x1804BE024: jne      0x1804be010                        
+0x1804BE026: lea      r9, [r12 + 0x20]                   
+0x1804BE02B: mov      r10d, 0x22                         
+0x1804BE031: cmp      r8, 0x140                          
+0x1804BE038: je       0x1804bec11                        
+0x1804BE03E: movzx    eax, r10b                          
+0x1804BE042: mov      rdx, r8                            
+0x1804BE045: and      al, 0x7f                           
+0x1804BE047: shr      r10, 7                             
+0x1804BE04B: movzx    edi, al                            
+0x1804BE04E: inc      r8                                 
+0x1804BE051: movzx    eax, dil                           
+0x1804BE055: or       al, 0x80                           
+0x1804BE057: test     r10, r10                           
+0x1804BE05A: movzx    ecx, al                            
+0x1804BE05D: cmove    ecx, edi                           
+0x1804BE060: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE064: jne      0x1804be031                        
+0x1804BE066: mov      r10d, 0x20                         
+0x1804BE06C: nop      dword ptr [rax]                    
+0x1804BE070: cmp      r8, 0x140                          
+0x1804BE077: je       0x1804bec11                        
+0x1804BE07D: movzx    eax, r10b                          
+0x1804BE081: mov      rdx, r8                            
+0x1804BE084: and      al, 0x7f                           
+0x1804BE086: shr      r10, 7                             
+0x1804BE08A: movzx    edi, al                            
+0x1804BE08D: inc      r8                                 
+0x1804BE090: movzx    eax, dil                           
+0x1804BE094: or       al, 0x80                           
+0x1804BE096: test     r10, r10                           
+0x1804BE099: movzx    ecx, al                            
+0x1804BE09C: cmove    ecx, edi                           
+0x1804BE09F: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE0A3: jne      0x1804be070                        
+0x1804BE0A5: mov      eax, 0x140                         
+0x1804BE0AA: sub      rax, r8                            
+0x1804BE0AD: cmp      rax, 0x20                          
+0x1804BE0B1: jb       0x1804bec11                        
+0x1804BE0B7: lea      rdx, [r9 + 0x20]                   
+0x1804BE0BB: cmp      r9, rdx                            
+0x1804BE0BE: je       0x1804be0d6                        
+0x1804BE0C0: movzx    eax, byte ptr [r9]                 
+0x1804BE0C4: mov      rcx, r8                            
+0x1804BE0C7: inc      r8                                 
+0x1804BE0CA: inc      r9                                 
+0x1804BE0CD: mov      byte ptr [rbp + rcx - 0x20], al    
+0x1804BE0D1: cmp      r9, rdx                            
+0x1804BE0D4: jne      0x1804be0c0                        
+0x1804BE0D6: mov      r9d, 0x28                          
+0x1804BE0DC: nop      dword ptr [rax]                    
+0x1804BE0E0: cmp      r8, 0x140                          
+0x1804BE0E7: je       0x1804bec11                        
+0x1804BE0ED: movzx    eax, r9b                           
+0x1804BE0F1: mov      rdx, r8                            
+0x1804BE0F4: and      al, 0x7f                           
+0x1804BE0F6: shr      r9, 7                              
+0x1804BE0FA: movzx    edi, al                            
+0x1804BE0FD: inc      r8                                 
+0x1804BE100: movzx    eax, dil                           
+0x1804BE104: or       al, 0x80                           
+0x1804BE106: test     r9, r9                             
+0x1804BE109: movzx    ecx, al                            
+0x1804BE10C: cmove    ecx, edi                           
+0x1804BE10F: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE113: jne      0x1804be0e0                        
+0x1804BE115: nop      word ptr [rax + rax]               
+0x1804BE120: cmp      r8, 0x140                          
+0x1804BE127: je       0x1804bec11                        
+0x1804BE12D: movzx    eax, bl                            
+0x1804BE130: mov      rdx, r8                            
+0x1804BE133: and      al, 0x7f                           
+0x1804BE135: shr      rbx, 7                             
+0x1804BE139: movzx    edi, al                            
+0x1804BE13C: inc      r8                                 
+0x1804BE13F: movzx    eax, dil                           
+0x1804BE143: or       al, 0x80                           
+0x1804BE145: test     rbx, rbx                           
+0x1804BE148: movzx    ecx, al                            
+0x1804BE14B: cmove    ecx, edi                           
+0x1804BE14E: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE152: jne      0x1804be120                        
+0x1804BE154: mov      r10d, dword ptr [r12 + 0x40]       
+0x1804BE159: mov      r9d, 0x30                          
+0x1804BE15F: nop                                         
+0x1804BE160: cmp      r8, 0x140                          
+0x1804BE167: je       0x1804bec11                        
+0x1804BE16D: movzx    eax, r9b                           
+0x1804BE171: mov      rdx, r8                            
+0x1804BE174: and      al, 0x7f                           
+0x1804BE176: shr      r9, 7                              
+0x1804BE17A: movzx    edi, al                            
+0x1804BE17D: inc      r8                                 
+0x1804BE180: movzx    eax, dil                           
+0x1804BE184: or       al, 0x80                           
+0x1804BE186: test     r9, r9                             
+0x1804BE189: movzx    ecx, al                            
+0x1804BE18C: cmove    ecx, edi                           
+0x1804BE18F: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE193: jne      0x1804be160                        
+0x1804BE195: nop      word ptr [rax + rax]               
+0x1804BE1A0: cmp      r8, 0x140                          
+0x1804BE1A7: je       0x1804bec11                        
+0x1804BE1AD: movzx    eax, r10b                          
+0x1804BE1B1: mov      rdx, r8                            
+0x1804BE1B4: and      al, 0x7f                           
+0x1804BE1B6: shr      r10, 7                             
+0x1804BE1BA: movzx    edi, al                            
+0x1804BE1BD: inc      r8                                 
+0x1804BE1C0: movzx    eax, dil                           
+0x1804BE1C4: or       al, 0x80                           
+0x1804BE1C6: test     r10, r10                           
+0x1804BE1C9: movzx    ecx, al                            
+0x1804BE1CC: cmove    ecx, edi                           
+0x1804BE1CF: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE1D3: jne      0x1804be1a0                        
+0x1804BE1D5: movzx    r9d, word ptr [r12 + 0x44]         
+0x1804BE1DB: mov      r10d, 0x38                         
+0x1804BE1E1: cmp      r8, 0x140                          
+0x1804BE1E8: je       0x1804bec11                        
+0x1804BE1EE: movzx    eax, r10b                          
+0x1804BE1F2: mov      rdx, r8                            
+0x1804BE1F5: and      al, 0x7f                           
+0x1804BE1F7: shr      r10, 7                             
+0x1804BE1FB: movzx    edi, al                            
+0x1804BE1FE: inc      r8                                 
+0x1804BE201: movzx    eax, dil                           
+0x1804BE205: or       al, 0x80                           
+0x1804BE207: test     r10, r10                           
+0x1804BE20A: movzx    ecx, al                            
+0x1804BE20D: cmove    ecx, edi                           
+0x1804BE210: mov      byte ptr [rbp + rdx - 0x20], cl    
+0x1804BE214: jne      0x1804be1e1                        
+0x1804BE216: mov      rdi, r8                            
+0x1804BE219: nop      dword ptr [rax]                    
+0x1804BE220: cmp      r8, 0x140                          
+0x1804BE227: je       0x1804bec11                        
+0x1804BE22D: movzx    eax, r9b                           
+0x1804BE231: lea      r8, [rdi + 1]                      
+0x1804BE235: and      al, 0x7f                           
+0x1804BE237: shr      r9, 7                              
+0x1804BE23B: movzx    edx, al                            
+0x1804BE23E: movzx    eax, dl                            
+0x1804BE241: mov      qword ptr [rsp + 0x50], r8         
+0x1804BE246: or       al, 0x80                           
+0x1804BE248: test     r9, r9                             
+0x1804BE24B: movzx    ecx, al                            
+0x1804BE24E: cmove    ecx, edx                           
+0x1804BE251: mov      byte ptr [rbp + rdi - 0x20], cl    
+0x1804BE255: mov      rdi, r8                            
+0x1804BE258: jne      0x1804be220                        
+0x1804BE25A: mov      edx, dword ptr [r12 + 0x40]        
+0x1804BE25F: lea      rcx, [rsp + 0x40]                  
+0x1804BE264: call     0x1804beea0                        
+0x1804BE269: test     al, al                             
+0x1804BE26B: je       0x1804bec11                        
+0x1804BE271: xorps    xmm0, xmm0                         
+0x1804BE274: mov      qword ptr [rsp + 0x578], r14       
+0x1804BE27C: movzx    r14d, byte ptr [r12 + 0x5c]        
+0x1804BE282: xor      eax, eax                           
+0x1804BE284: xor      ebx, ebx                           
+0x1804BE286: mov      qword ptr [rbp - 0x70], rax        
+0x1804BE28A: mov      dword ptr [rbp - 0x68], eax        
+0x1804BE28D: mov      byte ptr [rbp - 0x64], al          
+0x1804BE290: movups   xmmword ptr [rbp - 0x60], xmm0     
+0x1804BE294: movups   xmmword ptr [rbp - 0x50], xmm0     
+0x1804BE298: movups   xmmword ptr [rbp - 0x40], xmm0     
+0x1804BE29C: movups   xmmword ptr [rbp - 0x30], xmm0     
+0x1804BE2A0: movups   xmmword ptr [rbp - 0x80], xmm0     
+0x1804BE2A4: test     r14b, r14b                         
+0x1804BE2A7: je       0x1804be2cf                        
+0x1804BE2A9: lea      rdx, [r12 + 0x4c]                  
+0x1804BE2AE: mov      dword ptr [rbp - 0x80], 0x123456   
+0x1804BE2B5: mov      r8, r15                            
+0x1804BE2B8: mov      dword ptr [rbp - 0x7c], 0x7b620f   
+0x1804BE2BF: lea      rcx, [rbp - 0x77]                  
+0x1804BE2C3: mov      byte ptr [rbp - 0x78], r15b        
+0x1804BE2C7: call     0x180623030                        
+0x1804BE2CC: mov      dword ptr [rbp - 0x67], ebx        
+0x1804BE2CF: mov      r8d, 8                             
+0x1804BE2D5: nop      word ptr [rax + rax]               
+0x1804BE2E0: mov      r12d, 1                            
+0x1804BE2E6: cmp      rbx, 0x40                          
+0x1804BE2EA: je       0x1804be46f                        
+0x1804BE2F0: movzx    eax, r8b                           
+0x1804BE2F4: mov      rdx, rbx                           
+0x1804BE2F7: and      al, 0x7f                           
+0x1804BE2F9: shr      r8, 7                              
+0x1804BE2FD: movzx    edi, al                            
+0x1804BE300: inc      rbx                                
+0x1804BE303: movzx    eax, dil                           
+0x1804BE307: or       al, 0x80                           
+0x1804BE309: test     r8, r8                             
+0x1804BE30C: movzx    ecx, al                            
+0x1804BE30F: cmove    ecx, edi                           
+0x1804BE312: mov      byte ptr [rbp + rdx - 0x60], cl    
+0x1804BE316: jne      0x1804be2e0                        
+0x1804BE318: mov      r8d, r12d                          
+0x1804BE31B: nop      dword ptr [rax + rax]              
+0x1804BE320: cmp      rbx, 0x40                          
+0x1804BE324: je       0x1804be46f                        
+0x1804BE32A: movzx    eax, r8b                           
+0x1804BE32E: mov      rdx, rbx                           
+0x1804BE331: and      al, 0x7f                           
+0x1804BE333: shr      r8, 7                              
+0x1804BE337: movzx    edi, al                            
+0x1804BE33A: inc      rbx                                
+0x1804BE33D: movzx    eax, dil                           
+0x1804BE341: or       al, 0x80                           
+0x1804BE343: test     r8, r8                             
+0x1804BE346: movzx    ecx, al                            
+0x1804BE349: cmove    ecx, edi                           
+0x1804BE34C: mov      byte ptr [rbp + rdx - 0x60], cl    
+0x1804BE350: jne      0x1804be320                        
+0x1804BE352: cmp      rbx, 0x40                          
+0x1804BE356: je       0x1804be46f                        
+0x1804BE35C: movzx    eax, r15b                          
+0x1804BE360: mov      rdx, rbx                           
+0x1804BE363: and      al, 0x7f                           
+0x1804BE365: shr      r15, 7                             
+0x1804BE369: movzx    edi, al                            
+0x1804BE36C: inc      rbx                                
+0x1804BE36F: movzx    eax, dil                           
+0x1804BE373: or       al, 0x80                           
+0x1804BE375: test     r15, r15                           
+0x1804BE378: movzx    ecx, al                            
+0x1804BE37B: cmove    ecx, edi                           
+0x1804BE37E: mov      byte ptr [rbp + rdx - 0x60], cl    
+0x1804BE382: jne      0x1804be352                        
+0x1804BE384: mov      r8, r12                            
+0x1804BE387: nop      word ptr [rax + rax]               
+0x1804BE390: cmp      rbx, 0x40                          
+0x1804BE394: je       0x1804be46f                        
+0x1804BE39A: movzx    eax, r8b                           
+0x1804BE39E: mov      rdx, rbx                           
+0x1804BE3A1: and      al, 0x7f                           
+0x1804BE3A3: shr      r8, 7                              
+0x1804BE3A7: movzx    edi, al                            
+0x1804BE3AA: inc      rbx                                
+0x1804BE3AD: movzx    eax, dil                           
+0x1804BE3B1: or       al, 0x80                           
+0x1804BE3B3: test     r8, r8                             
+0x1804BE3B6: movzx    ecx, al                            
+0x1804BE3B9: cmove    ecx, edi                           
+0x1804BE3BC: mov      byte ptr [rbp + rdx - 0x60], cl    
+0x1804BE3C0: jne      0x1804be390                        
+0x1804BE3C2: test     r14b, r14b                         
+0x1804BE3C5: je       0x1804be469                        
+0x1804BE3CB: nop      dword ptr [rax + rax]              
+0x1804BE3D0: cmp      rbx, 0x40                          
+0x1804BE3D4: je       0x1804be46f                        
+0x1804BE3DA: movzx    eax, sil                           
+0x1804BE3DE: mov      rdx, rbx                           
+0x1804BE3E1: and      al, 0x7f                           
+0x1804BE3E3: shr      rsi, 7                             
+0x1804BE3E7: movzx    edi, al                            
+0x1804BE3EA: inc      rbx                                
+0x1804BE3ED: movzx    eax, dil                           
+0x1804BE3F1: or       al, 0x80                           
+0x1804BE3F3: test     rsi, rsi                           
+0x1804BE3F6: movzx    ecx, al                            
+0x1804BE3F9: cmove    ecx, edi                           
+0x1804BE3FC: mov      byte ptr [rbp + rdx - 0x60], cl    
+0x1804BE400: jne      0x1804be3d0                        
+0x1804BE402: mov      r8d, 0x1d                          
+0x1804BE408: cmp      rbx, 0x40                          
+0x1804BE40C: je       0x1804be46f                        
+0x1804BE40E: movzx    eax, r8b                           
+0x1804BE412: mov      rdx, rbx                           
+0x1804BE415: and      al, 0x7f                           
+0x1804BE417: shr      r8, 7                              
+0x1804BE41B: movzx    edi, al                            
+0x1804BE41E: inc      rbx                                
+0x1804BE421: movzx    eax, dil                           
+0x1804BE425: or       al, 0x80                           
+0x1804BE427: test     r8, r8                             
+0x1804BE42A: movzx    ecx, al                            
+0x1804BE42D: cmove    ecx, edi                           
+0x1804BE430: mov      byte ptr [rbp + rdx - 0x60], cl    
+0x1804BE434: jne      0x1804be408                        
+0x1804BE436: mov      eax, 0x40                          
+0x1804BE43B: sub      rax, rbx                           
+0x1804BE43E: cmp      rax, 0x1d                          
+0x1804BE442: jb       0x1804be46f                        
+0x1804BE444: lea      rdx, [rbp - 0x80]                  
+0x1804BE448: nop      dword ptr [rax + rax]              
+0x1804BE450: movzx    eax, byte ptr [rdx]                
+0x1804BE453: mov      rcx, rbx                           
+0x1804BE456: inc      rbx                                
+0x1804BE459: inc      rdx                                
+0x1804BE45C: mov      byte ptr [rbp + rcx - 0x60], al    
+0x1804BE460: lea      rax, [rbp - 0x63]                  
+0x1804BE464: cmp      rdx, rax                           
+0x1804BE467: jne      0x1804be450                        
+0x1804BE469: movzx    r15d, r12b                         
+0x1804BE46D: jmp      0x1804be472                        
+0x1804BE46F: xor      r15b, r15b                         
+0x1804BE472: xor      edx, edx                           
+0x1804BE474: lea      rcx, [rbp + 0x120]                 
+0x1804BE47B: mov      r8d, 0x300                         
+0x1804BE481: call     0x180622af0                        
+0x1804BE486: xor      r8d, r8d                           
+0x1804BE489: mov      qword ptr [rsp + 0x28], 0          
+0x1804BE492: mov      eax, 0x80                          
+0x1804BE497: lea      r14, [r13 + 0x1100]                
+0x1804BE49E: mov      rsi, qword ptr [r14]               
+0x1804BE4A1: cmp      rsi, rax                           
+0x1804BE4A4: cmova    rsi, rax                           
+0x1804BE4A8: xor      r11d, r11d                         
+0x1804BE4AB: test     rsi, rsi                           
+0x1804BE4AE: je       0x1804be5ce                        
+0x1804BE4B4: mov      r10d, 0xffffffff                   
+0x1804BE4BA: nop      word ptr [rax + rax]               
+0x1804BE4C0: cmp      r11, qword ptr [r14]               
+0x1804BE4C3: jae      0x1804be5be                        
+0x1804BE4C9: movzx    eax, byte ptr [r13 + 0x21]         
+0x1804BE4CE: cmp      al, r12b                           
+0x1804BE4D1: jne      0x1804be4dc                        
+0x1804BE4D3: lea      rdi, [r11 - 0x1fdfffff]            
+0x1804BE4DA: jmp      0x1804be532                        
+0x1804BE4DC: cmp      al, 2                              
+0x1804BE4DE: jne      0x1804be5be                        
+0x1804BE4E4: movzx    eax, byte ptr [r13 + 0x20]         
+0x1804BE4E9: test     rax, rax                           
+0x1804BE4EC: je       0x1804be5be                        
+0x1804BE4F2: xor      edi, edi                           
+0x1804BE4F4: lea      r9, [rax + r13]                    
+0x1804BE4F8: mov      rdx, r13                           
+0x1804BE4FB: cmp      r13, r9                            
+0x1804BE4FE: je       0x1804be532                        
+0x1804BE500: movsx    eax, byte ptr [rdx]                
+0x1804BE503: cmp      al, 0x30                           
+0x1804BE505: jl       0x1804be5be                        
+0x1804BE50B: cmp      al, 0x39                           
+0x1804BE50D: jg       0x1804be5be                        
+0x1804BE513: sub      eax, 0x30                          
+0x1804BE516: movsxd   rcx, eax                           
+0x1804BE519: lea      rax, [rdi + rdi*4]                 
+0x1804BE51D: lea      rdi, [rcx + rax*2]                 
+0x1804BE521: cmp      rdi, r10                           
+0x1804BE524: ja       0x1804be5be                        
+0x1804BE52A: inc      rdx                                
+0x1804BE52D: cmp      rdx, r9                            
+0x1804BE530: jne      0x1804be500                        
+0x1804BE532: mov      r10d, edi                          
+0x1804BE535: mov      r9d, 8                             
+0x1804BE53B: nop      dword ptr [rax + rax]              
+0x1804BE540: cmp      r8, 0x300                          
+0x1804BE547: je       0x1804bebc6                        
+0x1804BE54D: movzx    eax, r9b                           
+0x1804BE551: mov      rdx, r8                            
+0x1804BE554: and      al, 0x7f                           
+0x1804BE556: shr      r9, 7                              
+0x1804BE55A: movzx    edi, al                            
+0x1804BE55D: inc      r8                                 
+0x1804BE560: movzx    eax, dil                           
+0x1804BE564: or       al, 0x80                           
+0x1804BE566: test     r9, r9                             
+0x1804BE569: movzx    ecx, al                            
+0x1804BE56C: cmove    ecx, edi                           
+0x1804BE56F: mov      byte ptr [rbp + rdx + 0x120], cl   
+0x1804BE576: jne      0x1804be540                        
+0x1804BE578: nop      dword ptr [rax + rax]              
+0x1804BE580: cmp      r8, 0x300                          
+0x1804BE587: je       0x1804bebc6                        
+0x1804BE58D: movzx    eax, r10b                          
+0x1804BE591: mov      rdx, r8                            
+0x1804BE594: and      al, 0x7f                           
+0x1804BE596: shr      r10, 7                             
+0x1804BE59A: movzx    edi, al                            
+0x1804BE59D: inc      r8                                 
+0x1804BE5A0: movzx    eax, dil                           
+0x1804BE5A4: or       al, 0x80                           
+0x1804BE5A6: test     r10, r10                           
+0x1804BE5A9: movzx    ecx, al                            
+0x1804BE5AC: cmove    ecx, edi                           
+0x1804BE5AF: mov      byte ptr [rbp + rdx + 0x120], cl   
+0x1804BE5B6: jne      0x1804be580                        
+0x1804BE5B8: mov      r10d, 0xffffffff                   
+0x1804BE5BE: inc      r11                                
+0x1804BE5C1: add      r13, 0x22                          
+0x1804BE5C5: cmp      r11, rsi                           
+0x1804BE5C8: jb       0x1804be4c0                        
+0x1804BE5CE: mov      r14, r8                            
+0x1804BE5D1: movzx    ecx, r12b                          
+0x1804BE5D5: mov      rax, qword ptr [rbp + 0x480]       
+0x1804BE5DC: xor      edx, edx                           
+0x1804BE5DE: movups   xmm0, xmmword ptr [rax]            
+0x1804BE5E1: movups   xmmword ptr [rsp + 0x58], xmm0     
+0x1804BE5E6: test     r15b, r15b                         
+0x1804BE5E9: je       0x1804bebd2                        
+0x1804BE5EF: test     cl, cl                             
+0x1804BE5F1: je       0x1804bebd2                        
+0x1804BE5F7: mov      r9, qword ptr [rsp + 0x60]         
+0x1804BE5FC: mov      r15d, 8                            
+0x1804BE602: mov      r10, qword ptr [rsp + 0x58]        
+0x1804BE607: mov      r11d, r15d                         
+0x1804BE60A: nop      word ptr [rax + rax]               
+0x1804BE610: cmp      rdx, r9                            
+0x1804BE613: je       0x1804bebd2                        
+0x1804BE619: movzx    eax, r11b                          
+0x1804BE61D: mov      rdi, rdx                           
+0x1804BE620: and      al, 0x7f                           
+0x1804BE622: shr      r11, 7                             
+0x1804BE626: movzx    r8d, al                            
+0x1804BE62A: inc      rdx                                
+0x1804BE62D: movzx    eax, r8b                           
+0x1804BE631: or       al, 0x80                           
+0x1804BE633: test     r11, r11                           
+0x1804BE636: movzx    ecx, al                            
+0x1804BE639: cmove    ecx, r8d                           
+0x1804BE63D: mov      byte ptr [rdi + r10], cl           
+0x1804BE641: jne      0x1804be610                        
+0x1804BE643: xor      r11d, r11d                         
+0x1804BE646: cmp      rdx, r9                            
+0x1804BE649: je       0x1804bebd2                        
+0x1804BE64F: movzx    eax, r11b                          
+0x1804BE653: mov      rdi, rdx                           
+0x1804BE656: and      al, 0x7f                           
+0x1804BE658: shr      r11, 7                             
+0x1804BE65C: movzx    r8d, al                            
+0x1804BE660: inc      rdx                                
+0x1804BE663: movzx    eax, r8b                           
+0x1804BE667: or       al, 0x80                           
+0x1804BE669: test     r11, r11                           
+0x1804BE66C: movzx    ecx, al                            
+0x1804BE66F: cmove    ecx, r8d                           
+0x1804BE673: mov      byte ptr [rdi + r10], cl           
+0x1804BE677: jne      0x1804be646                        
+0x1804BE679: mov      r11d, 0x12                         
+0x1804BE67F: nop                                         
+0x1804BE680: cmp      rdx, r9                            
+0x1804BE683: je       0x1804bebd2                        
+0x1804BE689: movzx    eax, r11b                          
+0x1804BE68D: mov      rdi, rdx                           
+0x1804BE690: and      al, 0x7f                           
+0x1804BE692: shr      r11, 7                             
+0x1804BE696: movzx    r8d, al                            
+0x1804BE69A: inc      rdx                                
+0x1804BE69D: movzx    eax, r8b                           
+0x1804BE6A1: or       al, 0x80                           
+0x1804BE6A3: test     r11, r11                           
+0x1804BE6A6: movzx    ecx, al                            
+0x1804BE6A9: cmove    ecx, r8d                           
+0x1804BE6AD: mov      byte ptr [rdi + r10], cl           
+0x1804BE6B1: jne      0x1804be680                        
+0x1804BE6B3: mov      rsi, qword ptr [rsp + 0x50]        
+0x1804BE6B8: mov      r11, rsi                           
+0x1804BE6BB: nop      dword ptr [rax + rax]              
+0x1804BE6C0: cmp      rdx, r9                            
+0x1804BE6C3: je       0x1804bebd2                        
+0x1804BE6C9: movzx    eax, r11b                          
+0x1804BE6CD: mov      rdi, rdx                           
+0x1804BE6D0: and      al, 0x7f                           
+0x1804BE6D2: shr      r11, 7                             
+0x1804BE6D6: movzx    r8d, al                            
+0x1804BE6DA: inc      rdx                                
+0x1804BE6DD: movzx    eax, r8b                           
+0x1804BE6E1: or       al, 0x80                           
+0x1804BE6E3: test     r11, r11                           
+0x1804BE6E6: movzx    ecx, al                            
+0x1804BE6E9: cmove    ecx, r8d                           
+0x1804BE6ED: mov      byte ptr [rdi + r10], cl           
+0x1804BE6F1: jne      0x1804be6c0                        
+0x1804BE6F3: mov      rax, r9                            
+0x1804BE6F6: sub      rax, rdx                           
+0x1804BE6F9: cmp      rsi, rax                           
+0x1804BE6FC: ja       0x1804bebd2                        
+0x1804BE702: lea      r8, [rbp - 0x20]                   
+0x1804BE706: add      r8, rsi                            
+0x1804BE709: lea      rax, [rbp - 0x20]                  
+0x1804BE70D: lea      rdi, [rbp - 0x20]                  
+0x1804BE711: cmp      rax, r8                            
+0x1804BE714: je       0x1804be735                        
+0x1804BE716: nop      word ptr [rax + rax]               
+0x1804BE720: movzx    eax, byte ptr [rdi]                
+0x1804BE723: mov      rcx, rdx                           
+0x1804BE726: inc      rdx                                
+0x1804BE729: inc      rdi                                
+0x1804BE72C: mov      byte ptr [rcx + r10], al           
+0x1804BE730: cmp      rdi, r8                            
+0x1804BE733: jne      0x1804be720                        
+0x1804BE735: mov      r11d, 0x22                         
+0x1804BE73B: nop      dword ptr [rax + rax]              
+0x1804BE740: cmp      rdx, r9                            
+0x1804BE743: je       0x1804bebd2                        
+0x1804BE749: movzx    eax, r11b                          
+0x1804BE74D: mov      rdi, rdx                           
+0x1804BE750: and      al, 0x7f                           
+0x1804BE752: shr      r11, 7                             
+0x1804BE756: movzx    r8d, al                            
+0x1804BE75A: inc      rdx                                
+0x1804BE75D: movzx    eax, r8b                           
+0x1804BE761: or       al, 0x80                           
+0x1804BE763: test     r11, r11                           
+0x1804BE766: movzx    ecx, al                            
+0x1804BE769: cmove    ecx, r8d                           
+0x1804BE76D: mov      byte ptr [r10 + rdi], cl           
+0x1804BE771: jne      0x1804be740                        
+0x1804BE773: mov      r11, rbx                           
+0x1804BE776: cmp      rdx, r9                            
+0x1804BE779: je       0x1804bebd2                        
+0x1804BE77F: movzx    eax, r11b                          
+0x1804BE783: mov      rdi, rdx                           
+0x1804BE786: and      al, 0x7f                           
+0x1804BE788: shr      r11, 7                             
+0x1804BE78C: movzx    r8d, al                            
+0x1804BE790: inc      rdx                                
+0x1804BE793: movzx    eax, r8b                           
+0x1804BE797: or       al, 0x80                           
+0x1804BE799: test     r11, r11                           
+0x1804BE79C: movzx    ecx, al                            
+0x1804BE79F: cmove    ecx, r8d                           
+0x1804BE7A3: mov      byte ptr [r10 + rdi], cl           
+0x1804BE7A7: jne      0x1804be776                        
+0x1804BE7A9: mov      rax, r9                            
+0x1804BE7AC: sub      rax, rdx                           
+0x1804BE7AF: cmp      rbx, rax                           
+0x1804BE7B2: ja       0x1804bebd2                        
+0x1804BE7B8: lea      r8, [rbp - 0x60]                   
+0x1804BE7BC: add      r8, rbx                            
+0x1804BE7BF: lea      rax, [rbp - 0x60]                  
+0x1804BE7C3: lea      rdi, [rbp - 0x60]                  
+0x1804BE7C7: cmp      rax, r8                            
+0x1804BE7CA: je       0x1804be7e5                        
+0x1804BE7CC: nop      dword ptr [rax]                    
+0x1804BE7D0: movzx    eax, byte ptr [rdi]                
+0x1804BE7D3: mov      rcx, rdx                           
+0x1804BE7D6: inc      rdx                                
+0x1804BE7D9: inc      rdi                                
+0x1804BE7DC: mov      byte ptr [r10 + rcx], al           
+0x1804BE7E0: cmp      rdi, r8                            
+0x1804BE7E3: jne      0x1804be7d0                        
+0x1804BE7E5: mov      r11d, 0x28                         
+0x1804BE7EB: nop      dword ptr [rax + rax]              
+0x1804BE7F0: cmp      rdx, r9                            
+0x1804BE7F3: je       0x1804bebd2                        
+0x1804BE7F9: movzx    eax, r11b                          
+0x1804BE7FD: mov      rdi, rdx                           
+0x1804BE800: and      al, 0x7f                           
+0x1804BE802: shr      r11, 7                             
+0x1804BE806: movzx    r8d, al                            
+0x1804BE80A: inc      rdx                                
+0x1804BE80D: movzx    eax, r8b                           
+0x1804BE811: or       al, 0x80                           
+0x1804BE813: test     r11, r11                           
+0x1804BE816: movzx    ecx, al                            
+0x1804BE819: cmove    ecx, r8d                           
+0x1804BE81D: mov      byte ptr [r10 + rdi], cl           
+0x1804BE821: jne      0x1804be7f0                        
+0x1804BE823: cmp      rdx, r9                            
+0x1804BE826: je       0x1804bebd2                        
+0x1804BE82C: movzx    eax, r12b                          
+0x1804BE830: mov      rdi, rdx                           
+0x1804BE833: and      al, 0x7f                           
+0x1804BE835: shr      r12, 7                             
+0x1804BE839: movzx    r8d, al                            
+0x1804BE83D: inc      rdx                                
+0x1804BE840: movzx    eax, r8b                           
+0x1804BE844: or       al, 0x80                           
+0x1804BE846: test     r12, r12                           
+0x1804BE849: movzx    ecx, al                            
+0x1804BE84C: cmove    ecx, r8d                           
+0x1804BE850: mov      byte ptr [r10 + rdi], cl           
+0x1804BE854: jne      0x1804be823                        
+0x1804BE856: mov      r11, qword ptr [rip + 0x1934db]     ; -> [0x180651D38]: 38e07a8001000000
+0x1804BE85D: mov      ebx, 0x32                          
+0x1804BE862: cmp      rdx, r9                            
+0x1804BE865: je       0x1804bebd2                        
+0x1804BE86B: movzx    eax, bl                            
+0x1804BE86E: mov      rdi, rdx                           
+0x1804BE871: and      al, 0x7f                           
+0x1804BE873: shr      rbx, 7                             
+0x1804BE877: movzx    r8d, al                            
+0x1804BE87B: inc      rdx                                
+0x1804BE87E: movzx    eax, r8b                           
+0x1804BE882: or       al, 0x80                           
+0x1804BE884: test     rbx, rbx                           
+0x1804BE887: movzx    ecx, al                            
+0x1804BE88A: cmove    ecx, r8d                           
+0x1804BE88E: mov      byte ptr [r10 + rdi], cl           
+0x1804BE892: jne      0x1804be862                        
+0x1804BE894: mov      rbx, r15                           
+0x1804BE897: cmp      rdx, r9                            
+0x1804BE89A: je       0x1804bebd2                        
+0x1804BE8A0: movzx    eax, bl                            
+0x1804BE8A3: mov      rdi, rdx                           
+0x1804BE8A6: and      al, 0x7f                           
+0x1804BE8A8: shr      rbx, 7                             
+0x1804BE8AC: movzx    r8d, al                            
+0x1804BE8B0: inc      rdx                                
+0x1804BE8B3: movzx    eax, r8b                           
+0x1804BE8B7: or       al, 0x80                           
+0x1804BE8B9: test     rbx, rbx                           
+0x1804BE8BC: movzx    ecx, al                            
+0x1804BE8BF: cmove    ecx, r8d                           
+0x1804BE8C3: mov      byte ptr [r10 + rdi], cl           
+0x1804BE8C7: jne      0x1804be897                        
+0x1804BE8C9: mov      rax, r9                            
+0x1804BE8CC: sub      rax, rdx                           
+0x1804BE8CF: cmp      r15, rax                           
+0x1804BE8D2: ja       0x1804bebd2                        
+0x1804BE8D8: lea      rdi, [r11 + 8]                     
+0x1804BE8DC: cmp      r11, rdi                           
+0x1804BE8DF: je       0x1804be8f7                        
+0x1804BE8E1: movzx    eax, byte ptr [r11]                
+0x1804BE8E5: mov      rcx, rdx                           
+0x1804BE8E8: inc      rdx                                
+0x1804BE8EB: inc      r11                                
+0x1804BE8EE: mov      byte ptr [r10 + rcx], al           
+0x1804BE8F2: cmp      r11, rdi                           
+0x1804BE8F5: jne      0x1804be8e1                        
+0x1804BE8F7: mov      r11d, 0x40                         
+0x1804BE8FD: nop      dword ptr [rax]                    
+0x1804BE900: cmp      rdx, r9                            
+0x1804BE903: je       0x1804bebd2                        
+0x1804BE909: movzx    eax, r11b                          
+0x1804BE90D: mov      rdi, rdx                           
+0x1804BE910: and      al, 0x7f                           
+0x1804BE912: shr      r11, 7                             
+0x1804BE916: movzx    r8d, al                            
+0x1804BE91A: inc      rdx                                
+0x1804BE91D: movzx    eax, r8b                           
+0x1804BE921: or       al, 0x80                           
+0x1804BE923: test     r11, r11                           
+0x1804BE926: movzx    ecx, al                            
+0x1804BE929: cmove    ecx, r8d                           
+0x1804BE92D: mov      byte ptr [r10 + rdi], cl           
+0x1804BE931: jne      0x1804be900                        
+0x1804BE933: xor      r11d, r11d                         
+0x1804BE936: cmp      rdx, r9                            
+0x1804BE939: je       0x1804bebd2                        
+0x1804BE93F: movzx    eax, r11b                          
+0x1804BE943: mov      rdi, rdx                           
+0x1804BE946: and      al, 0x7f                           
+0x1804BE948: shr      r11, 7                             
+0x1804BE94C: movzx    r8d, al                            
+0x1804BE950: inc      rdx                                
+0x1804BE953: movzx    eax, r8b                           
+0x1804BE957: or       al, 0x80                           
+0x1804BE959: test     r11, r11                           
+0x1804BE95C: movzx    ecx, al                            
+0x1804BE95F: cmove    ecx, r8d                           
+0x1804BE963: mov      byte ptr [r10 + rdi], cl           
+0x1804BE967: jne      0x1804be936                        
+0x1804BE969: mov      r11d, 0x52                         
+0x1804BE96F: nop                                         
+0x1804BE970: cmp      rdx, r9                            
+0x1804BE973: je       0x1804bebd2                        
+0x1804BE979: movzx    eax, r11b                          
+0x1804BE97D: mov      rdi, rdx                           
+0x1804BE980: and      al, 0x7f                           
+0x1804BE982: shr      r11, 7                             
+0x1804BE986: movzx    r8d, al                            
+0x1804BE98A: inc      rdx                                
+0x1804BE98D: movzx    eax, r8b                           
+0x1804BE991: or       al, 0x80                           
+0x1804BE993: test     r11, r11                           
+0x1804BE996: movzx    ecx, al                            
+0x1804BE999: cmove    ecx, r8d                           
+0x1804BE99D: mov      byte ptr [r10 + rdi], cl           
+0x1804BE9A1: jne      0x1804be970                        
+0x1804BE9A3: mov      r11, r14                           
+0x1804BE9A6: cmp      rdx, r9                            
+0x1804BE9A9: je       0x1804bebd2                        
+0x1804BE9AF: movzx    eax, r11b                          
+0x1804BE9B3: mov      rdi, rdx                           
+0x1804BE9B6: and      al, 0x7f                           
+0x1804BE9B8: shr      r11, 7                             
+0x1804BE9BC: movzx    r8d, al                            
+0x1804BE9C0: inc      rdx                                
+0x1804BE9C3: movzx    eax, r8b                           
+0x1804BE9C7: or       al, 0x80                           
+0x1804BE9C9: test     r11, r11                           
+0x1804BE9CC: movzx    ecx, al                            
+0x1804BE9CF: cmove    ecx, r8d                           
+0x1804BE9D3: mov      byte ptr [r10 + rdi], cl           
+0x1804BE9D7: jne      0x1804be9a6                        
+0x1804BE9D9: mov      rax, r9                            
+0x1804BE9DC: sub      rax, rdx                           
+0x1804BE9DF: cmp      r14, rax                           
+0x1804BE9E2: ja       0x1804bebd2                        
+0x1804BE9E8: lea      r8, [rbp + 0x120]                  
+0x1804BE9EF: add      r8, r14                            
+0x1804BE9F2: lea      rax, [rbp + 0x120]                 
+0x1804BE9F9: lea      rdi, [rbp + 0x120]                 
+0x1804BEA00: cmp      rax, r8                            
+0x1804BEA03: je       0x1804bea25                        
+0x1804BEA05: nop      word ptr [rax + rax]               
+0x1804BEA10: movzx    eax, byte ptr [rdi]                
+0x1804BEA13: mov      rcx, rdx                           
+0x1804BEA16: inc      rdx                                
+0x1804BEA19: inc      rdi                                
+0x1804BEA1C: mov      byte ptr [r10 + rcx], al           
+0x1804BEA20: cmp      rdi, r8                            
+0x1804BEA23: jne      0x1804bea10                        
+0x1804BEA25: mov      r11d, 0x60                         
+0x1804BEA2B: nop      dword ptr [rax + rax]              
+0x1804BEA30: cmp      rdx, r9                            
+0x1804BEA33: je       0x1804bebd2                        
+0x1804BEA39: movzx    eax, r11b                          
+0x1804BEA3D: mov      rdi, rdx                           
+0x1804BEA40: and      al, 0x7f                           
+0x1804BEA42: shr      r11, 7                             
+0x1804BEA46: movzx    r8d, al                            
+0x1804BEA4A: inc      rdx                                
+0x1804BEA4D: movzx    eax, r8b                           
+0x1804BEA51: or       al, 0x80                           
+0x1804BEA53: test     r11, r11                           
+0x1804BEA56: movzx    ecx, al                            
+0x1804BEA59: cmove    ecx, r8d                           
+0x1804BEA5D: mov      byte ptr [r10 + rdi], cl           
+0x1804BEA61: jne      0x1804bea30                        
+0x1804BEA63: mov      r11, qword ptr [rsp + 0x30]        
+0x1804BEA68: nop      dword ptr [rax + rax]              
+0x1804BEA70: cmp      rdx, r9                            
+0x1804BEA73: je       0x1804bebd2                        
+0x1804BEA79: movzx    eax, r11b                          
+0x1804BEA7D: mov      rdi, rdx                           
+0x1804BEA80: and      al, 0x7f                           
+0x1804BEA82: shr      r11, 7                             
+0x1804BEA86: movzx    r8d, al                            
+0x1804BEA8A: inc      rdx                                
+0x1804BEA8D: movzx    eax, r8b                           
+0x1804BEA91: or       al, 0x80                           
+0x1804BEA93: test     r11, r11                           
+0x1804BEA96: movzx    ecx, al                            
+0x1804BEA99: cmove    ecx, r8d                           
+0x1804BEA9D: mov      byte ptr [r10 + rdi], cl           
+0x1804BEAA1: jne      0x1804bea70                        
+0x1804BEAA3: mov      r11, qword ptr [rip + 0x19327e]     ; -> [0x180651D28]: 30e07a8001000000
+0x1804BEAAA: mov      esi, 4                             
+0x1804BEAAF: mov      ebx, 0x6a                          
+0x1804BEAB4: cmp      rdx, r9                            
+0x1804BEAB7: je       0x1804bebd2                        
+0x1804BEABD: movzx    eax, bl                            
+0x1804BEAC0: mov      rdi, rdx                           
+0x1804BEAC3: and      al, 0x7f                           
+0x1804BEAC5: shr      rbx, 7                             
+0x1804BEAC9: movzx    r8d, al                            
+0x1804BEACD: inc      rdx                                
+0x1804BEAD0: movzx    eax, r8b                           
+0x1804BEAD4: or       al, 0x80                           
+0x1804BEAD6: test     rbx, rbx                           
+0x1804BEAD9: movzx    ecx, al                            
+0x1804BEADC: cmove    ecx, r8d                           
+0x1804BEAE0: mov      byte ptr [r10 + rdi], cl           
+0x1804BEAE4: jne      0x1804beab4                        
+0x1804BEAE6: mov      rbx, rsi                           
+0x1804BEAE9: nop      dword ptr [rax]                    
+0x1804BEAF0: cmp      rdx, r9                            
+0x1804BEAF3: je       0x1804bebd2                        
+0x1804BEAF9: movzx    eax, bl                            
+0x1804BEAFC: mov      rdi, rdx                           
+0x1804BEAFF: and      al, 0x7f                           
+0x1804BEB01: shr      rbx, 7                             
+0x1804BEB05: movzx    r8d, al                            
+0x1804BEB09: inc      rdx                                
+0x1804BEB0C: movzx    eax, r8b                           
+0x1804BEB10: or       al, 0x80                           
+0x1804BEB12: test     rbx, rbx                           
+0x1804BEB15: movzx    ecx, al                            
+0x1804BEB18: cmove    ecx, r8d                           
+0x1804BEB1C: mov      byte ptr [r10 + rdi], cl           
+0x1804BEB20: jne      0x1804beaf0                        
+0x1804BEB22: mov      rax, r9                            
+0x1804BEB25: sub      rax, rdx                           
+0x1804BEB28: cmp      rsi, rax                           
+0x1804BEB2B: ja       0x1804bebd2                        
+0x1804BEB31: lea      rdi, [r11 + 4]                     
+0x1804BEB35: cmp      r11, rdi                           
+0x1804BEB38: je       0x1804beb56                        
+0x1804BEB3A: nop      word ptr [rax + rax]               
+0x1804BEB40: movzx    eax, byte ptr [r11]                
+0x1804BEB44: mov      rcx, rdx                           
+0x1804BEB47: inc      rdx                                
+0x1804BEB4A: inc      r11                                
+0x1804BEB4D: mov      byte ptr [r10 + rcx], al           
+0x1804BEB51: cmp      r11, rdi                           
+0x1804BEB54: jne      0x1804beb40                        
+0x1804BEB56: mov      rax, qword ptr [rsp + 0x38]        
+0x1804BEB5B: mov      ebx, 0x70                          
+0x1804BEB60: mov      r11d, dword ptr [rax + 0x40]       
+0x1804BEB64: cmp      rdx, r9                            
+0x1804BEB67: je       0x1804bebd2                        
+0x1804BEB69: movzx    eax, bl                            
+0x1804BEB6C: mov      rdi, rdx                           
+0x1804BEB6F: and      al, 0x7f                           
+0x1804BEB71: shr      rbx, 7                             
+0x1804BEB75: movzx    r8d, al                            
+0x1804BEB79: inc      rdx                                
+0x1804BEB7C: movzx    eax, r8b                           
+0x1804BEB80: or       al, 0x80                           
+0x1804BEB82: test     rbx, rbx                           
+0x1804BEB85: movzx    ecx, al                            
+0x1804BEB88: cmove    ecx, r8d                           
+0x1804BEB8C: mov      byte ptr [r10 + rdi], cl           
+0x1804BEB90: jne      0x1804beb64                        
+0x1804BEB92: cmp      rdx, r9                            
+0x1804BEB95: je       0x1804bebd2                        
+0x1804BEB97: movzx    eax, r11b                          
+0x1804BEB9B: mov      rdi, rdx                           
+0x1804BEB9E: and      al, 0x7f                           
+0x1804BEBA0: shr      r11, 7                             
+0x1804BEBA4: movzx    r8d, al                            
+0x1804BEBA8: inc      rdx                                
+0x1804BEBAB: movzx    eax, r8b                           
+0x1804BEBAF: or       al, 0x80                           
+0x1804BEBB1: test     r11, r11                           
+0x1804BEBB4: movzx    ecx, al                            
+0x1804BEBB7: cmove    ecx, r8d                           
+0x1804BEBBB: mov      byte ptr [r10 + rdi], cl           
+0x1804BEBBF: jne      0x1804beb92                        
+0x1804BEBC1: mov      r8b, 1                             
+0x1804BEBC4: jmp      0x1804bebd5                        
+0x1804BEBC6: mov      r14, qword ptr [rsp + 0x28]        
+0x1804BEBCB: xor      cl, cl                             
+0x1804BEBCD: jmp      0x1804be5d5                        
+0x1804BEBD2: xor      r8b, r8b                           
+0x1804BEBD5: mov      r14, qword ptr [rsp + 0x578]       
+0x1804BEBDD: lea      rdi, [rbp - 0x20]                  
+0x1804BEBE1: xor      eax, eax                           
+0x1804BEBE3: mov      ecx, 0x140                         
+0x1804BEBE8: rep stosb byte ptr [rdi], al                 
+0x1804BEBEA: lea      rdi, [rbp - 0x60]                  
+0x1804BEBEE: mov      ecx, 0x40                          
+0x1804BEBF3: rep stosb byte ptr [rdi], al                 
+0x1804BEBF5: mov      rax, qword ptr [rsp + 0x20]        
+0x1804BEBFA: test     r8b, r8b                           
+0x1804BEBFD: jne      0x1804bec0a                        
+0x1804BEBFF: mov      qword ptr [rax], 0                 
+0x1804BEC06: xor      al, al                             
+0x1804BEC08: jmp      0x1804bec1e                        
+0x1804BEC0A: mov      qword ptr [rax], rdx               
+0x1804BEC0D: mov      al, 1                              
+0x1804BEC0F: jmp      0x1804bec1e                        
+0x1804BEC11: lea      rdi, [rbp - 0x20]                  
+0x1804BEC15: xor      eax, eax                           
+0x1804BEC17: mov      ecx, 0x140                         
+0x1804BEC1C: rep stosb byte ptr [rdi], al                 
+0x1804BEC1E: mov      r15, qword ptr [rsp + 0x530]       
+0x1804BEC26: mov      rdi, qword ptr [rsp + 0x570]       
+0x1804BEC2E: mov      rsi, qword ptr [rsp + 0x568]       
+0x1804BEC36: mov      rcx, qword ptr [rbp + 0x420]       
+0x1804BEC3D: xor      rcx, rsp                           
+0x1804BEC40: call     0x1805e9560                        
+0x1804BEC45: add      rsp, 0x538                         
+0x1804BEC4C: pop      r13                                
+0x1804BEC4E: pop      r12                                
+0x1804BEC50: pop      rbx                                
+0x1804BEC51: pop      rbp                                
+0x1804BEC52: ret                                         
+0x1804BEC53: int3                                        
+0x1804BEC54: int3                                        
+0x1804BEC55: int3                                        
+0x1804BEC56: int3                                        
+0x1804BEC57: int3                                        
+0x1804BEC58: int3                                        
+0x1804BEC59: int3                                        
+0x1804BEC5A: int3                                        
+0x1804BEC5B: int3                                        
+0x1804BEC5C: int3                                        
+0x1804BEC5D: int3                                        
+0x1804BEC5E: int3                                        
+0x1804BEC5F: int3                                        
+0x1804BEC60: mov      qword ptr [rsp + 0x18], rbx        
+0x1804BEC65: push     rsi                                
+0x1804BEC66: sub      rsp, 0x40                          
+0x1804BEC6A: mov      rax, qword ptr [rip + 0x3c43cf]     ; -> [0x180883040]: 32a2df2d992b0000
+0x1804BEC71: xor      rax, rsp                           
+0x1804BEC74: mov      qword ptr [rsp + 0x38], rax        
+0x1804BEC79: movdqa   xmm0, xmmword ptr [rip + 0x36710f]  ; -> [0x180825D90]: 1111111111111111
+0x1804BEC81: xor      eax, eax                           
+0x1804BEC83: movdqa   xmm1, xmmword ptr [rip + 0x367115]  ; -> '""""""""""""""""................'
+0x1804BEC8B: mov      rsi, rdx                           
+0x1804BEC8E: movups   xmmword ptr [rsp + 0x18], xmm0     
+0x1804BEC93: mov      qword ptr [rdx], rax               
+0x1804BEC96: mov      ebx, 8                             
+0x1804BEC9B: movups   xmm0, xmmword ptr [rcx]            
+0x1804BEC9E: mov      qword ptr [rsp + 0x50], rdi        
+0x1804BECA3: movups   xmmword ptr [rsp + 0x28], xmm1     
+0x1804BECA8: movups   xmmword ptr [rsp], xmm0            
+0x1804BECAC: mov      r10, qword ptr [rsp + 8]           
+0x1804BECB1: mov      r11, qword ptr [rsp]               
+0x1804BECB5: cmp      rax, r10                           
+0x1804BECB8: je       0x1804bee75                        
+0x1804BECBE: movzx    ecx, bl                            
+0x1804BECC1: mov      r8, rax                            
+0x1804BECC4: and      cl, 0x7f                           
+0x1804BECC7: shr      rbx, 7                             
+0x1804BECCB: movzx    r9d, cl                            
+0x1804BECCF: inc      rax                                
+0x1804BECD2: movzx    ecx, r9b                           
+0x1804BECD6: or       cl, 0x80                           
+0x1804BECD9: test     rbx, rbx                           
+0x1804BECDC: movzx    edx, cl                            
+0x1804BECDF: cmove    edx, r9d                           
+0x1804BECE3: mov      byte ptr [r11 + r8], dl            
+0x1804BECE7: jne      0x1804becb5                        
+0x1804BECE9: mov      ebx, 1                             
+0x1804BECEE: nop                                         
+0x1804BECF0: cmp      rax, r10                           
+0x1804BECF3: je       0x1804bee75                        
+0x1804BECF9: movzx    ecx, bl                            
+0x1804BECFC: mov      r8, rax                            
+0x1804BECFF: and      cl, 0x7f                           
+0x1804BED02: shr      rbx, 7                             
+0x1804BED06: movzx    r9d, cl                            
+0x1804BED0A: inc      rax                                
+0x1804BED0D: movzx    ecx, r9b                           
+0x1804BED11: or       cl, 0x80                           
+0x1804BED14: test     rbx, rbx                           
+0x1804BED17: movzx    edx, cl                            
+0x1804BED1A: cmove    edx, r9d                           
+0x1804BED1E: mov      byte ptr [r11 + r8], dl            
+0x1804BED22: jne      0x1804becf0                        
+0x1804BED24: mov      ebx, 0x1a                          
+0x1804BED29: nop      dword ptr [rax]                    
+0x1804BED30: cmp      rax, r10                           
+0x1804BED33: je       0x1804bee75                        
+0x1804BED39: movzx    ecx, bl                            
+0x1804BED3C: mov      r8, rax                            
+0x1804BED3F: and      cl, 0x7f                           
+0x1804BED42: shr      rbx, 7                             
+0x1804BED46: movzx    r9d, cl                            
+0x1804BED4A: inc      rax                                
+0x1804BED4D: movzx    ecx, r9b                           
+0x1804BED51: or       cl, 0x80                           
+0x1804BED54: test     rbx, rbx                           
+0x1804BED57: movzx    edx, cl                            
+0x1804BED5A: cmove    edx, r9d                           
+0x1804BED5E: mov      byte ptr [r11 + r8], dl            
+0x1804BED62: jne      0x1804bed30                        
+0x1804BED64: mov      ebx, 0x10                          
+0x1804BED69: mov      edi, ebx                           
+0x1804BED6B: nop      dword ptr [rax + rax]              
+0x1804BED70: cmp      rax, r10                           
+0x1804BED73: je       0x1804bee75                        
+0x1804BED79: movzx    ecx, dil                           
+0x1804BED7D: mov      r8, rax                            
+0x1804BED80: and      cl, 0x7f                           
+0x1804BED83: shr      rdi, 7                             
+0x1804BED87: movzx    r9d, cl                            
+0x1804BED8B: inc      rax                                
+0x1804BED8E: movzx    ecx, r9b                           
+0x1804BED92: or       cl, 0x80                           
+0x1804BED95: test     rdi, rdi                           
+0x1804BED98: movzx    edx, cl                            
+0x1804BED9B: cmove    edx, r9d                           
+0x1804BED9F: mov      byte ptr [r11 + r8], dl            
+0x1804BEDA3: jne      0x1804bed70                        
+0x1804BEDA5: mov      rcx, r10                           
+0x1804BEDA8: sub      rcx, rax                           
+0x1804BEDAB: cmp      rcx, rbx                           
+0x1804BEDAE: jb       0x1804bee75                        
+0x1804BEDB4: lea      r8, [rsp + 0x18]                   
+0x1804BEDB9: nop      dword ptr [rax]                    
+0x1804BEDC0: movzx    ecx, byte ptr [r8]                 
+0x1804BEDC4: mov      rdx, rax                           
+0x1804BEDC7: inc      rax                                
+0x1804BEDCA: inc      r8                                 
+0x1804BEDCD: mov      byte ptr [r11 + rdx], cl           
+0x1804BEDD1: lea      rcx, [rsp + 0x28]                  
+0x1804BEDD6: cmp      r8, rcx                            
+0x1804BEDD9: jne      0x1804bedc0                        
+0x1804BEDDB: mov      edi, 0x22                          
+0x1804BEDE0: cmp      rax, r10                           
+0x1804BEDE3: je       0x1804bee75                        
+0x1804BEDE9: movzx    ecx, dil                           
+0x1804BEDED: mov      r8, rax                            
+0x1804BEDF0: and      cl, 0x7f                           
+0x1804BEDF3: shr      rdi, 7                             
+0x1804BEDF7: movzx    r9d, cl                            
+0x1804BEDFB: inc      rax                                
+0x1804BEDFE: movzx    ecx, r9b                           
+0x1804BEE02: or       cl, 0x80                           
+0x1804BEE05: test     rdi, rdi                           
+0x1804BEE08: movzx    edx, cl                            
+0x1804BEE0B: cmove    edx, r9d                           
+0x1804BEE0F: mov      byte ptr [r11 + r8], dl            
+0x1804BEE13: jne      0x1804bede0                        
+0x1804BEE15: cmp      rax, r10                           
+0x1804BEE18: je       0x1804bee75                        
+0x1804BEE1A: movzx    ecx, bl                            
+0x1804BEE1D: mov      r8, rax                            
+0x1804BEE20: and      cl, 0x7f                           
+0x1804BEE23: shr      rbx, 7                             
+0x1804BEE27: movzx    r9d, cl                            
+0x1804BEE2B: inc      rax                                
+0x1804BEE2E: movzx    ecx, r9b                           
+0x1804BEE32: or       cl, 0x80                           
+0x1804BEE35: test     rbx, rbx                           
+0x1804BEE38: movzx    edx, cl                            
+0x1804BEE3B: cmove    edx, r9d                           
+0x1804BEE3F: mov      byte ptr [r8 + r11], dl            
+0x1804BEE43: jne      0x1804bee15                        
+0x1804BEE45: sub      r10, rax                           
+0x1804BEE48: cmp      r10, 0x10                          
+0x1804BEE4C: jb       0x1804bee75                        
+0x1804BEE4E: lea      r8, [rsp + 0x28]                   
+0x1804BEE53: movzx    ecx, byte ptr [r8]                 
+0x1804BEE57: mov      rdx, rax                           
+0x1804BEE5A: inc      rax                                
+0x1804BEE5D: inc      r8                                 
+0x1804BEE60: mov      byte ptr [r11 + rdx], cl           
+0x1804BEE64: lea      rcx, [rsp + 0x38]                  
+0x1804BEE69: cmp      r8, rcx                            
+0x1804BEE6C: jne      0x1804bee53                        
+0x1804BEE6E: mov      qword ptr [rsi], rax               
+0x1804BEE71: mov      al, 1                              
+0x1804BEE73: jmp      0x1804bee77                        
+0x1804BEE75: xor      al, al                             
+0x1804BEE77: mov      rdi, qword ptr [rsp + 0x50]        
+0x1804BEE7C: mov      rcx, qword ptr [rsp + 0x38]        
+0x1804BEE81: xor      rcx, rsp                           
+0x1804BEE84: call     0x1805e9560                        
+0x1804BEE89: mov      rbx, qword ptr [rsp + 0x60]        
+0x1804BEE8E: add      rsp, 0x40                          
+0x1804BEE92: pop      rsi                                
+0x1804BEE93: ret                                         
+0x1804BEE94: int3                                        
+0x1804BEE95: int3                                        
+0x1804BEE96: int3                                        
+0x1804BEE97: int3                                        
+0x1804BEE98: int3                                        
+0x1804BEE99: int3                                        
+0x1804BEE9A: int3                                        
+0x1804BEE9B: int3                                        
+0x1804BEE9C: int3                                        
+0x1804BEE9D: int3                                        
+0x1804BEE9E: int3                                        
+0x1804BEE9F: int3                                        
+0x1804BEEA0: mov      r11, rsp                           
+0x1804BEEA3: mov      qword ptr [r11 + 0x18], rbx        
+0x1804BEEA7: mov      qword ptr [r11 + 0x20], rbp        
+0x1804BEEAB: push     rsi                                
+0x1804BEEAC: push     rdi                                
+0x1804BEEAD: push     r12                                
+0x1804BEEAF: push     r14                                
+0x1804BEEB1: push     r15                                
+0x1804BEEB3: sub      rsp, 0xe0                          
+0x1804BEEBA: mov      rax, qword ptr [rip + 0x3c417f]     ; -> [0x180883040]: 32a2df2d992b0000
+0x1804BEEC1: xor      rax, rsp                           
+0x1804BEEC4: mov      qword ptr [rsp + 0xd0], rax        
+0x1804BEECC: xorps    xmm0, xmm0                         
+0x1804BEECF: mov      qword ptr [rsp + 0x58], 0x40       
+0x1804BEED8: mov      esi, edx                           
+0x1804BEEDA: lea      rax, [r11 - 0x78]                  
+0x1804BEEDE: mov      rbx, rcx                           
+0x1804BEEE1: mov      qword ptr [rsp + 0x50], rax        
+0x1804BEEE6: xor      edi, edi                           
+0x1804BEEE8: lea      rdx, [rsp + 0x40]                  
+0x1804BEEED: lea      rcx, [rsp + 0x50]                  
+0x1804BEEF2: mov      qword ptr [rsp + 0x40], rdi        
+0x1804BEEF7: movups   xmmword ptr [r11 - 0x78], xmm0     
+0x1804BEEFC: movups   xmmword ptr [r11 - 0x68], xmm0     

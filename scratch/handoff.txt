@@ -1,0 +1,97 @@
+=== vaultbreaker_sunrise_handoff/ ===
+=== vaultbreaker_sunrise_handoff/CODEX_NEXT_PROMPT.txt ===
+Continue in the existing Vaultbreaker Codex conversation/workspace. Read the attached MARATHON_TO_DAWN_RESEARCH_HANDOFF.md and reuse all prior findings and scripts. Our immediate goal is NOT a full port: perform one reproducible, offline Marathon-static-prop → GLB → Sunrise Studio import feasibility test, using an author-created cube as a toolchain control. First audit the local resources/extractors and inspect Sunrise Studio's documented importer/authoring profiles. If a Marathon static mesh is not yet decodable, document that exact blocker rather than doing a broad scan. Preserve the installed game, avoid online services/anticheat interference, do not launch subagents, and keep outputs compact. Report the evidence, tool versions, exact paths, import validation errors and resulting compatibility decision. Do not implement Vaultbreaker gameplay or port an entire map yet.
+
+
+=== vaultbreaker_sunrise_handoff/MARATHON_TO_DAWN_RESEARCH_HANDOFF.md ===
+# Marathon → Sunrise/Dawn: Cross-engine Asset Import Research Handoff
+
+**Research date:** 2026-10-27  
+**Objective:** Evaluate the smallest reproducible, authorized, offline experiment for importing a Marathon static asset into the Destiny 2-based Sunrise/Dawn runtime, informed by the Destiny: Rising Haven demonstration.  
+**Status:** Research and feasibility test plan; **not** a working Marathon converter.
+
+## Executive decision
+
+**Recommended path:** first establish a single-static-mesh interchange test via `Marathon decoded asset → interchange mesh/texture → Blender → Sunrise Studio original-static-prop import`. Do not commit to porting Cryo Archive, or conclude that Marathon logic can run in Dawn, until the mesh test succeeds and collision/material limitations are measured.
+
+This is *not* evidence that the 2020 Destiny 2 executable understands Marathon's native 2026 tags. It is an interchange-and-reauthoring path into a different native package format. It avoids needing to port the full Marathon server to validate visual reuse, but still leaves gameplay semantics, animation, collision, weapon systems, AI, networking, and Vaultbreaker state logic unresolved.
+
+## Source-of-truth ledger
+
+| ID | Primary source | Established observation | Limits / reliability |
+|---|---|---|---|
+| S1 | KIexster firsthand Haven post, https://www.reddit.com/r/destinyrisingmobile/comments/1xeb7lg/could_be/ | Poster describes a Destiny: Rising Haven map running inside Destiny 2 with Project Dawn and says they are extracting Rising raids. | Firsthand *claim and demonstration*, not a published conversion implementation. Says Dawn collaboration was discussed; does not identify publicly downloadable importer. |
+| S2 | Sunrise Studio original-asset guide, https://projectsunrise.dev/docs/sunrise-studio/original-asset/ | Blender addon writes `.glb` plus `.sunrise-original.json`; Studio authors supported content as a **new static prop**. | Materials/geometry must satisfy supported profiles; the asset authoring path does not support arbitrary animated game objects. |
+| S3 | Sunrise Studio interchange guide, https://projectsunrise.dev/docs/sunrise-studio/interchange/ | OBJ and glTF/GLB geometries are handled; texture and material import limitations documented; native coordinates Z-up, interchange glTF Y-up, UV origin conversion. | Several formats and geometry classes rejected; native scene export not equivalent to authoring a new playable map. |
+| S4 | Sunrise Studio architecture, https://projectsunrise.dev/docs/sunrise-studio/architecture/ | `.NET 9` tool; `Packages`, `Scene`, `Formats`, `Authoring`, `Projects`, `Interchange` libraries; source separates interchange parsing and native asset creation. | This does not imply Marathon package support inside Sunrise Studio. |
+| S5 | Sunrise Studio source, https://github.com/stanuwu/SunriseStudio | Public repository to inspect import code and supported authoring profiles. | Verify current branch, build requirements, and installed Sunrise runtime compatibility before using. |
+| S6 | tiger-pkg, https://github.com/v4nguard/tiger-pkg | Public Rust package library explicitly lists Marathon retail `goliath` and Marathon test `goliath_alpha`, using Oodle 9. | Package access ≠ generalized model/texture/material/scene decoder. Inspect extraction coverage before promising GLB output. |
+| S7 | Sunrise runtime architecture, https://projectsunrise.dev/docs/sunrise/architecture/ | Sunrise retains a Destiny 2 executable and adds game-specific client, state, server, and mod systems. | Sunrise service and gameplay logic is Destiny 2-specific; it is not a generic Tiger runtime. |
+| S8 | KIexster GitHub candidate, https://github.com/KIexster | A candidate account link was previously surfaced. | **Not independently verified** as the same person as the Reddit author. A public Haven converter repo was **not located** in this search. |
+
+**Citation note:** All external observations require attribution. Prior discussion's claims of an actual Haven conversion method are *not established*. Ask the author for their toolchain or a public write-up if practical, but do not depend on unpublished work.
+
+## Important documented import constraints
+
+From S2/S3, the original static-asset path accepts triangle meshes with normals, UVs, scene transforms, and supported PBR material subsets. The docs specify PNG images, one UV set, repeat wrapping, and backface culling. Studio maps base color, metallic/roughness and normal maps into existing game material slots. Unsupported elements include alpha masks/blending, emissive/occlusion textures, double-sided shaders, extra UV sets/texture transforms, many extensions, particles, skins, morph targets and animation **as authored static props**. A skinned mesh may be flattened by skip mode; that is not character animation support. glTF coordinates are converted Y-up ↔ Z-up.
+
+**Reconstruction implications:** a high-quality map will also require authoring placements, LODs, collision, navmesh, materials, lighting, sky, triggers, playable boundaries, and entity behaviors. Static meshes are proof of rendering/import *only*.
+
+## Priority compatibility matrix
+
+| Subsystem | Available route | Status |
+|---|---|---|
+| Marathon package tag reading | `tiger-pkg` retail `goliath` | Documented package-level support |
+| Marathon mesh → triangles/UV/normals | Existing local extraction scripts or new targeted decoder | Not demonstrated |
+| Marathon textures → PNG/DDS | Existing local extraction tools / targeted export | Not demonstrated for a selected asset |
+| Blender import/conversion | glTF/GLB if source geometry can be recovered | Standard interchange; conditional |
+| Sunrise Studio new static prop | S2 documented workflow | Documented generally, not tested with Marathon content |
+| Prop visible in isolated Dawn | Controlled import smoke test | Not yet demonstrated |
+| Collision and walkability | Separate authored/converted collision | Not demonstrated |
+| Cryo Archive entire map | placement, streaming, terrain, material, gameplay conversion | Major unresolved work |
+| Vaultbreaker logic | Independent activity scripting/state systems | Prior research exists; runtime integration not demonstrated |
+| Marathon movement/gunplay/AI | Destiny 2 does not inherently supply Marathon equivalents | Requires adaptation/reimplementation |
+
+## One bounded, concrete experiment (no bulk scanning)
+
+**Preconditions:** legitimate local copies and tools; separate development environment, no changes to online Marathon or its anticheat; check project and asset licenses before redistribution.
+
+1. **Inspect existing Vaultbreaker workspace** for an already decoded, small **static** Marathon mesh and its referenced texture(s). Do not launch a whole-package scan.
+2. **Audit the extractors:** identify exact binary tag(s), build/version, decoding scripts, vertex/index layout, UV semantics, material IDs, and output format. Record what exists, not merely inferred class names.
+3. **Choose one non-animated simple prop**, not a terrain tile, full room, character, or weapon. Prefer low material count and single UV set.
+4. **Export a minimal interchange sample** as GLB with positions, triangle indices, normals, UV0, and optionally PNG textures. Keep an evidence log and deterministic conversion script. If geometry cannot be decoded, stop with an explicit blocker instead of inventing a successful import.
+5. **Check Sunrise Studio's original-static-asset authoring profile** on a harmless, author-created control cube first to validate toolchain before adding source-asset complexity. Do not treat a source-free control-cube success as proof of Marathon compatibility.
+6. **Attempt Marathon-derived GLB import** in an isolated offline Sunrise Studio project. Capture validation errors and transformed geometry/material state.
+7. **If authorized and safe, test in an isolated Dawn environment**, without interfering with production services or anticheat. Verify presence, scale/orientation, mesh integrity, textures, rendering and basic placement; do not claim collision or gameplay success without tests.
+8. **Stop and report** a reproducibility matrix: extracted tags and offsets, source build hash, conversion script, dimensions, screenshots, exact tool versions, import log, successful/failed properties, and next narrow task.
+
+**Boundaries:** No full Cryo map conversion, no AI/gameplay reconstruction, no mass asset export, no bypassing security or online service controls, and no subagents. The original installed Marathon files remain unmodified.
+
+## Existing Vaultbreaker findings to preserve
+
+- Installed resource `80AA2163` class `8080A1F5` contains eight battery incident IDs, identified as likely event-name indexing but not typed route logic.
+- Existing activity investigation identified seven vault-disabled fields, assignment analytics, twelve key pedestals, seven vault-objective handlers, and battery listeners; executable dispatch remains unresolved.
+- Vault 05 UI describes five batteries, while named activity data stores four. No verified live rule.
+- All 56 previously recorded localized UI hashes/strings were rechecked against the current build at selected offsets.
+- Do **not** repeat the earlier 123,379-entry reference scan.
+- Existing workspace output paths were reported under `C:\Users\marra\Documents\Codex\2026-10-27\hel\outputs\`; confirm they are still present before use.
+
+## Decision gate
+
+**Green:** author-created control cube imports, Marathon mesh decoding is reproducible, and a single prop imports and renders in an isolated environment. Then estimate whole-room work.
+
+**Yellow:** package bytes available but asset geometry decoding incomplete, or Sunrise material import fails. Fix only the narrow blocker.
+
+**Red:** converter depends on unshared private tooling, engine/runtime incompatibility, prohibited use, or unacceptable rights/anticheat risks. Fall back to independent original-asset recreation in Unreal without discarding the valuable vault gameplay specification.
+
+## Questions for developers / future research
+
+- KIexster: Which engine/content-extraction tools, interchange formats, import tools, and map placement workflow were used for Haven? Is any public source or technical guide planned?
+- Sunrise Studio: Can original imported static props be placed into a user-authored map in the currently released mod loader? What limits apply to collision and material authoring?
+- Marathon extractor: Can one confirmed Cryo prop be exported with valid positions, normals, UV0, indices and texture(s) without mass extraction?
+
+## Deliverable to produce next
+
+`MARATHON_TO_DAWN_ONE_PROP_FEASIBILITY.md`: one asset, one GLB, one isolated import, grounded evidence and a clear pass/fail verdict. Do not begin game implementation until the evidence is reviewed.
+
+
