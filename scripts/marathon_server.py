@@ -640,6 +640,24 @@ def main():
 
     bap_udp_thread = threading.Thread(target=start_bap_udp, args=(server,), daemon=True)
     bap_udp_thread.start()
+
+    def start_sdr_udp(server, port: int = 27015):
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            sock.bind(("0.0.0.0", port))
+            server_log(f"[*] SDR Ping Responder listening on UDP 0.0.0.0:{port}")
+            while True:
+                data, addr = sock.recvfrom(65535)
+                server_log(f"[SDR UDP {port}] Received {len(data)} bytes from {addr}. Hex: {data[:32].hex()}")
+                # Echo ping probe back to sender to satisfy latency measurement
+                sock.sendto(data, addr)
+                server_log(f"[SDR UDP {port}] Echoed {len(data)} bytes back to {addr}")
+        except Exception as e:
+            server_log(f"[-] SDR UDP {port} bind warning: {e}")
+
+    sdr_udp_thread = threading.Thread(target=start_sdr_udp, args=(server,), daemon=True)
+    sdr_udp_thread.start()
     
     def start_http_80(server):
         try:

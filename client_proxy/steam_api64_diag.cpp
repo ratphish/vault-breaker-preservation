@@ -1594,12 +1594,40 @@ static int WSAAPI Hook_WSAIoctl(
 typedef int (WSAAPI *sendto_t)(SOCKET s, const char* buf, int len, int flags, const struct sockaddr* to, int tolen);
 static sendto_t g_real_sendto = NULL;
 static int WSAAPI Hook_sendto(SOCKET s, const char* buf, int len, int flags, const struct sockaddr* to, int tolen) {
-    if (to && to->sa_family == AF_INET) {
-        struct sockaddr_in* sin = (struct sockaddr_in*)to;
-        char ip[32] = {0};
-        inet_ntop(AF_INET, &sin->sin_addr, ip, sizeof(ip));
-        uint16_t port = ntohs(sin->sin_port);
-        LogMsg("[UDP] sendto to %s:%u (len=%d, socket=%lld)", ip, port, len, (long long)s);
+    void* caller = _ReturnAddress();
+    if (to) {
+        if (to->sa_family == AF_INET) {
+            struct sockaddr_in* sin = (struct sockaddr_in*)to;
+            char ip[32] = {0};
+            inet_ntop(AF_INET, &sin->sin_addr, ip, sizeof(ip));
+            uint16_t port = ntohs(sin->sin_port);
+            LogMsg("[UDP] sendto(IPv4) to %s:%u (len=%d, socket=%lld, caller=%p)", ip, port, len, (long long)s, caller);
+            if (strcmp(ip, "127.0.0.1") != 0 && strcmp(ip, "0.0.0.0") != 0) {
+                struct sockaddr_in sin_redir;
+                memcpy(&sin_redir, to, sizeof(sin_redir));
+                sin_redir.sin_addr.s_addr = inet_addr(g_server_ip);
+                uint16_t redir_port = (port >= 27015 && port <= 27150) ? 27015 : ((port == 7777) ? 7777 : port);
+                sin_redir.sin_port = htons(redir_port);
+                LogMsg("[Egress] Redirecting UDP sendto(IPv4) from %s:%u to %s:%u", ip, port, g_server_ip, redir_port);
+                return g_real_sendto ? g_real_sendto(s, buf, len, flags, (struct sockaddr*)&sin_redir, tolen) : SOCKET_ERROR;
+            }
+        } else if (to->sa_family == AF_INET6) {
+            struct sockaddr_in6* sin6 = (struct sockaddr_in6*)to;
+            char ip6[64] = {0};
+            inet_ntop(AF_INET6, &sin6->sin6_addr, ip6, sizeof(ip6));
+            uint16_t port = ntohs(sin6->sin6_port);
+            LogMsg("[UDP] sendto(IPv6) to [%s]:%u (len=%d, socket=%lld, caller=%p)", ip6, port, len, (long long)s, caller);
+            if (strcmp(ip6, "::1") != 0 && strcmp(ip6, "::") != 0) {
+                struct sockaddr_in6 sin6_redir;
+                memcpy(&sin6_redir, to, sizeof(sin6_redir));
+                memset(&sin6_redir.sin6_addr, 0, sizeof(sin6_redir.sin6_addr));
+                sin6_redir.sin6_addr.s6_addr[15] = 1;
+                uint16_t redir_port = (port >= 27015 && port <= 27150) ? 27015 : ((port == 7777) ? 7777 : port);
+                sin6_redir.sin6_port = htons(redir_port);
+                LogMsg("[Egress] Redirecting UDP sendto(IPv6) from [%s]:%u to [::1]:%u", ip6, port, redir_port);
+                return g_real_sendto ? g_real_sendto(s, buf, len, flags, (struct sockaddr*)&sin6_redir, tolen) : SOCKET_ERROR;
+            }
+        }
     }
     return g_real_sendto ? g_real_sendto(s, buf, len, flags, to, tolen) : SOCKET_ERROR;
 }
@@ -1615,12 +1643,40 @@ static int WSAAPI Hook_WSASendTo(
     DWORD dwFlags, const struct sockaddr* lpTo, int iTolen,
     LPWSAOVERLAPPED lpOverlapped, LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine
 ) {
-    if (lpTo && lpTo->sa_family == AF_INET) {
-        struct sockaddr_in* sin = (struct sockaddr_in*)lpTo;
-        char ip[32] = {0};
-        inet_ntop(AF_INET, &sin->sin_addr, ip, sizeof(ip));
-        uint16_t port = ntohs(sin->sin_port);
-        LogMsg("[UDP] WSASendTo to %s:%u (socket=%lld)", ip, port, (long long)s);
+    void* caller = _ReturnAddress();
+    if (lpTo) {
+        if (lpTo->sa_family == AF_INET) {
+            struct sockaddr_in* sin = (struct sockaddr_in*)lpTo;
+            char ip[32] = {0};
+            inet_ntop(AF_INET, &sin->sin_addr, ip, sizeof(ip));
+            uint16_t port = ntohs(sin->sin_port);
+            LogMsg("[UDP] WSASendTo(IPv4) to %s:%u (socket=%lld, caller=%p)", ip, port, (long long)s, caller);
+            if (strcmp(ip, "127.0.0.1") != 0 && strcmp(ip, "0.0.0.0") != 0) {
+                struct sockaddr_in sin_redir;
+                memcpy(&sin_redir, lpTo, sizeof(sin_redir));
+                sin_redir.sin_addr.s_addr = inet_addr(g_server_ip);
+                uint16_t redir_port = (port >= 27015 && port <= 27150) ? 27015 : ((port == 7777) ? 7777 : port);
+                sin_redir.sin_port = htons(redir_port);
+                LogMsg("[Egress] Redirecting WSASendTo(IPv4) from %s:%u to %s:%u", ip, port, g_server_ip, redir_port);
+                return g_real_WSASendTo ? g_real_WSASendTo(s, lpBuffers, dwBufferCount, lpNumberOfBytesSent, dwFlags, (struct sockaddr*)&sin_redir, iTolen, lpOverlapped, lpCompletionRoutine) : SOCKET_ERROR;
+            }
+        } else if (lpTo->sa_family == AF_INET6) {
+            struct sockaddr_in6* sin6 = (struct sockaddr_in6*)lpTo;
+            char ip6[64] = {0};
+            inet_ntop(AF_INET6, &sin6->sin6_addr, ip6, sizeof(ip6));
+            uint16_t port = ntohs(sin6->sin6_port);
+            LogMsg("[UDP] WSASendTo(IPv6) to [%s]:%u (socket=%lld, caller=%p)", ip6, port, (long long)s, caller);
+            if (strcmp(ip6, "::1") != 0 && strcmp(ip6, "::") != 0) {
+                struct sockaddr_in6 sin6_redir;
+                memcpy(&sin6_redir, lpTo, sizeof(sin6_redir));
+                memset(&sin6_redir.sin6_addr, 0, sizeof(sin6_redir.sin6_addr));
+                sin6_redir.sin6_addr.s6_addr[15] = 1;
+                uint16_t redir_port = (port >= 27015 && port <= 27150) ? 27015 : ((port == 7777) ? 7777 : port);
+                sin6_redir.sin6_port = htons(redir_port);
+                LogMsg("[Egress] Redirecting WSASendTo(IPv6) from [%s]:%u to [::1]:%u", ip6, port, redir_port);
+                return g_real_WSASendTo ? g_real_WSASendTo(s, lpBuffers, dwBufferCount, lpNumberOfBytesSent, dwFlags, (struct sockaddr*)&sin6_redir, iTolen, lpOverlapped, lpCompletionRoutine) : SOCKET_ERROR;
+            }
+        }
     }
     return g_real_WSASendTo ? g_real_WSASendTo(s, lpBuffers, dwBufferCount, lpNumberOfBytesSent, dwFlags, lpTo, iTolen, lpOverlapped, lpCompletionRoutine) : SOCKET_ERROR;
 }
