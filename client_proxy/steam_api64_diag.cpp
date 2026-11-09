@@ -1630,6 +1630,12 @@ static int WSAAPI Hook_WSAConnect(SOCKET s, const struct sockaddr *name, int nam
 static int WSAAPI Hook_getaddrinfo(PCSTR pNodeName, PCSTR pServiceName, const ADDRINFOA *pHints, PADDRINFOA *ppResult);
 static int WSAAPI Hook_GetAddrInfoW(PCWSTR pNodeName, PCWSTR pServiceName, const ADDRINFOW *pHints, PADDRINFOW *ppResult);
 static INT WSAAPI Hook_GetAddrInfoExW(PCWSTR pName, PCWSTR pServiceName, DWORD dwNamespace, LPGUID lpNspId, const ADDRINFOEXW *pHints, PADDRINFOEXW *ppResult, struct timeval *timeout, LPOVERLAPPED lpOverlapped, LPLOOKUPSERVICE_COMPLETION_ROUTINE lpCompletionRoutine, LPHANDLE lpNameHandle);
+static HINTERNET WINAPI Hook_WinHttpConnect(HINTERNET hSession, LPCWSTR pswzServerName, INTERNET_PORT nServerPort, DWORD dwReserved);
+static HINTERNET WINAPI Hook_WinHttpOpenRequest(HINTERNET hConnect, LPCWSTR pwszVerb, LPCWSTR pwszObjectName, LPCWSTR pwszVersion, LPCWSTR pwszReferrer, LPCWSTR *ppwszAcceptTypes, DWORD dwFlags);
+static BOOL WINAPI Hook_WinHttpSendRequest(HINTERNET hRequest, LPCWSTR lpszHeaders, DWORD dwHeadersLength, LPVOID lpOptional, DWORD dwOptionalLength, DWORD dwTotalLength, DWORD_PTR dwContext);
+static BOOL WINAPI Hook_WinHttpReceiveResponse(HINTERNET hRequest, LPVOID lpReserved);
+static HANDLE WINAPI Hook_CreateFileW(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+static HANDLE WINAPI Hook_CreateFileA(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 
 typedef FARPROC (WINAPI *GetProcAddress_t)(HMODULE hModule, LPCSTR lpProcName);
 static GetProcAddress_t g_real_GetProcAddress = NULL;
@@ -1658,6 +1664,24 @@ static FARPROC WINAPI Hook_GetProcAddress(HMODULE hModule, LPCSTR lpProcName) {
         } else if (strcmp(lpProcName, "CertVerifyCertificateChainPolicy") == 0) {
             LogMsg("[GetProcAddress] Dynamic lookup: CertVerifyCertificateChainPolicy -> hooked");
             return (FARPROC)Hook_CertVerifyCertificateChainPolicy;
+        } else if (strcmp(lpProcName, "WinHttpConnect") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: WinHttpConnect -> hooked");
+            return (FARPROC)Hook_WinHttpConnect;
+        } else if (strcmp(lpProcName, "WinHttpOpenRequest") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: WinHttpOpenRequest -> hooked");
+            return (FARPROC)Hook_WinHttpOpenRequest;
+        } else if (strcmp(lpProcName, "WinHttpSendRequest") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: WinHttpSendRequest -> hooked");
+            return (FARPROC)Hook_WinHttpSendRequest;
+        } else if (strcmp(lpProcName, "WinHttpReceiveResponse") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: WinHttpReceiveResponse -> hooked");
+            return (FARPROC)Hook_WinHttpReceiveResponse;
+        } else if (strcmp(lpProcName, "CreateFileW") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: CreateFileW -> hooked");
+            return (FARPROC)Hook_CreateFileW;
+        } else if (strcmp(lpProcName, "CreateFileA") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: CreateFileA -> hooked");
+            return (FARPROC)Hook_CreateFileA;
         }
     } else {
         uint16_t ord = (uint16_t)((uintptr_t)lpProcName & 0xFFFF);
@@ -1817,6 +1841,79 @@ static HINTERNET WINAPI Hook_WinHttpOpenRequest(
     return hReq;
 }
 
+typedef BOOL (WINAPI *WinHttpSendRequest_t)(
+    HINTERNET hRequest,
+    LPCWSTR lpszHeaders,
+    DWORD dwHeadersLength,
+    LPVOID lpOptional,
+    DWORD dwOptionalLength,
+    DWORD dwTotalLength,
+    DWORD_PTR dwContext
+);
+static WinHttpSendRequest_t g_real_WinHttpSendRequest = NULL;
+static BOOL WINAPI Hook_WinHttpSendRequest(
+    HINTERNET hRequest,
+    LPCWSTR lpszHeaders,
+    DWORD dwHeadersLength,
+    LPVOID lpOptional,
+    DWORD dwOptionalLength,
+    DWORD dwTotalLength,
+    DWORD_PTR dwContext
+) {
+    if (!g_real_WinHttpSendRequest) {
+        HMODULE hWinHttp = GetModuleHandleA("WINHTTP.dll");
+        if (!hWinHttp) hWinHttp = LoadLibraryA("WINHTTP.dll");
+        if (hWinHttp) g_real_WinHttpSendRequest = (WinHttpSendRequest_t)GetProcAddress(hWinHttp, "WinHttpSendRequest");
+    }
+    char hdrA[256] = {0};
+    if (lpszHeaders && dwHeadersLength > 0 && dwHeadersLength < sizeof(hdrA)) {
+        WideCharToMultiByte(CP_UTF8, 0, lpszHeaders, dwHeadersLength, hdrA, sizeof(hdrA) - 1, NULL, NULL);
+    }
+    LogMsg("[WinHTTP] WinHttpSendRequest(hReq=%p, optLen=%lu, totLen=%lu, hdr='%s')", hRequest, dwOptionalLength, dwTotalLength, hdrA);
+    BOOL res = g_real_WinHttpSendRequest ?
+        g_real_WinHttpSendRequest(hRequest, lpszHeaders, dwHeadersLength, lpOptional, dwOptionalLength, dwTotalLength, dwContext) : FALSE;
+    if (!res) {
+        DWORD err = GetLastError();
+        LogMsg("[WinHTTP] WinHttpSendRequest FAILED, GetLastError() = %lu (0x%lX)", err, err);
+    } else {
+        LogMsg("[WinHTTP] WinHttpSendRequest SUCCEEDED");
+    }
+    return res;
+}
+
+typedef BOOL (WINAPI *WinHttpReceiveResponse_t)(
+    HINTERNET hRequest,
+    LPVOID lpReserved
+);
+static WinHttpReceiveResponse_t g_real_WinHttpReceiveResponse = NULL;
+static BOOL WINAPI Hook_WinHttpReceiveResponse(
+    HINTERNET hRequest,
+    LPVOID lpReserved
+) {
+    if (!g_real_WinHttpReceiveResponse) {
+        HMODULE hWinHttp = GetModuleHandleA("WINHTTP.dll");
+        if (!hWinHttp) hWinHttp = LoadLibraryA("WINHTTP.dll");
+        if (hWinHttp) g_real_WinHttpReceiveResponse = (WinHttpReceiveResponse_t)GetProcAddress(hWinHttp, "WinHttpReceiveResponse");
+    }
+    LogMsg("[WinHTTP] WinHttpReceiveResponse(hReq=%p)", hRequest);
+    BOOL res = g_real_WinHttpReceiveResponse ?
+        g_real_WinHttpReceiveResponse(hRequest, lpReserved) : FALSE;
+    if (!res) {
+        DWORD err = GetLastError();
+        LogMsg("[WinHTTP] WinHttpReceiveResponse FAILED, GetLastError() = %lu (0x%lX)", err, err);
+    } else {
+        DWORD statusCode = 0;
+        DWORD statusSize = sizeof(statusCode);
+        if (WinHttpQueryHeaders(hRequest, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER,
+                                WINHTTP_HEADER_NAME_BY_INDEX, &statusCode, &statusSize, WINHTTP_NO_HEADER_INDEX)) {
+            LogMsg("[WinHTTP] WinHttpReceiveResponse SUCCEEDED, HTTP Status = %lu", statusCode);
+        } else {
+            LogMsg("[WinHTTP] WinHttpReceiveResponse SUCCEEDED");
+        }
+    }
+    return res;
+}
+
 // ---------------------------------------------------------------------------
 
 // VFS & File Logging Hooks (KERNEL32!CreateFileW, CreateFileA)
@@ -1956,6 +2053,7 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                         const char* name = (const char*)impName->Name;
                         if (strcmp(name, "CreateFileW") == 0) { hook = (void*)Hook_CreateFileW; hookName = "CreateFileW"; }
                         else if (strcmp(name, "CreateFileA") == 0) { hook = (void*)Hook_CreateFileA; hookName = "CreateFileA"; }
+                        else if (strcmp(name, "GetProcAddress") == 0) { hook = (void*)Hook_GetProcAddress; hookName = "GetProcAddress"; }
                     }
                 } else if (isWinHttp) {
                     if (!(origThunk->u1.Ordinal & IMAGE_ORDINAL_FLAG)) {
@@ -1964,6 +2062,8 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                         if (strcmp(name, "WinHttpConnect") == 0) { hook = (void*)Hook_WinHttpConnect; hookName = "WinHttpConnect"; }
 
                         else if (strcmp(name, "WinHttpOpenRequest") == 0) { hook = (void*)Hook_WinHttpOpenRequest; hookName = "WinHttpOpenRequest"; }
+                        else if (strcmp(name, "WinHttpSendRequest") == 0) { hook = (void*)Hook_WinHttpSendRequest; hookName = "WinHttpSendRequest"; }
+                        else if (strcmp(name, "WinHttpReceiveResponse") == 0) { hook = (void*)Hook_WinHttpReceiveResponse; hookName = "WinHttpReceiveResponse"; }
 
                     }
 
@@ -2041,11 +2141,14 @@ static void InstallIATHooks() {
     if (hWinHttp) {
         g_real_WinHttpConnect = (WinHttpConnect_t)GetProcAddress(hWinHttp, "WinHttpConnect");
         g_real_WinHttpOpenRequest = (WinHttpOpenRequest_t)GetProcAddress(hWinHttp, "WinHttpOpenRequest");
+        g_real_WinHttpSendRequest = (WinHttpSendRequest_t)GetProcAddress(hWinHttp, "WinHttpSendRequest");
+        g_real_WinHttpReceiveResponse = (WinHttpReceiveResponse_t)GetProcAddress(hWinHttp, "WinHttpReceiveResponse");
     }
 
     HMODULE hK32 = GetModuleHandleA("KERNEL32.dll");
     if (!hK32) hK32 = LoadLibraryA("KERNEL32.dll");
     if (hK32) {
+        g_real_GetProcAddress = (GetProcAddress_t)GetProcAddress(hK32, "GetProcAddress");
         g_real_CreateFileW = (CreateFileW_t)GetProcAddress(hK32, "CreateFileW");
         g_real_CreateFileA = (CreateFileA_t)GetProcAddress(hK32, "CreateFileA");
     }
