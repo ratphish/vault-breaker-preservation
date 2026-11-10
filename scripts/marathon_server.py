@@ -439,6 +439,8 @@ def make_sdr_ping_reply(req_packet: bytes, client_addr: tuple) -> bytes:
         b"\x0d" + client_ts +
         b"\x25" + ip_bytes +
         b"\x2d" + server_time +
+        b"\x31\x01\x02\x03\x04\x05\x06\x07\x08" +
+        b"\x38\xc0\xa3\x05" +
         b"\x45" + cookie +
         b"\x5d" + port_bytes
     )
