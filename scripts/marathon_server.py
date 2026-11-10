@@ -407,6 +407,45 @@ def server_log(msg: str):
     except Exception:
         pass
 
+def make_sdr_ping_reply(req_packet: bytes, client_addr: tuple) -> bytes:
+    """Constructs a valid Valve SDR RouterPingReply (k_ESteamDatagramMsg_RouterPingReply = 2)
+    containing serialized CMsgSteamDatagramRouterPingReply protobuf fields.
+    """
+    if len(req_packet) < 8 or req_packet[2:8] != b"sdping":
+        return req_packet
+
+    # In CMsgSteamDatagramRouterPing, fields follow the 8-byte header (0x01, 0x01, 'sdping')
+    client_ts = req_packet[8:12] if len(req_packet) >= 12 else struct.pack("<I", int(time.time()))
+    cookie = req_packet[20:24] if len(req_packet) >= 24 else struct.pack("<I", 0)
+    server_time = struct.pack("<I", int(time.time()))
+
+    ip_str = client_addr[0] if client_addr and len(client_addr) > 0 else "127.0.0.1"
+    try:
+        ip_bytes = socket.inet_aton(ip_str)
+    except Exception:
+        ip_bytes = bytes([127, 0, 0, 1])
+
+    client_port = client_addr[1] if client_addr and len(client_addr) > 1 else 27015
+    port_bytes = struct.pack("<I", client_port)
+
+    # Protobuf: CMsgSteamDatagramRouterPingReply
+    # Wire type 5 = 32-bit fixed (Tag = (field_num << 3) | 5)
+    # Field 1: client_timestamp (fixed32) -> tag = 0x0d
+    # Field 4: your_public_ip (fixed32) -> tag = 0x25
+    # Field 5: server_time (fixed32) -> tag = 0x2d
+    # Field 8: client_cookie (fixed32) -> tag = 0x45
+    # Field 11: your_public_port (fixed32) -> tag = 0x5d
+    pb = (
+        b"\x0d" + client_ts +
+        b"\x25" + ip_bytes +
+        b"\x2d" + server_time +
+        b"\x45" + cookie +
+        b"\x5d" + port_bytes
+    )
+    # Header: k_ESteamDatagramMsg_RouterPingReply (0x02) + version (0x01) + magic 'sdping'
+    return b"\x02\x01sdping" + pb
+
+
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
 
@@ -645,16 +684,32 @@ def main():
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            # Disable WSAECONNRESET (10054) on Windows from asynchronous ICMP Port Unreachable
+            if hasattr(socket, "SIO_UDP_CONNRESET"):
+                try:
+                    sock.ioctl(socket.SIO_UDP_CONNRESET, False)
+                except Exception as e:
+                    server_log(f"[-] SIO_UDP_CONNRESET config warning: {e}")
             sock.bind(("0.0.0.0", port))
             server_log(f"[*] SDR Ping Responder listening on UDP 0.0.0.0:{port}")
-            while True:
-                data, addr = sock.recvfrom(65535)
-                server_log(f"[SDR UDP {port}] Received {len(data)} bytes from {addr}. Hex: {data[:32].hex()}")
-                # Echo ping probe back to sender to satisfy latency measurement
-                sock.sendto(data, addr)
-                server_log(f"[SDR UDP {port}] Echoed {len(data)} bytes back to {addr}")
         except Exception as e:
-            server_log(f"[-] SDR UDP {port} bind warning: {e}")
+            server_log(f"[-] SDR UDP {port} bind error: {e}")
+            return
+
+        while True:
+            try:
+                data, addr = sock.recvfrom(65535)
+            except Exception as e:
+                server_log(f"[-] SDR UDP {port} recvfrom error: {e}")
+                continue
+
+            try:
+                server_log(f"[SDR UDP {port}] Received {len(data)} bytes from {addr}. Hex: {data[:32].hex()}")
+                reply = make_sdr_ping_reply(data, addr)
+                sock.sendto(reply, addr)
+                server_log(f"[SDR UDP {port}] Dispatched RouterPingReply ({len(reply)} bytes) to {addr}")
+            except Exception as e:
+                server_log(f"[-] SDR UDP {port} sendto error: {e}")
 
     sdr_udp_thread = threading.Thread(target=start_sdr_udp, args=(server,), daemon=True)
     sdr_udp_thread.start()

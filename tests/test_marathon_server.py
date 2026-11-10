@@ -286,3 +286,29 @@ def test_unknown_endpoint_returns_404():
             assert e.code == 404
     finally:
         server.shutdown()
+
+
+def test_make_sdr_ping_reply():
+    """Verify Valve SDR RouterPingReply protobuf generation."""
+    from marathon_server import make_sdr_ping_reply
+
+    # Simulated incoming sdping probe captured from Marathon/Steam
+    req_probe = bytes.fromhex("0101736470696e67ee33e67e306e000000000000973fea6a316e007fb7070b00")
+    client_addr = ("127.0.0.1", 63626)
+    reply = make_sdr_ping_reply(req_probe, client_addr)
+
+    # 1. Header verification
+    assert reply.startswith(b"\x02\x01sdping"), "Reply must start with RouterPingReply (0x02), version (0x01), and magic 'sdping'"
+    
+    # 2. Field 1: client_timestamp echoed exactly
+    assert b"\x0d\xee\x33\xe6\x7e" in reply, "Reply must echo client timestamp in protobuf Field 1 (tag 0x0d)"
+
+    # 3. Field 4: your_public_ip
+    assert b"\x25\x7f\x00\x00\x01" in reply, "Reply must encode 127.0.0.1 in protobuf Field 4 (tag 0x25)"
+
+    # 4. Field 8: client_cookie echoed
+    assert b"\x45\x97\x3f\xea\x6a" in reply, "Reply must echo cookie in protobuf Field 8 (tag 0x45)"
+
+    # 5. Field 11: your_public_port (63626 -> 0xF88A)
+    expected_port = struct.pack("<I", 63626)
+    assert (b"\x5d" + expected_port) in reply, "Reply must encode client port in protobuf Field 11 (tag 0x5d)"
