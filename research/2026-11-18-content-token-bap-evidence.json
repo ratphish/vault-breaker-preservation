@@ -1,0 +1,126 @@
+{
+  "run_date_local": "2026-11-18",
+  "timezone": "America/New_York",
+  "client_pid": 17060,
+  "backend_pid": 26044,
+  "sources": [
+    {
+      "path": "D:\\vault-breaker-preservation\\telemetry_1794978032_64400.bin",
+      "sha256": "a4375f7ca15867350c63545dc068402db4544714277568926d9bf2be7b9d382b",
+      "bytes": 3954
+    },
+    {
+      "path": "D:\\vault-breaker-preservation\\telemetry_1794978042_64402.bin",
+      "sha256": "7adc307c1e0ae4fdc438f59b70968d49c2e8451df8878200688827b9067891a4",
+      "bytes": 1526
+    },
+    {
+      "path": "D:\\vault-breaker-preservation\\telemetry_1794978062_64413.bin",
+      "sha256": "16153ae7c356a1bb7ad2b38e607edeb02d3753fbf37ed27e20699eaa68849ded",
+      "bytes": 2331
+    }
+  ],
+  "events": [
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978025407",
+      "payload": {
+        "current_state": "ENUM(2)",
+        "accumulated_time_ms": 3670
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978027844",
+      "payload": {
+        "current_state": "ENUM(3)",
+        "accumulated_time_ms": 2435
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978027845",
+      "payload": {
+        "current_state": "ENUM(4)",
+        "accumulated_time_ms": 1
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978027845",
+      "payload": {
+        "current_state": "ENUM(5)",
+        "accumulated_time_ms": 0
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978027845",
+      "payload": {
+        "current_state": "ENUM(6)",
+        "accumulated_time_ms": 0
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978027891",
+      "payload": {
+        "current_state": "ENUM(7)",
+        "accumulated_time_ms": 47
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978029280",
+      "payload": {
+        "current_state": "ENUM(8)",
+        "accumulated_time_ms": 1389
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978029440",
+      "payload": {
+        "current_state": "ENUM(20)",
+        "accumulated_time_ms": 160
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978032941",
+      "payload": {
+        "current_state": "ENUM(25)",
+        "accumulated_time_ms": 3499
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.kto",
+      "created_time": "1794978052976",
+      "payload": {
+        "current_state": "ENUM(26)",
+        "state_change_reason_hash": 4195836351
+      }
+    },
+    {
+      "name": "world_controller.bootflow.request_state_change.error",
+      "created_time": "1794978052977",
+      "payload": {
+        "state": "cleanup",
+        "reason": "error.no_bap_connection"
+      }
+    },
+    {
+      "name": "world_controller.retail_datamine.state_change",
+      "created_time": "1794978052977",
+      "payload": {
+        "current_state": "ENUM(26)",
+        "accumulated_time_ms": 20037
+      }
+    }
+  ],
+  "tcp_observations": [
+    "[2026-11-18T05:00:32.942Z pid=17060 tid=15628] [TCP] connect(IPv4) to 1.0.0.127:7505 (socket=7400)"
+  ],
+  "proxy_source": "D:\\Marathon-preservation\\client-248199-retail-packages\\marathon_proxy.log",
+  "interpretation": "Client advanced beyond prior package-registration halt and attempted BAP connectivity. Actual Winsock destination and cause of byte reversal still require verification."
+}
