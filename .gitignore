@@ -40,6 +40,11 @@ __pycache__/
 *.exp
 *.lib
 
+# Local TLS Certificates and Keys
+*.key
+*.pfx
+*.crt
+
 # Build intermediates for local research probes
 **/bin/
 **/obj/

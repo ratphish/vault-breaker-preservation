@@ -971,6 +971,55 @@ def main():
         except Exception as e:
             server_log(f"[-] Port 443 HTTPS bind warning: {e}")
 
+    def ensure_self_signed_cert(target_dir):
+        c = os.path.join(target_dir, "server.crt")
+        k = os.path.join(target_dir, "server.key")
+        if os.path.exists(c) and os.path.exists(k):
+            return os.path.abspath(c), os.path.abspath(k)
+        try:
+            from cryptography import x509
+            from cryptography.x509.oid import NameOID
+            from cryptography.hazmat.primitives import hashes, serialization
+            from cryptography.hazmat.primitives.asymmetric import rsa
+            import datetime, ipaddress
+
+            key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+            subject = issuer = x509.Name([
+                x509.NameAttribute(NameOID.ORGANIZATION_NAME, "Bungie Preservation"),
+                x509.NameAttribute(NameOID.COMMON_NAME, "signon.goliath.prod.gravityshavings.net"),
+            ])
+            cert = (
+                x509.CertificateBuilder()
+                .subject_name(subject)
+                .issuer_name(issuer)
+                .public_key(key.public_key())
+                .serial_number(x509.random_serial_number())
+                .not_valid_before(datetime.datetime.now(datetime.timezone.utc))
+                .not_valid_after(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=3650))
+                .add_extension(
+                    x509.SubjectAlternativeName([
+                        x509.DNSName("signon.goliath.prod.gravityshavings.net"),
+                        x509.DNSName("localhost"),
+                        x509.IPAddress(ipaddress.IPv4Address("127.0.0.1")),
+                    ]),
+                    critical=False,
+                )
+                .sign(key, hashes.SHA256())
+            )
+            with open(k, "wb") as f:
+                f.write(key.private_bytes(
+                    encoding=serialization.Encoding.PEM,
+                    format=serialization.PrivateFormat.TraditionalOpenSSL,
+                    encryption_algorithm=serialization.NoEncryption(),
+                ))
+            with open(c, "wb") as f:
+                f.write(cert.public_bytes(serialization.Encoding.PEM))
+            server_log(f"[*] Generated fresh self-signed certificates at {c}")
+            return os.path.abspath(c), os.path.abspath(k)
+        except Exception as e:
+            server_log(f"[-] Could not auto-generate self-signed cert: {e}")
+            return None, None
+
     cert_path = None
     key_path = None
     for base in [os.path.dirname(__file__), os.path.join(os.path.dirname(__file__), ".."), os.getcwd(), r"D:\vault-breaker-preservation", r"D:\Marathon-live"]:
@@ -980,6 +1029,10 @@ def main():
             cert_path = os.path.abspath(c)
             key_path = os.path.abspath(k)
             break
+
+    if not cert_path or not key_path:
+        default_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        cert_path, key_path = ensure_self_signed_cert(default_dir)
 
     httpd = ThreadedHTTPServer(("0.0.0.0", server.http_port), SignOnHTTPHandler, direct_settings_dir=settings_dir)
     if cert_path and key_path:
