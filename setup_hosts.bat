@@ -19,6 +19,10 @@ powershell -Command "$content = (Get-Content -Path '%HOSTS%') -join \"`n\"; $pat
 (
 echo.
 echo # Marathon Preservation Local Redirections
+echo 127.0.0.1 manifest.goliath.deadorbit.net
+echo 127.0.0.1 manifest.goliath.prod.deadorbit.net
+echo 127.0.0.1 manifest.goliath.gravityshavings.net
+echo 127.0.0.1 manifest.goliath.prod.gravityshavings.net
 echo 127.0.0.1 signon.goliath.prod.gravityshavings.net
 echo 127.0.0.1 signon.goliath.prod.deadorbit.net
 echo 127.0.0.1 www1.signon.goliath.prod.gravityshavings.net

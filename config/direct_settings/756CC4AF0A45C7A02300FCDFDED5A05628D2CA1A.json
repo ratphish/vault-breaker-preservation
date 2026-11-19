@@ -1,0 +1,119 @@
+{
+    "settings_type": "global",
+ 
+    "live_update": {
+        "zone_select": {
+          "hidden_activities": [
+          ]
+        }
+    },
+
+    "audio": {
+        "performance_tracker_window_size_seconds": 3,
+        "cpu_limit": 98,
+        "tripwire": {
+          "voice_starvation_limit": 5,
+          "source_starvation_limit": 4,
+          "cpu_max_overages": 30,
+          "voice_starvation_overage_tickets_enabled": true,
+          "source_starvation_overage_tickets_enabled": false,
+          "cpu_overage_tickets_enabled": true
+        }
+    },
+
+    "streaming_privacy": {
+        "first_components": [
+            "Woven",
+            "Hacked",
+            "Offline",
+            "Remote",
+            "Disconnected",
+            "Synthetic",
+            "Counterfeit",
+            "Composite",
+            "Telerobotic",
+            "Cybertronic",
+            "Biomechanic",
+            "Rampant",
+            "Compromised",
+            "Rogue",
+            "Recalled",
+            "Obsolete",
+            "Running",
+            "Prototype",
+            "Facsimile",
+            "Killcode",
+            "Cyanotech",
+            "Biosynthetic",
+            "Azurelite",
+            "Telemetric",
+            "Exfilling",
+            "Dangerous",
+            "Disruptive",
+            "Agile",
+            "Meshwork"
+        ],
+        "second_components": [
+            "MIDA",
+            "Sekgen",
+            "NuCal",
+            "Traxus",
+            "Arachne",
+            "CyAc",
+            "Ruthless",
+            "Merciless",
+            "Cruel",
+            "Relentless",
+            "Blue-Blood",
+            "Savage",
+            "Unscrupulous",
+            "Lone",
+            "Bloodthirsty",
+            "Discerning",
+            "Canny",
+            "Careful",
+            "Solitary",
+            "Fungible",
+            "Exacting",
+            "Professional",
+            "Kinetic",
+            "Ballistic",
+            "Loyal",
+            "Steadfast",
+            "Relentless",
+            "Intractable",
+            "Greedy"
+        ],
+        "third_components": [
+            "Runner",
+            "Biomata",
+            "Shell",
+            "Merc",
+            "Frame",
+            "Profiteer",
+            "Opportunist",
+            "Rat",
+            "Trooper",
+            "Gunner",
+            "Commando",
+            "Cyborg",
+            "Replicant",
+            "Radical",
+            "Freelancer",
+            "Privateer",
+            "Corsair",
+            "Chassis",
+            "Scavenger",
+            "Contractor",
+            "Specialist",
+            "Antibody",
+            "BoB",
+            "Blade",
+            "Inforipper",
+            "Striker",
+            "Cutter",
+            "Dropmind",
+            "Fodder"
+        ]
+    }
+}

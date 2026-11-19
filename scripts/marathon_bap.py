@@ -93,13 +93,13 @@ def decode_outer_frame(data: bytes, offset: int = 0) -> Tuple[Optional[bytes], i
     payload = data[offset + 6 : offset + 6 + length]
     return payload, frame_type, offset + 6 + length
 
-def decode_inner_request(payload: bytes) -> BapRequest:
+def decode_inner_request(payload: bytes, frame_type: int = FRAME_TYPE_PLAINTEXT_REQUEST) -> BapRequest:
     """Decode an inner BAP request (2B service_id, 4B task_id, payload)."""
     if len(payload) < 6:
         raise ValueError(f"Inner request too short: {len(payload)} < 6")
     service_id, task_id = struct.unpack_from(">HI", payload, 0)
     body = payload[6:]
-    return BapRequest(service_id=service_id, task_id=task_id, payload=body)
+    return BapRequest(service_id=service_id, task_id=task_id, payload=body, frame_type=frame_type)
 
 def encode_inner_response(service_id: int, task_id: int, status: int = BAP_STATUS_OK, payload: bytes = b"") -> bytes:
     """Encode an inner BAP response (2B service_id, 4B task_id, 2B status, payload)."""

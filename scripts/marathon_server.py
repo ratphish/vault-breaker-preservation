@@ -5,10 +5,25 @@ to enable standalone offline execution and modding for Marathon (Build 26136895)
 Supports single-player offline preservation with multi-player co-op fireteam readiness.
 """
 import os
+from cryptography.exceptions import InvalidTag
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+import hmac
+import hashlib
 import time
 import struct
 import random
 import socket
+import json
+from pathlib import Path
+from urllib.parse import urlsplit
+from ssc_public_capture import save_public_record
+from direct_settings import DEFAULT_DIRECTORY, load_settings
+from http_peer_owner import owner_for_connection
+from signon_bootstrap import (
+    CONTENT_MANIFEST_FILE, CONTENT_MANIFEST_URL, DIRECT_SETTINGS_MANIFEST_SUFFIX, DIRECT_SETTINGS_URLS,
+    encode_bootstrap_entry, load_bootstrap_token,
+)
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
@@ -18,7 +33,7 @@ from marathon_bap import (
     encode_outer_frame, decode_outer_frame,
     decode_inner_request, encode_inner_response, encode_server_notification,
     build_response_frame, build_notification_frame,
-    BAP_STATUS_OK,
+    BAP_STATUS_OK, BAP_STATUS_BAD_REQUEST, FRAME_TYPE_PLAINTEXT_BOOTSTRAP,
     SERVICE_ACTIVITY_SESSION_ALLOCATION, SERVICE_ACTIVITY_SESSION_RESPONSE,
     SERVICE_ACTIVITY_MESSAGE, SERVICE_ACTIVITY_NOTIFICATION,
     SERVICE_WEB_SERVICE_ENVELOPE, SERVICE_WEB_SERVICE_RESPONSE,
@@ -65,6 +80,7 @@ PB_COMMON_SILO = 2
 PB_COMMON_CONFIG_BLOB = 3
 
 BUILD_VERSION_STRING = "248199.26.10.21.2300.gol_retail.rc"
+SIGNON_TOKEN_LIFETIME_SECONDS = 86400
 
 @dataclass
 class PlayerSession:
@@ -90,14 +106,52 @@ class ActivitySession:
     current_phase: int = 0
     created_at: float = field(default_factory=time.time)
 
+@dataclass
+class BapChannel:
+    # Ephemeral state owned only by this TCP connection.
+    receive_nonce: bytes = field(default=b"", repr=False)
+    key: bytes = field(default=b"", repr=False)
+
+    send_nonce: bytes = field(default=b"", repr=False)
+
+    def seal_first_response(self, service, task, status, body):
+        if not self.send_nonce:
+            raise ValueError("first-response nonce unavailable")
+        plain = encode_inner_response(service, task, status, body)
+        sealed = AESGCM(self.key).encrypt(self.send_nonce, plain, None)
+        self.send_nonce = b""
+        return encode_outer_frame(sealed[-16:] + sealed[:-16], 1)
+
+    def open_first_frame(self, payload):
+        if not self.key or len(payload) < 22:
+            raise ValueError("missing channel or truncated authenticated frame")
+        plaintext = AESGCM(self.key).decrypt(
+            self.receive_nonce, bytes(payload[16:]) + bytes(payload[:16]), None)
+        return decode_inner_request(plaintext, 1)
+
+
 class MarathonServer:
     """Core state engine and service dispatcher for Marathon offline emulation."""
-    def __init__(self, host: str = "127.0.0.1", http_port: int = 8080, bap_port: int = 7777,
-                 default_mod_config: Optional[VaultBreakerModConfig] = None):
+    def __init__(self, host: str = "127.0.0.1", http_port: int = 8080, bap_port: int = 7505,
+                 default_mod_config: Optional[VaultBreakerModConfig] = None,
+                 bootstrap_token: Optional[bytes] = None, ssc_response_dir: Optional[Path] = None,
+                 ssc_capture_dir: Optional[Path] = None):
+        self.ssc_capture_dir = ssc_capture_dir
+        self.ssc_response_dir = ssc_response_dir
         self.host = host
         self.http_port = http_port
         self.bap_port = bap_port
         self.mod_config = default_mod_config or VaultBreakerModConfig()
+        if bootstrap_token is None:
+            default_candidate = Path(__file__).resolve().parents[1] / "config" / "bootstrap_token.bin"
+            if default_candidate.is_file():
+                try:
+                    bootstrap_token = load_bootstrap_token(default_candidate)
+                except (OSError, ValueError):
+                    bootstrap_token = None
+        self.bootstrap_entry = None if bootstrap_token is None else encode_bootstrap_entry(
+            bootstrap_token, DIRECT_SETTINGS_URLS, DIRECT_SETTINGS_MANIFEST_SUFFIX, manifest_file=CONTENT_MANIFEST_FILE
+        )
         
         # State tracking
         self.players: Dict[int, PlayerSession] = {}           # membership_id -> PlayerSession
@@ -112,6 +166,11 @@ class MarathonServer:
         """Handles POST /SignOn?platform=%s&build=%s.
         Returns (HTTP status code, Protobuf binary payload) using Project Dawn's proven schema.
         """
+        # Dawn's HTTP route passes absolute epoch seconds to success field 5,
+        # not a relative lifetime. Use one clock sample for both wire fields.
+        server_time = int(time.time())
+        token_expiry = server_time + SIGNON_TOKEN_LIFETIME_SECONDS
+
         # Allocate deterministic session for player
         legacy_id = self.next_membership_id
         self.next_membership_id += 1
@@ -137,8 +196,9 @@ class MarathonServer:
         self.players[76561198000001001] = player
         self.sessions_by_token[session_token] = player
         
-        # Big-endian 127.0.0.1 network byte order (2130706433 / 0x7F000001)
-        relay_ip_uint32 = 0x7F000001
+        # Tiger stores the decoded uint32 directly into sockaddr_in.sin_addr.
+        # On x64, these four memory bytes must be 7f 00 00 01.
+        relay_ip_uint32 = int.from_bytes(socket.inet_aton("127.0.0.1"), "little")
         
         # Build Protobuf response matching Project Dawn's Writer
         success_sub = ProtobufWriter()
@@ -146,7 +206,7 @@ class MarathonServer:
         success_sub.bytes(PB_SUB_ENCRYPTION_KEY, encryption_key)
         success_sub.bytes(PB_SUB_AUTH_KEY, auth_key)
         success_sub.bytes(PB_SUB_SESSION_TOKEN, session_token)
-        success_sub.varint(PB_SUB_EXPIRY, 86400)
+        success_sub.varint(PB_SUB_EXPIRY, token_expiry)
         success_sub.varint(PB_SUB_RELAY_ADDR, relay_ip_uint32)
         success_sub.varint(PB_SUB_RELAY_PORT, self.bap_port)
         
@@ -158,15 +218,17 @@ class MarathonServer:
         success_sub.message(PB_SUB_CLIENT_CONFIG, client_config_sub)
         
         # Direct Settings configuration URLs (port 80)
-        success_sub.string(PB_SUB_CFG_A, "http://127.0.0.1/cfg_a/")
-        success_sub.string(PB_SUB_CFG_B, "http://127.0.0.1/cfg_b/")
-        success_sub.string(PB_SUB_CFG_C, "http://127.0.0.1/cfg_c/")
+        for field, url in zip((PB_SUB_CFG_A, PB_SUB_CFG_B, PB_SUB_CFG_C), DIRECT_SETTINGS_URLS):
+            success_sub.string(field, url)
         
         common_info_sub = ProtobufWriter()
         common_info_sub.varint(PB_COMMON_ID, membership_id)  # 1
         common_info_sub.varint(PB_COMMON_SILO, 1)
-        config_blob = struct.pack("<IIB", 0x00123456, 0x007B620F, 0x10) + bytes(range(16)) + bytes(4)
-        common_info_sub.bytes(PB_COMMON_CONFIG_BLOB, config_blob)
+        # Activated Dawn publishes its native content token in Field 4.3.
+        # Marathon's token source and required consumer path are still being
+        # verified; do not substitute invented bytes for that native value.
+        if self.bootstrap_entry is not None:
+            common_info_sub.bytes(PB_COMMON_CONFIG_BLOB, self.bootstrap_entry)
         
         # Extract requested entitlements from client request Field 15
         client_entitlements = [3065800, 3760193538, 3760193537]
@@ -224,7 +286,7 @@ class MarathonServer:
         response.message(PB_TAG_SUCCESS, success_sub)
         response.message(PB_TAG_COMMON_INFO, common_info_sub)
         response.varint(PB_TAG_SILO_ID, 1)
-        response.string(PB_TAG_BUILD_VERSION, "d2legacy")
+        response.string(PB_TAG_BUILD_VERSION, build)
         response.varint(PB_TAG_CAPABILITY_FLAGS, 0)
         
         # Tag 10: length-delimited submessage with repeated varint 1
@@ -233,12 +295,14 @@ class MarathonServer:
             ent_sub.varint(1, ent_id)
         response.message(PB_TAG_ENTITLEMENTS, ent_sub)
         
-        response.varint(PB_TAG_SERVER_TIME, int(time.time()))
-        response.string(PB_TAG_ENVIRONMENT, "live")
+        response.varint(PB_TAG_SERVER_TIME, server_time)
+        response.string(PB_TAG_ENVIRONMENT, "GOLRETAIL")
         response.varint(PB_TAG_EXTERNAL_ADDR, relay_ip_uint32)
         
         payload = response.build()
-        server_log(f"[SignOn] Granted entitlements: {client_entitlements} (payload {len(payload)}B)")
+        server_log(f"[SignOn] Granted entitlements: {client_entitlements} (payload {len(payload)}B) "
+                   f"server_time={server_time} expiry={token_expiry} "
+                   f"lifetime_seconds={SIGNON_TOKEN_LIFETIME_SECONDS} expiry_contract=absolute_epoch_seconds")
         return 200, payload
 
     def determine_vault_route(self, config: Optional[VaultBreakerModConfig] = None) -> List[int]:
@@ -279,7 +343,25 @@ class MarathonServer:
         player.current_activity_session_id = session_id
         return activity
 
-    def dispatch_bap_request(self, request: BapRequest, player: Optional[PlayerSession] = None) -> BapResponse:
+    def ssc_response(self, request):
+        # Lookup is scoped to the complete authenticated bytes after the task ID.
+        # A provisioned file contains the encoded 305 body, without BAP headers.
+        digest = hashlib.sha256(request.payload).hexdigest()
+        if self.ssc_response_dir is not None:
+            try:
+                with (self.ssc_response_dir / (digest + ".bin")).open("rb") as stream:
+                    body = stream.read(65537)
+            except FileNotFoundError:
+                pass
+            else:
+                if 0 < len(body) <= 65536:
+                    return BAP_STATUS_OK, body
+                raise ValueError("invalid provisioned SSC response size")
+        server_log(f"[BAP] SSC response unavailable for request SHA256={digest}")
+        return 503, b""
+
+    def dispatch_bap_request(self, request: BapRequest, player: Optional[PlayerSession] = None,
+                             *, channel: Optional[BapChannel] = None) -> BapResponse:
         """Processes an incoming BAP request and routes to the appropriate service."""
         svc = request.service_id
         task = request.task_id
@@ -291,17 +373,51 @@ class MarathonServer:
         
         # Service 25: Server Hello
         elif svc == SERVICE_SERVER_HELLO:
-            # Return 84-byte hello envelope parameters
-            hello_payload = bytearray(84)
-            struct.pack_into(">I", hello_payload, 0, 1)  # Version 1
-            return BapResponse(service_id=SERVICE_HELLO_RESPONSE, task_id=task,
-                               status=BAP_STATUS_OK, payload=bytes(hello_payload))
-        
-        # Service 30: Channel Start & Nonce Echo
+            def hello_response(status, body=b""):
+                return BapResponse(SERVICE_HELLO_RESPONSE, task, status, body,
+                                   FRAME_TYPE_PLAINTEXT_BOOTSTRAP)
+
+            if request.frame_type != FRAME_TYPE_PLAINTEXT_BOOTSTRAP or request.payload[:2] != bytes(2):
+                return hello_response(BAP_STATUS_BAD_REQUEST)
+            try:
+                fields = ProtobufReader(bytes(request.payload[2:])).parse()
+            except (ValueError, NotImplementedError, IndexError):
+                return hello_response(BAP_STATUS_BAD_REQUEST)
+            tokens = [value for number, wire, value in fields if (number, wire) == (1, 2)]
+            versions = [value for number, wire, value in fields if (number, wire) == (2, 0)]
+            if len(tokens) != 1 or versions != [1]:
+                return hello_response(BAP_STATUS_BAD_REQUEST)
+            session = self.sessions_by_token.get(tokens[0])
+            if session is None:
+                return hello_response(401)
+
+            # Local secure-hello candidate using the Dawn envelope layout.
+            # Both wrapping keys belong to this client's local SignOn session.
+            iv = os.urandom(16)
+            material = os.urandom(12 + 16)
+            encryptor = Cipher(algorithms.AES(session.encryption_key), modes.CBC(iv)).encryptor()
+            ciphertext = encryptor.update(material + bytes([4]) * 4) + encryptor.finalize()
+            envelope = struct.pack(">I", 80) + iv + ciphertext
+            if channel is not None:
+                channel.receive_nonce = material[:11] + bytes([material[11] ^ 1])
+                channel.key = material[12:]
+                channel.send_nonce = material[:12]
+            return hello_response(BAP_STATUS_OK, envelope + hmac.digest(session.auth_key, envelope, "sha256"))
+
+        # Marathon channel start: two reserved bytes precede the 128-byte
+        # body in our six-byte inner-request decoder. Retail uses type 2,
+        # DESTINY\x01 and 120 fresh bytes, not a truncated nonce echo.
+        # Native consumer: 0x30BE4A70 (length), 0x305E7840 (type),
+        # 0x304A9CF0 (service/status), 0x30BE4CC2 (marker).
         elif svc == SERVICE_CHANNEL_START:
-            nonce_echo = request.payload[:12] if len(request.payload) >= 12 else bytes(12)
-            return BapResponse(service_id=SERVICE_CHANNEL_START_RESPONSE, task_id=task,
-                               status=BAP_STATUS_OK, payload=nonce_echo)
+            valid = (request.frame_type == FRAME_TYPE_PLAINTEXT_BOOTSTRAP
+                     and len(request.payload) == 130
+                     and request.payload[:10] == b"\x00\x00DESTINY\x01")
+            return BapResponse(
+                service_id=SERVICE_CHANNEL_START_RESPONSE, task_id=task,
+                status=BAP_STATUS_OK if valid else BAP_STATUS_BAD_REQUEST,
+                payload=b"DESTINY\x01" + os.urandom(120) if valid else b"",
+                frame_type=FRAME_TYPE_PLAINTEXT_BOOTSTRAP)
         
         # Service 18: Client Configuration
         elif svc == SERVICE_CLIENT_CONFIGURATION:
@@ -407,49 +523,58 @@ def server_log(msg: str):
     except Exception:
         pass
 
-def make_sdr_ping_reply(req_packet: bytes, client_addr: tuple) -> bytes:
-    """Constructs a valid Valve SDR RouterPingReply (k_ESteamDatagramMsg_RouterPingReply = 2)
-    containing serialized CMsgSteamDatagramRouterPingReply protobuf fields.
-    """
-    if len(req_packet) < 8 or req_packet[2:8] != b"sdping":
-        return req_packet
+_SDR_REPLY_KEY = os.urandom(32)
 
-    # In CMsgSteamDatagramRouterPing, fields follow the 8-byte header (0x01, 0x01, 'sdping')
-    client_ts = req_packet[8:12] if len(req_packet) >= 12 else struct.pack("<I", int(time.time()))
-    cookie = req_packet[20:24] if len(req_packet) >= 24 else struct.pack("<I", 0)
-    server_time = struct.pack("<I", int(time.time()))
 
-    ip_str = client_addr[0] if client_addr and len(client_addr) > 0 else "127.0.0.1"
-    try:
-        ip_bytes = socket.inet_aton(ip_str)
-    except Exception:
-        ip_bytes = bytes([127, 0, 0, 1])
+def make_sdr_ping_reply(req_packet: bytes, client_addr: tuple) -> Optional[bytes]:
+    """Answer the long and short SDR probe shapes observed in retail."""
+    if len(req_packet) < 16 or req_packet[0] != 1 or req_packet[2:8] != b"sdping":
+        return None
+    mode = req_packet[1]
+    if mode not in (1, 2, 0x81, 0x82):
+        return None
+    short_probe = bool(mode & 0x80)
+    if len(req_packet) != (100 if short_probe else 1300):
+        return None
 
-    client_port = client_addr[1] if client_addr and len(client_addr) > 1 else 27015
-    port_bytes = struct.pack("<I", client_port)
-
-    # Protobuf: CMsgSteamDatagramRouterPingReply
-    # Wire type 5 = 32-bit fixed (Tag = (field_num << 3) | 5)
-    # Field 1: client_timestamp (fixed32) -> tag = 0x0d
-    # Field 4: your_public_ip (fixed32) -> tag = 0x25
-    # Field 5: server_time (fixed32) -> tag = 0x2d
-    # Field 8: client_cookie (fixed32) -> tag = 0x45
-    # Field 11: your_public_port (fixed32) -> tag = 0x5d
-    pb = (
-        b"\x0d" + client_ts +
-        b"\x25" + ip_bytes +
-        b"\x2d" + server_time +
-        b"\x31\x01\x02\x03\x04\x05\x06\x07\x08" +
-        b"\x38\xc0\xa3\x05" +
-        b"\x45" + cookie +
-        b"\x5d" + port_bytes
+    ip = int.from_bytes(socket.inet_aton(client_addr[0]), "big")
+    port = client_addr[1]
+    endpoint = struct.pack("<II", ip, port)
+    # Field 6 is opaque in the capture. Use a stable local value for this peer.
+    peer_tag = hmac.digest(_SDR_REPLY_KEY, endpoint, "sha256")[:8]
+    prefix = (
+        b"\x02\x0d" + req_packet[8:12] +
+        b"\x25" + struct.pack("<I", ip) +
+        b"\x5d" + struct.pack("<I", port) +
+        b"\x45" + req_packet[12:16] +
+        b"\x31" + peer_tag
     )
-    # Header: k_ESteamDatagramMsg_RouterPingReply (0x02) + version (0x01) + magic 'sdping'
+    # Retail uses two-byte varints in these slots, including for zero.
+    status_fields = (16, 100, 18, 100) if mode & 0x7f == 1 else (16, 17, 18, 19)
+    for field in status_fields:
+        prefix += encode_varint(field << 3) + b"\x80\x00"
+
+    trailer = b"\x2d" + struct.pack("<I", int(time.time())) + b"\x48\x00"
+    if short_probe:
+        return prefix + trailer + b"\x60\x03"
+
+    # One local POP ("sea", encoded as a packed little-endian POP ID),
+    # with zero intra-POP latency. No external routes are advertised.
+    routes = ProtobufWriter().bytes(2, b"aes\x00").bytes(3, b"\x00").build()
+    padding_key = encode_varint((99 << 3) | 2)
+    # At this probe size the padding length occupies a two-byte varint.
+    padding_size = len(req_packet) - len(prefix + padding_key + routes + trailer) - 2
+    return prefix + padding_key + encode_varint(padding_size) + bytes(padding_size) + routes + trailer
     return b"\x02\x01sdping" + pb
 
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
+
+    def __init__(self, server_address, handler, *, direct_settings_dir=None):
+        # Set once per server, including all CLI listeners. No implicit live/CWD fallback.
+        self.direct_settings_dir = Path(direct_settings_dir or DEFAULT_DIRECTORY).resolve()
+        super().__init__(server_address, handler)
 
 class SignOnHTTPHandler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
@@ -457,10 +582,11 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         client_ip, client_port = self.client_address
+        peer_pid = owner_for_connection(self.connection)
         content_len = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(content_len) if content_len > 0 else b""
         
-        server_log(f"[HTTPS POST] from {client_ip}:{client_port} -> {self.path} ({content_len} bytes)")
+        server_log(f"[HTTPS POST] from {client_ip}:{client_port} -> {self.path} ({content_len} bytes) peer_pid={peer_pid if peer_pid is not None else 'unknown'} server_pid={os.getpid()}")
         server_log(f"[HTTPS POST] User-Agent: {self.headers.get('User-Agent', '<none>')}")
         
         # Handle Bungie Frontdoor Anonymous Events / Telemetry
@@ -513,9 +639,13 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
         server_log(f"[HTTPS POST] Dispatched SignOn Protobuf response ({len(payload)} bytes) -> Status {status}")
 
     def do_GET(self):
+        self._serve_get(head_only=False)
+
+    def _serve_get(self, head_only=False):
         client_ip, client_port = self.client_address
-        server_log(f"[HTTP GET] from {client_ip}:{client_port} -> {self.path}")
-        if "/shutdown" in self.path:
+        peer_pid = owner_for_connection(self.connection)
+        server_log(f"[HTTP {self.command}] from {client_ip}:{client_port} -> {self.path}; User-Agent={self.headers.get('User-Agent', '<none>')}; peer_pid={peer_pid if peer_pid is not None else 'unknown'} server_pid={os.getpid()}")
+        if self.path == "/shutdown" and not head_only:
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.send_header("Connection", "close")
@@ -527,7 +657,7 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
 
         # Steam Datagram Relay (SDR) configuration endpoint
         local_content = None
-        if "GetSDRConfig" in self.path:
+        if urlsplit(self.path).path.rstrip("/") == "/ISteamApps/GetSDRConfig/v1":
             sdr_candidates = [
                 os.path.join(os.path.dirname(__file__), "..", "config", "sdr_config.json"),
                 r"D:\Marathon-live\config\sdr_config.json",
@@ -539,35 +669,64 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
                         with open(sp, "rb") as sf:
                             local_content = sf.read()
                         server_log(f"[SDRConfig] Serving official SDR config {sp} ({len(local_content)} bytes)")
+                        try:
+                            sdr_json = json.loads(local_content)
+                            server_log(f"[SDRConfig] Outbound payload: revision={sdr_json.get('revision')}, pops={list(sdr_json.get('pops', {}).keys())}")
+                        except Exception:
+                            pass
                         break
                     except Exception:
                         pass
 
-        # Direct Settings / configuration request handling
-        from urllib.parse import urlparse
-        parsed_path = urlparse(self.path).path
-        filename = os.path.basename(parsed_path)
+        settings = load_settings(self.path, self.server.direct_settings_dir) if local_content is None else None
+        if settings is not None:
+            server_log(f"[DirectSettings] status={settings.status} source={settings.source!r} bytes={len(settings.body)} sha256={settings.sha256 or '<none>'} schema=unverified")
+            self.send_response(settings.status)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(settings.body)))
+            self.send_header("Connection", "close")
+            if settings.sha256:
+                self.send_header("X-Direct-Settings-SHA256", settings.sha256)
+            self.end_headers()
+            if not head_only:
+                self.wfile.write(settings.body)
+                self.wfile.flush()
+            return
 
-        if local_content is None and (self.path.startswith("/cfg_") or "direct_settings" in self.path):
-            candidate_dirs = [
-                os.path.join(os.path.dirname(__file__), "..", "config", "direct_settings"),
-                r"D:\Marathon-live\config\direct_settings",
-                os.path.join(os.getcwd(), "config", "direct_settings")
+        # Content Manifest (.pb) endpoint (Bungie Tiger Engine package inventory)
+        clean_path = urlsplit(self.path).path
+        if ("content_manifest" in clean_path or clean_path.endswith(".pb")) and local_content is None and settings is None:
+            manifest_candidates = [
+                CONTENT_MANIFEST_FILE.with_name("content_manifest.pb"),
+                r"D:\Marathon-live\config\content_manifest\content_manifest.pb",
+                os.path.join(os.getcwd(), "config", "content_manifest", "content_manifest.pb"),
+                r"D:\Marathon-preservation\analysis\retail-http-contract-20261113\objects\248673.26.11.04.2300-0_f5e5c1699ebc42c9.pb%3fd=639299290878459057",
             ]
-            for cdir in candidate_dirs:
-                cpath = os.path.join(cdir, filename)
-                if os.path.isfile(cpath):
+            preserved_manifest = clean_path == urlsplit(CONTENT_MANIFEST_URL).path
+            for mp in ([CONTENT_MANIFEST_FILE] if preserved_manifest else manifest_candidates):
+                if os.path.isfile(mp):
                     try:
-                        with open(cpath, "rb") as cf:
-                            local_content = cf.read()
-                        server_log(f"[DirectSettings] Serving local config {cpath} ({len(local_content)} bytes)")
-                        break
-                    except Exception:
-                        pass
-
-            if local_content is None:
-                local_content = b"{}\n"
-                server_log(f"[DirectSettings] Serving fallback JSON ({len(local_content)} bytes) for {self.path}")
+                        with open(mp, "rb") as mf:
+                            manifest_bytes = mf.read()
+                        server_log(f"[ContentManifest] Serving content manifest ({len(manifest_bytes)} bytes) from {mp} -> {self.path}")
+                        self.send_response(200)
+                        self.send_header("Content-Type", "text/plain")
+                        self.send_header("Content-Length", str(len(manifest_bytes)))
+                        if preserved_manifest:
+                            self.send_header("ETag", '"' + hashlib.sha256(manifest_bytes).hexdigest() + '"')
+                            self.send_header("Cache-Control", "no-cache")
+                        else:
+                            self.send_header("ETag", '"57b1262814b494ba43266831e6da6400:1794332288.309982"')
+                            self.send_header("Last-Modified", "Thu, 05 Nov 2026 08:15:40 GMT")
+                        self.send_header("Server", "AkamaiNetStorage")
+                        self.send_header("Connection", "keep-alive")
+                        self.end_headers()
+                        if not head_only:
+                            self.wfile.write(manifest_bytes)
+                            self.wfile.flush()
+                        return
+                    except Exception as e:
+                        server_log(f"[-] ContentManifest read error: {e}")
 
         if local_content is not None:
             self.send_response(200)
@@ -575,27 +734,23 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(local_content)))
             self.send_header("Connection", "close")
             self.end_headers()
-            self.wfile.write(local_content)
-            self.wfile.flush()
+            if not head_only:
+                self.wfile.write(local_content)
+                self.wfile.flush()
         else:
             server_log(f"[-] [HTTP 404 UNKNOWN ENDPOINT] Unhandled request: {self.command} {self.path}")
-            err_body = f'{{"error": "not_found", "path": "{self.path}"}}\n'.encode("utf-8")
+            err_body = (json.dumps({"error": "not_found", "path": self.path}) + "\n").encode("utf-8")
             self.send_response(404)
             self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(err_body)))
             self.send_header("Connection", "close")
             self.end_headers()
-            self.wfile.write(err_body)
-            self.wfile.flush()
+            if not head_only:
+                self.wfile.write(err_body)
+                self.wfile.flush()
 
     def do_HEAD(self):
-        client_ip, client_port = self.client_address
-        server_log(f"[HTTP HEAD] from {client_ip}:{client_port} -> {self.path}")
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", "2")
-        self.send_header("Connection", "close")
-        self.end_headers()
+        self._serve_get(head_only=True)
 
     def do_OPTIONS(self):
         self.send_response(200)
@@ -607,24 +762,35 @@ class SignOnHTTPHandler(BaseHTTPRequestHandler):
         server_log(f"[HTTP Access] " + (format % args))
 
 def start_bap_listener(server_instance: MarathonServer):
-    """TCP listener for BAP frames."""
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind((server_instance.host, server_instance.bap_port))
-    sock.listen(5)
-    server_log(f"[*] BAP Service Router listening on TCP {server_instance.host}:{server_instance.bap_port}")
-    
-    while True:
-        try:
-            client_sock, client_addr = sock.accept()
-            server_log(f"[BAP] Client connected from {client_addr}")
-            threading.Thread(target=handle_bap_connection, args=(client_sock, server_instance), daemon=True).start()
-        except Exception as e:
-            server_log(f"[-] BAP accept error: {e}")
-            break
+    """TCP listener for BAP frames with dual 7505/7777 binding."""
+    ports = [server_instance.bap_port]
+    if 7777 not in ports:
+        ports.append(7777)
+    for p in ports:
+        def listen_port(port):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            try:
+                sock.bind((server_instance.host, port))
+                sock.listen(5)
+                server_log(f"[*] BAP Service Router listening on TCP {server_instance.host}:{port}")
+            except Exception as e:
+                server_log(f"[-] BAP TCP bind error on port {port}: {e}")
+                return
+            while True:
+                try:
+                    client_sock, client_addr = sock.accept()
+                    server_log(f"[BAP] Client connected from {client_addr} on port {port}")
+                    threading.Thread(target=handle_bap_connection, args=(client_sock, server_instance), daemon=True).start()
+                except Exception as e:
+                    server_log(f"[-] BAP accept error on port {port}: {e}")
+                    break
+        threading.Thread(target=listen_port, args=(p,), daemon=True).start()
 
 def handle_bap_connection(client_sock: socket.socket, server_instance: MarathonServer):
     buf = bytearray()
+    channel = BapChannel()
+    sent_ssc = False
     try:
         while True:
             chunk = client_sock.recv(4096)
@@ -637,26 +803,83 @@ def handle_bap_connection(client_sock: socket.socket, server_instance: MarathonS
                     break
                 buf = buf[new_pos:]
                 
-                req = decode_inner_request(payload)
+                if sent_ssc:
+                    server_log(f"[BAP] Post-305 frame type={frame_type} bytes={len(payload)}")
+                    return
+                if frame_type == 1:
+                    try:
+                        opened = channel.open_first_frame(payload)
+                    except InvalidTag:
+                        server_log(f"[BAP] Type-1 authentication failed ({len(payload)} bytes)")
+                        return
+                    server_log(f"[BAP] Authenticated type-1 service={opened.service_id} "
+                               f"task={opened.task_id} bytes_after_task={len(opened.payload)}")
+                    if opened.service_id != 304:
+                        return
+                    if server_instance.ssc_capture_dir is not None:
+                        try:
+                            path, result = save_public_record(server_instance.ssc_capture_dir, opened)
+                            server_log(f"[BAP] SSC public capture {result}: {path}")
+                        except OSError as error:
+                            server_log(f"[BAP] SSC public capture failed: {error}")
+                    status, body = server_instance.ssc_response(opened)
+                    client_sock.sendall(channel.seal_first_response(305, opened.task_id, status, body))
+                    server_log(f"[BAP] Encrypted svc 305 task={opened.task_id} status={status} body={len(body)} bytes")
+                    if status != BAP_STATUS_OK:
+                        return
+                    sent_ssc = True
+                    continue
+                req = decode_inner_request(payload, frame_type)
                 server_log(f"[BAP] Svc {req.service_id} (Task {req.task_id}) <- {len(req.payload)} bytes")
                 
-                resp = server_instance.dispatch_bap_request(req)
-                resp_frame = build_response_frame(resp.service_id, resp.task_id, resp.status, resp.payload)
+                resp = server_instance.dispatch_bap_request(req, channel=channel)
+                resp_frame = build_response_frame(resp.service_id, resp.task_id, resp.status, resp.payload, resp.frame_type)
                 client_sock.sendall(resp_frame)
                 server_log(f"[BAP] Svc {resp.service_id} (Task {resp.task_id}) -> Status {resp.status} ({len(resp.payload)} bytes)")
     except Exception as e:
-        pass
+        server_log(f"[BAP] Connection ended: {type(e).__name__}: {e}")
     finally:
         client_sock.close()
 
-def start_plaintext_http(server: MarathonServer, port: int = 8081):
-    httpd = ThreadedHTTPServer(("0.0.0.0", port), SignOnHTTPHandler)
+def start_plaintext_http(server: MarathonServer, port: int = 8081, *, direct_settings_dir=None):
+    httpd = ThreadedHTTPServer(("0.0.0.0", port), SignOnHTTPHandler, direct_settings_dir=direct_settings_dir)
     server_log(f"[*] Plaintext HTTP fallback listening on http://127.0.0.1:{port}")
     httpd.serve_forever()
 
 def main():
-    server = MarathonServer(host="0.0.0.0", http_port=8080, bap_port=7777)
+    import argparse
+    parser = argparse.ArgumentParser(description="Local Marathon preservation services")
+    parser.add_argument("--direct-settings-dir", type=Path, default=DEFAULT_DIRECTORY,
+                        help="The ONLY directory served for Direct Settings (default: repository config/direct_settings)")
+    parser.add_argument("--bootstrap-token-file", type=Path,
+                        help="Experimental CommonInfo entry using exactly 16 raw native bytes; State 8 effect unverified")
+    parser.add_argument("--bap-port", type=int, default=7505,
+                        help="BAP service router port (default: 7505)")
+    parser.add_argument("--ssc-response-dir", type=Path,
+                        help="Provisioned service-305 wire bodies named <request SHA256>.bin")
+    parser.add_argument("--ssc-capture-dir", type=Path, help="Save decoded public service-304 request metadata")
+    args = parser.parse_args()
+    if args.ssc_response_dir and not args.ssc_response_dir.is_dir():
+        parser.error("SSC response directory does not exist")
+    settings_dir = args.direct_settings_dir.resolve()
+    if not settings_dir.is_dir():
+        parser.error(f"Direct Settings directory does not exist: {settings_dir}")
+    bootstrap_token = None
+    if args.bootstrap_token_file is None:
+        default_candidate = Path(__file__).resolve().parents[1] / "config" / "bootstrap_token.bin"
+        if default_candidate.is_file():
+            args.bootstrap_token_file = default_candidate
+    if args.bootstrap_token_file is not None:
+        try:
+            bootstrap_token = load_bootstrap_token(args.bootstrap_token_file)
+        except (OSError, ValueError) as error:
+            parser.error(str(error))
+    server = MarathonServer(host="0.0.0.0", http_port=8080, bap_port=args.bap_port,
+                            bootstrap_token=bootstrap_token, ssc_response_dir=args.ssc_response_dir,
+                            ssc_capture_dir=args.ssc_capture_dir)
     SignOnHTTPHandler.server_instance = server
+    server_log(f"[*] Direct Settings root: {settings_dir}; JSON syntax checked; Tiger schema unverified")
+    server_log(f"[*] SignOn bootstrap entry: {'experimental native value enabled' if bootstrap_token is not None else 'omitted'}; State 8 effect unverified")
     
     print("=" * 65, flush=True)
     print("  MARATHON STANDALONE EMULATION SERVER (Project Dawn Architecture)", flush=True)
@@ -664,20 +887,25 @@ def main():
     print("=" * 65, flush=True)
     server_log(f"[*] Configured Mod Route: {server.mod_config.tier_1_vaults} -> {server.mod_config.tier_2_vaults} -> {server.mod_config.tier_3_vaults} -> {server.mod_config.tier_4_vaults}")
     
-    bap_thread = threading.Thread(target=start_bap_listener, args=(server,), daemon=True)
-    bap_thread.start()
+    start_bap_listener(server)
 
     def start_bap_udp(server):
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            sock.bind(("0.0.0.0", server.bap_port))
-            server_log(f"[*] BAP Service Router listening on UDP 0.0.0.0:{server.bap_port}")
-            while True:
-                data, addr = sock.recvfrom(65535)
-                server_log(f"[UDP 7777] Received {len(data)} bytes from {addr}. Preview: {data[:32].hex()}")
-        except Exception as e:
-            server_log(f"[-] UDP 7777 bind warning: {e}")
+        ports = [server.bap_port]
+        if 7777 not in ports:
+            ports.append(7777)
+        for p in ports:
+            def udp_listen(port):
+                try:
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                    sock.bind(("0.0.0.0", port))
+                    server_log(f"[*] BAP Service Router listening on UDP 0.0.0.0:{port}")
+                    while True:
+                        data, addr = sock.recvfrom(65535)
+                        server_log(f"[UDP {port}] Received {len(data)} bytes from {addr}. Preview: {data[:32].hex()}")
+                except Exception as e:
+                    server_log(f"[-] UDP {port} bind warning: {e}")
+            threading.Thread(target=udp_listen, args=(p,), daemon=True).start()
 
     bap_udp_thread = threading.Thread(target=start_bap_udp, args=(server,), daemon=True)
     bap_udp_thread.start()
@@ -708,6 +936,8 @@ def main():
             try:
                 server_log(f"[SDR UDP {port}] Received {len(data)} bytes from {addr}. Hex: {data[:32].hex()}")
                 reply = make_sdr_ping_reply(data, addr)
+                if reply is None:
+                    continue
                 sock.sendto(reply, addr)
                 server_log(f"[SDR UDP {port}] Dispatched RouterPingReply ({len(reply)} bytes) to {addr}")
             except Exception as e:
@@ -718,7 +948,7 @@ def main():
     
     def start_http_80(server):
         try:
-            httpd_80 = ThreadedHTTPServer(("0.0.0.0", 80), SignOnHTTPHandler)
+            httpd_80 = ThreadedHTTPServer(("0.0.0.0", 80), SignOnHTTPHandler, direct_settings_dir=settings_dir)
             server_log("[*] Plaintext HTTP Direct Settings service active on http://127.0.0.1:80")
             httpd_80.serve_forever()
         except Exception as e:
@@ -727,12 +957,12 @@ def main():
     http_80_thread = threading.Thread(target=start_http_80, args=(server,), daemon=True)
     http_80_thread.start()
 
-    plain_thread = threading.Thread(target=start_plaintext_http, args=(server, 8081), daemon=True)
+    plain_thread = threading.Thread(target=start_plaintext_http, args=(server, 8081), kwargs={"direct_settings_dir": settings_dir}, daemon=True)
     plain_thread.start()
 
     def start_https_443(server, cert_path, key_path):
         try:
-            httpd_443 = ThreadedHTTPServer(("0.0.0.0", 443), SignOnHTTPHandler)
+            httpd_443 = ThreadedHTTPServer(("0.0.0.0", 443), SignOnHTTPHandler, direct_settings_dir=settings_dir)
             ctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
             ctx.load_cert_chain(certfile=cert_path, keyfile=key_path)
             httpd_443.socket = ctx.wrap_socket(httpd_443.socket, server_side=True)
@@ -751,7 +981,7 @@ def main():
             key_path = os.path.abspath(k)
             break
 
-    httpd = ThreadedHTTPServer(("0.0.0.0", server.http_port), SignOnHTTPHandler)
+    httpd = ThreadedHTTPServer(("0.0.0.0", server.http_port), SignOnHTTPHandler, direct_settings_dir=settings_dir)
     if cert_path and key_path:
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
         context.load_cert_chain(certfile=cert_path, keyfile=key_path)

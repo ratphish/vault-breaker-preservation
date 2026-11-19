@@ -1,0 +1,18 @@
+import capstone
+
+md = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_64)
+
+for rva_str in ['12852FC8', '6AD406F', '521F258', '7BEAE37', '9FA91D6', 'C01AD04']:
+    fn = f'D:/Marathon-live/code_bootflow_ref_{rva_str}.bin'
+    try:
+        data = open(fn, 'rb').read()
+        rva = int(rva_str, 16)
+        print(f"\n==================== DUMP: {rva_str} ====================")
+        # Disassemble around offset 256 (where instruction is)
+        chunk = data[240:350]
+        start_rva = rva - 16
+        for ins in md.disasm(chunk, start_rva):
+            marker = "  <--- TARGET" if ins.address == rva else ""
+            print(f"0x{ins.address:08X}:  {ins.mnemonic:<8} {ins.op_str}{marker}")
+    except Exception as e:
+        print(f"Error for {rva_str}: {e}")
