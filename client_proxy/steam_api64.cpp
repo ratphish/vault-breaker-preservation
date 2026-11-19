@@ -13,6 +13,9 @@
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+#include <errno.h>
+#include <atomic>
+#include "transport_route.h"
 #pragma intrinsic(_ReturnAddress)
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "crypt32.lib")
@@ -47,25 +50,48 @@ static void InitLogPath(HINSTANCE hinstDLL) {
 }
 
 static void LogMsg(const char* fmt, ...) {
+    const DWORD savedError = GetLastError();
+    const int savedErrno = errno;
     char buf[1024];
     va_list args;
     va_start(args, fmt);
     vsnprintf(buf, sizeof(buf), fmt, args);
     va_end(args);
-    OutputDebugStringA(buf);
+    // Preserve representative Steam input/context messages without burying
+    // HTTP lifecycle events under several lines per rendered frame.
+    const bool repeatedInput = strstr(buf, "SteamInternal_ContextInit") ||
+        strstr(buf, "Invoking context init callback") || strstr(buf, "ver=SteamInput006") ||
+        strstr(buf, "Resolved 'SteamInput006'");
+    if (repeatedInput) {
+        static std::atomic<unsigned long> count{0};
+        const unsigned long sample = ++count;
+        if (sample > 12 && sample % 8192 != 0) {
+            errno = savedErrno; SetLastError(savedError); return;
+        }
+    }
+    SYSTEMTIME timestamp = {};
+    GetSystemTime(&timestamp);
+    char line[1200];
+    snprintf(line, sizeof(line), "[%04u-%02u-%02uT%02u:%02u:%02u.%03uZ pid=%lu tid=%lu] %s",
+        timestamp.wYear, timestamp.wMonth, timestamp.wDay, timestamp.wHour,
+        timestamp.wMinute, timestamp.wSecond, timestamp.wMilliseconds,
+        GetCurrentProcessId(), GetCurrentThreadId(), buf);
+    OutputDebugStringA(line);
     FILE* fp = fopen(g_log_path[0] ? g_log_path : "marathon_proxy.log", "a");
     if (fp) {
-        fputs(buf, fp);
+        fputs(line, fp);
         fputc('\n', fp);
         fflush(fp); // Flush immediately to capture any crash
         fclose(fp);
     }
-
+    errno = savedErrno;
+    SetLastError(savedError);
 }
 
 // Case-insensitive substring search
 
 static void LogCallerInfo(const char* prefix, void* caller) {
+    const DWORD savedError = GetLastError();
     DWORD tid = GetCurrentThreadId();
     HMODULE hMod = NULL;
     char modName[MAX_PATH] = "Unknown";
@@ -79,6 +105,7 @@ static void LogCallerInfo(const char* prefix, void* caller) {
         rva = (uintptr_t)caller - (uintptr_t)hMod;
     }
     LogMsg("[%s] [TID:%u] from %s+0x%llX (addr=%p)", prefix, tid, modName, (unsigned long long)rva, caller);
+    SetLastError(savedError);
 }
 
 static bool CaseInsensitiveContains(const char* haystack, const char* needle) {
@@ -1000,7 +1027,7 @@ __declspec(dllexport) void __cdecl SteamAPI_UnregisterCallResult(void* pCallback
 
 static void CheckDynamicModules();
 __declspec(dllexport) void __cdecl SteamAPI_RunCallbacks() {
-    static int s_runcb_tick = 0;
+    static std::atomic<unsigned> s_runcb_tick{0};
     if ((++s_runcb_tick % 10) == 1) {
         CheckDynamicModules();
     }
@@ -1018,8 +1045,10 @@ __declspec(dllexport) void __cdecl SteamAPI_RunCallbacks() {
         uint64_t callId = g_call_results[i].hAPICall;
         void** vtable = *(void***)pCb;
         if (!vtable) continue;
-        typedef void (*CallResultRunFn)(void* self, void* pvParam, int bIOFailure, uint64_t hSteamAPICall);
-        CallResultRunFn runFn = (CallResultRunFn)vtable[1];
+        // MSVC's overloaded CCallbackBase::Run vtable places the call-result
+        // overload first. Slot 1 is the two-argument regular callback.
+        typedef void (*CallResultRunFn)(void* self, void* pvParam, bool bIOFailure, uint64_t hSteamAPICall);
+        CallResultRunFn runFn = (CallResultRunFn)vtable[0];
         LogMsg("[SteamAPI] Dispatching CallResult %llu (EncryptedAppTicketResponse_t: k_EResultOK) to %p", callId, pCb);
         struct {
             int m_eResult;
@@ -1039,12 +1068,12 @@ __declspec(dllexport) void __cdecl SteamAPI_RunCallbacks() {
         void* pCb = g_callbacks[i].pCallback;
         void** vtable = *(void***)pCb;
         if (!vtable) continue;
-        typedef void (*CallbackRunFn)(void* self, void* pvParam, int bIOFailure, uint64_t hSteamAPICall);
-        CallbackRunFn runFn = (CallbackRunFn)vtable[0];
+        typedef void (*CallbackRunFn)(void* self, void* pvParam);
+        CallbackRunFn runFn = (CallbackRunFn)vtable[1];
         if (id == 101) { // SteamServersConnected_t
             LogMsg("[SteamAPI] Dispatching callback 101 (SteamServersConnected_t) to %p", pCb);
             char dummy[16] = { 0 };
-            runFn(pCb, dummy, 0, 0);
+            runFn(pCb, dummy);
             g_callbacks[i].dispatched = true;
         } else if (id == 1101) { // UserStatsReceived_t
             LogMsg("[SteamAPI] Dispatching callback 1101 (UserStatsReceived_t) to %p", pCb);
@@ -1053,25 +1082,25 @@ __declspec(dllexport) void __cdecl SteamAPI_RunCallbacks() {
                 uint32_t result;
                 uint64_t steamID;
             } stats = { (uint64_t)g_app_id, 1, g_steam_id };
-            runFn(pCb, &stats, 0, 0);
+            runFn(pCb, &stats);
             g_callbacks[i].dispatched = true;
-        } else if (id == 337) { // PersonaStateChange_t
-            LogMsg("[SteamAPI] Dispatching callback 337 (PersonaStateChange_t) to %p", pCb);
+        } else if (id == 304) { // PersonaStateChange_t (SteamFriends callbacks + 4)
+            LogMsg("[SteamAPI] Dispatching callback 304 (PersonaStateChange_t) to %p", pCb);
             struct {
                 uint64_t steamID;
                 int changeFlags;
             } persona = { g_steam_id, 0x0001 };
-            runFn(pCb, &persona, 0, 0);
+            runFn(pCb, &persona);
             g_callbacks[i].dispatched = true;
-        } else if (id == 304) { // AvatarImageLoaded_t
-            LogMsg("[SteamAPI] Dispatching callback 304 (AvatarImageLoaded_t) to %p", pCb);
+        } else if (id == 334) { // AvatarImageLoaded_t (SteamFriends callbacks + 34)
+            LogMsg("[SteamAPI] Dispatching callback 334 (AvatarImageLoaded_t) to %p", pCb);
             struct {
                 uint64_t steamID;
                 int image;
                 int wide;
                 int tall;
             } avatar = { g_steam_id, 1, 64, 64 };
-            runFn(pCb, &avatar, 0, 0);
+            runFn(pCb, &avatar);
             g_callbacks[i].dispatched = true;
         }
 
@@ -1136,7 +1165,7 @@ struct ContextInitData {
 };
 static void CheckDynamicModules();
 __declspec(dllexport) void* __cdecl SteamInternal_ContextInit(void* pContextInitData) {
-    static int s_check_tick = 0;
+    static std::atomic<unsigned> s_check_tick{0};
     if ((++s_check_tick % 50) == 1) {
         CheckDynamicModules();
     }
@@ -1401,21 +1430,21 @@ static BOOL PASCAL Hook_ConnectEx(
 ) {
     void* caller = _ReturnAddress();
     LogCallerInfo("ConnectEx", caller);
-    if (name && name->sa_family == AF_INET) {
+    if (name && namelen >= (int)sizeof(struct sockaddr_in) && name->sa_family == AF_INET) {
         struct sockaddr_in sin_copy;
         memcpy(&sin_copy, name, sizeof(sin_copy));
         uint16_t port = ntohs(sin_copy.sin_port);
         char ip[32] = {0};
         inet_ntop(AF_INET, &sin_copy.sin_addr, ip, sizeof(ip));
         LogMsg("[TCP] ConnectEx(IPv4) to %s:%d (socket=%lld)", ip, port, (long long)s);
-        if (port == 443 || port == 80 || (strcmp(ip, "127.0.0.1") != 0 && (port == 8080 || port == 7777))) {
-            uint16_t target_port = (port == 443) ? 443 : ((port == 7777) ? 7777 : (uint16_t)atoi(g_server_port));
+        if (!MarathonLoopbackIPv4(ntohl(sin_copy.sin_addr.s_addr)) && MarathonRedirectableTcpPort(port)) {
+            uint16_t target_port = MarathonRedirectPort(port, (uint16_t)atoi(g_server_port));
             LogMsg("[Egress] Redirecting IPv4 ConnectEx() from %s:%d to %s:%u",
                    ip, port, g_server_ip, target_port);
             sin_copy.sin_addr.s_addr = inet_addr(g_server_ip);
             sin_copy.sin_port = htons(target_port);
             return g_real_ConnectEx ? g_real_ConnectEx(s, (struct sockaddr*)&sin_copy, sizeof(sin_copy), lpSendBuffer, dwSendDataLength, lpdwBytesSent, lpOverlapped) : FALSE;
-        } else if (strcmp(ip, "127.0.0.1") != 0 && strcmp(ip, "0.0.0.0") != 0) {
+        } else if (!MarathonLoopbackIPv4(ntohl(sin_copy.sin_addr.s_addr)) && strcmp(ip, "0.0.0.0") != 0) {
             LogMsg("[AirGap-BLOCKED] Denied ConnectEx to %s:%d", ip, port);
             WSASetLastError(WSAECONNREFUSED);
             return FALSE;
@@ -1489,54 +1518,30 @@ static INT WSAAPI Hook_GetAddrInfoExW(PCWSTR pName, PCWSTR pServiceName, DWORD d
 
 typedef FARPROC (WINAPI *GetProcAddress_t)(HMODULE hModule, LPCSTR lpProcName);
 static GetProcAddress_t g_real_GetProcAddress = NULL;
+static FARPROC ResolveDynamicProcedure(HMODULE module, LPCSTR name, FARPROC original, bool logResolution = true);
 static FARPROC WINAPI Hook_GetProcAddress(HMODULE hModule, LPCSTR lpProcName) {
-    if (!g_real_GetProcAddress) {
-        HMODULE hK32 = GetModuleHandleA("KERNEL32.dll");
-        if (hK32) g_real_GetProcAddress = (GetProcAddress_t)GetProcAddress(hK32, "GetProcAddress");
-    }
-    FARPROC realProc = g_real_GetProcAddress ? g_real_GetProcAddress(hModule, lpProcName) : NULL;
-    if ((uintptr_t)lpProcName > 0xFFFF) {
-        if (strcmp(lpProcName, "connect") == 0) {
-            LogMsg("[GetProcAddress] Dynamic lookup: connect -> hooked");
-            return (FARPROC)Hook_connect;
-        } else if (strcmp(lpProcName, "WSAConnect") == 0) {
-            LogMsg("[GetProcAddress] Dynamic lookup: WSAConnect -> hooked");
-            return (FARPROC)Hook_WSAConnect;
-        } else if (strcmp(lpProcName, "getaddrinfo") == 0) {
-            LogMsg("[GetProcAddress] Dynamic lookup: getaddrinfo -> hooked");
-            return (FARPROC)Hook_getaddrinfo;
-        } else if (strcmp(lpProcName, "GetAddrInfoW") == 0) {
-            LogMsg("[GetProcAddress] Dynamic lookup: GetAddrInfoW -> hooked");
-            return (FARPROC)Hook_GetAddrInfoW;
-        } else if (strcmp(lpProcName, "GetAddrInfoExW") == 0) {
-            LogMsg("[GetProcAddress] Dynamic lookup: GetAddrInfoExW -> hooked");
-            return (FARPROC)Hook_GetAddrInfoExW;
-        } else if (strcmp(lpProcName, "CertVerifyCertificateChainPolicy") == 0) {
-            LogMsg("[GetProcAddress] Dynamic lookup: CertVerifyCertificateChainPolicy -> hooked");
-            return (FARPROC)Hook_CertVerifyCertificateChainPolicy;
-        }
-    } else {
-        uint16_t ord = (uint16_t)((uintptr_t)lpProcName & 0xFFFF);
-        if (ord == 4) {
-            LogMsg("[GetProcAddress] Dynamic lookup: ord(4) -> connect hooked");
-            return (FARPROC)Hook_connect;
-        }
-    }
-    return realProc;
+    // This DLL's own imports are never patched by HookModuleIAT. The original
+    // resolver is published before any consumer's resolver slot is changed.
+    FARPROC original = g_real_GetProcAddress ? g_real_GetProcAddress(hModule, lpProcName)
+                                           : ::GetProcAddress(hModule, lpProcName);
+    const DWORD error = GetLastError();
+    FARPROC result = original ? ResolveDynamicProcedure(hModule, lpProcName, original) : original;
+    SetLastError(error);
+    return result;
 }
 typedef int (WSAAPI *connect_t)(SOCKET s, const struct sockaddr* name, int namelen);
 static connect_t g_real_connect = NULL;
 static int WSAAPI Hook_connect(SOCKET s, const struct sockaddr* name, int namelen) {
     if (name) {
-        if (name->sa_family == AF_INET) {
+        if (namelen >= (int)sizeof(struct sockaddr_in) && name->sa_family == AF_INET) {
             struct sockaddr_in sin_copy;
             memcpy(&sin_copy, name, sizeof(sin_copy));
             uint16_t port = ntohs(sin_copy.sin_port);
             char ip[32] = {0};
             inet_ntop(AF_INET, &sin_copy.sin_addr, ip, sizeof(ip));
             LogMsg("[TCP] connect(IPv4) to %s:%d (socket=%lld)", ip, port, (long long)s);
-            if (port == 443 || port == 80 || (strcmp(ip, "127.0.0.1") != 0 && (port == 8080 || port == 7777))) {
-                uint16_t target_port = (port == 7777) ? 7777 : (uint16_t)atoi(g_server_port);
+            if (!MarathonLoopbackIPv4(ntohl(sin_copy.sin_addr.s_addr)) && MarathonRedirectableTcpPort(port)) {
+                uint16_t target_port = MarathonRedirectPort(port, (uint16_t)atoi(g_server_port));
                 LogMsg("[Egress] Redirecting IPv4 connect() from %s:%d to %s:%u",
                        ip, port, g_server_ip, target_port);
                 sin_copy.sin_addr.s_addr = inet_addr(g_server_ip);
@@ -1544,15 +1549,15 @@ static int WSAAPI Hook_connect(SOCKET s, const struct sockaddr* name, int namele
                 return g_real_connect ? g_real_connect(s, (struct sockaddr*)&sin_copy, sizeof(sin_copy)) : SOCKET_ERROR;
             }
 
-        } else if (name->sa_family == AF_INET6) {
+        } else if (namelen >= (int)sizeof(struct sockaddr_in6) && name->sa_family == AF_INET6) {
             struct sockaddr_in6 sin6_copy;
             memcpy(&sin6_copy, name, sizeof(sin6_copy));
             uint16_t port = ntohs(sin6_copy.sin6_port);
             char ip6[64] = {0};
             inet_ntop(AF_INET6, &sin6_copy.sin6_addr, ip6, sizeof(ip6));
             LogMsg("[TCP] connect(IPv6) to [%s]:%d (socket=%lld)", ip6, port, (long long)s);
-            if (port == 443 || port == 80 || port == 8080 || port == 7777) {
-                uint16_t target_port = (port == 7777) ? 7777 : (uint16_t)atoi(g_server_port);
+            if (!MarathonLoopbackIPv6(sin6_copy.sin6_addr.s6_addr) && MarathonRedirectableTcpPort(port)) {
+                uint16_t target_port = MarathonRedirectPort(port, (uint16_t)atoi(g_server_port));
                 LogMsg("[Egress] Redirecting IPv6 connect() to [::1]:%u", target_port);
                 memset(&sin6_copy.sin6_addr, 0, sizeof(sin6_copy.sin6_addr));
                 sin6_copy.sin6_addr.s6_addr[15] = 1;
@@ -1588,15 +1593,15 @@ static int WSAAPI Hook_WSAConnect(
     LPQOS lpSQOS,
     LPQOS lpGQOS
 ) {
-    if (name && name->sa_family == AF_INET) {
+    if (name && namelen >= (int)sizeof(struct sockaddr_in) && name->sa_family == AF_INET) {
         struct sockaddr_in sin_copy;
         memcpy(&sin_copy, name, sizeof(sin_copy));
         uint16_t port = ntohs(sin_copy.sin_port);
         char ip[32] = {0};
         inet_ntop(AF_INET, &sin_copy.sin_addr, ip, sizeof(ip));
         LogMsg("[TCP] WSAConnect(IPv4) to %s:%d", ip, port);
-        if (port == 443 || port == 80 || (strcmp(ip, "127.0.0.1") != 0 && (port == 8080 || port == 7777))) {
-            uint16_t target_port = (port == 7777) ? 7777 : (uint16_t)atoi(g_server_port);
+        if (!MarathonLoopbackIPv4(ntohl(sin_copy.sin_addr.s_addr)) && MarathonRedirectableTcpPort(port)) {
+            uint16_t target_port = MarathonRedirectPort(port, (uint16_t)atoi(g_server_port));
             LogMsg("[Egress] Redirecting IPv4 WSAConnect() from %s:%d to %s:%u",
                    ip, port, g_server_ip, target_port);
             sin_copy.sin_addr.s_addr = inet_addr(g_server_ip);
@@ -1626,8 +1631,13 @@ static HINTERNET WINAPI Hook_WinHttpConnect(
         char sNameA[256] = { 0 };
         WideCharToMultiByte(CP_UTF8, 0, pswzServerName, -1, sNameA, sizeof(sNameA), NULL, NULL);
         LogMsg("[WinHTTP] WinHttpConnect(server='%s', port=%u)", sNameA, (unsigned int)nServerPort);
-        if (strstr(sNameA, "deadorbit") || strstr(sNameA, "bungie") || strstr(sNameA, "goliath") || strstr(sNameA, "playfab") || strstr(sNameA, "gravityshavings") || (strcmp(sNameA, "127.0.0.1") != 0 && strcmp(sNameA, "localhost") != 0)) {
-            uint16_t target_port = (uint16_t)atoi(g_server_port);
+        IN_ADDR ipv4 = {};
+        IN6_ADDR ipv6 = {};
+        const bool localHost = _stricmp(sNameA, "localhost") == 0 ||
+            (InetPtonA(AF_INET, sNameA, &ipv4) == 1 && MarathonLoopbackIPv4(ntohl(ipv4.s_addr))) ||
+            (InetPtonA(AF_INET6, sNameA, &ipv6) == 1 && MarathonLoopbackIPv6(ipv6.s6_addr));
+        if (!localHost) {
+            uint16_t target_port = MarathonRedirectPort(nServerPort, (uint16_t)atoi(g_server_port));
             LogMsg("[Egress] Redirecting WinHttpConnect from '%s:%u' to 127.0.0.1:%u", sNameA, (unsigned int)nServerPort, target_port);
             return g_real_WinHttpConnect ? g_real_WinHttpConnect(hSession, L"127.0.0.1", (INTERNET_PORT)target_port, dwReserved) : NULL;
         }
@@ -1758,8 +1768,29 @@ static HANDLE WINAPI Hook_CreateFileA(
     return h;
 }
 
+#include "http_observation.h"
+#include "native_http_receiver_trace.h"
+#include "state_writer_observation.h"
+#include "state_task_watch.h"
+#include "local_sos_actions.h"
+#ifdef MARATHON_BOOTFLOW_HOOK
+#include "marathon_bootflow_hook.h"
+static void InstallBootflowHook() { marathon_bootflow::Install(); }
+#else
+static void InstallBootflowHook() {}
+#endif
+
+static SRWLOCK g_iat_install_lock = SRWLOCK_INIT;
+struct IatInstallUnlock {
+    ~IatInstallUnlock() { ReleaseSRWLockExclusive(&g_iat_install_lock); }
+};
 static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
     if (!hMod) return;
+    // Do not wait while another callback/loader thread is scanning. A later
+    // periodic pass retries. This serializes VirtualProtect+restore without a
+    // loader-lock inversion caused by waiting inside a DLL initialization call.
+    if (!TryAcquireSRWLockExclusive(&g_iat_install_lock)) return;
+    IatInstallUnlock unlock;
     PIMAGE_DOS_HEADER dos = (PIMAGE_DOS_HEADER)hMod;
     if (dos->e_magic != IMAGE_DOS_SIGNATURE) return;
     PIMAGE_NT_HEADERS nt = (PIMAGE_NT_HEADERS)((uint8_t*)hMod + dos->e_lfanew);
@@ -1773,7 +1804,8 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
         bool isK32 = (_stricmp(modName, "KERNEL32.dll") == 0);
         bool isCrypt = (_stricmp(modName, "CRYPT32.dll") == 0);
         bool isWinHttp = (_stricmp(modName, "WINHTTP.dll") == 0);
-        if (isWs2 || isK32 || isCrypt || isWinHttp) {
+        bool isCurl = (_stricmp(modName, "libcurl.dll") == 0);
+        if (isWs2 || isK32 || isCrypt || isWinHttp || isCurl) {
             uint32_t iltRVA = pImport->OriginalFirstThunk ? pImport->OriginalFirstThunk : pImport->FirstThunk;
             PIMAGE_THUNK_DATA origThunk = (PIMAGE_THUNK_DATA)((uint8_t*)hMod + iltRVA);
             PIMAGE_THUNK_DATA thunk = (PIMAGE_THUNK_DATA)((uint8_t*)hMod + pImport->FirstThunk);
@@ -1783,10 +1815,11 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                 if (isWs2) {
                     if (origThunk->u1.Ordinal & IMAGE_ORDINAL_FLAG) {
                         uint16_t ord = (uint16_t)(origThunk->u1.Ordinal & 0xFFFF);
-                        if (ord == 4) { hook = (void*)Hook_connect; hookName = "connect (ord 4)"; }
-                        else if (ord == 17) { hook = (void*)Hook_sendto; hookName = "sendto (ord 17)"; }
-                        else if (ord == 46 || ord == 60) { hook = (void*)Hook_WSAConnect; hookName = "WSAConnect (ord 46/60)"; }
-                        else if (ord == 52) { hook = (void*)Hook_gethostbyname; hookName = "gethostbyname (ord 52)"; }
+                        // Compare resolved exports. Ordinal 17 is recvfrom, NOT
+                        // sendto; ordinal 60 is NOT WSAConnect on this host.
+                        FARPROC native = ::GetProcAddress(GetModuleHandleA("WS2_32.dll"), (LPCSTR)(uintptr_t)ord);
+                        SocketBinding binding = SocketObservationBinding(native);
+                        hook = binding.hook; hookName = binding.name;
                     } else {
                         PIMAGE_IMPORT_BY_NAME impName = (PIMAGE_IMPORT_BY_NAME)((uint8_t*)hMod + origThunk->u1.AddressOfData);
                         const char* name = (const char*)impName->Name;
@@ -1812,6 +1845,7 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                         const char* name = (const char*)impName->Name;
                         if (strcmp(name, "CreateFileW") == 0) { hook = (void*)Hook_CreateFileW; hookName = "CreateFileW"; }
                         else if (strcmp(name, "CreateFileA") == 0) { hook = (void*)Hook_CreateFileA; hookName = "CreateFileA"; }
+                        else if (strcmp(name, "GetProcAddress") == 0) { hook = (void*)Hook_GetProcAddress; hookName = "GetProcAddress"; }
                     }
                 } else if (isWinHttp) {
                     if (!(origThunk->u1.Ordinal & IMAGE_ORDINAL_FLAG)) {
@@ -1820,18 +1854,31 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                         if (strcmp(name, "WinHttpConnect") == 0) { hook = (void*)Hook_WinHttpConnect; hookName = "WinHttpConnect"; }
 
                         else if (strcmp(name, "WinHttpOpenRequest") == 0) { hook = (void*)Hook_WinHttpOpenRequest; hookName = "WinHttpOpenRequest"; }
+                        else {
+                            FARPROC native = ::GetProcAddress(GetModuleHandleA("winhttp.dll"), name);
+                            FARPROC observed = ResolveDynamicProcedure(GetModuleHandleA("winhttp.dll"), name, native, false);
+                            if (observed != native) { hook = (void*)observed; hookName = name; }
+                        }
 
                     }
 
+                } else if (isCurl && !(origThunk->u1.Ordinal & IMAGE_ORDINAL_FLAG)) {
+                    PIMAGE_IMPORT_BY_NAME impName = (PIMAGE_IMPORT_BY_NAME)((uint8_t*)hMod + origThunk->u1.AddressOfData);
+                    const char* name = (const char*)impName->Name;
+                    HMODULE module = GetModuleHandleA("libcurl.dll");
+                    FARPROC native = ::GetProcAddress(module, name);
+                    FARPROC observed = ResolveDynamicProcedure(module, name, native, false);
+                    if (observed != native) { hook = (void*)observed; hookName = name; }
                 }
 
                 if (hook && (void*)thunk->u1.Function != hook) {
                     DWORD oldProtect;
+                    void* previous = (void*)thunk->u1.Function;
                     if (VirtualProtect(&thunk->u1.Function, sizeof(void*), PAGE_READWRITE, &oldProtect)) {
                         thunk->u1.Function = (uintptr_t)hook;
                         VirtualProtect(&thunk->u1.Function, sizeof(void*), oldProtect, &oldProtect);
-                        LogMsg("[%s] Successfully hooked %s!%s", targetModName, modName, hookName);
-                    }
+                        LogMsg("[%s] Successfully hooked %s!%s slot=%p original=%p replacement=%p", targetModName, modName, hookName, &thunk->u1.Function, previous, hook);
+                    } else LogMsg("[HookCoverage] install_failed importer=%s symbol=%s slot=%p error=%lu", targetModName, hookName, &thunk->u1.Function, GetLastError());
 
                 }
 
@@ -1847,31 +1894,33 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
 }
 
 
-static bool g_partywin_hooked = false;
-static bool g_libcurl_hooked = false;
-
 static void CheckDynamicModules() {
+    InstallLocalSosActions();
+    InstallBootflowHook();
+    InstallStateTaskWatch();
+    InstallStateWriterObservation();
+    InstallNativeHttpReceiverTrace();
+    InstallNativeTableCandidateTrace();
     HMODULE hExe = GetModuleHandleA(NULL);
     if (hExe) {
         HookModuleIAT(hExe, "Marathon.exe");
     }
-    if (!g_partywin_hooked) {
-        HMODULE hParty = GetModuleHandleA("PartyWin.dll");
-        if (hParty) {
-            HookModuleIAT(hParty, "PartyWin.dll");
-            g_partywin_hooked = true;
-        }
-    }
-    if (!g_libcurl_hooked) {
-        HMODULE hCurl = GetModuleHandleA("libcurl.dll");
-        if (hCurl) {
-            HookModuleIAT(hCurl, "libcurl.dll");
-            g_libcurl_hooked = true;
-        }
+    HMODULE hParty = GetModuleHandleA("PartyWin.dll");
+    if (hParty) HookModuleIAT(hParty, "PartyWin.dll");
+    HMODULE hCurl = GetModuleHandleA("libcurl.dll");
+    if (hCurl) HookModuleIAT(hCurl, "libcurl.dll");
+    static std::atomic<ULONGLONG> last{0};
+    const ULONGLONG now = GetTickCount64();
+    ULONGLONG previous = last.load(std::memory_order_relaxed);
+    if (now - previous >= 5000 && last.compare_exchange_strong(previous, now)) {
+        LogMsg("[HookCoverage] main=%p libcurl=%p party=%p dynamic_resolves=%lu easy_performs=%lu multi_adds=%lu multi_done=%lu multi_pumps=%lu socket_actions=%lu winhttp_sends=%lu",
+            hExe, hCurl, hParty, g_http_resolves.load(), g_http_performs.load(), g_http_adds.load(), g_http_done.load(), g_http_pumps.load(), g_http_socket_actions.load(), g_http_win_sends.load());
     }
 }
 
 static void InstallIATHooks() {
+    // Resolve this before installing the GetProcAddress IAT observation point.
+    g_real_GetProcAddress = ::GetProcAddress;
     HMODULE hWs2 = GetModuleHandleA("WS2_32.dll");
     if (!hWs2) hWs2 = LoadLibraryA("WS2_32.dll");
     if (hWs2) {
@@ -1942,11 +1991,18 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
         LogMsg("==================================================");
         LogMsg(" Marathon Standalone Client Proxy (Project Dawn)  ");
         LogMsg(" Target Build: 26136895 (Cryo Archive Vault Breaker)");
+        LogMsg("[HTTPTrace] build=http-bootstrap-observation-v2 module=%p import_hooks=1 inline_hooks=0", hinstDLL);
         LogMsg(" Log file active at: %s", g_log_path);
         LogMsg("==================================================");
         LoadConfig();
         InitInterfaceTables();
         InstallIATHooks();
+        InstallBootflowHook();
+#ifdef MARATHON_PROVIDER_STATE_WATCH
+        // Start only the explicitly armed, bounded observer. Its worker performs
+        // validation after loader initialization; DllMain never waits for it.
+        InstallStateTaskWatch();
+#endif
     }
 
     return TRUE;

@@ -2,6 +2,7 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS 1
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <tlhelp32.h>
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <wincrypt.h>
@@ -1168,10 +1169,158 @@ __declspec(dllexport) void* __cdecl SteamInternal_ContextInit(void* pContextInit
     return pCtx;
 }
 
+
+static volatile LONG g_scan_started = 0;
+static volatile LONG g_bootflow_hooks_installed = 0;
+static DWORD WINAPI ScanMemoryForSignonErrorThread(LPVOID lpParam);
+
+// ---------------------------------------------------------------------------
+// Non-Invasive Hardware Breakpoint (VEH) Bootflow Diagnostics
+// ---------------------------------------------------------------------------
+static void* g_dr0_addr = NULL; // 0x30291240 (State 8 Task Check entry)
+static void* g_dr1_addr = NULL; // 0x30291251 (cmp eax, edx inside State 8 Check)
+static void* g_dr2_addr = NULL; // 0x2EF4C7E0 (State 8 Entry)
+static void* g_dr3_addr = NULL; // 0x2EF2A2E0 (State 9 Entry)
+
+static LONG WINAPI BootflowVehHandler(PEXCEPTION_POINTERS pExc) {
+    if (pExc->ExceptionRecord->ExceptionCode == STATUS_SINGLE_STEP) {
+        void* rip = (void*)pExc->ContextRecord->Rip;
+
+        if (rip == g_dr0_addr) {
+            int edx_req = (int)pExc->ContextRecord->Rdx;
+            void* rcx = (void*)pExc->ContextRecord->Rcx;
+            uint64_t r8 = pExc->ContextRecord->R8;
+            uint64_t r9 = pExc->ContextRecord->R9;
+            void* caller = *(void**)pExc->ContextRecord->Rsp;
+
+            static int s8_check_count = 0;
+            static int s8_last_edx = -9999;
+            s8_check_count++;
+
+            if (s8_check_count <= 25 || edx_req != s8_last_edx || (s8_check_count % 300 == 0)) {
+                LogMsg("[VEH-Check8] #%d: rcx=%p, edx(req)=%d, r8=%llu, r9=%llu (caller=%p)",
+                       s8_check_count, rcx, edx_req, r8, r9, caller);
+                if (s8_check_count == 1 || edx_req != s8_last_edx) {
+                    void* stack[8];
+                    USHORT frames = RtlCaptureStackBackTrace(0, 8, stack, NULL);
+                    for (USHORT f = 0; f < frames; f++) {
+                        LogCallerInfo("VEH-Check8-Stack", stack[f]);
+                    }
+                    if (rcx) {
+                        __try {
+                            uint8_t* p = (uint8_t*)rcx;
+                            char hexDump[128] = {0};
+                            for (int b = 0; b < 32; b++) sprintf(hexDump + b*2, "%02x", p[b]);
+                            LogMsg("[VEH-Check8] Context rcx preview (32B): %s", hexDump);
+                        } __except (EXCEPTION_EXECUTE_HANDLER) {}
+                    }
+                }
+                s8_last_edx = edx_req;
+            }
+            pExc->ContextRecord->EFlags |= 0x10000;
+            return EXCEPTION_CONTINUE_EXECUTION;
+        }
+        else if (rip == g_dr1_addr) {
+            int eax_done = (int)pExc->ContextRecord->Rax;
+            int edx_req = (int)pExc->ContextRecord->Rdx;
+
+            static int s8_eval_count = 0;
+            static int s8_last_done = -9999;
+            s8_eval_count++;
+
+            if (s8_eval_count <= 25 || eax_done != s8_last_done || (s8_eval_count % 300 == 0)) {
+                LogMsg("[VEH-Check8-EVAL] #%d: eax(completed)=%d vs edx(required)=%d -> Branch: %s",
+                       s8_eval_count, eax_done, edx_req,
+                       (eax_done >= edx_req) ? "TRANSITION (eax >= edx)" : "WAIT (eax < edx)");
+                s8_last_done = eax_done;
+            }
+            pExc->ContextRecord->EFlags |= 0x10000;
+            return EXCEPTION_CONTINUE_EXECUTION;
+        }
+        else if (rip == g_dr2_addr) {
+            void* caller = *(void**)pExc->ContextRecord->Rsp;
+            LogMsg("[VEH-Stage8-ENTRY] Stage 8 (bootflow sos actions) ENTERED! rcx=%p, caller=%p",
+                   (void*)pExc->ContextRecord->Rcx, caller);
+            void* stack[8];
+            USHORT frames = RtlCaptureStackBackTrace(0, 8, stack, NULL);
+            for (USHORT f = 0; f < frames; f++) {
+                LogCallerInfo("VEH-Stage8-Stack", stack[f]);
+            }
+            pExc->ContextRecord->EFlags |= 0x10000;
+            return EXCEPTION_CONTINUE_EXECUTION;
+        }
+        else if (rip == g_dr3_addr) {
+            void* caller = *(void**)pExc->ContextRecord->Rsp;
+            LogMsg("[VEH-Stage9-ENTRY] Stage 9 (bootflow checking content manifest) ENTERED! rcx=%p, caller=%p",
+                   (void*)pExc->ContextRecord->Rcx, caller);
+            pExc->ContextRecord->EFlags |= 0x10000;
+            return EXCEPTION_CONTINUE_EXECUTION;
+        }
+    }
+    return EXCEPTION_CONTINUE_SEARCH;
+}
+
+static void ApplyDebugRegistersToThread(HANDLE hThread) {
+    CONTEXT ctx;
+    memset(&ctx, 0, sizeof(ctx));
+    ctx.ContextFlags = CONTEXT_DEBUG_REGISTERS;
+    if (GetThreadContext(hThread, &ctx)) {
+        ctx.Dr0 = (DWORD64)g_dr0_addr;
+        ctx.Dr1 = (DWORD64)g_dr1_addr;
+        ctx.Dr2 = (DWORD64)g_dr2_addr;
+        ctx.Dr3 = (DWORD64)g_dr3_addr;
+        ctx.Dr6 = 0;
+        ctx.Dr7 = 0x55; // 0b01010101: local enable for Dr0, Dr1, Dr2, Dr3 (condition: execute)
+        SetThreadContext(hThread, &ctx);
+    }
+}
+
+static DWORD WINAPI DebugRegisterMonitorThread(LPVOID lpParam) {
+    LogMsg("[VEH-Monitor] Debug register monitor thread active");
+    DWORD curPid = GetCurrentProcessId();
+    DWORD curTid = GetCurrentThreadId();
+
+    for (int loop = 0; loop < 180; loop++) {
+        HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+        if (hSnap != INVALID_HANDLE_VALUE) {
+            THREADENTRY32 te;
+            te.dwSize = sizeof(te);
+            if (Thread32First(hSnap, &te)) {
+                do {
+                    if (te.th32OwnerProcessID == curPid && te.th32ThreadID != curTid) {
+                        HANDLE hThread = OpenThread(THREAD_GET_CONTEXT | THREAD_SET_CONTEXT | THREAD_SUSPEND_RESUME, FALSE, te.th32ThreadID);
+                        if (hThread) {
+                            SuspendThread(hThread);
+                            ApplyDebugRegistersToThread(hThread);
+                            ResumeThread(hThread);
+                            CloseHandle(hThread);
+                        }
+                    }
+                } while (Thread32Next(hSnap, &te));
+            }
+            CloseHandle(hSnap);
+        }
+        Sleep(500);
+    }
+    return 0;
+}
+
+static void InstallBootflowHooks() {
+    LogMsg("[Bootflow-Hooks] Clean baseline mode active (no debug registers)");
+}
+
 __declspec(dllexport) int __cdecl SteamInternal_SteamAPI_Init(const char* pszExplicitOptIn, void* pError) {
     LogMsg("[SteamAPI] SteamInternal_SteamAPI_Init called -> SUCCESS (k_ESteamAPIInitResult_OK = 0)");
     if (pError) {
         *(char*)pError = '\0';
+    }
+
+    if (InterlockedCompareExchange(&g_scan_started, 1, 0) == 0) {
+        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ScanMemoryForSignonErrorThread, NULL, 0, NULL);
+    }
+
+    if (InterlockedCompareExchange(&g_bootflow_hooks_installed, 1, 0) == 0) {
+        InstallBootflowHooks();
     }
 
     return 0; // 0 == k_ESteamAPIInitResult_OK
@@ -1192,7 +1341,91 @@ typedef BOOL (WINAPI *CertVerifyCertificateChainPolicy_t)(
 );
 static CertVerifyCertificateChainPolicy_t g_real_CertVerifyCertificateChainPolicy = NULL;
 
+static DWORD WINAPI RuntimeSdrMonitorThread(LPVOID lpParam) {
+    LogMsg("[SDR-Monitor] Thread started");
+    SetDllDirectoryA("C:\\Program Files (x86)\\Steam");
+    HMODULE hSteamclient = GetModuleHandleA("steamclient64.dll");
+    if (!hSteamclient) {
+        hSteamclient = LoadLibraryA("C:\\Program Files (x86)\\Steam\\steamclient64.dll");
+        if (hSteamclient) {
+            LogMsg("[SDR-Monitor] Loaded steamclient64.dll from Steam directory");
+        } else {
+            LogMsg("[SDR-Monitor] Failed to load steamclient64.dll (err=%lu)", GetLastError());
+        }
+    }
+    while (1) {
+        Sleep(3000);
+        if (!hSteamclient) {
+            hSteamclient = GetModuleHandleA("steamclient64.dll");
+            if (!hSteamclient) hSteamclient = LoadLibraryA("C:\\Program Files (x86)\\Steam\\steamclient64.dll");
+        }
+        if (hSteamclient) {
+            typedef void* (*CreateInterfaceFn)(const char* pName, int* pReturnCode);
+            CreateInterfaceFn pfnCreate = (CreateInterfaceFn)GetProcAddress(hSteamclient, "CreateInterface");
+            if (pfnCreate) {
+                int returnCode = 0;
+                void* pUtils = NULL;
+                __try {
+                    pUtils = pfnCreate("SteamNetworkingUtils004", &returnCode);
+                } __except (EXCEPTION_EXECUTE_HANDLER) {
+                    pUtils = NULL;
+                }
+                if (pUtils) {
+                    void** vtbl = *(void***)pUtils;
+                    if (vtbl && vtbl[1]) {
+                        typedef int (__fastcall *GetRelayNetworkStatusFn)(void*, void*);
+                        GetRelayNetworkStatusFn pfnStatus = (GetRelayNetworkStatusFn)vtbl[1];
+                        struct {
+                            int m_eAvail;
+                            int m_bPingMeasurementInProgress;
+                            int m_eAvailNetworkConfig;
+                            int m_eAvailAnyRelay;
+                            char m_szDebugMsg[256];
+                        } status;
+                        memset(&status, 0, sizeof(status));
+                        int avail = 0;
+                        __try {
+                            avail = pfnStatus(pUtils, &status);
+                        } __except (EXCEPTION_EXECUTE_HANDLER) {
+                            avail = -999;
+                        }
+                        const char* availStr = "Unknown";
+                        if (avail == 100) availStr = "Current(100)";
+                        else if (avail == 3) availStr = "Attempting(3)";
+                        else if (avail == 2) availStr = "Waiting(2)";
+                        else if (avail == 1) availStr = "NeverTried(1)";
+                        else if (avail == -10) availStr = "Retrying(-10)";
+                        else if (avail == -100) availStr = "Previously(-100)";
+                        else if (avail == -101) availStr = "Failed(-101)";
+                        else if (avail == -102) availStr = "CannotTry(-102)";
+
+                        const char* cfgStr = (status.m_eAvailNetworkConfig == 100) ? "Current(100)" :
+                                             (status.m_eAvailNetworkConfig == 3) ? "Attempting(3)" :
+                                             (status.m_eAvailNetworkConfig == 2) ? "Waiting(2)" :
+                                             (status.m_eAvailNetworkConfig == 1) ? "NeverTried(1)" : "Other";
+                        const char* relayStr = (status.m_eAvailAnyRelay == 100) ? "Current(100)" :
+                                               (status.m_eAvailAnyRelay == 3) ? "Attempting(3)" :
+                                               (status.m_eAvailAnyRelay == 2) ? "Waiting(2)" :
+                                               (status.m_eAvailAnyRelay == 1) ? "NeverTried(1)" : "Other";
+
+                        LogMsg("[SDR-Runtime] Avail=%s, PingInProg=%d, NetConfig=%s(%d), AnyRelay=%s(%d), Msg='%s'",
+                               availStr, status.m_bPingMeasurementInProgress,
+                               cfgStr, status.m_eAvailNetworkConfig,
+                               relayStr, status.m_eAvailAnyRelay,
+                               status.m_szDebugMsg);
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
+
 static DWORD WINAPI ScanMemoryForSignonErrorThread(LPVOID lpParam) {
+    LogMsg("[MemScan] ScanMemory thread disabled to preserve execution stability");
+    return 0;
+}
+static DWORD WINAPI Unused_ScanMemoryForSignonErrorThread(LPVOID lpParam) {
     Sleep(500);
     HMODULE hExe = GetModuleHandle(NULL);
     if (!hExe) return 0;
@@ -1206,6 +1439,12 @@ static DWORD WINAPI ScanMemoryForSignonErrorThread(LPVOID lpParam) {
     BYTE* base = (BYTE*)hExe;
     LogMsg("[MemScan] Starting Marathon.exe memory scan (base=%p, size=0x%X)...", base, imageSize);
     
+    // Start SDR Monitor thread
+    static volatile LONG g_sdr_mon_started = 0;
+    if (InterlockedCompareExchange(&g_sdr_mon_started, 1, 0) == 0) {
+        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)RuntimeSdrMonitorThread, NULL, 0, NULL);
+    }
+
     // 1. Dump 16KB around Bootflow Table at Marathon.exe+0x32DA2690
     __try {
         BYTE* bfTable = base + 0x32DA2690;
@@ -1219,17 +1458,185 @@ static DWORD WINAPI ScanMemoryForSignonErrorThread(LPVOID lpParam) {
         LogMsg("[MemScan] Exception dumping bootflow table");
     }
 
-    // 2. Comprehensive Scan for RIP-relative references to signon error table & error strings
-    DWORD tbl_min = 0x3683D9E0;
-    DWORD tbl_max = 0x3683DC00;
-    DWORD str_min = 0x32DA8A00;
-    DWORD str_max = 0x32DA8D00;
-    int ref_count = 0;
+    __try {
+        BYTE* vt78 = base + 0x2EF1EDC0;
+        FILE* fpVt = fopen("D:/Marathon-live/mem_vtable_2EF1EDC0.bin", "wb");
+        if (fpVt) {
+            fwrite(vt78 - 0x100, 1, 0x1000, fpVt);
+            fclose(fpVt);
+            LogMsg("[MemScan] Dumped 4KB around Stage 7/8 vtable (0x2EF1EDC0)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    __try {
+        BYTE* vt9 = base + 0x302832A0;
+        FILE* fpVt = fopen("D:/Marathon-live/mem_vtable_302832A0.bin", "wb");
+        if (fpVt) {
+            fwrite(vt9 - 0x100, 1, 0x1000, fpVt);
+            fclose(fpVt);
+            LogMsg("[MemScan] Dumped 4KB around Stage 9 vtable (0x302832A0)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    // Dump 64KB chunks around key bootflow stage code areas
+    __try {
+        BYTE* p = base + 0x2EF40000;
+        FILE* fp = fopen("D:/Marathon-live/mem_area_2EF40000.bin", "wb");
+        if (fp) {
+            fwrite(p, 1, 0x10000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 64KB of 0x2EF40000");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    __try {
+        BYTE* p = base + 0x2EF70000;
+        FILE* fp = fopen("D:/Marathon-live/mem_area_2EF70000.bin", "wb");
+        if (fp) {
+            fwrite(p, 1, 0x10000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 64KB of 0x2EF70000");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    __try {
+        BYTE* p = base + 0x30050000;
+        FILE* fp = fopen("D:/Marathon-live/mem_area_30050000.bin", "wb");
+        if (fp) {
+            fwrite(p, 1, 0x10000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 64KB of 0x30050000");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    __try {
+        BYTE* p = base + 0x30280000;
+        FILE* fp = fopen("D:/Marathon-live/mem_area_30280000.bin", "wb");
+        if (fp) {
+            fwrite(p, 1, 0x20000, fp); // 128KB covering 0x30280000 - 0x302A0000
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 128KB of 0x30280000");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    // Dump State 7 entry function (0x2EF77E60) - 8KB
+    __try {
+        BYTE* fn7 = base + 0x2EF77E60;
+        FILE* fp = fopen("D:/Marathon-live/mem_func_state7_2EF77E60.bin", "wb");
+        if (fp) {
+            fwrite(fn7, 1, 0x2000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 8KB of State 7 entry function (0x2EF77E60)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    // Dump State 6 entry function (0x3005D820) - 8KB
+    __try {
+        BYTE* fn6 = base + 0x3005D820;
+        FILE* fp = fopen("D:/Marathon-live/mem_func_state6_3005D820.bin", "wb");
+        if (fp) {
+            fwrite(fn6, 1, 0x2000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 8KB of State 6 entry function (0x3005D820)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    // Dump State 9 stub/destructor (0x2EF2A2E0) - 8KB
+    __try {
+        BYTE* fn9 = base + 0x2EF2A2E0;
+        FILE* fp = fopen("D:/Marathon-live/mem_func_state9_2EF2A2E0.bin", "wb");
+        if (fp) {
+            fwrite(fn9, 1, 0x2000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 8KB of State 9 function (0x2EF2A2E0)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    // Dump direct_settings string reference regions
+    __try {
+        BYTE* ds1 = base + 0x32D28F30;
+        FILE* fp = fopen("D:/Marathon-live/mem_direct_settings_32D28F30.bin", "wb");
+        if (fp) {
+            fwrite(ds1 - 0x200, 1, 0x1000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 4KB around direct_settings (0x32D28F30)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    __try {
+        BYTE* ds2 = base + 0x32DA9B86;
+        FILE* fp = fopen("D:/Marathon-live/mem_direct_settings_32DA9B86.bin", "wb");
+        if (fp) {
+            fwrite(ds2 - 0x200, 1, 0x1000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 4KB around direct_settings (0x32DA9B86)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    __try {
+        BYTE* ds3 = base + 0x32DC701C;
+        FILE* fp = fopen("D:/Marathon-live/mem_direct_settings_32DC701C.bin", "wb");
+        if (fp) {
+            fwrite(ds3 - 0x200, 1, 0x1000, fp);
+            fclose(fp);
+            LogMsg("[MemScan] Dumped 4KB around direct_settings (0x32DC701C)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {}
+
+    // 2. Scan committed data/rodata for key strings:
+    const char* search_strings[] = {
+        "bootflow sos actions",
+        "bootflow checking content manifest",
+        "direct_settings",
+        "global.json",
+        "/cfg_a/",
+        "lmdetail.json",
+        "state_duration",
+        "world_controller.bootflow"
+    };
+    int num_search_strings = sizeof(search_strings) / sizeof(search_strings[0]);
+    DWORD found_str_rvas[32] = {0};
+    int found_str_count = 0;
 
     MEMORY_BASIC_INFORMATION mbi;
     BYTE* cur = base;
     BYTE* end = base + imageSize;
 
+    while (cur < end && VirtualQuery(cur, &mbi, sizeof(mbi))) {
+        if ((mbi.State == MEM_COMMIT) && !(mbi.Protect & PAGE_GUARD) &&
+            (mbi.Protect & (PAGE_READONLY | PAGE_READWRITE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE))) {
+            BYTE* pstart = (BYTE*)mbi.BaseAddress;
+            SIZE_T plen = mbi.RegionSize;
+            if (pstart + plen > end) plen = end - pstart;
+
+            for (int s = 0; s < num_search_strings; s++) {
+                const char* needle = search_strings[s];
+                size_t nlen = strlen(needle);
+                if (plen < nlen) continue;
+                for (SIZE_T i = 0; i <= plen - nlen; i++) {
+                    if (memcmp(pstart + i, needle, nlen) == 0) {
+                        DWORD str_rva = (DWORD)((pstart + i) - base);
+                        LogMsg("[StrScan] Found '%s' at Marathon.exe+0x%X (VA=%p)", needle, str_rva, pstart + i);
+                        if (found_str_count < 30) {
+                            found_str_rvas[found_str_count++] = str_rva;
+                        }
+                    }
+                }
+            }
+        }
+        cur = (BYTE*)mbi.BaseAddress + mbi.RegionSize;
+    }
+
+    // 3. Comprehensive Scan for RIP-relative & immediate references to bootflow table, strings, and found strings
+    DWORD bf_tbl_min = 0x32DA2690;
+    DWORD bf_tbl_max = 0x32DA2800;
+    DWORD bf_str_min = 0x32DA2A00;
+    DWORD bf_str_max = 0x32DA2D00;
+    DWORD err_tbl_min = 0x3683D9E0;
+    DWORD err_tbl_max = 0x3683DC00;
+    int ref_count = 0;
+
+    cur = base;
     while (cur < end && VirtualQuery(cur, &mbi, sizeof(mbi))) {
         if ((mbi.State == MEM_COMMIT) && !(mbi.Protect & PAGE_GUARD) && 
             (mbi.Protect & (PAGE_EXECUTE | PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE))) {
@@ -1244,7 +1651,6 @@ static DWORD WINAPI ScanMemoryForSignonErrorThread(LPVOID lpParam) {
                     BYTE b1 = page_start[i+1];
                     DWORD instr_rva = (DWORD)((page_start + i) - base);
                     
-                    // Skip the known initializer function at 0xC972000-0xC974000
                     if (instr_rva >= 0xC972000 && instr_rva <= 0xC974000) continue;
 
                     DWORD target = 0;
@@ -1280,33 +1686,52 @@ static DWORD WINAPI ScanMemoryForSignonErrorThread(LPVOID lpParam) {
                         target = rip_after + disp;
                     }
 
+                    bool hit = false;
+                    const char* hit_desc = "unknown";
                     if (target != 0) {
-                        bool hit_tbl = (target >= tbl_min && target <= tbl_max);
-                        bool hit_str = (target >= str_min && target <= str_max);
-                        if (hit_tbl || hit_str) {
-                            LogMsg("[MemScan] Found ref to %s 0x%X at Marathon.exe+0x%X (VA=%p, disp=0x%X)",
-                                   hit_tbl ? "error table" : "error string", target, instr_rva, page_start + i, disp);
-                            char fn[MAX_PATH];
-                            snprintf(fn, sizeof(fn), "D:/Marathon-live/code_error_ref_%X.bin", instr_rva);
-                            FILE* fp = fopen(fn, "wb");
-                            if (fp) {
-                                BYTE* s = (page_start + i >= base + 256) ? (page_start + i - 256) : page_start;
-                                fwrite(s, 1, 512, fp);
-                                fclose(fp);
-                                LogMsg("[MemScan] Dumped 512 bytes surrounding code to %s", fn);
+                        if (target >= bf_tbl_min && target <= bf_tbl_max) {
+                            hit = true;
+                            hit_desc = "bootflow table";
+                        } else if (target >= bf_str_min && target <= bf_str_max) {
+                            hit = true;
+                            hit_desc = "bootflow stage string";
+                        } else if (target >= err_tbl_min && target <= err_tbl_max) {
+                            hit = true;
+                            hit_desc = "error table";
+                        } else {
+                            for (int f = 0; f < found_str_count; f++) {
+                                if (target == found_str_rvas[f]) {
+                                    hit = true;
+                                    hit_desc = "scanned keyword string";
+                                    break;
+                                }
                             }
-                            ref_count++;
                         }
+                    }
+
+                    if (hit) {
+                        LogMsg("[MemScan] Found ref to %s 0x%X at Marathon.exe+0x%X (VA=%p, disp=0x%X)",
+                               hit_desc, target, instr_rva, page_start + i, disp);
+                        char fn[MAX_PATH];
+                        snprintf(fn, sizeof(fn), "D:/Marathon-live/code_bootflow_ref_%X.bin", instr_rva);
+                        FILE* fp = fopen(fn, "wb");
+                        if (fp) {
+                            BYTE* s = (page_start + i >= base + 256) ? (page_start + i - 256) : page_start;
+                            fwrite(s, 1, 512, fp);
+                            fclose(fp);
+                            LogMsg("[MemScan] Dumped 512 bytes surrounding code to %s", fn);
+                        }
+                        ref_count++;
                     }
                 }
             }
         }
         cur = (BYTE*)mbi.BaseAddress + mbi.RegionSize;
     }
-    LogMsg("[MemScan] Scan completed. Found %d references to signon error table/strings.", ref_count);
+    LogMsg("[MemScan] Scan completed. Found %d references to bootflow/strings.", ref_count);
     return 0;
 }
-static volatile LONG g_scan_started = 0;
+
 
 static BOOL WINAPI Hook_CertVerifyCertificateChainPolicy(
     LPCSTR pszPolicyOID,
@@ -1692,6 +2117,7 @@ static BOOL WINAPI Hook_WinHttpSendRequest(HINTERNET hRequest, LPCWSTR lpszHeade
 static BOOL WINAPI Hook_WinHttpReceiveResponse(HINTERNET hRequest, LPVOID lpReserved);
 static HANDLE WINAPI Hook_CreateFileW(LPCWSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 static HANDLE WINAPI Hook_CreateFileA(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
+static BOOL WINAPI Hook_WriteFile(HANDLE hFile, LPCVOID lpBuffer, DWORD nNumberOfBytesToWrite, LPDWORD lpNumberOfBytesWritten, LPOVERLAPPED lpOverlapped);
 
 typedef FARPROC (WINAPI *GetProcAddress_t)(HMODULE hModule, LPCSTR lpProcName);
 static GetProcAddress_t g_real_GetProcAddress = NULL;
@@ -1738,6 +2164,9 @@ static FARPROC WINAPI Hook_GetProcAddress(HMODULE hModule, LPCSTR lpProcName) {
         } else if (strcmp(lpProcName, "CreateFileA") == 0) {
             LogMsg("[GetProcAddress] Dynamic lookup: CreateFileA -> hooked");
             return (FARPROC)Hook_CreateFileA;
+        } else if (strcmp(lpProcName, "WriteFile") == 0) {
+            LogMsg("[GetProcAddress] Dynamic lookup: WriteFile -> hooked");
+            return (FARPROC)Hook_WriteFile;
         }
     } else {
         uint16_t ord = (uint16_t)((uintptr_t)lpProcName & 0xFFFF);
@@ -1996,6 +2425,16 @@ typedef HANDLE (WINAPI *CreateFileA_t)(
     HANDLE hTemplateFile
 );
 static CreateFileA_t g_real_CreateFileA = NULL;
+
+typedef BOOL (WINAPI *WriteFile_t)(
+    HANDLE hFile,
+    LPCVOID lpBuffer,
+    DWORD nNumberOfBytesToWrite,
+    LPDWORD lpNumberOfBytesWritten,
+    LPOVERLAPPED lpOverlapped
+);
+static WriteFile_t g_real_WriteFile = NULL;
+
 static HANDLE WINAPI Hook_CreateFileW(
     LPCWSTR lpFileName,
     DWORD dwDesiredAccess,
@@ -2010,6 +2449,18 @@ static HANDLE WINAPI Hook_CreateFileW(
     char mbPath[MAX_PATH * 2] = {0};
     if (lpFileName) {
         WideCharToMultiByte(CP_UTF8, 0, lpFileName, -1, mbPath, sizeof(mbPath) - 1, NULL, NULL);
+    }
+
+    if (mbPath[0]) {
+        if (strstr(mbPath, "lmdetail") || strstr(mbPath, "direct_settings") || strstr(mbPath, "global.json")) {
+            void* caller = _ReturnAddress();
+            LogMsg("[File-Target] CreateFileW('%s') -> handle %p (err=%lu, caller=%p)", mbPath, h, err, caller);
+            void* stack[8];
+            USHORT frames = RtlCaptureStackBackTrace(0, 8, stack, NULL);
+            for (USHORT f = 0; f < frames; f++) {
+                LogCallerInfo("File-Target-Stack", stack[f]);
+            }
+        }
     }
 
     if (h == INVALID_HANDLE_VALUE) {
@@ -2053,6 +2504,31 @@ static HANDLE WINAPI Hook_CreateFileA(
     }
 
     return h;
+}
+
+static BOOL WINAPI Hook_WriteFile(
+    HANDLE hFile,
+    LPCVOID lpBuffer,
+    DWORD nNumberOfBytesToWrite,
+    LPDWORD lpNumberOfBytesWritten,
+    LPOVERLAPPED lpOverlapped
+) {
+    if (lpBuffer && nNumberOfBytesToWrite > 0) {
+        const char* buf = (const char*)lpBuffer;
+        if (strstr(buf, "platform_account_id") || strstr(buf, "session_id") || strstr(buf, "state_duration") || strstr(buf, "lmdetail")) {
+            void* caller = _ReturnAddress();
+            char preview[300] = {0};
+            int len = (int)(nNumberOfBytesToWrite < 250 ? nNumberOfBytesToWrite : 250);
+            memcpy(preview, buf, len);
+            LogMsg("[File-WriteFile] lmdetail buffer written! caller=%p, bytes=%u: %s", caller, nNumberOfBytesToWrite, preview);
+            void* stack[8];
+            USHORT frames = RtlCaptureStackBackTrace(0, 8, stack, NULL);
+            for (USHORT f = 0; f < frames; f++) {
+                LogCallerInfo("lmdetail-WriteFile-Stack", stack[f]);
+            }
+        }
+    }
+    return g_real_WriteFile ? g_real_WriteFile(hFile, lpBuffer, nNumberOfBytesToWrite, lpNumberOfBytesWritten, lpOverlapped) : FALSE;
 }
 
 static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
@@ -2109,6 +2585,7 @@ static void HookModuleIAT(HMODULE hMod, const char* targetModName) {
                         const char* name = (const char*)impName->Name;
                         if (strcmp(name, "CreateFileW") == 0) { hook = (void*)Hook_CreateFileW; hookName = "CreateFileW"; }
                         else if (strcmp(name, "CreateFileA") == 0) { hook = (void*)Hook_CreateFileA; hookName = "CreateFileA"; }
+                        else if (strcmp(name, "WriteFile") == 0) { hook = (void*)Hook_WriteFile; hookName = "WriteFile"; }
                         else if (strcmp(name, "GetProcAddress") == 0) { hook = (void*)Hook_GetProcAddress; hookName = "GetProcAddress"; }
                     }
                 } else if (isWinHttp) {
@@ -2207,6 +2684,7 @@ static void InstallIATHooks() {
         g_real_GetProcAddress = (GetProcAddress_t)GetProcAddress(hK32, "GetProcAddress");
         g_real_CreateFileW = (CreateFileW_t)GetProcAddress(hK32, "CreateFileW");
         g_real_CreateFileA = (CreateFileA_t)GetProcAddress(hK32, "CreateFileA");
+        g_real_WriteFile = (WriteFile_t)GetProcAddress(hK32, "WriteFile");
     }
 
     CheckDynamicModules();
@@ -2250,6 +2728,9 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
         LoadConfig();
         InitInterfaceTables();
         InstallIATHooks();
+        if (InterlockedCompareExchange(&g_bootflow_hooks_installed, 1, 0) == 0) {
+            InstallBootflowHooks();
+        }
     }
 
     return TRUE;
