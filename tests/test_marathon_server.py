@@ -126,17 +126,31 @@ def test_bap_service_dispatcher_flow():
     player = server.players[1001]
     
     # 1. Service 25: Server Hello
-    req_hello = BapRequest(service_id=SERVICE_SERVER_HELLO, task_id=1, payload=b"")
+    hello = bytes(2) + ProtobufWriter().bytes(1, player.session_token).varint(2, 1).build()
+    assert len(hello) == 38
+    req_hello = BapRequest(SERVICE_SERVER_HELLO, 1, hello, 2)
     resp_hello = server.dispatch_bap_request(req_hello, player)
     assert resp_hello.service_id == SERVICE_HELLO_RESPONSE
     assert resp_hello.status == 200
     assert len(resp_hello.payload) == 84
+    assert resp_hello.frame_type == 2
+    body = resp_hello.payload
+    assert body[:4] == struct.pack(">I", 80)
+    import hmac
+    from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+    assert hmac.compare_digest(body[52:], hmac.digest(player.auth_key, body[:52], "sha256"))
+    decrypt = Cipher(algorithms.AES(player.encryption_key), modes.CBC(body[4:20])).decryptor()
+    assert (decrypt.update(body[20:52]) + decrypt.finalize())[28:] == bytes([4]) * 4
+    unknown = bytes(2) + ProtobufWriter().bytes(1, b"unknown").varint(2, 1).build()
+    assert server.dispatch_bap_request(BapRequest(25, 1, unknown, 2)).status == 401
     
     # 2. Service 30: Channel Start
-    req_chan = BapRequest(service_id=SERVICE_CHANNEL_START, task_id=2, payload=b"nonce_bytes_12")
+    req_chan = BapRequest(service_id=SERVICE_CHANNEL_START, task_id=2, payload=b"\x00\x00DESTINY\x01" + bytes(120), frame_type=2)
     resp_chan = server.dispatch_bap_request(req_chan, player)
     assert resp_chan.service_id == SERVICE_CHANNEL_START_RESPONSE
-    assert resp_chan.payload == b"nonce_bytes_"
+    assert resp_chan.frame_type == 2
+    assert len(resp_chan.payload) == 128
+    assert resp_chan.payload[:8] == b"DESTINY\x01"
     
     # 3. Service 23: Account Translation
     req_acc = BapRequest(service_id=SERVICE_ACCOUNT_TRANSLATION, task_id=3, payload=b"")
@@ -225,12 +239,13 @@ def test_multiplayer_coop_session_isolation():
     assert p1.current_activity_session_id == p2.current_activity_session_id
 
 
-def test_direct_settings_http_endpoint():
+def test_direct_settings_http_endpoint(tmp_path):
     """Verify that SignOnHTTPHandler serves Direct Settings JSON for /cfg_a/* and *.json."""
     import socket, threading, urllib.request
     from marathon_server import ThreadedHTTPServer, SignOnHTTPHandler
 
-    server = ThreadedHTTPServer(('127.0.0.1', 0), SignOnHTTPHandler)
+    (tmp_path / 'global.json').write_bytes(b'{}\n')
+    server = ThreadedHTTPServer(('127.0.0.1', 0), SignOnHTTPHandler, direct_settings_dir=tmp_path)
     port = server.server_port
     t = threading.Thread(target=server.serve_forever, daemon=True)
     t.start()
@@ -243,6 +258,7 @@ def test_direct_settings_http_endpoint():
         assert b"{}" in body
     finally:
         server.shutdown()
+        server.server_close()
 
 
 def test_sdr_config_endpoint():
@@ -288,27 +304,29 @@ def test_unknown_endpoint_returns_404():
         server.shutdown()
 
 
-def test_make_sdr_ping_reply():
-    """Verify Valve SDR RouterPingReply protobuf generation."""
-    from marathon_server import make_sdr_ping_reply
-
-    # Simulated incoming sdping probe captured from Marathon/Steam
-    req_probe = bytes.fromhex("0101736470696e67ee33e67e306e000000000000973fea6a316e007fb7070b00")
-    client_addr = ("127.0.0.1", 63626)
-    reply = make_sdr_ping_reply(req_probe, client_addr)
-
-    # 1. Header verification
-    assert reply.startswith(b"\x02\x01sdping"), "Reply must start with RouterPingReply (0x02), version (0x01), and magic 'sdping'"
-    
-    # 2. Field 1: client_timestamp echoed exactly
-    assert b"\x0d\xee\x33\xe6\x7e" in reply, "Reply must echo client timestamp in protobuf Field 1 (tag 0x0d)"
-
-    # 3. Field 4: your_public_ip
-    assert b"\x25\x7f\x00\x00\x01" in reply, "Reply must encode 127.0.0.1 in protobuf Field 4 (tag 0x25)"
-
-    # 4. Field 8: client_cookie echoed
-    assert b"\x45\x97\x3f\xea\x6a" in reply, "Reply must echo cookie in protobuf Field 8 (tag 0x45)"
-
-    # 5. Field 11: your_public_port (63626 -> 0xF88A)
-    expected_port = struct.pack("<I", 63626)
-    assert (b"\x5d" + expected_port) in reply, "Reply must encode client port in protobuf Field 11 (tag 0x5d)"
+def test_make_sdr_ping_reply(monkeypatch):
+    import marathon_server
+    monkeypatch.setattr(marathon_server.time, "time", lambda: 123456)
+    peer = ("127.0.0.1", 63626)
+    # Header from a preserved probe. The DWORD at +20 is the SDR revision.
+    header = bytes.fromhex("0101736470696e67ee33e67e306e000000000000973fea6a316e007fb7070b00")
+    for mode in (1, 2, 0x81, 0x82):
+        short = mode >= 0x80
+        request = (header[:1] + bytes([mode]) + header[2:]).ljust(100 if short else 1300, b"\0")
+        reply = marathon_server.make_sdr_ping_reply(request, peer)
+        assert len(reply) == (55 if short else 1300)
+        assert reply[:22] == bytes.fromhex("020dee33e67e250100007f5d8af8000045306e000031")
+        assert reply[22:30] == marathon_server.make_sdr_ping_reply(request, peer)[22:30]
+        assert reply[30:46] == bytes.fromhex(
+            "80018000a006800090018000a0068000" if mode & 1 else
+            "80018000880180009001800098018000")
+        trailer = b"\x2d" + struct.pack("<I", 123456) + b"\x48\x00"
+        if short:
+            assert reply[46:] == trailer + b"\x60\x03"
+        else:
+            # Parse fields 99, 2 and 3 independently, including padding boundaries.
+            assert reply.endswith(trailer)
+            assert ProtobufReader(reply[46:-len(trailer)]).parse() == [
+                (99, 2, bytes(1234)), (2, 2, b"aes\0"), (3, 2, b"\0")]
+    assert marathon_server.make_sdr_ping_reply(header, peer) is None
+    assert marathon_server.make_sdr_ping_reply(bytes(1300), peer) is None
