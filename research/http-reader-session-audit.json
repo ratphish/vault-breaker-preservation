@@ -1,0 +1,580 @@
+{
+  "session_dir": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219",
+  "reader_ended": {
+    "status": "stopped",
+    "remaining_bytes": 16704212
+  },
+  "all_saved_successful_range_hashes_checked": true,
+  "results": [
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000001.json",
+      "file_sha256": "7b6b6f6c39c39a52af42351634aff7a5c5ba9b40c06ce5b58e9448a48db454ff",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff66ad03000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "1b134f373d10f6aa16d92583bef410a09391dc3ab8d1a7f58bd11154787cbd26"
+        },
+        {
+          "address": "0x7ff66e008000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "0a39e28c0f1548287f7e6259d43cb529fa904c4e5740cbcd03d6566ae50ac274"
+        },
+        {
+          "address": "0x7ff686e48000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "6fb30dbb4cf0fcf5e12be98932ff2c6fc258ac6536a8f33f7f901838100a2dfc"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000002.json",
+      "file_sha256": "b9b0a8f0ca194521a44b2bf7706feb59d845f46829511fd1431ee0b7f287190c",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff66ad03000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "1b134f373d10f6aa16d92583bef410a09391dc3ab8d1a7f58bd11154787cbd26"
+        },
+        {
+          "address": "0x7ff66e008000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "0a39e28c0f1548287f7e6259d43cb529fa904c4e5740cbcd03d6566ae50ac274"
+        },
+        {
+          "address": "0x7ff686e48000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "6fb30dbb4cf0fcf5e12be98932ff2c6fc258ac6536a8f33f7f901838100a2dfc"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000003.json",
+      "file_sha256": "3173e0e32f6f61c25b6aac522210dc3ea0bc5f125efb5275fdec7acc9f3b5de5",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff69986b198",
+          "bytes_requested": 64,
+          "bytes": 64,
+          "sha256": "aa46115ffc775ead10b5992b1971c478078764a78ec4bb942840144c068f7da5"
+        },
+        {
+          "address": "0x7ff6951f4000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "4fb92157c5db0db36978d2b57f6e403c397cc7552a370781aca4b750a3820d30"
+        },
+        {
+          "address": "0x7ff670b61000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "bc23cf7e856b52e7addbf7c8c234778a159cfdf22dc0ecd307dd2d438ddccb02"
+        },
+        {
+          "address": "0x7ff699cda800",
+          "bytes_requested": 256,
+          "bytes": 256,
+          "sha256": "b0a7de47d6d5d17d90e41a35aaee1f7a9a7a9fa65282c8f7242469250da0d486"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000004.json",
+      "file_sha256": "344786b82e832a944d46c8e609e397019e3e916382656fde01701b3202a0c5b5",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff69986b100",
+          "bytes_requested": 512,
+          "bytes": 512,
+          "sha256": "c104ff6e26707f9e7131754cea296c69d0c506b1c549325a5801ab5c0f2ef092"
+        },
+        {
+          "address": "0x7ff6942dc000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "6d9338b10d32b48b6eb7ed8d552cd7002d7073b575c41020492c5e13bf794057"
+        },
+        {
+          "address": "0x7ff697736000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "ca59605db818118d8183c79c598cfd4745c98a3011bffe1432271ac5f08df8a8"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000005.json",
+      "file_sha256": "7733c83b50d895e99c70f9f8e09d8d4a75481f6cecc9bdad052b8007671a5699",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x20a4e4fae00",
+          "bytes_requested": 1024,
+          "bytes": 1024,
+          "sha256": "0f19fcb44f3e25832f52b64d9674dd6758e7ce5157a02b34408a3f535942a0e5"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000006.json",
+      "file_sha256": "a4d572e9b7148e92a355118b36ef86a8bcf2063ed63a855689439e0b15c28cda",
+      "status": "complete_with_errors",
+      "ranges": [
+        {
+          "address": "0x20a691dded0",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "fc0c3647d61e400728cfc6f0e0d15166b8a9e0daac7dca2602c912ec70c64ec5"
+        },
+        {
+          "address": "0x20a4e4fae00",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "5cebc6583d23d3b1ed67c847588caa21037d4ec99bdf4235be19cf4d5133f858"
+        },
+        {
+          "address": "0x271655248",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x208f549ee80",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "dc000248e8b174a87b48b6789c4c2908daa49aea1514bbf8ef24a681097a3541"
+        },
+        {
+          "address": "0x600000006",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x634e4fae00",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x100000001",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x20a6745d390",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "009f68f886f484f3d2bc5873fbc8af9a38ee08ac2880f0501239c7da6c3cefee"
+        },
+        {
+          "address": "0xa0000000a",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x1f9000000001",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x20c8b8c7120",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "081713e10f9c395a75dfe84be5aa00cdf2ebb142a887a2caf89b2fb75c2f5792"
+        },
+        {
+          "address": "0x20a66bc3840",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "b011bac5d935ef94226fd3008f927ab5488b67e587c98273b689070c04bb7a20"
+        },
+        {
+          "address": "0x5700000057",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x200000002000",
+          "bytes_requested": 32,
+          "error": "[WinError 299] Only part of a ReadProcessMemory or WriteProcessMemory request was completed."
+        },
+        {
+          "address": "0x20a4e4fb0f0",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "d6af46f55cb7f6b9536a479a64c7823274a94768df5a09bbe4d11af2807e5828"
+        },
+        {
+          "address": "0x20a671b5290",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "c0874a26d1be15fb1d12530b9accddbbbf639db8344b33dea8f11e5f104522c0"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000007.json",
+      "file_sha256": "a67772feab8d23815da84d8532db826b0cef320df2b4de1bfa5330497eb2498a",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff69b175b48",
+          "bytes_requested": 32,
+          "bytes": 32,
+          "sha256": "a342dcedb19252bbcd227d237802e436becb80790c14dce2088ab53f273ae2cb"
+        },
+        {
+          "address": "0x7ff69b175f68",
+          "bytes_requested": 88,
+          "bytes": 88,
+          "sha256": "f4a7ea43629febac8cbe4ca73155adefc935c0b2a593984e5a76c51cde4282bc"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000008.json",
+      "file_sha256": "e20e75a72275eff947c0c80a1494da57608043738833e5f779a993f6c5a4f720",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff69b175b60",
+          "bytes_requested": 512,
+          "bytes": 512,
+          "sha256": "8b5dd9fe6f7bc1ab1316dcf2a45995677fe1909a0a4ea8af63a18d33a3a59ad7"
+        },
+        {
+          "address": "0x7ff69b185fd8",
+          "bytes_requested": 280,
+          "bytes": 280,
+          "sha256": "db30a396e03df9e435db2bcfd4c2269029b63258500704f7f86aeb2bd7d1deea"
+        },
+        {
+          "address": "0x7ff69b175b48",
+          "bytes_requested": 24,
+          "bytes": 24,
+          "sha256": "786175007f446b39f90b1c54dcc65fed61ab9cec293e4b4551962325212ffa96"
+        },
+        {
+          "address": "0x7ff69b175f98",
+          "bytes_requested": 36,
+          "bytes": 36,
+          "sha256": "be7e19ef322c0ac5a54519a74dcde6454ce15d3cff3e3dc3bd745dc7a2d4591c"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000009.json",
+      "file_sha256": "f23a4eec4f9562295852c94b2b769db2c90a721f8b3098d2673848d4b02f40ae",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff6976f7620",
+          "bytes_requested": 256,
+          "bytes": 256,
+          "sha256": "445bf72adb721518753df06c8cb1d570c25ded196e1d85d10178b584c6b6d9f0"
+        },
+        {
+          "address": "0x7ff69b175a48",
+          "bytes_requested": 256,
+          "bytes": 256,
+          "sha256": "890762849b2588e425cf9eaa9cc0f10afcd60d19332a33b420fedcbe3714e4f6"
+        },
+        {
+          "address": "0x7ff69b185fb8",
+          "bytes_requested": 256,
+          "bytes": 256,
+          "sha256": "30e25552e3e330ebf722c8d9b08fbb53448bd7c8f1ba5d6ecbc30ef66ee3a6ae"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000010.json",
+      "file_sha256": "dee09d42ab5588e8a351bace620c436e102bae85c7cb5e0495619e68cb0f03da",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff695fe5e00",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "40aae6f09ac01fb2a5a3500b6cfb6291ee17bff0963678d49325492d4eedc419"
+        },
+        {
+          "address": "0x7ff69473be70",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "541f04c038b0c87a30d9b8f4ad7fc56f8822d46beb509cdb8595a5373f6c0e4b"
+        },
+        {
+          "address": "0x7ff693c91bb0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "345bafaf76a23a8dfd5cdc161aa8addace249521243fd541d0af763b3a8c175e"
+        },
+        {
+          "address": "0x7ff6953cdcb0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "25b7e98111dad2a5a9108ed4fa6a7cd746921688f16c111eb3c0ec85753e91b0"
+        },
+        {
+          "address": "0x7ff69586c8b0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "67310d303f7f257b123125bac98622f1dc8dea39825042c8e26d39e20baf109f"
+        },
+        {
+          "address": "0x7ff69427d8b0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "90402d386265060723bd42e28e6c3d46e8a654f7e76ec1d8dfd0b1ff96a33047"
+        },
+        {
+          "address": "0x7ff693fd62e0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "f2fa2f40be161761de22324bad59a37f0e22211c6e9aa9c42e5eda35c1eb162b"
+        },
+        {
+          "address": "0x7ff695d3cdc0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "619158e0dd1555244125f1c7660d3aa6de77abbf6c79c1ba0707e6635619b1c9"
+        },
+        {
+          "address": "0x7ff695842960",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "25bf5445aa802fbd1b4c5e76bb4b70a09780af70a3abd328e1a4234ba4e88699"
+        },
+        {
+          "address": "0x7ff694203ed0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "e89e488520331455c01541b98d3cf25a23dc21d959a25b3b122f9d87a517d6aa"
+        },
+        {
+          "address": "0x7ff694203ed0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "e89e488520331455c01541b98d3cf25a23dc21d959a25b3b122f9d87a517d6aa"
+        },
+        {
+          "address": "0x7ff6955e7460",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "cbe9269eb2cd0785a3ddc5dcf93c3e9a5f8d3d1bdada52c8197f738fa276b9ec"
+        },
+        {
+          "address": "0x7ff693fba250",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "7830cd1128903ffbc2e739393cd71575dea04b05468fd656f055a22a5372d2a0"
+        },
+        {
+          "address": "0x7ff6947874c0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "fca68ce246ad40cd8dc626b4ab415f6c56de7ed29e12dbafb0e3201cad51e313"
+        },
+        {
+          "address": "0x7ff69591ef70",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "e45e0857946240da8c4ea72114db50c7d03bb5aedd4152e4c859d60b16c14b07"
+        },
+        {
+          "address": "0x7ff69579c460",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "e32abd649ebba99fe8ff320b43f8f454d21e420d879866f95660e36c3fc0923d"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000011.json",
+      "file_sha256": "3be4a2b33855dc344e12d3d75c769b33bd7141a476950a6bd919afc49b6dc379",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff694f710c0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "c9119dd4cbc59127496b6fd0cd9e6a9217327980d2455031b52d54ea8c287df0"
+        },
+        {
+          "address": "0x7ff69437afe0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "679ff022e9818af9dc33e3e3b4ef6c2d07bb540bbdb2c5cd512803b61197d11a"
+        },
+        {
+          "address": "0x7ff693c96d80",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "d75f670e4ef73686882b55fc95b57011da431e53224ec6aaa7a4114ccce32348"
+        },
+        {
+          "address": "0x7ff693b5f7f0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "69e07c99c2f6818296abf086482eb3fa41b91aca1607f6f465787f9c060763df"
+        },
+        {
+          "address": "0x7ff694d3a9e0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "38f5de0cdb2f00967635cbf1d3dbc8a1d86a76142ba8afdc440ab315cf2f1b3d"
+        },
+        {
+          "address": "0x7ff69561d380",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "ef8d023e522b9b41f7f8d8563e15029bd1407c35c14b998fc2a67463935cabbe"
+        },
+        {
+          "address": "0x7ff69528b100",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "44c3a79e5eb398a6264e03c9306e4758d0f0fa113f3b4544408e5c9e1d34f169"
+        },
+        {
+          "address": "0x7ff695e1e3b0",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "d12cdc40ee8540678765de49294c9abbdfe51c3ecd165bab9e4dbdf91514c977"
+        },
+        {
+          "address": "0x7ff694014890",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "c6cd1c27398a8462bd82d39a9eba451672ba21cbf1facae37af812b7aa5a14e8"
+        },
+        {
+          "address": "0x7ff6965b2e71",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "8b353f913127b65d6f0644396b8777989f5c7e4fd1a30a5ca12590f6d60814c0"
+        },
+        {
+          "address": "0x7ff6965b2e71",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "8b353f913127b65d6f0644396b8777989f5c7e4fd1a30a5ca12590f6d60814c0"
+        },
+        {
+          "address": "0x7ff6965b2e71",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "8b353f913127b65d6f0644396b8777989f5c7e4fd1a30a5ca12590f6d60814c0"
+        },
+        {
+          "address": "0x7ff694af6d80",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "1714d187fec79a4536bf6886ca1411c050c40d65dca44452f31dc86bdf86f225"
+        },
+        {
+          "address": "0x7ff693fc4f00",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "e769c478c7ac2f421ad099ed755811795761ff1477047933d83a1403db5a997b"
+        },
+        {
+          "address": "0x7ff6956c1c70",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "135510bb45a6e188b73ca815088f7086a143b7e9d57a82f768317a639bfed02f"
+        },
+        {
+          "address": "0x7ff693e2c730",
+          "bytes_requested": 96,
+          "bytes": 96,
+          "sha256": "e12503ec0e4ad9232e983899194ae0ca7822bc9478d209d4b0ea71021f9ecfb5"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000012.json",
+      "file_sha256": "9be4fc866d8c1e1134ba090e6e9157fc63e6d82eeeeed63f390eae119446c3be",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff66ebb9000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "a8764752210259897f33292a2da70d94f72b24aed8261fd1c081a91861cca403"
+        },
+        {
+          "address": "0x7ff682b8e000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "b2e2af37a176e7a6ad91f58bb7a5f5b500fab0bba65232ad4110c7d6be32f607"
+        },
+        {
+          "address": "0x7ff670db6000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "48a4acabc76efcb7a42b0f4830884a560f0565c6d23588180b0dda3bbebe4e66"
+        },
+        {
+          "address": "0x7ff66c1eb000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "6335421c5839023bdbac8888eb79d2599703f9714e1ad0a842238165e1ba961e"
+        },
+        {
+          "address": "0x7ff66df18000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "fcabb6831782dce83a63d64ad4b4cf5a06a35709d5bca2d5e94dbdb4fa669f27"
+        },
+        {
+          "address": "0x7ff67bfc4000",
+          "bytes_requested": 4096,
+          "bytes": 4096,
+          "sha256": "32726da0e2562c23ffe9b2ad2be88e3c758229d79e3347ca40ac055595fe2c5f"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000013.json",
+      "file_sha256": "d4fbbae2f00e949c27228eeb66bf1ca7330acdaa99b05752d23607b427db0088",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff6976f7618",
+          "bytes_requested": 8,
+          "bytes": 8,
+          "sha256": "bc804b1442ceb41a2955b74b188b39c32b4e8fdfc75a6220ff0a4d534cd7c73b"
+        }
+      ]
+    },
+    {
+      "file": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000014.json",
+      "file_sha256": "d113d17571db4d002df950632d8fa081c3df30044e317ec77915593473960841",
+      "status": "complete",
+      "ranges": [
+        {
+          "address": "0x7ff69b18ffd8",
+          "bytes_requested": 256,
+          "bytes": 256,
+          "sha256": "ed080aac154b541edc2fe42e0bcbecb891fbc9ed9285e1a4d33be45a00842af1"
+        },
+        {
+          "address": "0x7ff69b185fc0",
+          "bytes_requested": 24,
+          "bytes": 24,
+          "sha256": "73ea7fab5263d470254e34901191c7f0d5e77d478cb9c4c32be360db4a6caf9d"
+        }
+      ]
+    }
+  ]
+}

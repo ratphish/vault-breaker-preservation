@@ -1,0 +1,26 @@
+{
+  "session_dir": "D:\\Marathon-preservation\\analysis\\consumer-12808-20261111-071353",
+  "pid": 12808,
+  "executable_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+  "reader_ended": {
+    "status": "stopped",
+    "remaining_bytes": 16547808
+  },
+  "all_four_result_range_hashes_verified": true,
+  "reply_bytes": 279,
+  "reply_sha256": "4ed922523773d55b10478a40eae085901984a458d90142108efe85b2e3f0415d",
+  "native_stored_token_matches_received_signon_field_2_4": true,
+  "stored_token_length": 32,
+  "captured_expiry_field_2_5": 86400,
+  "captured_server_time_field_12": 1794399239,
+  "expiry_precedes_server_time": true,
+  "dawn_absolute_expiry_contract_mismatch_verified": true,
+  "marathon_expiry_reader_semantics_verified": false,
+  "state8_root_cause_verified": false,
+  "source_hashes": {
+    "result-000001.json": "9f79cdd496d3483ee2ec93f1457a15e980fe4fb7596d4cab13207f67944c026c",
+    "result-000002.json": "0d3e91dfcbf465545bd4c1e674b61bad4da576383e6736baa7cbaa388a269442",
+    "result-000003.json": "434bfe51b495b8288f773638915d89b7581aafd6d2cd1d7e0b4fda966e468fd8",
+    "result-000004.json": "6d94d3384b550ac5857008d67fe0c1f58dc920001fb3613aeb0b6a1282d623ff"
+  }
+}

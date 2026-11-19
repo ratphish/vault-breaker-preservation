@@ -1,0 +1,34 @@
+{
+  "source_capture": "D:\\Marathon-preservation\\captures\\live-signin\\marathon-live-network.pcapng",
+  "source_capture_sha256": "7fd6e017106ec59e8b7eec0b41f3bc29b641dae180ad3f65831bff5db35a7971",
+  "source_host": "manifest.goliath.deadorbit.net",
+  "method": "Saved plain HTTP response extraction; no TLS decryption or network fetch.",
+  "responses": [
+    {
+      "path": "/GolRetail/direct_settings/manifest/95EA841F43B4E9D27C957EC7427894B5C6BA035F.json",
+      "file": "95EA841F43B4E9D27C957EC7427894B5C6BA035F.json",
+      "bytes": 3226,
+      "sha1": "ca3fef3ec53a4cfd01f282b488da46f8a2c3fffc",
+      "sha256": "98b787e573f90db3edc9510da559a46c75bd041671b160e675fa2e028eeff276"
+    },
+    {
+      "path": "/GolRetail/direct_settings/global/756CC4AF0A45C7A02300FCDFDED5A05628D2CA1A.json",
+      "file": "756CC4AF0A45C7A02300FCDFDED5A05628D2CA1A.json",
+      "bytes": 2907,
+      "sha1": "756cc4af0a45c7a02300fcdfded5a05628d2ca1a",
+      "sha256": "916a92b5028f696833b7e233dda8af756d36d921704f2cbe88d39879ec4fb869"
+    }
+  ],
+  "limitations": [
+    "Retail capture content manifest names build 248673; preserved target is 248199. Cross-build direct-settings acceptance unverified.",
+    "Encrypted retail SignOn payload unavailable. No SignOn protobuf changes made.",
+    "Content manifest is retained as evidence only and is not served.",
+    "Existing empty settings aliases remain unchanged. No game or backend process restarted."
+  ],
+  "validation": "35 focused tests passed; captured JSON HTTP replay checked by length and SHA-256 on a temporary loopback server.",
+  "activation": "Prepared in repository only. Existing backend process still uses its loaded source and D:\\Marathon-live configuration; no game launch or backend restart performed.",
+  "integrity_notes": [
+    "Global JSON SHA-1 equals its retail filename.",
+    "Manifest JSON SHA-1 differs from its filename; source body length and SHA-256 retained without rewriting. Filename must not be assumed to be a body digest."
+  ]
+}

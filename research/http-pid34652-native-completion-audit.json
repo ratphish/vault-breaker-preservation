@@ -1,0 +1,100 @@
+{
+  "pid": 34652,
+  "sources": [
+    {
+      "path": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000001.json",
+      "sha256": "7b6b6f6c39c39a52af42351634aff7a5c5ba9b40c06ce5b58e9448a48db454ff"
+    },
+    {
+      "path": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000005.json",
+      "sha256": "7733c83b50d895e99c70f9f8e09d8d4a75481f6cecc9bdad052b8007671a5699"
+    },
+    {
+      "path": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000007.json",
+      "sha256": "a67772feab8d23815da84d8532db826b0cef320df2b4de1bfa5330497eb2498a"
+    },
+    {
+      "path": "D:\\Marathon-preservation\\analysis\\readonly-34652-20261110-210219\\result-000008.json",
+      "sha256": "e20e75a72275eff947c0c80a1494da57608043738833e5f779a993f6c5a4f720"
+    }
+  ],
+  "native_wrapper": "0x7ff69b175b48",
+  "request_handle": "0x20a4e4fae00",
+  "route": "https://www2.signon.goliath.prod.gravityshavings.net/SignOn",
+  "post_bytes": 527,
+  "native_state": 2,
+  "adjacent_status_value": 200,
+  "last_chunk_field_value": 0,
+  "received_bytes": 280,
+  "reply_sha256": "db30a396e03df9e435db2bcfd4c2269029b63258500704f7f86aeb2bd7d1deea",
+  "reply_wire_fields": [
+    {
+      "field": 1,
+      "wire": 0,
+      "value": 0
+    },
+    {
+      "field": 2,
+      "wire": 2,
+      "length": 217
+    },
+    {
+      "field": 4,
+      "wire": 2,
+      "length": 5
+    },
+    {
+      "field": 5,
+      "wire": 0,
+      "value": 1
+    },
+    {
+      "field": 6,
+      "wire": 2,
+      "length": 8
+    },
+    {
+      "field": 8,
+      "wire": 0,
+      "value": 0
+    },
+    {
+      "field": 10,
+      "wire": 2,
+      "length": 17
+    },
+    {
+      "field": 12,
+      "wire": 0,
+      "value": 1794362611
+    },
+    {
+      "field": 13,
+      "wire": 2,
+      "length": 4
+    },
+    {
+      "field": 14,
+      "wire": 0,
+      "value": 2130706433
+    }
+  ],
+  "repeated_identity_and_counters_match": true,
+  "fresh_eof_store_verified": true,
+  "native_http_completion_verified": true,
+  "engine_result_publication_verified": false,
+  "signon_acceptance_verified": false,
+  "state8_root_cause_verified": false,
+  "limitations": [
+    "Saved sequential observations, not an atomic memory snapshot.",
+    "State 2 and the EOF store are observed separately; the callback event sequence itself was not logged.",
+    "The received protobuf is wire-decodable; semantic acceptance is unproved.",
+    "No consumer above the native wrapper or State 8 dependency is established."
+  ],
+  "state_observation": {
+    "updated_time_local": "11/10/2026 21:16:26.145",
+    "state": "8",
+    "state_duration": "1975986",
+    "session_id": "Tue_11102026_204258_0034652@x64_steam@76561198000001001@CA_04_39_56_5A_2F_EA14"
+  }
+}

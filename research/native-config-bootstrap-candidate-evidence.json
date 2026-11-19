@@ -1,0 +1,49 @@
+{
+  "pid": 11972,
+  "image_base": "0x7ff704bc0000",
+  "executable_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+  "global_rva": "0x3679c298",
+  "decoder_rva": "0x1d1423b8",
+  "decoded_config_address": "0x253e3aa0110",
+  "field_offset": "0x26c0",
+  "static_default_rva": "0x32d24a30",
+  "default_initializer_checks": {
+    "0x26a4": true,
+    "0x26a8": true,
+    "0x26b1": true,
+    "0x26b4": true,
+    "0x26b8": true,
+    "0x26bc": true
+  },
+  "native_field_equals_static_default": true,
+  "candidate_bytes": 16,
+  "candidate_sha256": "f4801fd459e14a3589a352cf59e048202badce5bd665cb89bad073e7af609c24",
+  "candidate_file": "D:\\Marathon-preservation\\analysis\\content-11972-20261111-0852\\native-bootstrap-candidate.bin",
+  "semantic_status": "candidate config value; Dawn-equivalent content-token semantics and State 8 effect unverified",
+  "source_result_hashes": {
+    "result-000001.json": "f772420b80ff59307adf4ad442bf3ce394300fe7aa3f7118f664f03d64c427be",
+    "result-000002.json": "242e3d127ccd2a5002b5c0ab0fb6facbe1f47c8502152f84c3acb3a860fa495b",
+    "result-000003.json": "c762ce7c7c183c67bad2aa3b48c70724664717aef85a26c728b6594349cf9399",
+    "result-000004.json": "ff3e4f4653e7bb5f270997aa5939363250e6afb0f5b6874d2177aa5c3604b018",
+    "result-000005.json": "cd191db860164eccd68c1326da0501a6741c3aec10ebf50e6dd7b681c69feced",
+    "result-000006.json": "297c9d6c882e3b3d920682ba81c1987f8f1c0e5fcff2a8e0d4ff593b089db2bb",
+    "result-000007.json": "3397ce44ce5b7adf761c7d97aeb6f8e9461441ea41f7cb579729704f005f4c8e"
+  },
+  "runtime": {
+    "expiry_retest_client_pid": 23176,
+    "expiry_retest_server_pid": 12816,
+    "expiry_reply_bytes": 281,
+    "expiry_server_time": 1794404220,
+    "expiry_deadline": 1794490620,
+    "expiry_fix_cleared_state8": false,
+    "candidate_server_pid": 14552,
+    "candidate_client_pid": 11972,
+    "candidate_client_observed_state": 3,
+    "candidate_signon_observed": false
+  },
+  "source_hashes": {
+    "scripts\\signon_bootstrap.py": "51c2c2dde89a8354c0a69893654cac8b0ebb2d94c377812cc0519575f790dc27",
+    "scripts\\marathon_server.py": "0577ed3089110678662ac2673dce82b2cbe754368d0cf082a7ed183c413d5993",
+    "tests\\test_signon_bootstrap.py": "ea18c8a6fd3894fdd1b03d3a37059413e0075014fc58e92285e98a4f38fbb0b3"
+  }
+}

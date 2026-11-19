@@ -44,8 +44,10 @@ __pycache__/
 **/bin/
 **/obj/
 
+# Local handoffs and logs
 ARGON_HANDOFF.md
 ARGON_SOLUTION.md
 ask_argon.py
-
+CODEX_HANDOFF.md
+logs_preservation/
 scratch/

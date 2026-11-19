@@ -1,0 +1,1073 @@
+{
+  "source": "D:\\Marathon-preservation\\analysis\\http-state-pid4404.json",
+  "sha256": "3b11efb7b337c75f3e64d53a4b91e2e30ec3d142bea7a0e155769e3d208518e8",
+  "status": "complete",
+  "pid": 4404,
+  "image_base": "0x7ff6649d0000",
+  "executable_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+  "module_count": 185,
+  "import_count": 123,
+  "selected_imports": [
+    {
+      "dll": "KERNEL32.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 851986000,
+      "importer": "D:\\Marathon-live\\Marathon.exe",
+      "slot": "0x7ff697654650",
+      "target": "0x7ffe633f3140",
+      "provider": "C:\\Windows\\System32\\KERNEL32.DLL",
+      "provider_rva": "0x33140",
+      "target_bytes": "ebf9042448ff25bd760500cccccccccc"
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#17",
+      "iat_rva": 851987024,
+      "importer": "D:\\Marathon-live\\Marathon.exe",
+      "slot": "0x7ff697654a50",
+      "target": "0x7ffe20a23e00",
+      "provider": "D:\\Marathon-live\\steam_api64.dll",
+      "provider_rva": "0x3e00",
+      "target_bytes": "405355565741564883ec60488b052e95",
+      "captured_target_prefix_matches_installed_disk": true
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#20",
+      "iat_rva": 851987048,
+      "importer": "D:\\Marathon-live\\Marathon.exe",
+      "slot": "0x7ff697654a68",
+      "target": "0x7ffe637408e0",
+      "provider": "C:\\Windows\\System32\\WS2_32.dll",
+      "provider_rva": "0x108e0",
+      "target_bytes": "48895c240848896c2410488974241857"
+    },
+    {
+      "dll": "api-ms-win-core-libraryloader-l1-2-0.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 985392,
+      "importer": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "slot": "0x7ffe57dd0930",
+      "target": "0x7ffe625e1b70",
+      "provider": "C:\\Windows\\System32\\KERNELBASE.dll",
+      "provider_rva": "0x11b70",
+      "target_bytes": "4053565741574883ec484533ff48896c"
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#17",
+      "iat_rva": 443240,
+      "importer": "D:\\Marathon-live\\bin\\x64\\libcurl.dll",
+      "slot": "0x7ffdcda1c368",
+      "target": "0x7ffe20a23e00",
+      "provider": "D:\\Marathon-live\\steam_api64.dll",
+      "provider_rva": "0x3e00",
+      "target_bytes": "405355565741564883ec60488b052e95",
+      "captured_target_prefix_matches_installed_disk": true
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#20",
+      "iat_rva": 443248,
+      "importer": "D:\\Marathon-live\\bin\\x64\\libcurl.dll",
+      "slot": "0x7ffdcda1c370",
+      "target": "0x7ffe637408e0",
+      "provider": "C:\\Windows\\System32\\WS2_32.dll",
+      "provider_rva": "0x108e0",
+      "target_bytes": "48895c240848896c2410488974241857"
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 442696,
+      "importer": "D:\\Marathon-live\\bin\\x64\\libcurl.dll",
+      "slot": "0x7ffdcda1c148",
+      "target": "0x7ffe633f3140",
+      "provider": "C:\\Windows\\System32\\KERNEL32.DLL",
+      "provider_rva": "0x33140",
+      "target_bytes": "ebf9042448ff25bd760500cccccccccc"
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 3244496,
+      "importer": "D:\\Marathon-live\\bin\\x64\\PartyWin.dll",
+      "slot": "0x7ffd9f8881d0",
+      "target": "0x7ffe633f3140",
+      "provider": "C:\\Windows\\System32\\KERNEL32.DLL",
+      "provider_rva": "0x33140",
+      "target_bytes": "ebf9042448ff25bd760500cccccccccc"
+    }
+  ],
+  "protected_tls_index": 0,
+  "thread_count": 60,
+  "protected_records": [
+    {
+      "tids": [
+        20052
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff6697f4a1f",
+        "0x8",
+        "0x7ff694ad1eea",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x4e24a1f"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x30101eea"
+        }
+      ]
+    },
+    {
+      "tids": [
+        35484,
+        30932,
+        33940,
+        10568,
+        28732,
+        12828,
+        33584,
+        2456,
+        27104,
+        24916,
+        30732,
+        34264,
+        20160,
+        28860,
+        34204,
+        17548,
+        33728,
+        31204,
+        12468,
+        4348
+      ],
+      "qwords": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x7ff6950a0e28",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x18",
+          "rva": "0x306d0e28"
+        }
+      ]
+    },
+    {
+      "tids": [
+        32144
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67753fc18",
+        "0xc",
+        "0x7ff694e5454b",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x12b6fc18"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x3048454b"
+        }
+      ]
+    },
+    {
+      "tids": [
+        31356
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67702392f",
+        "0x10",
+        "0x7ff694b6cd6f",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1265392f"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x3019cd6f"
+        }
+      ]
+    },
+    {
+      "tids": [
+        28128,
+        29840
+      ],
+      "qwords": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x7ff69582ff2d",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x18",
+          "rva": "0x30e5ff2d"
+        }
+      ]
+    },
+    {
+      "tids": [
+        34772
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff676a07ab9",
+        "0xb",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x12037ab9"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        20568
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff6814653fa",
+        "0x4f",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1ca953fa"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        16620
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66ccc052b",
+        "0x32",
+        "0x7ff694d7538d",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x82f052b"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a538d"
+        }
+      ]
+    },
+    {
+      "tids": [
+        8132
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67912213e",
+        "0x8",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1475213e"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        5736
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff675fcf313",
+        "0xd",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x115ff313"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        30764
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff684323a86",
+        "0x8",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1f953a86"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        25820
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff681dd16f7",
+        "0xb",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1d4016f7"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        33568
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff673a1f3a3",
+        "0xa",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xf04f3a3"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        6080
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff6825c647f",
+        "0xf",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1dbf647f"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        33860
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66eae0794",
+        "0xb",
+        "0x7ff694d75373",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xa110794"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303a5373"
+        }
+      ]
+    },
+    {
+      "tids": [
+        29192
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67130ff3f",
+        "0x9",
+        "0x7ff697092c6a",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xc93ff3f"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x326c2c6a"
+        }
+      ]
+    },
+    {
+      "tids": [
+        1684
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67d747c75",
+        "0xb",
+        "0x7ff6970955e3",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x18d77c75"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x326c55e3"
+        }
+      ]
+    },
+    {
+      "tids": [
+        28992
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67e1082b8",
+        "0x14",
+        "0x7ff694e7b453",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x197382b8"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x304ab453"
+        }
+      ]
+    },
+    {
+      "tids": [
+        34800
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff68166a1ad",
+        "0x12",
+        "0x7ff695b96ccc",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1cc9a1ad"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x311c6ccc"
+        }
+      ]
+    },
+    {
+      "tids": [
+        3636,
+        17200,
+        6584
+      ],
+      "qwords": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x7ff695e3ea54",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x18",
+          "rva": "0x3146ea54"
+        }
+      ]
+    },
+    {
+      "tids": [
+        3132
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66f0ad515",
+        "0x1b",
+        "0x7ff6971a52f1",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xa6dd515"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327d52f1"
+        }
+      ]
+    },
+    {
+      "tids": [
+        28008
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66fa55f3a",
+        "0x12",
+        "0x7ff6971a4d76",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xb085f3a"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327d4d76"
+        }
+      ]
+    },
+    {
+      "tids": [
+        16836
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66ce528b6",
+        "0x12",
+        "0x7ff6971bab80",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x84828b6"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327eab80"
+        }
+      ]
+    },
+    {
+      "tids": [
+        13516
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67cf8805d",
+        "0x14",
+        "0x7ff6971bab67",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x185b805d"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327eab67"
+        }
+      ]
+    },
+    {
+      "tids": [
+        1304
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff677928857",
+        "0xe",
+        "0x7ff6971a93db",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x12f58857"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327d93db"
+        }
+      ]
+    },
+    {
+      "tids": [
+        1500
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff686272c89",
+        "0x37",
+        "0x7ff6971a50f1",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x218a2c89"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327d50f1"
+        }
+      ]
+    },
+    {
+      "tids": [
+        4416
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67a751589",
+        "0x37",
+        "0x7ff6971a93db",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x15d81589"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x327d93db"
+        }
+      ]
+    },
+    {
+      "tids": [
+        27572
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff682c1a4c7",
+        "0x8",
+        "0x7ff69582ff2d",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x1e24a4c7"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x30e5ff2d"
+        }
+      ]
+    },
+    {
+      "tids": [
+        3300
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff671f53109",
+        "0x29",
+        "0x7ff6972f4970",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xd583109"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x32924970"
+        }
+      ]
+    },
+    {
+      "tids": [
+        23284
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66da3ba36",
+        "0xa",
+        "0x7ff6972cea4c",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x906ba36"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x328fea4c"
+        }
+      ]
+    },
+    {
+      "tids": [
+        33224
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff670a96056",
+        "0xd",
+        "0x7ff6972cd090",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xc0c6056"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x328fd090"
+        }
+      ]
+    },
+    {
+      "tids": [
+        16228
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff669d3c9a3",
+        "0x17",
+        "0x7ff697358833",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x536c9a3"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x32988833"
+        }
+      ]
+    },
+    {
+      "tids": [
+        11108
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66fdcbcd7",
+        "0x20",
+        "0x7ff6945c5fe0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0xb3fbcd7"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x2fbf5fe0"
+        }
+      ]
+    },
+    {
+      "tids": [
+        24144
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff67e9364ed",
+        "0x22",
+        "0x7ff694d8faba",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x19f664ed"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x303bfaba"
+        }
+      ]
+    },
+    {
+      "tids": [
+        28240
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff676f10bf6",
+        "0x8",
+        "0x7ff6974f47e4",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x12540bf6"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x32b247e4"
+        }
+      ]
+    },
+    {
+      "tids": [
+        20528
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66ad03c1f",
+        "0xa",
+        "0x7ff6972d0759",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x6333c1f"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x32900759"
+        }
+      ]
+    },
+    {
+      "tids": [
+        7700
+      ],
+      "qwords": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x7ff695e9b242",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x18",
+          "rva": "0x314cb242"
+        }
+      ]
+    },
+    {
+      "tids": [
+        5484
+      ],
+      "qwords": [
+        "0x1",
+        "0x7ff66985b4c1",
+        "0x17",
+        "0x7ff694d47d03",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "in_image_qword_rvas": [
+        {
+          "offset": "0x8",
+          "rva": "0x4e8b4c1"
+        },
+        {
+          "offset": "0x18",
+          "rva": "0x30377d03"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Main and curl recvfrom ordinal17 targets equal installed proxy RVA3e00, with disk-matching 16-byte prefixes.",
+    "Main/curl/Party GetProcAddress targets remain native kernel32.",
+    "Main and curl sendto ordinal20 targets remain native Winsock."
+  ],
+  "limits": [
+    "Import binding is runtime evidence; call execution and State8 dependency are not observed.",
+    "TLS records are sequential data snapshots, not active frames; no task semantics inferred.",
+    "Only target prefixes, not complete loaded modules, were byte-checked."
+  ],
+  "state8_root_cause_verified": false
+}

@@ -1,0 +1,9 @@
+# Build 248199 BAP service 305
+
+Saved static code identifies 304/305 as SSC request/reply. Name lookup 0x311244C0 resolves 304 to name object 0x35201050 and 305 to 0x35201068. Decoding the strings gives "b->c ssc req" and "b->c ssc rsp".
+
+The block at 0x092F9DB4 compares connection+0x1452 with pending record+0x12 and exits through a shared continuation. The continuation address is saved by the invoking wrapper. The block alone does not prove which owner slot was selected at runtime. At 0x30EF8A70 the reply dispatcher uses connection+0x1510, indexes the owner array at +0x218 by the signed word at record+2, and calls vtable +0x18 at 0x30EF8AD4. The data image contains a reference to the independently identified SSC-capable callback 0x2FA1FB90 at 0x32E96C00.
+
+Within the callback, 0x2FA1FC46 checks status 200 when the header class exposes status. 0x2FA20030 calls the registered reader with a decoded-output buffer; 0x2FA2017F compares the decoded service with 305, and 0x2FA20193 calls 0x2FADAD10. At 0x2FADAD3D the unsigned word at decoded offset 0 supplies the byte count, decoded offset 8 supplies the byte address, and 0x30154670 consumes them. A diagnostic decoded in the same handler reads "networking:server:bap:protocol_source: failed to set signed steam certificate". These are decoded offsets, not wire offsets. The exact serialized certificate and an accepted issuer for this client were not recovered. No successful service-305 exchange was observed.
+
+Backend transport now seals a single correlated 305 with the local session's server nonce. Optional provisioned files are complete pre-encoded response bodies matched by SHA-256 of the authenticated bytes following the service/task header. Missing files yield status 503, a local server decision. Socket-path tests verify the tag and decrypted inner bytes independently for both cases. Successful installation of a Steam certificate and later BAP dispatch remain unverified.

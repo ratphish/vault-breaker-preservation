@@ -1,0 +1,76 @@
+{
+  "captures": [
+    {
+      "path": "D:\\Marathon-preservation\\analysis\\http-completion-34652-20261110-204352.json",
+      "sha256": "4c937177a5db165564a427910c136378f9711cd721878716688f032e85ce383b",
+      "pid": 34652,
+      "status": "complete",
+      "errors": [],
+      "image_base": "0x7ff6649d0000",
+      "executable_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+      "ranges": [
+        {
+          "label": "winhttp_wrappers",
+          "rva": "0x311c0000",
+          "bytes": 196608,
+          "sha256": "26934ce31cc400aada18a6fa62aa82e76440c49f6f8639c202c19a21ccfadd09"
+        },
+        {
+          "label": "winhttp_function_table",
+          "rva": "0x3530a800",
+          "bytes": 256,
+          "sha256": "b0a7de47d6d5d17d90e41a35aaee1f7a9a7a9fa65282c8f7242469250da0d486"
+        },
+        {
+          "label": "winhttp_receive_worker",
+          "rva": "0x3115c000",
+          "bytes": 24576,
+          "sha256": "05f7525c3fd7771d3edaac0ab4351738e42160a8d35b6ef94d37807d693b4d21"
+        },
+        {
+          "label": "winhttp_initialize",
+          "rva": "0x3016e000",
+          "bytes": 16384,
+          "sha256": "df624d662d82cb353eafb0f1522e5b9e63eb067f2d46255b6cc2094cba8654fd"
+        },
+        {
+          "label": "winhttp_response",
+          "rva": "0x314c8000",
+          "bytes": 16384,
+          "sha256": "88d44c7cfa5b0202c5a0f669d8980aba777970730aa3542f49910944fc3d91de"
+        },
+        {
+          "label": "winhttp_read",
+          "rva": "0x2facd000",
+          "bytes": 16384,
+          "sha256": "4f93e425891afe7304041592992533565b5d3e170a143911cbc1b836b1cdae5c"
+        },
+        {
+          "label": "winhttp_available_thunk",
+          "rva": "0x31be2000",
+          "bytes": 8192,
+          "sha256": "2002cc504f69b5176ce77a9998474f4fa71d747393d7934335243170d9ec3cbf"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Marathon-preservation\\analysis\\http-callback-34652-20261110-204538.json",
+      "sha256": "ce7899d9689011595818385fbc3d7e85b72b4d1e34a07d954bad4828500f4834",
+      "pid": 34652,
+      "status": "complete",
+      "errors": [],
+      "image_base": "0x7ff6649d0000",
+      "executable_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+      "ranges": [
+        {
+          "label": "winhttp_native_callback",
+          "rva": "0x30618000",
+          "bytes": 24576,
+          "sha256": "454a45def5cc62f96683fe8c0dae0eb0837c7cac492c9399e5e462721e92ccb0"
+        }
+      ]
+    }
+  ],
+  "all_range_hashes_verified": true,
+  "runtime_task_completion_observed": false
+}

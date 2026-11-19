@@ -1,0 +1,1453 @@
+{
+  "authority": "static PE imports/exports and string occurrences; not execution",
+  "artifacts": [
+    {
+      "path": "D:\\Dawnv0.1.5.2\\payload\\steam_api64.dll",
+      "sha256": "88c75ac8f411215a87a6e62758f9dcc34fb4bab903ebdec074c2e08164acc7c8",
+      "bytes": 27146752,
+      "exports": [
+        {
+          "name": "DawnActivateClient",
+          "ordinal": 1,
+          "rva": "0x1f20"
+        },
+        {
+          "name": "DawnInitialize",
+          "ordinal": 2,
+          "rva": "0x1ef0"
+        },
+        {
+          "name": "DawnShutdown",
+          "ordinal": 3,
+          "rva": "0x1fa0"
+        },
+        {
+          "name": "SteamAPI_GetHSteamPipe",
+          "ordinal": 4,
+          "rva": "0x20d0"
+        },
+        {
+          "name": "SteamAPI_GetHSteamUser",
+          "ordinal": 5,
+          "rva": "0x20d0"
+        },
+        {
+          "name": "SteamAPI_Init",
+          "ordinal": 6,
+          "rva": "0x1fb0"
+        },
+        {
+          "name": "SteamAPI_IsSteamRunning",
+          "ordinal": 7,
+          "rva": "0x20c0"
+        },
+        {
+          "name": "SteamAPI_RegisterCallResult",
+          "ordinal": 8,
+          "rva": "0x2220"
+        },
+        {
+          "name": "SteamAPI_RegisterCallback",
+          "ordinal": 9,
+          "rva": "0x20e0"
+        },
+        {
+          "name": "SteamAPI_RestartAppIfNecessary",
+          "ordinal": 10,
+          "rva": "0x20b0"
+        },
+        {
+          "name": "SteamAPI_RunCallbacks",
+          "ordinal": 11,
+          "rva": "0x20a0"
+        },
+        {
+          "name": "SteamAPI_Shutdown",
+          "ordinal": 12,
+          "rva": "0x1fa0"
+        },
+        {
+          "name": "SteamAPI_UnregisterCallResult",
+          "ordinal": 13,
+          "rva": "0x2230"
+        },
+        {
+          "name": "SteamAPI_UnregisterCallback",
+          "ordinal": 14,
+          "rva": "0x21b0"
+        },
+        {
+          "name": "SteamInternal_ContextInit",
+          "ordinal": 15,
+          "rva": "0x22a0"
+        },
+        {
+          "name": "SteamInternal_CreateInterface",
+          "ordinal": 16,
+          "rva": "0x2320"
+        },
+        {
+          "name": "SteamInternal_FindOrCreateUserInterface",
+          "ordinal": 17,
+          "rva": "0x2470"
+        }
+      ],
+      "imports": {
+        "KERNEL32.dll": [
+          "GetModuleFileNameW",
+          "CreateDirectoryW",
+          "WriteFile",
+          "OutputDebugStringA",
+          "CreateFileW",
+          "GetLastError",
+          "CloseHandle",
+          "ReleaseSRWLockShared",
+          "MoveFileExW",
+          "AcquireSRWLockShared",
+          "ReadFile",
+          "WideCharToMultiByte",
+          "GetFileSizeEx",
+          "GetFileAttributesW",
+          "FindFirstFileW",
+          "FindNextFileW",
+          "FindClose",
+          "WaitForSingleObject",
+          "OpenProcess",
+          "DeleteFileW",
+          "GetSystemTimeAsFileTime",
+          "SizeofResource",
+          "LockResource",
+          "LoadResource",
+          "FindResourceW",
+          "GetProcAddress",
+          "GlobalAlloc",
+          "GlobalFree",
+          "GlobalLock",
+          "GlobalUnlock",
+          "FreeLibrary",
+          "LoadLibraryExW",
+          "GetSystemTime",
+          "AreFileApisANSI",
+          "TryEnterCriticalSection",
+          "HeapCreate",
+          "HeapFree",
+          "EnterCriticalSection",
+          "GetFullPathNameW",
+          "GetDiskFreeSpaceW",
+          "LockFile",
+          "LeaveCriticalSection",
+          "InitializeCriticalSection",
+          "SetFilePointer",
+          "GetFullPathNameA",
+          "SetEndOfFile",
+          "UnlockFileEx",
+          "GetTempPathW",
+          "CreateMutexW",
+          "GetCurrentThreadId",
+          "UnmapViewOfFile",
+          "HeapValidate",
+          "HeapSize",
+          "MultiByteToWideChar",
+          "Sleep",
+          "GetTempPathA",
+          "FormatMessageW",
+          "GetDiskFreeSpaceA",
+          "GetFileAttributesA",
+          "GetFileAttributesExW",
+          "OutputDebugStringW",
+          "FlushViewOfFile",
+          "CreateFileA",
+          "WaitForSingleObjectEx",
+          "DeleteFileA",
+          "HeapReAlloc",
+          "RaiseException",
+          "GetSystemInfo",
+          "HeapAlloc",
+          "HeapCompact",
+          "HeapDestroy",
+          "UnlockFile",
+          "LocalFree",
+          "LockFileEx",
+          "GetFileSize",
+          "DeleteCriticalSection",
+          "GetCurrentProcessId",
+          "GetProcessHeap",
+          "SystemTimeToFileTime",
+          "FormatMessageA",
+          "CreateFileMappingW",
+          "MapViewOfFile",
+          "QueryPerformanceCounter",
+          "GetTickCount",
+          "FlushFileBuffers",
+          "TryAcquireSRWLockExclusive",
+          "VirtualQuery",
+          "CompareStringOrdinal",
+          "QueryPerformanceFrequency",
+          "SetLastError",
+          "TryAcquireSRWLockShared",
+          "GetCurrentProcess",
+          "ReadProcessMemory",
+          "WriteProcessMemory",
+          "Thread32Next",
+          "GetModuleHandleExW",
+          "Thread32First",
+          "ReleaseSRWLockExclusive",
+          "GetCurrentThread",
+          "GetThreadContext",
+          "OpenThread",
+          "VirtualProtect",
+          "FlushInstructionCache",
+          "K32QueryWorkingSetEx",
+          "VirtualFree",
+          "VirtualAlloc",
+          "RtlVirtualUnwind",
+          "SuspendThread",
+          "ResumeThread",
+          "RtlCaptureStackBackTrace",
+          "CreateThread",
+          "SetThreadContext",
+          "SetFilePointerEx",
+          "TlsGetValue",
+          "RtlPcToFileHeader",
+          "GetLocaleInfoA",
+          "IsDBCSLeadByte",
+          "GetModuleFileNameA",
+          "InitOnceExecuteOnce",
+          "GetFileTime",
+          "WaitForMultipleObjects",
+          "GetLocalTime",
+          "CreateEventW",
+          "SetEvent",
+          "WriteConsoleW",
+          "SetStdHandle",
+          "SetEnvironmentVariableW",
+          "FreeEnvironmentStringsW",
+          "GetEnvironmentStringsW",
+          "GetCommandLineW",
+          "GetCommandLineA",
+          "GetOEMCP",
+          "GetACP",
+          "IsValidCodePage",
+          "GetTimeZoneInformation",
+          "ReadConsoleW",
+          "GetConsoleMode",
+          "GetConsoleOutputCP",
+          "EnumSystemLocalesW",
+          "GetUserDefaultLCID",
+          "IsValidLocale",
+          "GetLocaleInfoW",
+          "LCMapStringW",
+          "CompareStringW",
+          "FlsFree",
+          "FlsSetValue",
+          "FlsGetValue",
+          "FlsAlloc",
+          "RtlUnwind",
+          "GetFileType",
+          "GetStdHandle",
+          "ExitProcess",
+          "FreeLibraryAndExitThread",
+          "ExitThread",
+          "TlsFree",
+          "TlsSetValue",
+          "TlsAlloc",
+          "InitializeCriticalSectionAndSpinCount",
+          "InterlockedFlushSList",
+          "RtlUnwindEx",
+          "GetCPInfo",
+          "GetStringTypeW",
+          "LCMapStringEx",
+          "DecodePointer",
+          "EncodePointer",
+          "GetModuleHandleW",
+          "GetTickCount64",
+          "RtlLookupFunctionEntry",
+          "AcquireSRWLockExclusive",
+          "InitializeCriticalSectionEx",
+          "CreateSymbolicLinkW",
+          "GetFileInformationByHandleEx",
+          "CreateHardLinkW",
+          "CreateToolhelp32Snapshot",
+          "DisableThreadLibraryCalls",
+          "CopyFileW",
+          "DeviceIoControl",
+          "SetFileInformationByHandle",
+          "GetFileInformationByHandle",
+          "FindFirstFileExW",
+          "GetLocaleInfoEx",
+          "InitOnceBeginInitialize",
+          "InitOnceComplete",
+          "WakeConditionVariable",
+          "GetExitCodeThread",
+          "InitializeSListHead",
+          "GetStartupInfoW",
+          "IsDebuggerPresent",
+          "IsProcessorFeaturePresent",
+          "TerminateProcess",
+          "SetUnhandledExceptionFilter",
+          "UnhandledExceptionFilter",
+          "RtlCaptureContext",
+          "SleepConditionVariableSRW",
+          "WakeAllConditionVariable"
+        ],
+        "bcrypt.dll": [
+          "BCryptHashData",
+          "BCryptDestroyHash",
+          "BCryptGenerateSymmetricKey",
+          "BCryptCreateHash",
+          "BCryptOpenAlgorithmProvider",
+          "BCryptFinishHash",
+          "BCryptCloseAlgorithmProvider",
+          "BCryptEncrypt",
+          "BCryptGenRandom",
+          "BCryptSetProperty",
+          "BCryptDecrypt",
+          "BCryptDestroyKey",
+          "BCryptGetProperty"
+        ],
+        "USER32.dll": [
+          "EmptyClipboard",
+          "CloseClipboard",
+          "OpenClipboard",
+          "IsWindow",
+          "GetClientRect",
+          "GetDpiForWindow",
+          "CreateWindowExW",
+          "DestroyWindow",
+          "GetForegroundWindow",
+          "GetWindowLongPtrW",
+          "SetWindowLongPtrW",
+          "IsWindowVisible",
+          "DefWindowProcW",
+          "FindWindowExW",
+          "SetClipboardData",
+          "GetAncestor",
+          "GetClassLongPtrW",
+          "GetGUIThreadInfo",
+          "GetCapture",
+          "ReleaseCapture",
+          "PostMessageW",
+          "GetAsyncKeyState",
+          "GetKeyNameTextW",
+          "MapVirtualKeyW",
+          "MapVirtualKeyExA",
+          "GetKeyboardLayout",
+          "ReleaseDC",
+          "GetDC",
+          "GetCursorPos",
+          "SetCursorPos",
+          "GetWindowThreadProcessId",
+          "IsWindowUnicode",
+          "CallWindowProcW",
+          "SetCursor",
+          "SetCapture",
+          "LoadCursorW",
+          "GetKeyState",
+          "GetMessageExtraInfo",
+          "ScreenToClient",
+          "ClientToScreen",
+          "TrackMouseEvent"
+        ],
+        "D3DCOMPILER_47.dll": [
+          "D3DCompile"
+        ],
+        "SHELL32.dll": [
+          "ShellExecuteW"
+        ],
+        "WS2_32.dll": [
+          "recvfrom",
+          "sendto",
+          "WSACleanup",
+          "__WSAFDIsSet",
+          "WSASetLastError",
+          "ntohs",
+          "getpeername",
+          "WSAGetLastError",
+          "getsockname",
+          "ntohl",
+          "htonl",
+          "socket",
+          "closesocket",
+          "bind",
+          "setsockopt",
+          "ioctlsocket",
+          "htons",
+          "recv",
+          "send",
+          "WSAStartup",
+          "listen",
+          "select",
+          "accept"
+        ],
+        "api-ms-win-core-synch-l1-2-0.dll": [
+          "WakeByAddressAll",
+          "WaitOnAddress"
+        ],
+        "ole32.dll": [
+          "CoUninitialize",
+          "CoCreateInstance",
+          "CoInitializeEx"
+        ],
+        "WindowsCodecs.dll": [
+          "WICConvertBitmapSource"
+        ]
+      },
+      "selected_strings": [
+        {
+          "file_offset": "0x6763d0",
+          "text": "ev=initialize stage=content_manifest result=fail"
+        },
+        {
+          "file_offset": "0x683dd8",
+          "text": "ev=shutdown stage=bootflow_hooks result=deferred"
+        },
+        {
+          "file_offset": "0x68ca10",
+          "text": "ev=bootflow stage=uninstall result=retained owner=quarantined_legacy"
+        },
+        {
+          "file_offset": "0x68ca60",
+          "text": "ev=bootflow stage=install result=fail reason=quarantined_owner_state"
+        },
+        {
+          "file_offset": "0x68cc20",
+          "text": "ev=bootflow stage=uninstall result=retained owner=prologue_filler"
+        },
+        {
+          "file_offset": "0x68cc70",
+          "text": "ev=bootflow stage=uninstall result=retained owner=type31_capture"
+        },
+        {
+          "file_offset": "0x68ccc0",
+          "text": "ev=bootflow stage=uninstall result=retained owner=towerfall_executor_bootstrap"
+        },
+        {
+          "file_offset": "0x68cd10",
+          "text": "ev=bootflow stage=uninstall result=retained owner=spawn_hold"
+        },
+        {
+          "file_offset": "0x68cd50",
+          "text": "ev=bootflow stage=uninstall result=deferred protected=omega"
+        },
+        {
+          "file_offset": "0x68cddf",
+          "text": "`ev=bootflow stage=character_select result=held"
+        },
+        {
+          "file_offset": "0x68ce28",
+          "text": "ev=bootflow stage=character_select result=fail reason=target"
+        },
+        {
+          "file_offset": "0x68ce68",
+          "text": "ev=bootflow stage=character_select result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x68cea8",
+          "text": "ev=bootflow stage=character_select result=ok"
+        },
+        {
+          "file_offset": "0x68cef0",
+          "text": "ev=bootflow stage=composition result=fail reason=target"
+        },
+        {
+          "file_offset": "0x68cf28",
+          "text": "ev=bootflow stage=composition result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x68cf60",
+          "text": "ev=bootflow stage=composition result=ok"
+        },
+        {
+          "file_offset": "0x68cf88",
+          "text": "ev=bootflow stage=composition result=zeroed count=%d"
+        },
+        {
+          "file_offset": "0x68cfc0",
+          "text": "ev=bootflow stage=orbit_handoff result=released"
+        },
+        {
+          "file_offset": "0x68d008",
+          "text": "ev=bootflow stage=orbit_handoff result=fail reason=target"
+        },
+        {
+          "file_offset": "0x68d048",
+          "text": "ev=bootflow stage=orbit_handoff result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x68d088",
+          "text": "ev=bootflow stage=orbit_handoff result=ok"
+        },
+        {
+          "file_offset": "0x68d0b8",
+          "text": "ev=bootflow stage=owner_slot result=forced was=%d now=%d"
+        },
+        {
+          "file_offset": "0x68d110",
+          "text": "ev=bootflow stage=owner_slot result=fail reason=target"
+        },
+        {
+          "file_offset": "0x68d148",
+          "text": "ev=bootflow stage=owner_slot result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x68d180",
+          "text": "ev=bootflow stage=owner_slot result=ok"
+        },
+        {
+          "file_offset": "0x734d00",
+          "text": "ev=bootflow stage=activity_script_manager_table n=%u slot=%u table=%p manager=%p mode=%d component=%d identity=%d activity=%d selected=%d registered=%d manager_flags=0x%08X lifecycle_state=%d lifecycle_begin=0x%llX lifecycle_update=0x%llX nested=%p definition=%p definition_flags=0x%08X definition_state=0x%04X definition_context=%p definition_activity=%d definition_request=0x%04X definition_enabled=%u definition_pending=%u forced=%.*s"
+        },
+        {
+          "file_offset": "0x734f20",
+          "text": "ev=bootflow stage=activity_provider_stale_mapping_guard result=install_ok scope=forced_towerfall invalid_index=skip"
+        },
+        {
+          "file_offset": "0x734fa0",
+          "text": "ev=bootflow stage=activity_provider_stale_mapping_guard n=%u result=suppressed manager=%p key=0x%08X key_index=%u metadata_index=%d provider_table=%p forced=%.*s mutation=skip_invalid_native_call"
+        },
+        {
+          "file_offset": "0x735070",
+          "text": "ev=bootflow stage=activity_provider_stale_mapping_guard result=install_fail"
+        },
+        {
+          "file_offset": "0x73a160",
+          "text": "ev=bootflow stage=secure_channel_predicate method=%s n=%u object=%p caller_rva=0x%llX native=%u result=%u forced=%u mutation=%s"
+        },
+        {
+          "file_offset": "0x73a1e0",
+          "text": "ev=bootflow stage=secure_channel_owner_inputs n=%u object=%p slots=%p read_mask=0x%03X expansion_fault_mask=0x%03X identities=%d,%d,%d,%d,%d,%d,%d,%d,%d expanded=%u,%u,%u,%u,%u,%u,%u,%u,%u mutation=observe_only"
+        },
+        {
+          "file_offset": "0x73a300",
+          "text": "ev=bootflow stage=secure_channel_owner n=%u index=%zu state=%u result_code=%u request=%u primary_hash=0x%016llX secondary_hash=0x%016llX transport=%p mutation=observe_only"
+        },
+        {
+          "file_offset": "0x73a3b8",
+          "text": "ev=bootflow stage=secure_channel_state result=read_fault"
+        },
+        {
+          "file_offset": "0x73a400",
+          "text": "ev=bootflow stage=secure_channel_state n=%u object=%p desired=%u secondary=%u relay_state=%u selected=%u candidates=%u changed=%u direct_ready=%u sticky=%u owner_mask=0x%04X states=0:%u,1:%u,2:%u,3:%u,4:%u,5:%u,6:%u,7:%u results=0:%u,1:%u,2:%u,3:%u,4:%u,5:%u,6:%u,7:%u mutation=observe_only"
+        },
+        {
+          "file_offset": "0x73a560",
+          "text": "ev=bootflow stage=activity_runtime_buffer phase=%ls bytes=%lu result=%s mutation=observe_only"
+        },
+        {
+          "file_offset": "0x73a5c0",
+          "text": "ev=bootflow stage=activity_authority_code phase=%ls rva=0x%llX begin=0x%llX end=0x%llX bytes=%lu result=%s"
+        },
+        {
+          "file_offset": "0x73b870",
+          "text": "ev=bootflow stage=activity_host_manager_svc7_decode_arm generation=%u session_id=0x%016llX bytes=%llu discriminator=%u tail_zero_bytes=%llu window_ms=%llu mutation=observe_only"
+        },
+        {
+          "file_offset": "0x73cb20",
+          "text": "ev=bootflow stage=prologue_activity_ready result=forced original=1 activity=red_war_opening"
+        },
+        {
+          "file_offset": "0x73cb80",
+          "text": "ev=bootflow stage=prologue_complete result=forced original=%d activity=red_war_opening"
+        },
+        {
+          "file_offset": "0x73cbe0",
+          "text": "ev=bootflow stage=prologue_ready result=forced activity=red_war_opening"
+        },
+        {
+          "file_offset": "0x73cc30",
+          "text": "ev=bootflow stage=prologue_arm result=ok activity=red_war_opening"
+        },
+        {
+          "file_offset": "0x73cc80",
+          "text": "ev=bootflow stage=prologue_filler_uninstall result=ok retained=0"
+        },
+        {
+          "file_offset": "0x73ccd0",
+          "text": "ev=bootflow stage=prologue_filler_uninstall result=failed retained=1"
+        },
+        {
+          "file_offset": "0x73cd20",
+          "text": "ev=bootflow stage=prologue_filler_uninstall result=deferred retained=1"
+        },
+        {
+          "file_offset": "0x73cd68",
+          "text": "ev=bootflow stage=prologue_filler_group result=ok hooks=3"
+        },
+        {
+          "file_offset": "0x73cdb0",
+          "text": "ev=bootflow stage=prologue_filler_group result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x73ce00",
+          "text": "ev=bootflow stage=prologue_filler_group result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73ce48",
+          "text": "ev=bootflow stage=slice_set result=ok"
+        },
+        {
+          "file_offset": "0x73ce70",
+          "text": "ev=bootflow stage=slice_set result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x73cea8",
+          "text": "ev=bootflow stage=slice_set result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73cf00",
+          "text": "ev=bootflow stage=region result=ok"
+        },
+        {
+          "file_offset": "0x73cf78",
+          "text": "ev=bootflow stage=region result=fail reason=%s"
+        },
+        {
+          "file_offset": "0x73cfa8",
+          "text": "ev=bootflow stage=region result=%s slice_set=%u"
+        },
+        {
+          "file_offset": "0x73cfd8",
+          "text": "ev=bootflow stage=profile_setup result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x73d018",
+          "text": "ev=bootflow stage=profile_setup result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73d070",
+          "text": "ev=bootflow stage=profile_setup result=skipped"
+        },
+        {
+          "file_offset": "0x73d0a0",
+          "text": "ev=bootflow stage=profile_setup result=ok"
+        },
+        {
+          "file_offset": "0x73d0d0",
+          "text": "ev=bootflow stage=join_ready result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x73d108",
+          "text": "ev=bootflow stage=join_ready result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73d158",
+          "text": "ev=bootflow stage=join_ready result=%s"
+        },
+        {
+          "file_offset": "0x73d180",
+          "text": "ev=bootflow stage=join_ready result=ok"
+        },
+        {
+          "file_offset": "0x73d450",
+          "text": "ev=bootflow stage=cinematic_suppression result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x73d4a0",
+          "text": "ev=bootflow stage=cinematic_suppression result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73d620",
+          "text": "ev=bootflow stage=world_step result=ok"
+        },
+        {
+          "file_offset": "0x73d648",
+          "text": "ev=bootflow stage=world_step result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73d680",
+          "text": "bootflow_current_step"
+        },
+        {
+          "file_offset": "0x73d698",
+          "text": "ev=bootflow stage=cinematic_suppression result=ok"
+        },
+        {
+          "file_offset": "0x73d770",
+          "text": "ev=bootflow stage=spawn_gate result=%s datum=0x%X participation=%p flag10=%u world_ok=%u world_state=%d local_ready=%u script_ok=%u script=0x%X script_component=0x%X script_relative_offset=0x%llX director_ok=%u director=0x%X director_component=0x%X director_relative_offset=0x%llX"
+        },
+        {
+          "file_offset": "0x73d8b0",
+          "text": "ev=bootflow stage=activity_slot_runtime type=%u index=0 result=%s datum=0x%X component=0x%X relative_offset=0x%llX"
+        },
+        {
+          "file_offset": "0x73d930",
+          "text": "ev=bootflow stage=spawn_hold_loader result=%s age=%llu busy=%u current=%08X current_state=%u current_source=%u current_context=%u current_name=\"%s\" queued=%08X queued_state=%u queued_source=%u queued_context=%u queued_name=\"%s\""
+        },
+        {
+          "file_offset": "0x73da20",
+          "text": "ev=bootflow stage=fly_in_complete source=%s world_state=3 local_ready=1 loader_idle=1"
+        },
+        {
+          "file_offset": "0x73da98",
+          "text": "ev=bootflow stage=spawn_hold result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73daf0",
+          "text": "ev=bootflow stage=spawn_arrival result=completed source=frame controlled=%08X world_state=%d local_ready=1 loader_idle=1"
+        },
+        {
+          "file_offset": "0x73db70",
+          "text": "ev=bootflow stage=spawn_arrival result=rearmed reason=fast_travel_player_replaced previous=%08X current=%08X"
+        },
+        {
+          "file_offset": "0x73dbe0",
+          "text": "ev=bootflow stage=tower_spawn_recovery result=requested owner=%016llX run=%llu revision=%llu lifetime=%08X reason=replaced_uninitialized_runtime"
+        },
+        {
+          "file_offset": "0x73dd00",
+          "text": "ev=bootflow stage=mission_authority_runtime_initialization result=acknowledged package=mission_scot observer=native_arrival storage=created script=%08X director=%08X world_state=3 local_ready=1 next=authority_preserve"
+        },
+        {
+          "file_offset": "0x73dde0",
+          "text": "ev=bootflow stage=spawn_hold_uninstall result=ok retained=0"
+        },
+        {
+          "file_offset": "0x73de20",
+          "text": "ev=bootflow stage=spawn_hold_uninstall result=deferred retained=1"
+        },
+        {
+          "file_offset": "0x73de70",
+          "text": "ev=bootflow stage=spawn_hold_uninstall result=failed retained=1"
+        },
+        {
+          "file_offset": "0x73deb0",
+          "text": "ev=bootflow stage=spawn_hold result=ok"
+        },
+        {
+          "file_offset": "0x73ded8",
+          "text": "ev=bootflow stage=spawn_hold result=fail reason=attach"
+        },
+        {
+          "file_offset": "0x73df10",
+          "text": "ev=bootflow stage=spawn_hold_loader install=disabled reason=prefix"
+        },
+        {
+          "file_offset": "0x73df58",
+          "text": "ev=bootflow stage=spawn_hold_loader install=ok"
+        },
+        {
+          "file_offset": "0x73fe08",
+          "text": "ev=bootflow stage=fade_release result=fail reason=target"
+        },
+        {
+          "file_offset": "0x73fef0",
+          "text": "ev=bootflow stage=fade_release result=issued channel=0x%X"
+        },
+        {
+          "file_offset": "0x73ff30",
+          "text": "ev=bootflow stage=fade_release result=ok"
+        },
+        {
+          "file_offset": "0x740380",
+          "text": "ev=http stage=external result=fail reason=original"
+        },
+        {
+          "file_offset": "0x7403b8",
+          "text": "ev=http stage=route result=unmapped"
+        },
+        {
+          "file_offset": "0x7403e0",
+          "text": "ev=http stage=external from=%.*s to=%.*s result=%s"
+        },
+        {
+          "file_offset": "0x740418",
+          "text": "ev=http stage=buffer result=blocked"
+        },
+        {
+          "file_offset": "0x740440",
+          "text": "ev=http stage=consumer result=blocked"
+        },
+        {
+          "file_offset": "0x740468",
+          "text": "ev=http stage=result result=blocked"
+        },
+        {
+          "file_offset": "0x740490",
+          "text": "ev=http stage=descriptor result=blocked"
+        },
+        {
+          "file_offset": "0x7404b8",
+          "text": "ev=http stage=wrapper result=blocked"
+        },
+        {
+          "file_offset": "0x741bb0",
+          "text": "ev=content_config stage=get route=unmapped length=%zu result=ok"
+        },
+        {
+          "file_offset": "0x741bf0",
+          "text": "ev=content_config stage=get route=manifest bytes=%zu result=ok"
+        },
+        {
+          "file_offset": "0x741c30",
+          "text": "ev=content_config stage=external result=fail reason=original"
+        },
+        {
+          "file_offset": "0x741c70",
+          "text": "ev=content_config stage=external result=ok"
+        },
+        {
+          "file_offset": "0x741ca0",
+          "text": "ev=content_config stage=get route=manifest result=encode_fail"
+        },
+        {
+          "file_offset": "0x763cd0",
+          "text": "ev=bap stage=matchmaking_retire result=deferred boundary=%s connection=%u slot=%zu generation=%u"
+        },
+        {
+          "file_offset": "0x763d88",
+          "text": "ev=bap svc=25 rsp=26 result=ok"
+        },
+        {
+          "file_offset": "0x763dc8",
+          "text": "ev=bap svc=%u stage=plaintext result=fail conn=%u reason=%s"
+        },
+        {
+          "file_offset": "0x763e10",
+          "text": "ev=bap svc=25 stage=plaintext result=shape_accepted conn=%u len=%zu b0=%02X b1=%02X b34=%02X b35=%02X"
+        },
+        {
+          "file_offset": "0x763e88",
+          "text": "ev=bap svc=30 rsp=31 result=ok"
+        },
+        {
+          "file_offset": "0x7640c0",
+          "text": "ev=bap svc=none stage=decrypt result=fail"
+        },
+        {
+          "file_offset": "0x7640f0",
+          "text": "ev=bap svc=none stage=parse result=fail"
+        },
+        {
+          "file_offset": "0x764118",
+          "text": "ev=bap stage=encrypted result=drop reason=unauthenticated"
+        },
+        {
+          "file_offset": "0x764668",
+          "text": "ev=bap svc=16 rsp=17 result=ok"
+        },
+        {
+          "file_offset": "0x764688",
+          "text": "ev=bap svc=18 rsp=19 result=ok"
+        },
+        {
+          "file_offset": "0x7646a8",
+          "text": "ev=bap svc=12 rsp=13 result=ok"
+        },
+        {
+          "file_offset": "0x7646c8",
+          "text": "ev=bap svc=14 rsp=15 result=ok"
+        },
+        {
+          "file_offset": "0x7646e8",
+          "text": "ev=bap svc=34 rsp=35 result=ok"
+        },
+        {
+          "file_offset": "0x764708",
+          "text": "ev=bap svc=36 rsp=37 result=ok"
+        },
+        {
+          "file_offset": "0x764728",
+          "text": "ev=bap svc=21 rsp=22 result=ok"
+        },
+        {
+          "file_offset": "0x764748",
+          "text": "ev=bap svc=23 rsp=24 result=ok"
+        },
+        {
+          "file_offset": "0x764768",
+          "text": "ev=bap svc=6 rsp=7 result=ok"
+        },
+        {
+          "file_offset": "0x764788",
+          "text": "ev=bap svc=110 rsp=112 result=ok"
+        },
+        {
+          "file_offset": "0x7647b0",
+          "text": "ev=bap svc=29 rsp=none result=ok"
+        },
+        {
+          "file_offset": "0x7647d8",
+          "text": "ev=bap svc=8 rsp=none result=ok"
+        },
+        {
+          "file_offset": "0x7647f8",
+          "text": "ev=bap svc=10 rsp=11 result=ok"
+        },
+        {
+          "file_offset": "0x764818",
+          "text": "ev=bap svc=306 rsp=307 result=ok"
+        },
+        {
+          "file_offset": "0x764840",
+          "text": "ev=bap svc=32 rsp=33 result=ok"
+        },
+        {
+          "file_offset": "0x764860",
+          "text": "ev=bap svc=302 rsp=303 result=ok"
+        },
+        {
+          "file_offset": "0x764888",
+          "text": "ev=bap svc=304 rsp=305 result=ok"
+        },
+        {
+          "file_offset": "0x7648b0",
+          "text": "ev=bap svc=unhandled rsp=none result=ok"
+        },
+        {
+          "file_offset": "0x7648d8",
+          "text": "ev=bap svc=48 rsp=49 result=ok"
+        },
+        {
+          "file_offset": "0x7648f8",
+          "text": "ev=bap svc=42 rsp=43 result=ok"
+        },
+        {
+          "file_offset": "0x764918",
+          "text": "ev=bap svc=38 rsp=39 result=ok"
+        },
+        {
+          "file_offset": "0x764938",
+          "text": "ev=bap svc=40 rsp=41 result=ok"
+        },
+        {
+          "file_offset": "0x764958",
+          "text": "ev=bap svc=171 rsp=none result=ok"
+        },
+        {
+          "file_offset": "0x764980",
+          "text": "ev=bap svc=250 rsp=251 result=ok"
+        },
+        {
+          "file_offset": "0x7649a8",
+          "text": "ev=bap svc=44 rsp=45 result=ok"
+        },
+        {
+          "file_offset": "0x7649c8",
+          "text": "ev=bap svc=121 rsp=122 result=ok"
+        },
+        {
+          "file_offset": "0x7649f0",
+          "text": "ev=bap svc=%u stage=%.*s result=fail"
+        },
+        {
+          "file_offset": "0x764a30",
+          "text": "ev=bap svc=6 stage=package result=fallback"
+        },
+        {
+          "file_offset": "0x764b00",
+          "text": "ev=bap svc=6 stage=selection result=ok name=%.*s activity=%d from_activity=%d reason=%d bubble=0x%X spawn=0x%X"
+        },
+        {
+          "file_offset": "0x764b70",
+          "text": "ev=bap svc=6 stage=selection result=forced name=%.*s activity=%d from_activity=%d reason=%d bubble=%u slice_set=%u spawn=0x%X descriptor_bits=%u"
+        },
+        {
+          "file_offset": "0x764c08",
+          "text": "ev=bap svc=6 stage=selection result=fallback"
+        },
+        {
+          "file_offset": "0x764c38",
+          "text": "ev=bap svc=6 stage=allocation result=fail"
+        },
+        {
+          "file_offset": "0x764cd0",
+          "text": "ev=bap svc=6 stage=request result=fallback"
+        },
+        {
+          "file_offset": "0x764d00",
+          "text": "ev=bap svc=6 stage=encode result=fail"
+        },
+        {
+          "file_offset": "0x7ac528",
+          "text": "ev=http method=post route=signon result=ok"
+        },
+        {
+          "file_offset": "0x7ac558",
+          "text": "ev=http method=post route=signon stage=encode result=fail"
+        },
+        {
+          "file_offset": "0x7ac598",
+          "text": "/SignOn"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Marathon-live\\steam_api64.dll",
+      "sha256": "e28a219f2a7d1d3a433a113fcebc468c4119cb48fd5c202ac619787be3ac2acc",
+      "bytes": 212992,
+      "exports": [
+        {
+          "name": "SteamAPI_GetHSteamPipe",
+          "ordinal": 1,
+          "rva": "0x6c80"
+        },
+        {
+          "name": "SteamAPI_GetHSteamUser",
+          "ordinal": 2,
+          "rva": "0x6c80"
+        },
+        {
+          "name": "SteamAPI_GetSteamInstallPath",
+          "ordinal": 3,
+          "rva": "0x7b60"
+        },
+        {
+          "name": "SteamAPI_Init",
+          "ordinal": 4,
+          "rva": "0x7c10"
+        },
+        {
+          "name": "SteamAPI_IsSteamRunning",
+          "ordinal": 5,
+          "rva": "0x7c30"
+        },
+        {
+          "name": "SteamAPI_RegisterCallResult",
+          "ordinal": 6,
+          "rva": "0x7c60"
+        },
+        {
+          "name": "SteamAPI_RegisterCallback",
+          "ordinal": 7,
+          "rva": "0x7d00"
+        },
+        {
+          "name": "SteamAPI_RestartAppIfNecessary",
+          "ordinal": 8,
+          "rva": "0x7da0"
+        },
+        {
+          "name": "SteamAPI_RunCallbacks",
+          "ordinal": 9,
+          "rva": "0x7dc0"
+        },
+        {
+          "name": "SteamAPI_Shutdown",
+          "ordinal": 10,
+          "rva": "0x8050"
+        },
+        {
+          "name": "SteamAPI_SteamApps_v008",
+          "ordinal": 11,
+          "rva": "0x8060"
+        },
+        {
+          "name": "SteamAPI_SteamFriends_v017",
+          "ordinal": 12,
+          "rva": "0x8080"
+        },
+        {
+          "name": "SteamAPI_SteamInput_v006",
+          "ordinal": 13,
+          "rva": "0x80a0"
+        },
+        {
+          "name": "SteamAPI_SteamUserStats_v012",
+          "ordinal": 14,
+          "rva": "0x80c0"
+        },
+        {
+          "name": "SteamAPI_SteamUser_v023",
+          "ordinal": 15,
+          "rva": "0x80e0"
+        },
+        {
+          "name": "SteamAPI_SteamUtils_v010",
+          "ordinal": 16,
+          "rva": "0x8100"
+        },
+        {
+          "name": "SteamAPI_UnregisterCallResult",
+          "ordinal": 17,
+          "rva": "0x8120"
+        },
+        {
+          "name": "SteamAPI_UnregisterCallback",
+          "ordinal": 18,
+          "rva": "0x81a0"
+        },
+        {
+          "name": "SteamClient",
+          "ordinal": 19,
+          "rva": "0x81e0"
+        },
+        {
+          "name": "SteamInternal_ContextInit",
+          "ordinal": 20,
+          "rva": "0x8200"
+        },
+        {
+          "name": "SteamInternal_CreateInterface",
+          "ordinal": 21,
+          "rva": "0x8290"
+        },
+        {
+          "name": "SteamInternal_FindOrCreateGameServerInterface",
+          "ordinal": 22,
+          "rva": "0x82c0"
+        },
+        {
+          "name": "SteamInternal_FindOrCreateUserInterface",
+          "ordinal": 23,
+          "rva": "0x8300"
+        },
+        {
+          "name": "SteamInternal_SteamAPI_Init",
+          "ordinal": 24,
+          "rva": "0x8340"
+        }
+      ],
+      "imports": {
+        "WS2_32.dll": [
+          "inet_addr",
+          "inet_ntop",
+          "inet_pton",
+          "WSASetLastError",
+          "ntohs",
+          "ntohl",
+          "htons"
+        ],
+        "CRYPT32.dll": [
+          "CertGetNameStringA"
+        ],
+        "WINHTTP.dll": [
+          "WinHttpSetOption"
+        ],
+        "KERNEL32.dll": [
+          "WriteConsoleW",
+          "HeapSize",
+          "CreateFileW",
+          "ReadConsoleW",
+          "HeapReAlloc",
+          "SetEndOfFile",
+          "FreeLibrary",
+          "ReadFile",
+          "SetStdHandle",
+          "RtlCaptureStackBackTrace",
+          "GetCurrentDirectoryA",
+          "OutputDebugStringA",
+          "GetLastError",
+          "SetLastError",
+          "ReleaseSRWLockExclusive",
+          "TryAcquireSRWLockExclusive",
+          "GetCurrentProcessId",
+          "GetCurrentThreadId",
+          "GetSystemTime",
+          "GetTickCount64",
+          "VirtualProtect",
+          "DisableThreadLibraryCalls",
+          "GetModuleFileNameA",
+          "GetModuleHandleA",
+          "GetModuleHandleExA",
+          "GetProcAddress",
+          "LoadLibraryA",
+          "GetPrivateProfileStringA",
+          "WideCharToMultiByte",
+          "QueryPerformanceCounter",
+          "GetSystemTimeAsFileTime",
+          "InitializeSListHead",
+          "SetUnhandledExceptionFilter",
+          "GetStartupInfoW",
+          "GetModuleHandleW",
+          "GetStringTypeW",
+          "RtlLookupFunctionEntry",
+          "RtlUnwindEx",
+          "InterlockedFlushSList",
+          "FlsAlloc",
+          "FlsGetValue",
+          "FlsSetValue",
+          "FlsFree",
+          "EncodePointer",
+          "RaiseException",
+          "EnterCriticalSection",
+          "LeaveCriticalSection",
+          "InitializeCriticalSectionEx",
+          "DeleteCriticalSection",
+          "RtlPcToFileHeader",
+          "GetCurrentProcess",
+          "ExitProcess",
+          "TerminateProcess",
+          "RtlUnwind",
+          "GetModuleHandleExW",
+          "GetModuleFileNameW",
+          "IsProcessorFeaturePresent",
+          "RtlCaptureContext",
+          "RtlVirtualUnwind",
+          "IsDebuggerPresent",
+          "UnhandledExceptionFilter",
+          "HeapFree",
+          "CloseHandle",
+          "FlushFileBuffers",
+          "WriteFile",
+          "GetConsoleOutputCP",
+          "GetConsoleMode",
+          "GetFileSizeEx",
+          "SetFilePointerEx",
+          "GetStdHandle",
+          "GetFileType",
+          "HeapAlloc",
+          "LoadLibraryExW",
+          "LCMapStringW",
+          "FindClose",
+          "FindFirstFileExW",
+          "FindNextFileW",
+          "IsValidCodePage",
+          "GetACP",
+          "GetOEMCP",
+          "GetCPInfo",
+          "GetCommandLineA",
+          "GetCommandLineW",
+          "MultiByteToWideChar",
+          "GetEnvironmentStringsW",
+          "FreeEnvironmentStringsW",
+          "GetProcessHeap"
+        ]
+      },
+      "selected_strings": [
+        {
+          "file_offset": "0x24a00",
+          "text": "[HTTPTrace] build=http-bootstrap-observation-v1 module=%p import_hooks=1 inline_hooks=0"
+        }
+      ]
+    },
+    {
+      "path": "D:\\vault-breaker-preservation\\artifacts\\http-trace-v2\\steam_api64.dll",
+      "sha256": "4c708f8e7ea0461650ab1c6c2d5e3a36dea1b03a740918efb8adc8b5943a6b04",
+      "bytes": 214528,
+      "exports": [
+        {
+          "name": "SteamAPI_GetHSteamPipe",
+          "ordinal": 1,
+          "rva": "0x7010"
+        },
+        {
+          "name": "SteamAPI_GetHSteamUser",
+          "ordinal": 2,
+          "rva": "0x7010"
+        },
+        {
+          "name": "SteamAPI_GetSteamInstallPath",
+          "ordinal": 3,
+          "rva": "0x7ef0"
+        },
+        {
+          "name": "SteamAPI_Init",
+          "ordinal": 4,
+          "rva": "0x7fa0"
+        },
+        {
+          "name": "SteamAPI_IsSteamRunning",
+          "ordinal": 5,
+          "rva": "0x7fc0"
+        },
+        {
+          "name": "SteamAPI_RegisterCallResult",
+          "ordinal": 6,
+          "rva": "0x7ff0"
+        },
+        {
+          "name": "SteamAPI_RegisterCallback",
+          "ordinal": 7,
+          "rva": "0x8090"
+        },
+        {
+          "name": "SteamAPI_RestartAppIfNecessary",
+          "ordinal": 8,
+          "rva": "0x8130"
+        },
+        {
+          "name": "SteamAPI_RunCallbacks",
+          "ordinal": 9,
+          "rva": "0x8150"
+        },
+        {
+          "name": "SteamAPI_Shutdown",
+          "ordinal": 10,
+          "rva": "0x83e0"
+        },
+        {
+          "name": "SteamAPI_SteamApps_v008",
+          "ordinal": 11,
+          "rva": "0x83f0"
+        },
+        {
+          "name": "SteamAPI_SteamFriends_v017",
+          "ordinal": 12,
+          "rva": "0x8410"
+        },
+        {
+          "name": "SteamAPI_SteamInput_v006",
+          "ordinal": 13,
+          "rva": "0x8430"
+        },
+        {
+          "name": "SteamAPI_SteamUserStats_v012",
+          "ordinal": 14,
+          "rva": "0x8450"
+        },
+        {
+          "name": "SteamAPI_SteamUser_v023",
+          "ordinal": 15,
+          "rva": "0x8470"
+        },
+        {
+          "name": "SteamAPI_SteamUtils_v010",
+          "ordinal": 16,
+          "rva": "0x8490"
+        },
+        {
+          "name": "SteamAPI_UnregisterCallResult",
+          "ordinal": 17,
+          "rva": "0x84b0"
+        },
+        {
+          "name": "SteamAPI_UnregisterCallback",
+          "ordinal": 18,
+          "rva": "0x8530"
+        },
+        {
+          "name": "SteamClient",
+          "ordinal": 19,
+          "rva": "0x8570"
+        },
+        {
+          "name": "SteamInternal_ContextInit",
+          "ordinal": 20,
+          "rva": "0x8590"
+        },
+        {
+          "name": "SteamInternal_CreateInterface",
+          "ordinal": 21,
+          "rva": "0x8620"
+        },
+        {
+          "name": "SteamInternal_FindOrCreateGameServerInterface",
+          "ordinal": 22,
+          "rva": "0x8650"
+        },
+        {
+          "name": "SteamInternal_FindOrCreateUserInterface",
+          "ordinal": 23,
+          "rva": "0x8690"
+        },
+        {
+          "name": "SteamInternal_SteamAPI_Init",
+          "ordinal": 24,
+          "rva": "0x86d0"
+        }
+      ],
+      "imports": {
+        "WS2_32.dll": [
+          "inet_addr",
+          "inet_ntop",
+          "inet_pton",
+          "WSASetLastError",
+          "ntohs",
+          "ntohl",
+          "htons"
+        ],
+        "CRYPT32.dll": [
+          "CertGetNameStringA"
+        ],
+        "WINHTTP.dll": [
+          "WinHttpSetOption"
+        ],
+        "KERNEL32.dll": [
+          "WriteConsoleW",
+          "HeapSize",
+          "CreateFileW",
+          "ReadConsoleW",
+          "HeapReAlloc",
+          "SetEndOfFile",
+          "FreeLibrary",
+          "ReadFile",
+          "SetStdHandle",
+          "RtlCaptureStackBackTrace",
+          "GetCurrentDirectoryA",
+          "OutputDebugStringA",
+          "GetLastError",
+          "SetLastError",
+          "ReleaseSRWLockExclusive",
+          "TryAcquireSRWLockExclusive",
+          "GetCurrentProcessId",
+          "GetCurrentThreadId",
+          "GetSystemTime",
+          "GetTickCount64",
+          "VirtualProtect",
+          "DisableThreadLibraryCalls",
+          "GetModuleFileNameA",
+          "GetModuleHandleA",
+          "GetModuleHandleExA",
+          "GetProcAddress",
+          "LoadLibraryA",
+          "GetPrivateProfileStringA",
+          "WideCharToMultiByte",
+          "QueryPerformanceCounter",
+          "GetSystemTimeAsFileTime",
+          "InitializeSListHead",
+          "SetUnhandledExceptionFilter",
+          "GetStartupInfoW",
+          "GetModuleHandleW",
+          "GetStringTypeW",
+          "RtlLookupFunctionEntry",
+          "RtlUnwindEx",
+          "InterlockedFlushSList",
+          "FlsAlloc",
+          "FlsGetValue",
+          "FlsSetValue",
+          "FlsFree",
+          "EncodePointer",
+          "RaiseException",
+          "EnterCriticalSection",
+          "LeaveCriticalSection",
+          "InitializeCriticalSectionEx",
+          "DeleteCriticalSection",
+          "RtlPcToFileHeader",
+          "GetCurrentProcess",
+          "ExitProcess",
+          "TerminateProcess",
+          "RtlUnwind",
+          "GetModuleHandleExW",
+          "GetModuleFileNameW",
+          "IsProcessorFeaturePresent",
+          "RtlCaptureContext",
+          "RtlVirtualUnwind",
+          "IsDebuggerPresent",
+          "UnhandledExceptionFilter",
+          "HeapFree",
+          "CloseHandle",
+          "FlushFileBuffers",
+          "WriteFile",
+          "GetConsoleOutputCP",
+          "GetConsoleMode",
+          "GetFileSizeEx",
+          "SetFilePointerEx",
+          "GetStdHandle",
+          "GetFileType",
+          "HeapAlloc",
+          "LoadLibraryExW",
+          "LCMapStringW",
+          "FindClose",
+          "FindFirstFileExW",
+          "FindNextFileW",
+          "IsValidCodePage",
+          "GetACP",
+          "GetOEMCP",
+          "GetCPInfo",
+          "GetCommandLineA",
+          "GetCommandLineW",
+          "MultiByteToWideChar",
+          "GetEnvironmentStringsW",
+          "FreeEnvironmentStringsW",
+          "GetProcessHeap"
+        ]
+      },
+      "selected_strings": [
+        {
+          "file_offset": "0x25130",
+          "text": "[HTTPTrace] build=http-bootstrap-observation-v2 module=%p import_hooks=1 inline_hooks=0"
+        }
+      ]
+    }
+  ]
+}

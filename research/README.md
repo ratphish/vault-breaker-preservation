@@ -1,17 +1,31 @@
-# Research notes
+# Research Archive & Investigation Index
 
-The investigation is ongoing. The preserved build is `D:\Marathon-preservation\build-26136895-20261031`; do not alter it or the live install for experiments.
+This directory contains forensic logs, reverse engineering analyses, static disassembly audits, and packet capture comparisons for Marathon build `248199.26.10.21.2300.gol_retail.rc`.
 
-- [Cryo activity chain and build verification](2026-10-31-cryo-chain.md) — reproduction, earlier-work attribution and snapshot provenance.
-- [Native executable analysis](2026-10-31-native-analysis.md) — REA/Ghidra attempts and limited direct disassembly.
-- [Offline emulation](2026-11-01-offline-emulation.md) — synthetic entry and thread-wrapper probes with inert API markers.
-- [Managed helper decompilation](2026-10-31-managed-helper.md) — decompiler output for three CLI-declared files; the main game is a separate native target.
-- [Handle-map layout probe](2026-10-31-handle-map.md) — sorted IDs and bounded index-array observations; semantics remain unknown.
-- [Lua signature scans](2026-10-31-lua-scan.md) — search bounds and results.
-- [Script-path search](2026-10-31-script-path-search.md) — bounded scan of data entries.
+---
 
-The complete earlier research remains in `C:\Users\marra\Documents\Codex\2026-10-27\hel\outputs\Cryo Archive evidence.md`. Preserve uncertainty: a script name or serialized record is not executable logic; no standalone playable mode or full decompilation has been demonstrated. Game files and decoded assets must remain outside this repository.
+## Chronological Investigation Log
 
-The private Ghidra indexes currently contain 162,563 bounded pseudocode records derived from modeled text windows. They can be searched locally, but they are not an original source tree: see the offline-emulation note for the protection, coverage, warning and validation limits.
+### November 18, 2026 — BAP Channel Breakthrough & SSC Discovery
+- [Build 248199 BAP Service 305 (Signed Steam Certificate)](2026-11-18-bap-ssc-response.md): Reversing services 304/305 (`"b->c ssc req"` / `"b->c ssc rsp"`), tracing callback `0x2FA1FB90`, consumer `0x2FADAD10`, and the `failed to set signed steam certificate` diagnostic.
+- [Marathon BAP Channel Startup Correction](2026-11-18-bap-channel-start.md): Identified TCP 7505 magic 1, type 2 framing and implemented verified Service 30/31 handshake based on live capture stream 77.
+- [Preserved 248199 Client Reaches BAP Connectivity](2026-11-18-content-token-bap-breakthrough.md): Resolved Marmot package-registration failure via recovered 16-character content token (`0x32D24A40`), leading to loading screen progression and initial TCP 7505 connection.
+- [Content Token BAP Evidence](2026-11-18-content-token-bap-evidence.json): Companion evidence file recording verified hashes, timing, and TCP traces.
 
-The expanded private indexes now contain 210,348 bounded pseudocode records across the modeled and extrapolated text-table windows. Their completion counts, quality warnings, build identity, and synthetic-model limitations are documented in the offline-emulation note.
+### November 13–14, 2026 — Manifest Delivery & Bootflow Hooks
+- [Real Local Manifest Status](2026-11-14-real-local-manifest-status.md): Verification of signed content manifest delivery on HTTP 200.
+- [Bootflow Hook Audit](2026-11-14-bootflow-hook-audit.md): Dynamic hook and injection verification for observing engine state transitions.
+- [Initialization Passthrough Fix](2026-11-13-initialization-passthrough-fix.md): Correction of client initialization routines and local passthrough proxying.
+- [Retail HTTP Contract](2026-11-13-retail-http-contract.json): Formalized endpoint contracts for local mock server.
+
+### November 11, 2026 — SignOn Expiry & Native Configuration Trace
+- [Observed Native Receivers](2026-11-11-observed-native-receivers.md): Tracing native worker thread completion and socket consumers.
+- [SignOn Expiry Correction](2026-11-11-signon-expiry-fix.md): Fixed timestamp and lifetime mismatch in Protobuf SignOn response.
+- [Expiry Retest & Native Config Candidate](2026-11-11-expiry-retest-and-native-config-candidate.md): Auditing common config keys and candidate CommonInfo structures.
+
+### November 10, 2026 — State 8 & Dawn Protocol Alignment
+- [Native SignOn Completion Proved](2026-11-10-native-signon-completion-proved.md): Established complete 280-byte SignOn response acceptance at native layer.
+- [Dawn DLL & State 8 Comparison](2026-11-10-dawn-dll-and-state8-comparison.md): Comparing Steam callback ABI and callback IDs against Project Dawn reference.
+- [Post-SignOn Trace & Routing Fix](2026-11-10-post-signon-trace-and-routing-fix.md): Fixing HTTP-to-TLS redirection defects in proxy transport.
+- [State 8 Verification & Tests](2026-11-10-state8-verification-and-tests.md): Correcting unsupported claims from initial triage and isolating the State 8 wait loop.
+- [HTTP Bootstrap Observation](2026-11-10-http-bootstrap-observation.md): Correcting Winsock ordinal hooking and dynamic DNS resolution tracing.

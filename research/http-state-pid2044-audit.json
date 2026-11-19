@@ -1,0 +1,281 @@
+{
+  "source": "D:\\Marathon-preservation\\analysis\\http-state-pid2044-code.json",
+  "sha256": "f33422c6275ad5c78d4abc754b4459d6ec6f908653a05366b945b32db33dcc1a",
+  "status": "complete",
+  "errors": [],
+  "pid": 2044,
+  "image_base": "0x7ff6649d0000",
+  "executable_sha256": "d5c2fb538f4020a71060b553127259fcd5d3131beb89a4ec26a7d6ccfa9dfbfd",
+  "ranges": [
+    {
+      "label": "winhttp_wrappers",
+      "rva": "0x311c0000",
+      "bytes": 196608,
+      "sha256": "3fdeef395269d87105a8b2dd13316d298b66a15063cbbf244dbf1ad6fded7bba"
+    },
+    {
+      "label": "winhttp_function_table",
+      "rva": "0x3530a800",
+      "bytes": 256,
+      "sha256": "aa77fa8ce9a9b2ee8cc953ee79b14f540237b001827becbd885ae44fb74b4e1e"
+    }
+  ],
+  "api_table": [
+    {
+      "slot_rva": "0x3530a800",
+      "target": "0x7ffe57d0d060",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x2d060"
+    },
+    {
+      "slot_rva": "0x3530a808",
+      "target": "0x7ffe57d2d7d0",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x4d7d0"
+    },
+    {
+      "slot_rva": "0x3530a810",
+      "target": "0x7ffe20933750",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3750"
+    },
+    {
+      "slot_rva": "0x3530a818",
+      "target": "0x7ffe57d04830",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x24830"
+    },
+    {
+      "slot_rva": "0x3530a820",
+      "target": "0x7ff6965b27e7",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x31be27e7"
+    },
+    {
+      "slot_rva": "0x3530a828",
+      "target": "0x7ffe57d389c0",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x589c0"
+    },
+    {
+      "slot_rva": "0x3530a830",
+      "target": "0x7ffe57d0aea0",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x2aea0"
+    },
+    {
+      "slot_rva": "0x3530a838",
+      "target": "0x7ffe57d11c80",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x31c80"
+    },
+    {
+      "slot_rva": "0x3530a840",
+      "target": "0x7ffe20933920",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3920"
+    },
+    {
+      "slot_rva": "0x3530a848",
+      "target": "0x7ffe57cead50",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0xad50"
+    },
+    {
+      "slot_rva": "0x3530a850",
+      "target": "0x7ffe20935b90",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x5b90"
+    },
+    {
+      "slot_rva": "0x3530a858",
+      "target": "0x7ffe20935b30",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x5b30"
+    },
+    {
+      "slot_rva": "0x3530a860",
+      "target": "0x7ffe57d656c0",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x856c0"
+    },
+    {
+      "slot_rva": "0x3530a868",
+      "target": "0x7ffe57d0b140",
+      "provider": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "provider_rva": "0x2b140"
+    },
+    {
+      "slot_rva": "0x3530a878",
+      "target": "0x7ffe43c1eb00",
+      "provider": "C:\\Windows\\SYSTEM32\\wininet.dll",
+      "provider_rva": "0x11eb00"
+    },
+    {
+      "slot_rva": "0x3530a888",
+      "target": "0x7ffe4eb64590",
+      "provider": "C:\\Windows\\SYSTEM32\\WINMM.dll",
+      "provider_rva": "0x4590"
+    },
+    {
+      "slot_rva": "0x3530a890",
+      "target": "0x7ff695ffbc60",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x3162bc60"
+    },
+    {
+      "slot_rva": "0x3530a898",
+      "target": "0x7ffe4eb69740",
+      "provider": "C:\\Windows\\SYSTEM32\\WINMM.dll",
+      "provider_rva": "0x9740"
+    },
+    {
+      "slot_rva": "0x3530a8a0",
+      "target": "0x7ffe4eb64210",
+      "provider": "C:\\Windows\\SYSTEM32\\WINMM.dll",
+      "provider_rva": "0x4210"
+    },
+    {
+      "slot_rva": "0x3530a8b0",
+      "target": "0x7ffe39502620",
+      "provider": "D:\\Marathon-Live\\bin\\x64\\WinPixEventRuntime.dll",
+      "provider_rva": "0x2620"
+    },
+    {
+      "slot_rva": "0x3530a8b8",
+      "target": "0x7ff697464fbb",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x32a94fbb"
+    },
+    {
+      "slot_rva": "0x3530a8c8",
+      "target": "0x7ff69745b4e3",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x32a8b4e3"
+    },
+    {
+      "slot_rva": "0x3530a8d0",
+      "target": "0x7ff69745b4bf",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x32a8b4bf"
+    },
+    {
+      "slot_rva": "0x3530a8d8",
+      "target": "0x7ff69745b4d1",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x32a8b4d1"
+    },
+    {
+      "slot_rva": "0x3530a8e0",
+      "target": "0x7ff69745b422",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x32a8b422"
+    },
+    {
+      "slot_rva": "0x3530a8e8",
+      "target": "0x7ff69745b4ad",
+      "provider": "D:\\Marathon-Live\\Marathon.exe",
+      "provider_rva": "0x32a8b4ad"
+    },
+    {
+      "slot_rva": "0x3530a8f8",
+      "target": "0x7ffe1e9d9410",
+      "provider": "C:\\Windows\\SYSTEM32\\d3d12.dll",
+      "provider_rva": "0x9410"
+    }
+  ],
+  "limits": [
+    "Sequential code/data reads are not an execution trace.",
+    "An observed API caller proves that call, not completion of the native bootstrap task."
+  ],
+  "selected_imports": [
+    {
+      "dll": "KERNEL32.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 851986000,
+      "importer": "D:\\Marathon-Live\\Marathon.exe",
+      "slot": "0x7ff697654650",
+      "target": "0x7ffe20933320",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3320",
+      "target_bytes": "40535556574883ec28488b05e01c0300"
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#17",
+      "iat_rva": 851987024,
+      "importer": "D:\\Marathon-Live\\Marathon.exe",
+      "slot": "0x7ff697654a50",
+      "target": "0x7ffe63740030",
+      "provider": "C:\\Windows\\System32\\WS2_32.dll",
+      "provider_rva": "0x10030",
+      "target_bytes": "48895c240848896c241044894c242056"
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#20",
+      "iat_rva": 851987048,
+      "importer": "D:\\Marathon-Live\\Marathon.exe",
+      "slot": "0x7ff697654a68",
+      "target": "0x7ffe20933fc0",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3fc0",
+      "target_bytes": "405355565741564883ec60488b056ee3"
+    },
+    {
+      "dll": "api-ms-win-core-libraryloader-l1-2-0.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 985392,
+      "importer": "C:\\Windows\\SYSTEM32\\winhttp.dll",
+      "slot": "0x7ffe57dd0930",
+      "target": "0x7ffe625e1b70",
+      "provider": "C:\\Windows\\System32\\KERNELBASE.dll",
+      "provider_rva": "0x11b70",
+      "target_bytes": "4053565741574883ec484533ff48896c"
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#17",
+      "iat_rva": 443240,
+      "importer": "D:\\Marathon-Live\\bin\\x64\\libcurl.dll",
+      "slot": "0x7ffdcda1c368",
+      "target": "0x7ffe63740030",
+      "provider": "C:\\Windows\\System32\\WS2_32.dll",
+      "provider_rva": "0x10030",
+      "target_bytes": "48895c240848896c241044894c242056"
+    },
+    {
+      "dll": "WS2_32.dll",
+      "symbol": "#20",
+      "iat_rva": 443248,
+      "importer": "D:\\Marathon-Live\\bin\\x64\\libcurl.dll",
+      "slot": "0x7ffdcda1c370",
+      "target": "0x7ffe20933fc0",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3fc0",
+      "target_bytes": "405355565741564883ec60488b056ee3"
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 442696,
+      "importer": "D:\\Marathon-Live\\bin\\x64\\libcurl.dll",
+      "slot": "0x7ffdcda1c148",
+      "target": "0x7ffe20933320",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3320",
+      "target_bytes": "40535556574883ec28488b05e01c0300"
+    },
+    {
+      "dll": "KERNEL32.dll",
+      "symbol": "GetProcAddress",
+      "iat_rva": 3244496,
+      "importer": "D:\\Marathon-Live\\bin\\x64\\PartyWin.dll",
+      "slot": "0x7ffd9f8881d0",
+      "target": "0x7ffe20933320",
+      "provider": "D:\\Marathon-Live\\steam_api64.dll",
+      "provider_rva": "0x3320",
+      "target_bytes": "40535556574883ec28488b05e01c0300"
+    }
+  ]
+}
