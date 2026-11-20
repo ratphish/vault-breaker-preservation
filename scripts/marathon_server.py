@@ -28,12 +28,18 @@ from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from marathon_protobuf import ProtobufWriter, ProtobufReader, encode_varint
+from marathon_ssc import (
+    parse_ssc_request, build_synthetic_ssc_response,
+    SERVICE_SSC_REQUEST, SERVICE_SSC_RESPONSE,
+    DEFAULT_MARATHON_APP_ID, DEFAULT_STEAM_ID
+)
 from marathon_bap import (
     BapRequest, BapResponse, BapNotification,
     encode_outer_frame, decode_outer_frame,
     decode_inner_request, encode_inner_response, encode_server_notification,
     build_response_frame, build_notification_frame,
     BAP_STATUS_OK, BAP_STATUS_BAD_REQUEST, FRAME_TYPE_PLAINTEXT_BOOTSTRAP,
+    FRAME_TYPE_AUTHENTICATED_GCM,
     SERVICE_ACTIVITY_SESSION_ALLOCATION, SERVICE_ACTIVITY_SESSION_RESPONSE,
     SERVICE_ACTIVITY_MESSAGE, SERVICE_ACTIVITY_NOTIFICATION,
     SERVICE_WEB_SERVICE_ENVELOPE, SERVICE_WEB_SERVICE_RESPONSE,
@@ -106,28 +112,53 @@ class ActivitySession:
     current_phase: int = 0
     created_at: float = field(default_factory=time.time)
 
+def advance_bap_nonce(nonce: bytes) -> bytes:
+    """Advance a 12-byte BAP AES-GCM nonce using little-endian counter semantics."""
+    if len(nonce) != 12:
+        raise ValueError(f"Invalid BAP nonce length: {len(nonce)} != 12")
+    counter = int.from_bytes(nonce[:8], "little") + 1
+    return counter.to_bytes(8, "little") + nonce[8:]
+
 @dataclass
 class BapChannel:
     # Ephemeral state owned only by this TCP connection.
     receive_nonce: bytes = field(default=b"", repr=False)
     key: bytes = field(default=b"", repr=False)
-
     send_nonce: bytes = field(default=b"", repr=False)
 
-    def seal_first_response(self, service, task, status, body):
-        if not self.send_nonce:
-            raise ValueError("first-response nonce unavailable")
-        plain = encode_inner_response(service, task, status, body)
-        sealed = AESGCM(self.key).encrypt(self.send_nonce, plain, None)
-        self.send_nonce = b""
-        return encode_outer_frame(sealed[-16:] + sealed[:-16], 1)
-
-    def open_first_frame(self, payload):
+    def open_frame(self, payload: bytes) -> BapRequest:
         if not self.key or len(payload) < 22:
             raise ValueError("missing channel or truncated authenticated frame")
+        if not self.receive_nonce:
+            raise ValueError("receive nonce exhausted or uninitialized")
         plaintext = AESGCM(self.key).decrypt(
             self.receive_nonce, bytes(payload[16:]) + bytes(payload[:16]), None)
+        self.receive_nonce = advance_bap_nonce(self.receive_nonce)
         return decode_inner_request(plaintext, 1)
+
+    def seal_response(self, service_id: int, task_id: int, status: int = BAP_STATUS_OK, body: bytes = b"") -> bytes:
+        if not self.send_nonce:
+            raise ValueError("send nonce exhausted or uninitialized")
+        plain = encode_inner_response(service_id, task_id, status, body)
+        current_nonce = self.send_nonce
+        self.send_nonce = advance_bap_nonce(self.send_nonce)
+        sealed = AESGCM(self.key).encrypt(current_nonce, plain, None)
+        return encode_outer_frame(sealed[-16:] + sealed[:-16], 1)
+
+    def seal_request(self, service_id: int, task_id: int, payload: bytes = b"") -> bytes:
+        if not self.send_nonce:
+            raise ValueError("send nonce exhausted or uninitialized")
+        plain = struct.pack(">HI", service_id, task_id) + payload
+        current_nonce = self.send_nonce
+        self.send_nonce = advance_bap_nonce(self.send_nonce)
+        sealed = AESGCM(self.key).encrypt(current_nonce, plain, None)
+        return encode_outer_frame(sealed[-16:] + sealed[:-16], 1)
+
+    def seal_first_response(self, service, task, status, body):
+        return self.seal_response(service, task, status, body)
+
+    def open_first_frame(self, payload):
+        return self.open_frame(payload)
 
 
 class MarathonServer:
@@ -135,7 +166,9 @@ class MarathonServer:
     def __init__(self, host: str = "127.0.0.1", http_port: int = 8080, bap_port: int = 7505,
                  default_mod_config: Optional[VaultBreakerModConfig] = None,
                  bootstrap_token: Optional[bytes] = None, ssc_response_dir: Optional[Path] = None,
-                 ssc_capture_dir: Optional[Path] = None):
+                 ssc_capture_dir: Optional[Path] = None,
+                 allow_synthetic_ssc: bool = False):
+        self.allow_synthetic_ssc = allow_synthetic_ssc
         self.ssc_capture_dir = ssc_capture_dir
         self.ssc_response_dir = ssc_response_dir
         self.host = host
@@ -355,8 +388,24 @@ class MarathonServer:
                 pass
             else:
                 if 0 < len(body) <= 65536:
+                    server_log(f"[BAP] Loaded provisioned SSC response ({len(body)} bytes) for SHA256={digest}")
                     return BAP_STATUS_OK, body
                 raise ValueError("invalid provisioned SSC response size")
+        
+        # Controlled synthetic response generator for isolated offline testing
+        if self.allow_synthetic_ssc:
+            req_meta = parse_ssc_request(request.payload, request.task_id)
+            if req_meta is not None:
+                server_log(f"[BAP] Generated NON-PRODUCTION synthetic SSC response fixture for public key {req_meta.public_key.hex()[:16]}...")
+                body = build_synthetic_ssc_response(
+                    public_key=req_meta.public_key,
+                    steam_id=req_meta.legacy_steam_id or DEFAULT_STEAM_ID,
+                    app_id=DEFAULT_MARATHON_APP_ID
+                )
+                return BAP_STATUS_OK, body
+            else:
+                server_log(f"[BAP] Failed to parse Service 304 request for synthetic SSC generation (SHA256={digest})")
+
         server_log(f"[BAP] SSC response unavailable for request SHA256={digest}")
         return 503, b""
 
@@ -803,31 +852,42 @@ def handle_bap_connection(client_sock: socket.socket, server_instance: MarathonS
                     break
                 buf = buf[new_pos:]
                 
-                if sent_ssc:
-                    server_log(f"[BAP] Post-305 frame type={frame_type} bytes={len(payload)}")
-                    return
-                if frame_type == 1:
+                if frame_type == FRAME_TYPE_AUTHENTICATED_GCM:
                     try:
-                        opened = channel.open_first_frame(payload)
+                        opened = channel.open_frame(payload)
                     except InvalidTag:
                         server_log(f"[BAP] Type-1 authentication failed ({len(payload)} bytes)")
                         return
                     server_log(f"[BAP] Authenticated type-1 service={opened.service_id} "
                                f"task={opened.task_id} bytes_after_task={len(opened.payload)}")
-                    if opened.service_id != 304:
-                        return
-                    if server_instance.ssc_capture_dir is not None:
-                        try:
-                            path, result = save_public_record(server_instance.ssc_capture_dir, opened)
-                            server_log(f"[BAP] SSC public capture {result}: {path}")
-                        except OSError as error:
-                            server_log(f"[BAP] SSC public capture failed: {error}")
-                    status, body = server_instance.ssc_response(opened)
-                    client_sock.sendall(channel.seal_first_response(305, opened.task_id, status, body))
-                    server_log(f"[BAP] Encrypted svc 305 task={opened.task_id} status={status} body={len(body)} bytes")
-                    if status != BAP_STATUS_OK:
-                        return
-                    sent_ssc = True
+                    if opened.service_id == SERVICE_SSC_REQUEST:
+                        req_meta = parse_ssc_request(opened.payload, opened.task_id)
+                        if req_meta is not None:
+                            server_log(f"[BAP] SSC Request: task={req_meta.task_id} key_type={req_meta.key_type} "
+                                       f"pubkey={req_meta.public_key.hex()} steam_id={req_meta.legacy_steam_id} "
+                                       f"ident='{req_meta.identity_string}' apps={req_meta.app_ids}")
+                        else:
+                            server_log(f"[BAP] SSC Request: unparsed shape ({len(opened.payload)} bytes)")
+                        if server_instance.ssc_capture_dir is not None:
+                            try:
+                                path, result = save_public_record(server_instance.ssc_capture_dir, opened)
+                                server_log(f"[BAP] SSC public capture {result}: {path}")
+                            except OSError as error:
+                                server_log(f"[BAP] SSC public capture failed: {error}")
+                        status, body = server_instance.ssc_response(opened)
+                        client_sock.sendall(channel.seal_response(SERVICE_SSC_RESPONSE, opened.task_id, status, body))
+                        server_log(f"[BAP] Encrypted svc {SERVICE_SSC_RESPONSE} task={opened.task_id} status={status} body={len(body)} bytes")
+                        if status != BAP_STATUS_OK:
+                            server_log(f"[BAP] Non-200 SSC status {status} dispatched; socket remaining open for diagnostics")
+                        sent_ssc = True
+                        continue
+
+                    # Authenticated post-SSC or other Type-1 requests:
+                    server_log(f"[BAP] Authenticated svc {opened.service_id} (Task {opened.task_id}) <- {len(opened.payload)} bytes")
+                    resp = server_instance.dispatch_bap_request(opened, channel=channel)
+                    resp_frame = channel.seal_response(resp.service_id, resp.task_id, resp.status, resp.payload)
+                    client_sock.sendall(resp_frame)
+                    server_log(f"[BAP] Authenticated svc {resp.service_id} (Task {resp.task_id}) -> Status {resp.status} ({len(resp.payload)} bytes)")
                     continue
                 req = decode_inner_request(payload, frame_type)
                 server_log(f"[BAP] Svc {req.service_id} (Task {req.task_id}) <- {len(req.payload)} bytes")
@@ -858,6 +918,8 @@ def main():
     parser.add_argument("--ssc-response-dir", type=Path,
                         help="Provisioned service-305 wire bodies named <request SHA256>.bin")
     parser.add_argument("--ssc-capture-dir", type=Path, help="Save decoded public service-304 request metadata")
+    parser.add_argument("--allow-synthetic-ssc", action="store_true",
+                        help="Enable generation of synthetic, non-production SSC responses for offline testing")
     args = parser.parse_args()
     if args.ssc_response_dir and not args.ssc_response_dir.is_dir():
         parser.error("SSC response directory does not exist")
@@ -876,7 +938,8 @@ def main():
             parser.error(str(error))
     server = MarathonServer(host="0.0.0.0", http_port=8080, bap_port=args.bap_port,
                             bootstrap_token=bootstrap_token, ssc_response_dir=args.ssc_response_dir,
-                            ssc_capture_dir=args.ssc_capture_dir)
+                            ssc_capture_dir=args.ssc_capture_dir,
+                            allow_synthetic_ssc=args.allow_synthetic_ssc)
     SignOnHTTPHandler.server_instance = server
     server_log(f"[*] Direct Settings root: {settings_dir}; JSON syntax checked; Tiger schema unverified")
     server_log(f"[*] SignOn bootstrap entry: {'experimental native value enabled' if bootstrap_token is not None else 'omitted'}; State 8 effect unverified")

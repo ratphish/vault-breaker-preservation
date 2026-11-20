@@ -5,9 +5,12 @@ used by Bungie Tiger Engine SignOn and web service envelopes.
 Zero external dependencies.
 """
 from typing import List, Tuple, Dict, Any, Union
+import struct
 
 WIRE_VARINT = 0
+WIRE_FIXED64 = 1
 WIRE_LENGTH_DELIMITED = 2
+WIRE_FIXED32 = 5
 
 def encode_varint(value: int) -> bytes:
     """Encode an integer into unsigned LEB128 varint bytes."""
@@ -65,6 +68,16 @@ class ProtobufWriter:
     def string(self, field_number: int, text: str) -> "ProtobufWriter":
         return self.bytes(field_number, text.encode("utf-8"))
 
+    def fixed64(self, field_number: int, value: int) -> "ProtobufWriter":
+        self.tag(field_number, WIRE_FIXED64)
+        self.buf.extend(struct.pack("<Q", value))
+        return self
+
+    def fixed32(self, field_number: int, value: int) -> "ProtobufWriter":
+        self.tag(field_number, WIRE_FIXED32)
+        self.buf.extend(struct.pack("<I", value))
+        return self
+
     def message(self, field_number: int, sub_writer: "ProtobufWriter") -> "ProtobufWriter":
         return self.bytes(field_number, sub_writer.build())
 
@@ -94,6 +107,18 @@ class ProtobufReader:
                     raise ValueError(f"Length delimited field {field_num} extends beyond buffer: {pos + size} > {length}")
                 raw_bytes = self.data[pos:pos+size]
                 pos += size
+                fields.append((field_num, wire_type, raw_bytes))
+            elif wire_type == WIRE_FIXED64:
+                if pos + 8 > length:
+                    raise ValueError(f"Fixed64 field {field_num} extends beyond buffer: {pos + 8} > {length}")
+                raw_bytes = self.data[pos:pos+8]
+                pos += 8
+                fields.append((field_num, wire_type, raw_bytes))
+            elif wire_type == WIRE_FIXED32:
+                if pos + 4 > length:
+                    raise ValueError(f"Fixed32 field {field_num} extends beyond buffer: {pos + 4} > {length}")
+                raw_bytes = self.data[pos:pos+4]
+                pos += 4
                 fields.append((field_num, wire_type, raw_bytes))
             else:
                 raise NotImplementedError(f"Unsupported wire type {wire_type} for field {field_num}")
