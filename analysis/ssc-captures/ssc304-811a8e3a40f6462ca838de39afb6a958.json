@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-20T03:22:00.421504+00:00",
+  "task": 2,
+  "request_bytes": 47,
+  "request_sha256": "50c1da9dcba0b9b074cf2443177d7e9681dfb9408dcd5e0ffeec0e7f102fe671",
+  "status": "decoded",
+  "body_offset": 2,
+  "key_type": "ED25519",
+  "public_key_hex": "c5e268c5b41d539ae53a8046976760197d2a15046e5cb6d80d770c2c8bf85262",
+  "public_key_sha256": "a405fc7f54545a9d7f34d67a4ad243d4bc24a11e435398ae02a8724f8b9f6aee",
+  "identity": null
+}
